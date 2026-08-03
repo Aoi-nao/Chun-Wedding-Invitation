@@ -17,8 +17,6 @@ const SiteConfig = Object.freeze({
 
     timezone: "Asia/Ho_Chi_Minh",
 
-    author: "Dianthus",
-
     repository: "",
 
     poweredBy: "GitHub Pages"
