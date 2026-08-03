@@ -11,12 +11,6 @@ const SiteConfig = Object.freeze({
 
     version: "1.0.0",
 
-    siteName: "Wedding Invitation",
-
-    language: "vi",
-
-    timezone: "Asia/Ho_Chi_Minh",
-
     repository: "",
 
     poweredBy: "GitHub Pages"
