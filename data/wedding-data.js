@@ -8,7 +8,7 @@
 const WeddingData = {
 
     groom: {
-        fullName: "",
+        fullName: "Nguyễn Văn A",
         shortName: "",
         father: "",
         mother: "",
@@ -20,7 +20,7 @@ const WeddingData = {
     },
 
     bride: {
-        fullName: "",
+        fullName: "Hoàng Thị B",
         shortName: "",
         father: "",
         mother: "",
@@ -32,12 +32,12 @@ const WeddingData = {
     },
 
     wedding: {
-        weekday: "",
-        day: "",
-        month: "",
-        year: "",
+        weekday: "Chủ Nhật",
+        day: "09",
+        month: "08",
+        year: "2026",
         solarDate: "",
-        lunarDate: "",
+        lunarDate: "27 tháng 6 năm Bính Ngọ",
         monogram: "",
         quote: "Together is a beautiful place to be"
     },
@@ -49,7 +49,7 @@ const WeddingData = {
 
     hero: {
         background: "",
-        coupleImage: ""
+        coupleImage: "assets/images/hero.webp"
     },
 
     invitation: {
