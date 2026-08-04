@@ -1,35 +1,123 @@
 /**
- * =========================================================
+ * ==========================================================
  * WEDDING DATA
- * Toàn bộ dữ liệu của website sẽ được quản lý tại đây.
- * Chỉ lưu dữ liệu, không viết logic.
- * =========================================================
+ * Chỉ chỉnh sửa dữ liệu tại file này.
+ * ==========================================================
  */
 
 const WeddingData = {
 
-    groom: {},
+    groom: {
+        fullName: "",
+        shortName: "",
+        father: "",
+        mother: "",
+        avatar: "",
+        qrImage: "",
+        bankName: "",
+        accountNumber: "",
+        accountName: ""
+    },
 
-    bride: {},
+    bride: {
+        fullName: "",
+        shortName: "",
+        father: "",
+        mother: "",
+        avatar: "",
+        qrImage: "",
+        bankName: "",
+        accountNumber: "",
+        accountName: ""
+    },
 
-    opening: {},
+    wedding: {
+        weekday: "",
+        day: "",
+        month: "",
+        year: "",
+        solarDate: "",
+        lunarDate: "",
+        monogram: "",
+        quote: "Together is a beautiful place to be"
+    },
 
-    hero: {},
+    opening: {
+        background: "",
+        buttonText: "MỞ THIỆP"
+    },
 
-    invitation: {},
+    hero: {
+        background: "",
+        coupleImage: ""
+    },
 
-    countdown: {},
+    invitation: {
+        title: "Một ngày đặc biệt,\nmột khoảnh khắc đáng nhớ",
+        content: [
+            "Chúng tôi rất hạnh phúc",
+            "khi được chia sẻ niềm vui này",
+            "cùng bạn",
+            "Gia đình hai bên",
+            "trân trọng kính mời"
+        ]
+    },
 
-    ceremony: {},
+    ceremony: {
 
-    gallery: [],
+        groomCeremony: {
+            title: "Lễ Thành Hôn",
+            time: "",
+            date: "",
+            lunar: "",
+            address: "",
+            map: ""
+        },
 
-    rsvp: {},
+        groomParty: {
+            title: "Tiệc Nhà Trai",
+            time: "",
+            date: "",
+            lunar: "",
+            address: "",
+            map: ""
+        },
 
-    gift: {},
+        brideCeremony: {
+            title: "Lễ Vu Quy",
+            time: "",
+            date: "",
+            lunar: "",
+            address: "",
+            map: ""
+        },
 
-    wishes: {},
+        brideParty: {
+            title: "Tiệc Nhà Gái",
+            time: "",
+            date: "",
+            lunar: "",
+            address: "",
+            map: ""
+        }
 
-    footer: {}
+    },
+
+    gallery: [
+
+    ],
+
+    rsvp: {
+        maxGuests: 5
+    },
+
+    wishes: [
+
+    ],
+
+    music: {
+        autoplay: true,
+        file: ""
+    }
 
 };
