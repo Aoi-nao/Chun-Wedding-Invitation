@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeApp() {
     checkConfiguration();
     applyTheme();
+    renderHero();
 }
 
 function checkConfiguration() {
@@ -46,4 +47,35 @@ function applyTheme() {
     root.style.setProperty('--color-text', ThemeConfig.colors.text);
     root.style.setProperty('--color-white', ThemeConfig.colors.white);
 
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+function renderHero() {
+
+    const hero = document.querySelector("#hero");
+
+    if (!hero) return;
+
+    const monogram = hero.querySelector(".hero-monogram");
+    const image = hero.querySelector(".hero-photo-image");
+    const name = hero.querySelector(".hero-name");
+    const date = hero.querySelector(".hero-date");
+    const quote = hero.querySelector(".hero-quote");
+
+    monogram.textContent = WeddingData.wedding.monogram;
+
+    image.src = WeddingData.hero.coupleImage || "";
+    image.alt = `${WeddingData.groom.fullName} & ${WeddingData.bride.fullName}`;
+
+    name.innerHTML =
+        `${WeddingData.groom.fullName}<br>&<br>${WeddingData.bride.fullName}`;
+
+    date.textContent =
+        `${WeddingData.wedding.weekday}
+${WeddingData.wedding.day} • ${WeddingData.wedding.month} • ${WeddingData.wedding.year}`;
+
+    quote.textContent = WeddingData.wedding.quote;
 }
