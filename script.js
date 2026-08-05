@@ -14,7 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeApp() {
     checkConfiguration();
     applyTheme();
+
+    renderOpening();
     renderHero();
+
+    initializeOpening();
 }
 
 function checkConfiguration() {
@@ -46,6 +50,61 @@ function applyTheme() {
     root.style.setProperty('--color-accent', ThemeConfig.colors.accent);
     root.style.setProperty('--color-text', ThemeConfig.colors.text);
     root.style.setProperty('--color-white', ThemeConfig.colors.white);
+
+}
+
+/* ==========================================================
+   OPENING
+========================================================== */
+
+function renderOpening() {
+
+    const opening = document.querySelector("#opening");
+
+    if (!opening) return;
+
+    const background = opening.querySelector(".opening-background");
+    const name = opening.querySelector(".opening-name");
+    const date = opening.querySelector(".opening-date");
+    const button = opening.querySelector(".opening-button");
+
+    if (!background || !name || !date || !button) {
+        console.error("Opening: thiếu phần tử HTML.");
+        return;
+    }
+
+    background.style.backgroundImage =
+        WeddingData.opening.background
+            ? `url("${WeddingData.opening.background}")`
+            : "none";
+
+    name.innerHTML =
+        `${WeddingData.groom.fullName}<br>&<br>${WeddingData.bride.fullName}`;
+
+    date.textContent =
+        `${WeddingData.wedding.day} • ${WeddingData.wedding.month} • ${WeddingData.wedding.year}`;
+
+    button.textContent = WeddingData.opening.buttonText;
+}
+
+function initializeOpening() {
+
+    const opening = document.querySelector("#opening");
+    const button = document.querySelector("#openInvitation");
+
+    if (!opening || !button) return;
+
+    button.addEventListener("click", () => {
+
+        opening.classList.add("opening-hide");
+
+        setTimeout(() => {
+
+            opening.remove();
+
+        }, 800);
+
+    });
 
 }
 
