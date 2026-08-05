@@ -807,7 +807,9 @@ section{
 
 #opening{
 
-    position:relative;
+    position:fixed;
+
+    inset:0;
 
     width:100%;
 
@@ -824,6 +826,12 @@ section{
     justify-content:center;
 
     background:#f8f6f2;
+
+    z-index:9999;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
 
 }
 
@@ -935,4 +943,13 @@ section{
 
     color:#fff;
 
+}
+
+.opening-hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
 }
