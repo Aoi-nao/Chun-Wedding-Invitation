@@ -43,9 +43,10 @@ const WeddingData = {
     },
 
     opening: {
-        background: "",
-        buttonText: "MỞ THIỆP"
-    },
+    background: "assets/images/opening.png",
+    title: "WEDDING INVITATION",
+    buttonText: "MỞ THIỆP"
+},
 
     hero: {
     image: "assets/images/hero.png"
