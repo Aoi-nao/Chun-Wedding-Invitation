@@ -59,28 +59,33 @@ function renderHero() {
 
     if (!hero) return;
 
-    const background = hero.querySelector(".hero-background");
     const monogram = hero.querySelector(".hero-monogram");
     const image = hero.querySelector(".hero-photo-image");
     const name = hero.querySelector(".hero-name");
     const date = hero.querySelector(".hero-date");
     const quote = hero.querySelector(".hero-quote");
 
-    background.style.backgroundImage =
-        WeddingData.hero.background
-            ? `url("${WeddingData.hero.background}")`
-            : "none";
+    if (!monogram || !image || !name || !date || !quote) {
+        console.error("Hero: thiếu phần tử HTML.");
+        return;
+    }
 
-    monogram.textContent = WeddingData.wedding.monogram;
-
-    image.src = WeddingData.hero.coupleImage || "";
+    // Ảnh Hero
+    image.src = WeddingData.hero.image || "";
     image.alt = `${WeddingData.groom.fullName} & ${WeddingData.bride.fullName}`;
 
+    // Monogram (tạm thời lấy từ data)
+    monogram.textContent = WeddingData.wedding.monogram;
+
+    // Tên
     name.innerHTML =
         `${WeddingData.groom.fullName}<br>&<br>${WeddingData.bride.fullName}`;
 
+    // Ngày
     date.textContent =
-        `${WeddingData.wedding.weekday} • ${WeddingData.wedding.day}.${WeddingData.wedding.month}.${WeddingData.wedding.year}`;
+        `${WeddingData.wedding.weekday} • ${WeddingData.wedding.day} • ${WeddingData.wedding.month} • ${WeddingData.wedding.year}`;
 
+    // Quote
     quote.textContent = WeddingData.wedding.quote;
+
 }
