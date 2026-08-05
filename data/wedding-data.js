@@ -48,8 +48,7 @@ const WeddingData = {
     },
 
     hero: {
-        background: "",
-        coupleImage: "assets/images/hero.webp"
+    image: "assets/images/hero.webp"
     },
 
     invitation: {
