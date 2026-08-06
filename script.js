@@ -12,13 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initializeApp() {
+
     checkConfiguration();
+
     applyTheme();
 
     renderOpening();
+
     renderHero();
 
+    initializeMusicPlayer();
+
     initializeOpening();
+
 }
 
 function checkConfiguration() {
@@ -96,17 +102,39 @@ function initializeOpening() {
 
     button.addEventListener("click", () => {
 
-        opening.classList.add("opening-hide");
+    const player = document.querySelector("#musicPlayer");
 
-        setTimeout(() => {
+    if(player){
 
-            opening.remove();
+        player.classList.add("show");
 
-        }, 800);
+    }
 
-    });
+    opening.classList.add("opening-hide");
+
+    setTimeout(() => {
+
+        opening.remove();
+
+    },800);
+
+});
 
 }
+
+
+/* ==========================================================
+   MUSIC PLAYER
+========================================================== */
+
+function initializeMusicPlayer(){
+
+    const player=document.querySelector("#musicPlayer");
+
+    if(!player) return;
+
+}
+
 
 /* ==========================================================
    HERO
