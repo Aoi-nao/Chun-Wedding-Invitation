@@ -104,11 +104,13 @@ function initializeOpening() {
 
     const player = document.querySelector("#musicPlayer");
 
-    if(player){
+    if (player) {
 
-        player.classList.add("show");
+    player.classList.add("show");
 
-    }
+    player.classList.add("playing");
+
+}
 
     opening.classList.add("opening-hide");
 
@@ -127,11 +129,18 @@ function initializeOpening() {
    MUSIC PLAYER
 ========================================================== */
 
-function initializeMusicPlayer(){
+function initializeMusicPlayer() {
 
-    const player=document.querySelector("#musicPlayer");
+    const player = document.querySelector("#musicPlayer");
+    const button = document.querySelector("#musicToggle");
 
-    if(!player) return;
+    if (!player || !button) return;
+
+    button.addEventListener("click", () => {
+
+        player.classList.toggle("playing");
+
+    });
 
 }
 
