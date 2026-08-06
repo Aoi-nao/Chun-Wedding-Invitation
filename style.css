@@ -953,3 +953,131 @@ section{
 
     pointer-events:none;
 }
+
+/* ==========================================================================
+   MUSIC PLAYER
+   ========================================================================== */
+
+.music-player{
+
+    position:fixed;
+
+    top:24px;
+
+    right:20px;
+
+    z-index:9998;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:opacity .35s ease;
+
+}
+
+.music-button{
+
+    position:relative;
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    box-shadow:0 4px 16px rgba(0,0,0,.08);
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--color-primary);
+
+    transition:
+        background .3s ease,
+        box-shadow .3s ease;
+
+}
+
+.music-button:hover{
+
+    background:rgba(255,255,255,.28);
+
+    box-shadow:0 6px 20px rgba(0,0,0,.12);
+
+}
+
+.music-icon{
+
+    position:absolute;
+
+    font-size:20px;
+
+    line-height:1;
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+
+}
+
+.music-off{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+.music-on{
+
+    opacity:0;
+
+    transform:scale(.85);
+
+}
+
+.music-wave{
+
+    position:absolute;
+
+    inset:-4px;
+
+    border:1px solid var(--color-primary);
+
+    border-radius:50%;
+
+    opacity:0;
+
+    transform:scale(.8);
+
+    pointer-events:none;
+
+}
+
+.wave-2{
+
+    inset:-8px;
+
+}
+
+.music-player.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
