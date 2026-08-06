@@ -1059,11 +1059,19 @@ section{
 
     opacity:1;
 
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+
 }
 
 .music-on{
 
     opacity:0;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.75);
 
 }
 
@@ -1088,5 +1096,31 @@ section{
 .wave-2{
 
     inset:-8px;
+
+}
+
+.music-player.playing .music-off{
+
+    opacity:0;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.75);
+
+}
+
+.music-player.playing .music-on{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+
+}
+
+.music-player.playing .music-wave{
+
+    opacity:.45;
 
 }
