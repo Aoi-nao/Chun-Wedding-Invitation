@@ -138,7 +138,12 @@ function initializeMusicPlayer() {
 
     button.addEventListener("click", () => {
 
-        player.classList.toggle("playing");
+        const isPlaying = player.classList.toggle("playing");
+
+        button.setAttribute(
+            "aria-pressed",
+            isPlaying ? "true" : "false"
+        );
 
     });
 
