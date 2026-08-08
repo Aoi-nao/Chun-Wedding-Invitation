@@ -1177,3 +1177,64 @@ section{
     }
 
 }
+
+
+/* ==========================================================
+   INVITATION
+========================================================== */
+
+#invitation {
+    position: relative;
+    padding: 76px 24px 82px;
+    background: var(--color-white);
+}
+
+.invitation-content {
+    max-width: 390px;
+    margin: 0 auto;
+}
+
+.invitation-title {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    color: var(--color-text);
+}
+
+.invitation-symbol {
+    margin: 28px 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--color-accent);
+}
+
+.invitation-message {
+    max-width: 320px;
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    color: var(--color-text);
+}
+
+.invitation-heart {
+    margin: 25px 0 21px;
+    font-size: 20px;
+}
+
+.invitation-invite {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: var(--color-text);
+}
