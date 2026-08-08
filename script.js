@@ -21,6 +21,8 @@ function initializeApp() {
 
     renderHero();
 
+    renderCouple();
+
     initializeMusicPlayer();
 
     initializeOpening();
@@ -189,4 +191,37 @@ function renderHero() {
     // Quote
     quote.textContent = WeddingData.wedding.quote;
 
+}
+
+
+
+/* ==========================================================
+   COUPLE
+========================================================== */
+
+function renderCouple() {
+
+    const brideName = document.querySelector("#brideName");
+    const groomName = document.querySelector("#groomName");
+
+    const bridePhoto = document.querySelector("#bridePhoto");
+    const groomPhoto = document.querySelector("#groomPhoto");
+
+    if (!brideName || !groomName) return;
+
+    // Tên cô dâu
+    brideName.textContent = WeddingData.bride.fullName;
+
+    // Tên chú rể
+    groomName.textContent = WeddingData.groom.fullName;
+
+    // Ảnh cô dâu
+    if (bridePhoto && WeddingData.bride.avatar) {
+        bridePhoto.src = WeddingData.bride.avatar;
+    }
+
+    // Ảnh chú rể
+    if (groomPhoto && WeddingData.groom.avatar) {
+        groomPhoto.src = WeddingData.groom.avatar;
+    }
 }
