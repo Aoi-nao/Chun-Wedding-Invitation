@@ -1465,3 +1465,174 @@ section{
         font-size: 22px;
     }
   }
+
+/* ==========================================================
+   FAMILY
+========================================================== */
+
+#family {
+    position: relative;
+
+    padding: 78px 20px 88px;
+
+    background: var(--color-secondary);
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.family-content {
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto;
+}
+
+.family-heading {
+    margin-bottom: 48px;
+}
+
+.family-heading h2 {
+    margin: 0;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 34px;
+    font-weight: 400;
+
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+
+    color: var(--color-text);
+}
+
+/* ---------- TWO COLUMNS ---------- */
+
+.family-grid {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    column-gap: 34px;
+
+    align-items: start;
+}
+
+.family-column {
+    min-width: 0;
+}
+
+.family-label {
+    margin: 0 0 22px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+
+    color: var(--color-accent);
+}
+
+.family-parents {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.family-parent {
+    margin: 0;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    color: var(--color-text);
+}
+
+/* ---------- SOFT DIVIDER ---------- */
+
+.family-divider {
+    position: absolute;
+
+    top: 4px;
+    bottom: 4px;
+
+    left: 50%;
+
+    width: 1px;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+
+    display: flex;
+    justify-content: center;
+}
+
+.family-divider span {
+    display: block;
+
+    width: 1px;
+    height: 100%;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--color-accent) 22%,
+        var(--color-accent) 78%,
+        transparent 100%
+    );
+
+    opacity: 0.35;
+
+    transform: rotate(2deg);
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 380px) {
+
+    #family {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .family-heading {
+        margin-bottom: 42px;
+    }
+
+    .family-heading h2 {
+        font-size: 32px;
+    }
+
+    .family-grid {
+        column-gap: 28px;
+    }
+
+    .family-label {
+        font-size: 11px;
+        letter-spacing: 0.23em;
+        margin-bottom: 20px;
+    }
+
+    .family-parent {
+        font-size: 17px;
+    }
+
+    .family-parents {
+        gap: 7px;
+    }
+}
