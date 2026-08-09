@@ -1245,7 +1245,7 @@ section{
 
 #couple {
     position: relative;
-    padding: 96px 20px 110px;
+    padding: 76px 20px 90px;
     background: var(--color-secondary);
     overflow: hidden;
 }
@@ -1255,87 +1255,84 @@ section{
     margin: 0 auto;
 }
 
-/* Tiêu đề */
+
+/* ==========================================================
+   TIÊU ĐỀ
+========================================================== */
 
 .couple-title {
-    margin: 0;
+    margin: 0 0 38px;
+
     font-family: "Cormorant Garamond", serif;
-    font-size: 42px;
+    font-size: 34px;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.22;
     letter-spacing: -0.01em;
+
     color: var(--color-text);
 }
 
-/* Dấu & */
 
-.couple-symbol {
-    position: absolute;
-    z-index: 5;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 32px;
-    height: 32px;
-
-    margin: 0;
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: 28px;
-    font-weight: 400;
-
-    color: var(--color-accent);
-
-    background: var(--color-secondary);
-    border-radius: 50%;
-}
-
-/* Hai người */
+/* ==========================================================
+   HAI NGƯỜI
+========================================================== */
 
 .couple-people {
     position: relative;
 
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-
     gap: 18px;
 
     width: 100%;
 }
 
-/* Nhãn CÔ DÂU / CHÚ RỂ */
+
+/* ==========================================================
+   TỪ CÔ DÂU / CHÚ RỂ
+========================================================== */
 
 .couple-label {
-    margin-bottom: 16px;
+    margin: 0 0 14px;
 
     font-family: "Cormorant Garamond", serif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
-    letter-spacing: 0.28em;
+    line-height: 1;
+
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
 
     color: var(--color-accent);
 }
 
-/* Khung ảnh */
+
+/* ==========================================================
+   KHUNG ẢNH VÒM
+========================================================== */
 
 .couple-photo {
     position: relative;
+
     width: 100%;
     aspect-ratio: 4 / 5;
 
     overflow: hidden;
 
     background: #eeeae2;
+
+    /*
+       Vòm mềm:
+       phía trên bo tròn,
+       phía dưới giữ gọn và hiện đại.
+    */
+    border-radius: 50% 50% 8px 8px;
 }
 
-/* Ảnh */
+
+/* ==========================================================
+   ẢNH
+========================================================== */
 
 .couple-photo-image {
     display: block;
@@ -1350,52 +1347,112 @@ section{
     transition: opacity 0.6s ease;
 }
 
-/* Khi ảnh load xong */
-
 .couple-photo-image[src]:not([src=""]) {
     opacity: 1;
 }
 
-/* Tên */
-
-.couple-name {
-    margin: 18px 0 0;
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 1.2;
-
-    color: var(--color-text);
-}
 
 /* ==========================================================
-   DESKTOP / TABLET
+   TÊN
+========================================================== */
+
+.couple-name {
+    margin: 14px 0 0;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.15;
+
+    color: var(--color-text);
+
+    /*
+       Cho phép tên dài tự xuống dòng,
+       nhưng hạn chế việc chữ bị tách quá xấu.
+    */
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+
+/* ==========================================================
+   DẤU &
+========================================================== */
+
+.couple-symbol {
+    position: absolute;
+    z-index: 5;
+
+    /*
+       Đặt dấu & vào đúng khoảng giữa
+       hai khung ảnh.
+    */
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    margin: 0;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 23px;
+    font-weight: 400;
+
+    color: var(--color-accent);
+
+    background: var(--color-secondary);
+
+    border-radius: 50%;
+}
+
+
+/* ==========================================================
+   TABLET / DESKTOP
 ========================================================== */
 
 @media (min-width: 768px) {
 
     #couple {
-        padding: 120px 40px 140px;
+        padding: 110px 40px 130px;
+    }
+
+    .couple-content {
+        max-width: 760px;
     }
 
     .couple-title {
-        font-size: 52px;
+        margin-bottom: 54px;
+        font-size: 46px;
     }
 
     .couple-people {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 36px;
-        align-items: start;
+        gap: 32px;
     }
 
-    .couple-person {
-        width: 100%;
+    .couple-label {
+        margin-bottom: 18px;
+        font-size: 13px;
+    }
+
+    .couple-photo {
+        border-radius: 50% 50% 10px 10px;
+    }
+
+    .couple-name {
+        margin-top: 18px;
+        font-size: 28px;
     }
 
     .couple-symbol {
-        margin: 56px 0 70px;
+        width: 40px;
+        height: 40px;
+        font-size: 27px;
     }
-
 }
