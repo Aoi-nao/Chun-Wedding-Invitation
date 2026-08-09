@@ -23,6 +23,8 @@ function initializeApp() {
 
     renderCouple();
 
+    renderFamily();
+
     initCoupleAnimation();
 
     initializeMusicPlayer();
@@ -220,6 +222,24 @@ function renderCouple() {
     groomName.textContent = WeddingData.groom.fullName;
 }
 
+function renderFamily() {
+
+    const brideFather = document.getElementById("bride-father");
+    const brideMother = document.getElementById("bride-mother");
+
+    const groomFather = document.getElementById("groom-father");
+    const groomMother = document.getElementById("groom-mother");
+
+    if (!brideFather || !brideMother || !groomFather || !groomMother) {
+        return;
+    }
+
+    brideFather.textContent = WeddingData.bride.father;
+    brideMother.textContent = WeddingData.bride.mother;
+
+    groomFather.textContent = WeddingData.groom.father;
+    groomMother.textContent = WeddingData.groom.mother;
+}
 function initCoupleAnimation() {
 
     const couple = document.getElementById("couple");
