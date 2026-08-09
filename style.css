@@ -1245,96 +1245,80 @@ section{
 
 #couple {
     position: relative;
-    padding: 76px 20px 90px;
+    padding: 92px 20px 110px;
     background: var(--color-secondary);
     overflow: hidden;
 }
 
 .couple-content {
+    width: 100%;
     max-width: 520px;
     margin: 0 auto;
 }
 
+/* ---------- HEADING ---------- */
 
-/* ==========================================================
-   TIÊU ĐỀ
-========================================================== */
+.couple-heading {
+    margin-bottom: 58px;
+}
 
-.couple-title {
-    margin: 0 0 38px;
+.couple-heading h2 {
+    margin: 0;
 
     font-family: "Cormorant Garamond", serif;
-    font-size: 34px;
+    font-size: 46px;
     font-weight: 400;
-    line-height: 1.22;
-    letter-spacing: -0.01em;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
 
     color: var(--color-text);
 }
 
+/* ---------- GRID ---------- */
 
-/* ==========================================================
-   HAI NGƯỜI
-========================================================== */
-
-.couple-people {
+.couple-grid {
     position: relative;
 
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 34px;
 
-    width: 100%;
+    align-items: start;
 }
 
+/* ---------- CARD ---------- */
 
-/* ==========================================================
-   TỪ CÔ DÂU / CHÚ RỂ
-========================================================== */
+.couple-card {
+    min-width: 0;
+    text-align: left;
+}
 
-.couple-label {
-    margin: 0 0 14px;
+.couple-role {
+    margin: 0 0 18px;
 
     font-family: "Cormorant Garamond", serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 400;
-    line-height: 1;
 
-    letter-spacing: 0.24em;
+    letter-spacing: 0.30em;
     text-transform: uppercase;
 
     color: var(--color-accent);
 }
 
+/* ---------- PHOTO ---------- */
 
-/* ==========================================================
-   KHUNG ẢNH VÒM
-========================================================== */
-
-.couple-photo {
-    position: relative;
-
+.couple-photo-wrap {
     width: 100%;
-    aspect-ratio: 4 / 5;
-
+    aspect-ratio: 0.76;
     overflow: hidden;
 
-    background: #eeeae2;
+    border-radius: 13px;
 
-    /*
-       Vòm mềm:
-       phía trên bo tròn,
-       phía dưới giữ gọn và hiện đại.
-    */
-    border-radius: 8px;
+    background: #eee;
 }
 
-
-/* ==========================================================
-   ẢNH
-========================================================== */
-
-.couple-photo-image {
+.couple-photo {
     display: block;
 
     width: 100%;
@@ -1342,48 +1326,36 @@ section{
 
     object-fit: cover;
 
-    opacity: 0;
-
-    transition: opacity 0.6s ease;
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease;
 }
 
-.couple-photo-image[src]:not([src=""]) {
-    opacity: 1;
-}
-
-
-/* ==========================================================
-   TÊN
-========================================================== */
+/* ---------- NAME ---------- */
 
 .couple-name {
-    margin: 14px 0 0;
+    margin: 20px 0 0;
+
     font-family: "Cormorant Garamond", serif;
-    font-size: 22px;
+    font-size: 29px;
     font-weight: 400;
     line-height: 1.2;
 
     color: var(--color-text);
-
-    overflow-wrap: normal;
-    word-break: normal;
 }
 
+/* ---------- AMPERSAND ---------- */
 
-/* ==========================================================
-   DẤU &
-========================================================== */
-
-.couple-symbol {
+.couple-ampersand {
     position: absolute;
+
+    left: 50%;
+    top: 54%;
+
     z-index: 5;
 
-    /*
-       Đặt dấu & vào đúng khoảng giữa
-       hai khung ảnh.
-    */
-    left: 50%;
-    top: 50%;
+    width: 38px;
+    height: 38px;
 
     transform: translate(-50%, -50%);
 
@@ -1391,63 +1363,104 @@ section{
     align-items: center;
     justify-content: center;
 
-    width: 34px;
-    height: 34px;
-
-    margin: 0;
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: 23px;
-    font-weight: 400;
-
-    color: var(--color-accent);
-
     background: var(--color-secondary);
 
-    border-radius: 50%;
+    pointer-events: none;
 }
 
+.couple-ampersand span {
+    display: block;
 
-/* ==========================================================
-   TABLET / DESKTOP
-========================================================== */
+    font-family: "Garamo", "Cormorant Garamond", serif;
+    font-size: 25px;
+    font-weight: 400;
+    font-style: italic;
 
-@media (min-width: 768px) {
+    line-height: 1;
+
+    color: var(--color-accent);
+}
+
+/* ---------- ENTRANCE ANIMATION ---------- */
+
+.couple-card {
+    opacity: 0;
+
+    transition:
+        opacity 0.9s ease,
+        transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.couple-bride {
+    transform: translateX(-42px);
+}
+
+.couple-groom {
+    transform: translateX(42px);
+}
+
+#couple.is-visible .couple-card {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#couple.is-visible .couple-groom {
+    transition-delay: 0.08s;
+}
+
+/* ---------- HOVER ---------- */
+
+.couple-photo-wrap {
+    transition:
+        box-shadow 0.5s ease,
+        transform 0.5s ease;
+}
+
+@media (hover: hover) {
+
+    .couple-photo-wrap:hover {
+        transform: translateY(-3px);
+    }
+
+    .couple-photo-wrap:hover .couple-photo {
+        transform: scale(1.025);
+    }
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 380px) {
 
     #couple {
-        padding: 110px 40px 130px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
-    .couple-content {
-        max-width: 760px;
+    .couple-heading h2 {
+        font-size: 41px;
     }
 
-    .couple-title {
-        margin-bottom: 54px;
-        font-size: 46px;
+    .couple-grid {
+        column-gap: 26px;
     }
 
-    .couple-people {
-        gap: 32px;
-    }
-
-    .couple-label {
-        margin-bottom: 18px;
-        font-size: 13px;
-    }
-
-    .couple-photo {
-        border-radius: 10px;
+    .couple-role {
+        font-size: 11px;
+        letter-spacing: 0.24em;
     }
 
     .couple-name {
-        margin-top: 18px;
-        font-size: 26px;
+        font-size: 25px;
     }
 
-    .couple-symbol {
-        width: 40px;
-        height: 40px;
-        font-size: 27px;
+    .couple-ampersand {
+        width: 32px;
+        height: 32px;
     }
+
+    .couple-ampersand span {
+        font-size: 22px;
+    }
+
 }
