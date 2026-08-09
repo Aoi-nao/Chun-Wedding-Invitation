@@ -9,12 +9,12 @@
 const ThemeConfig = Object.freeze({
 
     colors: {
-        primary: "#6D8C6B",
-        secondary: "#F6F4EE",
-        accent: "#D8BE84",
-        text: "#4A4A4A",
-        white: "#FFFFFF"
-    },
+    primary: "#506B55",
+    secondary: "#F3F5EF",
+    accent: "#C7A45D",
+    text: "#35443A",
+    white: "#FFFFFF"
+},
 
     borderRadius: {
         small: 12,
