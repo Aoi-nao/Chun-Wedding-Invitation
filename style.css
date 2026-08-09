@@ -1472,24 +1472,29 @@ section{
 
 #family {
     position: relative;
+    z-index: 2;
 
-    padding: 28px 20px 110px;
+    padding: 70px 20px 90px;
 
     background: var(--color-secondary);
-
-    text-align: center;
 
     overflow: hidden;
 }
 
 .family-content {
+    position: relative;
+
     width: 100%;
     max-width: 520px;
 
     margin: 0 auto;
 }
 
+
+/* ---------- HEADING ---------- */
+
 .family-heading {
+    text-align: center;
     margin-bottom: 48px;
 }
 
@@ -1497,17 +1502,16 @@ section{
     margin: 0;
 
     font-family: "Cormorant Garamond", serif;
-
-    font-size: 34px;
+    font-size: 42px;
     font-weight: 400;
+    line-height: 1.15;
 
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-
-    color: var(--color-text);
+    color: var(--color-primary);
 }
 
-/* ---------- TWO COLUMNS ---------- */
+
+
+/* ---------- GRID ---------- */
 
 .family-grid {
     position: relative;
@@ -1523,52 +1527,59 @@ section{
     align-items: start;
 }
 
-.family-column {
+
+/* ---------- SIDE ---------- */
+
+.family-side {
     min-width: 0;
+
+    text-align: center;
 }
 
-.family-label {
-    margin: 0 0 22px;
+.family-side-title {
+    margin: 0 0 28px;
 
     font-family: "Cormorant Garamond", serif;
-
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
 
-    letter-spacing: 0.28em;
+    letter-spacing: 0.30em;
     text-transform: uppercase;
 
     color: var(--color-accent);
 }
+
+
+/* ---------- PARENTS ---------- */
 
 .family-parents {
     display: flex;
 
     flex-direction: column;
 
-    gap: 8px;
+    gap: 12px;
 }
 
-.family-parent {
+.family-parents p {
     margin: 0;
 
     font-family: "Cormorant Garamond", serif;
-
-    font-size: 18px;
+    font-size: 21px;
     font-weight: 400;
 
-    line-height: 1.5;
+    line-height: 1.35;
 
-    color: var(--color-text);
+    color: var(--color-primary);
 }
 
-/* ---------- SOFT DIVIDER ---------- */
 
-.family-divider {
+/* ---------- LINE DỌC GIỮA ---------- */
+
+.family-grid-divider {
     position: absolute;
 
-    top: 4px;
-    bottom: 4px;
+    top: 42px;
+    bottom: 0;
 
     left: 50%;
 
@@ -1576,32 +1587,20 @@ section{
 
     transform: translateX(-50%);
 
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(216, 190, 132, 0.42) 12%,
+            rgba(216, 190, 132, 0.42) 88%,
+            transparent 100%
+        );
+
     pointer-events: none;
-
-    display: flex;
-    justify-content: center;
 }
 
-.family-divider span {
-    display: block;
 
-    width: 1px;
-    height: 100%;
-
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        var(--color-accent) 22%,
-        var(--color-accent) 78%,
-        transparent 100%
-    );
-
-    opacity: 0.35;
-
-    transform: rotate(2deg);
-}
-
-/* ---------- MOBILE ---------- */
+/* ---------- NHẸ NHÀNG HƠN Ở MOBILE ---------- */
 
 @media (max-width: 380px) {
 
@@ -1610,29 +1609,29 @@ section{
         padding-right: 16px;
     }
 
-    .family-heading {
-        margin-bottom: 42px;
+    .family-heading h2 {
+        font-size: 39px;
     }
 
-    .family-heading h2 {
-        font-size: 32px;
+    .family-heading-line {
+        width: 135px;
+        margin-top: 16px;
     }
 
     .family-grid {
         column-gap: 28px;
     }
 
-    .family-label {
-        font-size: 11px;
-        letter-spacing: 0.23em;
-        margin-bottom: 20px;
+    .family-side-title {
+        font-size: 12px;
+        letter-spacing: 0.25em;
     }
 
-    .family-parent {
-        font-size: 17px;
+    .family-parents p {
+        font-size: 19px;
     }
 
-
+}
 /* ==========================================================
    FAMILY — TITLE DIVIDER
    Line mảnh + ngôi sao 4 cánh
