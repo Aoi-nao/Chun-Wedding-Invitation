@@ -23,6 +23,8 @@ function initializeApp() {
 
     renderCouple();
 
+    initCoupleAnimation();
+
     initializeMusicPlayer();
 
     initializeOpening();
@@ -201,27 +203,50 @@ function renderHero() {
 
 function renderCouple() {
 
-    const brideName = document.querySelector("#brideName");
-    const groomName = document.querySelector("#groomName");
+    const brideAvatar = document.getElementById("bride-avatar");
+    const brideName = document.getElementById("bride-name");
 
-    const bridePhoto = document.querySelector("#bridePhoto");
-    const groomPhoto = document.querySelector("#groomPhoto");
+    const groomAvatar = document.getElementById("groom-avatar");
+    const groomName = document.getElementById("groom-name");
 
-    if (!brideName || !groomName) return;
+    if (!brideAvatar || !brideName || !groomAvatar || !groomName) {
+        return;
+    }
 
-    // Tên cô dâu
+    brideAvatar.src = WeddingData.bride.avatar;
     brideName.textContent = WeddingData.bride.fullName;
 
-    // Tên chú rể
+    groomAvatar.src = WeddingData.groom.avatar;
     groomName.textContent = WeddingData.groom.fullName;
+}
 
-    // Ảnh cô dâu
-    if (bridePhoto && WeddingData.bride.avatar) {
-        bridePhoto.src = WeddingData.bride.avatar;
+function initCoupleAnimation() {
+
+    const couple = document.getElementById("couple");
+
+    if (!couple) {
+        return;
     }
 
-    // Ảnh chú rể
-    if (groomPhoto && WeddingData.groom.avatar) {
-        groomPhoto.src = WeddingData.groom.avatar;
-    }
+    const observer = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    couple.classList.add("is-visible");
+
+                    observer.unobserve(couple);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.18
+        }
+    );
+
+    observer.observe(couple);
 }
