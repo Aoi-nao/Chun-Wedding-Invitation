@@ -1245,15 +1245,20 @@ section{
 
 #couple {
     position: relative;
+    z-index: 2;
     padding: 92px 20px 110px;
     background: var(--color-secondary);
     overflow: hidden;
 }
 
 .couple-content {
+    position: relative;
+
     width: 100%;
     max-width: 520px;
     margin: 0 auto;
+
+    z-index: 2;
 }
 
 /* ---------- HEADING ---------- */
@@ -1290,7 +1295,7 @@ section{
 
 .couple-card {
     min-width: 0;
-    text-align: left;
+    text-align: center;
 }
 
 .couple-role {
@@ -1378,18 +1383,6 @@ section{
     transform: translateY(-1px);
 }
 
-.couple-ampersand span {
-    display: block;
-
-    font-family: "Garamo", "Cormorant Garamond", serif;
-    font-size: 25px;
-    font-weight: 400;
-    font-style: italic;
-
-    line-height: 1;
-
-    color: var(--color-accent);
-}
 
 /* ---------- ENTRANCE ANIMATION ---------- */
 
@@ -1465,12 +1458,65 @@ section{
     }
 
     .couple-ampersand {
-        width: 32px;
-        height: 32px;
+     
     }
 
     .couple-ampersand span {
         font-size: 22px;
     }
+  }
+/* ---------- BOTANICAL LINE ART ---------- */
 
+.couple-botanical {
+    position: absolute;
+
+    width: 155px;
+    bottom: 18px;
+
+    color: var(--color-accent);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 1.4s ease,
+        transform 1.4s ease;
+}
+
+.couple-botanical svg {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+.couple-botanical-left {
+    left: -22px;
+}
+
+.couple-botanical-right {
+    right: -22px;
+
+    transform:
+        scaleX(-1)
+        translateY(10px);
+}
+
+/* ---------- BOTANICAL APPEAR ---------- */
+
+#couple.is-visible .couple-botanical {
+    opacity: 0.28;
+
+    transform: translateY(0);
+}
+
+#couple.is-visible .couple-botanical-right {
+    transform:
+        scaleX(-1)
+        translateY(0);
 }
