@@ -1633,79 +1633,85 @@ section{
     }
 
 
-   /* ==========================================================
+/* ==========================================================
    FAMILY — TITLE DIVIDER
-   Đường line champagne + ngôi sao 4 cánh
+   Line mảnh + ngôi sao 4 cánh
    ========================================================== */
 
-.family-heading {
-    text-align: center;
-}
-
 .family-divider {
-    position: relative;
-
-    width: 130px;
-    height: 18px;
-
-    margin: 14px auto 34px;
-
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 150px;
+    height: 18px;
+
+    margin: 12px auto 34px;
 }
 
-/* Đường line mảnh hai bên */
-.family-divider::before {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-
-    height: 1px;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent 0%,
-            var(--color-accent) 22%,
-            var(--color-accent) 43%,
-            transparent 47%,
-            transparent 53%,
-            var(--color-accent) 57%,
-            var(--color-accent) 78%,
-            transparent 100%
-        );
-
-    opacity: 0.55;
-}
-
-/* Ngôi sao 4 cánh */
+/* Ngôi sao ở giữa */
 .family-divider span {
     position: relative;
 
-    z-index: 2;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+
+    flex-shrink: 0;
 
     background: var(--color-secondary);
 
     font-family: serif;
-    font-size: 12px;
+    font-size: 11px;
+    font-weight: 400;
     line-height: 1;
 
     color: var(--color-accent);
 
-    transform: translateY(-1px);
+    z-index: 2;
 }
-    .family-parents {
-        gap: 7px;
-    }
+
+/* Line bên trái */
+.family-divider span::before {
+    content: "";
+
+    position: absolute;
+
+    width: 58px;
+    height: 1px;
+
+    right: 100%;
+    top: 50%;
+
+    margin-right: 5px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(216, 190, 132, 0.62)
+    );
+}
+
+/* Line bên phải */
+.family-divider span::after {
+    content: "";
+
+    position: absolute;
+
+    width: 58px;
+    height: 1px;
+
+    left: 100%;
+    top: 50%;
+
+    margin-left: 5px;
+
+    background: linear-gradient(
+        to left,
+        transparent,
+        rgba(216, 190, 132, 0.62)
+    );
 }
