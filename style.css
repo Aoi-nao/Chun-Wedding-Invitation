@@ -1726,7 +1726,7 @@ section{
 
     padding: 72px 20px 86px;
 
-    background: var(--color-white);
+    background: var(--color-primary);
 
     overflow: hidden;
 }
@@ -1739,7 +1739,6 @@ section{
 
     text-align: center;
 }
-
 
 /* ---------- HEADING ---------- */
 
@@ -1768,7 +1767,7 @@ section{
 
     line-height: 1.2;
 
-    color: var(--color-primary);
+    color: var(--color-white);
 }
 
 
@@ -1835,10 +1834,18 @@ section{
     min-width: 0;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
+    justify-content: center;
+
+    min-height: 82px;
+    padding: 12px 6px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid rgba(199, 164, 93, 0.55);
+
+    border-radius: 12px;
 }
 
 
@@ -1883,8 +1890,7 @@ section{
 @media (max-width: 380px) {
 
     #countdown {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding: 58px 16px 68px;
     }
 
     .countdown-heading {
@@ -1907,12 +1913,20 @@ section{
         column-gap: 6px;
     }
 
+    .countdown-item {
+        min-height: 76px;
+        padding: 10px 4px;
+
+        border-radius: 10px;
+    }
+
     .countdown-number {
-        font-size: 34px;
+        font-size: 32px;
     }
 
     .countdown-label {
         font-size: 11px;
         letter-spacing: 0.12em;
     }
+
 }
