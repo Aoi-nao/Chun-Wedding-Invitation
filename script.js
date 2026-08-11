@@ -23,10 +23,12 @@ function initializeApp() {
 
     renderCouple();
 
+    initCoupleAnimation();
+    
     renderFamily();
 
-    initCoupleAnimation();
-
+    initializeCountdown();
+    
     initializeMusicPlayer();
 
     initializeOpening();
@@ -269,4 +271,107 @@ function initCoupleAnimation() {
     );
 
     observer.observe(couple);
+}
+
+
+
+/* ==========================================================
+   COUNTDOWN
+========================================================== */
+
+function initializeCountdown() {
+
+    const countdownSection = document.getElementById("countdown");
+
+    if (!countdownSection) {
+        return;
+    }
+
+    const wedding = WeddingData.wedding;
+
+    if (
+        !wedding ||
+        !wedding.year ||
+        !wedding.month ||
+        !wedding.day
+    ) {
+        return;
+    }
+
+    const targetDate = new Date(
+        Number(wedding.year),
+        Number(wedding.month) - 1,
+        Number(wedding.day),
+        0,
+        0,
+        0
+    );
+
+    const daysElement = document.getElementById("countdown-days");
+    const hoursElement = document.getElementById("countdown-hours");
+    const minutesElement = document.getElementById("countdown-minutes");
+    const secondsElement = document.getElementById("countdown-seconds");
+
+    if (
+        !daysElement ||
+        !hoursElement ||
+        !minutesElement ||
+        !secondsElement
+    ) {
+        return;
+    }
+
+    function updateCountdown() {
+
+        const now = new Date();
+        const difference = targetDate.getTime() - now.getTime();
+
+        if (difference <= 0) {
+
+            daysElement.textContent = "00";
+            hoursElement.textContent = "00";
+            minutesElement.textContent = "00";
+            secondsElement.textContent = "00";
+
+            return;
+        }
+
+        const totalSeconds = Math.floor(
+            difference / 1000
+        );
+
+        const days = Math.floor(
+            totalSeconds / 86400
+        );
+
+        const hours = Math.floor(
+            (totalSeconds % 86400) / 3600
+        );
+
+        const minutes = Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+        const seconds =
+            totalSeconds % 60;
+
+        daysElement.textContent =
+            String(days).padStart(2, "0");
+
+        hoursElement.textContent =
+            String(hours).padStart(2, "0");
+
+        minutesElement.textContent =
+            String(minutes).padStart(2, "0");
+
+        secondsElement.textContent =
+            String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+
+    setInterval(
+        updateCountdown,
+        1000
+    );
 }
