@@ -1714,3 +1714,205 @@ section{
         rgba(216, 190, 132, 0.62)
     );
 }
+
+
+/* ==========================================================
+   COUNTDOWN
+========================================================== */
+
+#countdown {
+    position: relative;
+    z-index: 2;
+
+    padding: 72px 20px 86px;
+
+    background: var(--color-white);
+
+    overflow: hidden;
+}
+
+.countdown-content {
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* ---------- HEADING ---------- */
+
+.countdown-heading {
+    margin-bottom: 42px;
+}
+
+.countdown-eyebrow {
+    margin: 0 0 10px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 13px;
+    font-weight: 400;
+
+    letter-spacing: 0.18em;
+
+    color: var(--color-accent);
+}
+
+.countdown-heading h2 {
+    margin: 0;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    color: var(--color-primary);
+}
+
+
+/* ---------- DIVIDER ---------- */
+
+.countdown-divider {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 135px;
+
+    margin: 16px auto 0;
+
+    gap: 7px;
+}
+
+.countdown-divider::before,
+.countdown-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: var(--color-accent);
+
+    opacity: 0.48;
+}
+
+.countdown-divider span {
+    flex: 0 0 auto;
+
+    font-family: serif;
+    font-size: 10px;
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: var(--color-accent);
+
+    transform: translateY(-1px);
+}
+
+
+/* ---------- COUNTDOWN GRID ---------- */
+
+.countdown-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    column-gap: 10px;
+
+    align-items: start;
+}
+
+
+/* ---------- ITEM ---------- */
+
+.countdown-item {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* ---------- NUMBER ---------- */
+
+.countdown-number {
+    display: block;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 38px;
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: 0.02em;
+
+    color: var(--color-primary);
+}
+
+
+/* ---------- LABEL ---------- */
+
+.countdown-label {
+    display: block;
+
+    margin-top: 9px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    letter-spacing: 0.16em;
+
+    color: var(--color-text);
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 380px) {
+
+    #countdown {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .countdown-heading {
+        margin-bottom: 38px;
+    }
+
+    .countdown-eyebrow {
+        font-size: 12px;
+    }
+
+    .countdown-heading h2 {
+        font-size: 31px;
+    }
+
+    .countdown-divider {
+        width: 125px;
+    }
+
+    .countdown-grid {
+        column-gap: 6px;
+    }
+
+    .countdown-number {
+        font-size: 34px;
+    }
+
+    .countdown-label {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+    }
+}
