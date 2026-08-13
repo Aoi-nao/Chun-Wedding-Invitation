@@ -28,6 +28,8 @@ function initializeApp() {
     renderFamily();
 
     initializeCountdown();
+
+    renderCeremony();
     
     initializeMusicPlayer();
 
@@ -273,7 +275,251 @@ function initCoupleAnimation() {
     observer.observe(couple);
 }
 
+/* ==========================================================
+   CEREMONY — THÔNG TIN LỄ CƯỚI
+========================================================== */
 
+function renderCeremony() {
+
+    const ceremonySection =
+        document.getElementById("ceremony");
+
+    if (!ceremonySection) {
+        return;
+    }
+
+    const ceremony =
+        WeddingData.ceremony;
+
+    if (!ceremony) {
+        return;
+    }
+
+
+    /* ======================================================
+       NHÀ GÁI
+    ====================================================== */
+
+    const brideParty =
+        ceremony.brideParty;
+
+    const brideCeremony =
+        ceremony.brideCeremony;
+
+
+    /* ---------- TIỆC NHÀ GÁI ---------- */
+
+    const bridePartyTime =
+        document.getElementById("bride-party-time");
+
+    const bridePartyDate =
+        document.getElementById("bride-party-date");
+
+    const bridePartyLunar =
+        document.getElementById("bride-party-lunar");
+
+    const bridePartyAddress =
+        document.getElementById("bride-party-address");
+
+    const bridePartyMap =
+        document.getElementById("bride-party-map");
+
+
+    if (brideParty) {
+
+        if (bridePartyTime) {
+            bridePartyTime.textContent =
+                brideParty.time || "";
+        }
+
+        if (bridePartyDate) {
+            bridePartyDate.textContent =
+                brideParty.date || "";
+        }
+
+        if (bridePartyLunar) {
+            bridePartyLunar.textContent =
+                brideParty.lunar || "";
+        }
+
+        if (bridePartyAddress) {
+            bridePartyAddress.textContent =
+                brideParty.address || "";
+        }
+
+        if (bridePartyMap) {
+
+            if (brideParty.map) {
+
+                bridePartyMap.href =
+                    brideParty.map;
+
+                bridePartyMap.style.display =
+                    "inline-flex";
+
+            } else {
+
+                bridePartyMap.style.display =
+                    "none";
+            }
+        }
+    }
+
+
+    /* ---------- LỄ VU QUY ---------- */
+
+    const brideCeremonyTime =
+        document.getElementById(
+            "bride-ceremony-time"
+        );
+
+    const brideCeremonyDate =
+        document.getElementById(
+            "bride-ceremony-date"
+        );
+
+    const brideCeremonyLunar =
+        document.getElementById(
+            "bride-ceremony-lunar"
+        );
+
+
+    if (brideCeremony) {
+
+        if (brideCeremonyTime) {
+            brideCeremonyTime.textContent =
+                brideCeremony.time || "";
+        }
+
+        if (brideCeremonyDate) {
+            brideCeremonyDate.textContent =
+                brideCeremony.date || "";
+        }
+
+        if (brideCeremonyLunar) {
+            brideCeremonyLunar.textContent =
+                brideCeremony.lunar || "";
+        }
+    }
+
+
+    /* ======================================================
+       NHÀ TRAI
+    ====================================================== */
+
+    const groomParty =
+        ceremony.groomParty;
+
+    const groomCeremony =
+        ceremony.groomCeremony;
+
+
+    /* ---------- TIỆC NHÀ TRAI ---------- */
+
+    const groomPartyTime =
+        document.getElementById(
+            "groom-party-time"
+        );
+
+    const groomPartyDate =
+        document.getElementById(
+            "groom-party-date"
+        );
+
+    const groomPartyLunar =
+        document.getElementById(
+            "groom-party-lunar"
+        );
+
+    const groomPartyAddress =
+        document.getElementById(
+            "groom-party-address"
+        );
+
+    const groomPartyMap =
+        document.getElementById(
+            "groom-party-map"
+        );
+
+
+    if (groomParty) {
+
+        if (groomPartyTime) {
+            groomPartyTime.textContent =
+                groomParty.time || "";
+        }
+
+        if (groomPartyDate) {
+            groomPartyDate.textContent =
+                groomParty.date || "";
+        }
+
+        if (groomPartyLunar) {
+            groomPartyLunar.textContent =
+                groomParty.lunar || "";
+        }
+
+        if (groomPartyAddress) {
+            groomPartyAddress.textContent =
+                groomParty.address || "";
+        }
+
+        if (groomPartyMap) {
+
+            if (groomParty.map) {
+
+                groomPartyMap.href =
+                    groomParty.map;
+
+                groomPartyMap.style.display =
+                    "inline-flex";
+
+            } else {
+
+                groomPartyMap.style.display =
+                    "none";
+            }
+        }
+    }
+
+
+    /* ---------- LỄ THÀNH HÔN ---------- */
+
+    const groomCeremonyTime =
+        document.getElementById(
+            "groom-ceremony-time"
+        );
+
+    const groomCeremonyDate =
+        document.getElementById(
+            "groom-ceremony-date"
+        );
+
+    const groomCeremonyLunar =
+        document.getElementById(
+            "groom-ceremony-lunar"
+        );
+
+
+    if (groomCeremony) {
+
+        if (groomCeremonyTime) {
+            groomCeremonyTime.textContent =
+                groomCeremony.time || "";
+        }
+
+        if (groomCeremonyDate) {
+            groomCeremonyDate.textContent =
+                groomCeremony.date || "";
+        }
+
+        if (groomCeremonyLunar) {
+            groomCeremonyLunar.textContent =
+                groomCeremony.lunar || "";
+        }
+    }
+
+}
 
 /* ==========================================================
    COUNTDOWN
