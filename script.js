@@ -276,250 +276,116 @@ function initCoupleAnimation() {
 }
 
 /* ==========================================================
-   CEREMONY — THÔNG TIN LỄ CƯỚI
+   CEREMONY — RENDER WEDDING INFORMATION
 ========================================================== */
 
 function renderCeremony() {
 
-    const ceremonySection =
-        document.getElementById("ceremony");
+    const ceremonySection = document.getElementById("ceremony");
 
     if (!ceremonySection) {
         return;
     }
 
-    const ceremony =
-        WeddingData.ceremony;
+    const ceremonyData = WeddingData.ceremony;
 
-    if (!ceremony) {
+    if (!ceremonyData) {
         return;
     }
 
 
     /* ======================================================
-       NHÀ GÁI
+       HIỂN THỊ TEXT THEO DATA-CEREMONY
     ====================================================== */
 
-    const brideParty =
-        ceremony.brideParty;
+    const ceremonyElements =
+        ceremonySection.querySelectorAll("[data-ceremony]");
 
-    const brideCeremony =
-        ceremony.brideCeremony;
+    ceremonyElements.forEach((element) => {
 
+        const path =
+            element.getAttribute("data-ceremony");
 
-    /* ---------- TIỆC NHÀ GÁI ---------- */
+        const value =
+            getCeremonyValue(ceremonyData, path);
 
-    const bridePartyTime =
-        document.getElementById("bride-party-time");
+        element.textContent =
+            value || "";
 
-    const bridePartyDate =
-        document.getElementById("bride-party-date");
-
-    const bridePartyLunar =
-        document.getElementById("bride-party-lunar");
-
-    const bridePartyAddress =
-        document.getElementById("bride-party-address");
-
-    const bridePartyMap =
-        document.getElementById("bride-party-map");
-
-
-    if (brideParty) {
-
-        if (bridePartyTime) {
-            bridePartyTime.textContent =
-                brideParty.time || "";
-        }
-
-        if (bridePartyDate) {
-            bridePartyDate.textContent =
-                brideParty.date || "";
-        }
-
-        if (bridePartyLunar) {
-            bridePartyLunar.textContent =
-                brideParty.lunar || "";
-        }
-
-        if (bridePartyAddress) {
-            bridePartyAddress.textContent =
-                brideParty.address || "";
-        }
-
-        if (bridePartyMap) {
-
-            if (brideParty.map) {
-
-                bridePartyMap.href =
-                    brideParty.map;
-
-                bridePartyMap.style.display =
-                    "inline-flex";
-
-            } else {
-
-                bridePartyMap.style.display =
-                    "none";
-            }
-        }
-    }
-
-
-    /* ---------- LỄ VU QUY ---------- */
-
-    const brideCeremonyTime =
-        document.getElementById(
-            "bride-ceremony-time"
-        );
-
-    const brideCeremonyDate =
-        document.getElementById(
-            "bride-ceremony-date"
-        );
-
-    const brideCeremonyLunar =
-        document.getElementById(
-            "bride-ceremony-lunar"
-        );
-
-
-    if (brideCeremony) {
-
-        if (brideCeremonyTime) {
-            brideCeremonyTime.textContent =
-                brideCeremony.time || "";
-        }
-
-        if (brideCeremonyDate) {
-            brideCeremonyDate.textContent =
-                brideCeremony.date || "";
-        }
-
-        if (brideCeremonyLunar) {
-            brideCeremonyLunar.textContent =
-                brideCeremony.lunar || "";
-        }
-    }
+    });
 
 
     /* ======================================================
-       NHÀ TRAI
+       GOOGLE MAPS
     ====================================================== */
 
-    const groomParty =
-        ceremony.groomParty;
+    const mapElements =
+        ceremonySection.querySelectorAll("[data-ceremony-map]");
 
-    const groomCeremony =
-        ceremony.groomCeremony;
+    mapElements.forEach((element) => {
 
+        const path =
+            element.getAttribute("data-ceremony-map");
 
-    /* ---------- TIỆC NHÀ TRAI ---------- */
+        const value =
+            getCeremonyValue(ceremonyData, path);
 
-    const groomPartyTime =
-        document.getElementById(
-            "groom-party-time"
-        );
+        if (value) {
 
-    const groomPartyDate =
-        document.getElementById(
-            "groom-party-date"
-        );
+            element.href = value;
 
-    const groomPartyLunar =
-        document.getElementById(
-            "groom-party-lunar"
-        );
+            element.style.display = "inline-flex";
 
-    const groomPartyAddress =
-        document.getElementById(
-            "groom-party-address"
-        );
+        } else {
 
-    const groomPartyMap =
-        document.getElementById(
-            "groom-party-map"
-        );
+            element.removeAttribute("href");
 
+            element.style.display = "none";
 
-    if (groomParty) {
-
-        if (groomPartyTime) {
-            groomPartyTime.textContent =
-                groomParty.time || "";
         }
 
-        if (groomPartyDate) {
-            groomPartyDate.textContent =
-                groomParty.date || "";
-        }
-
-        if (groomPartyLunar) {
-            groomPartyLunar.textContent =
-                groomParty.lunar || "";
-        }
-
-        if (groomPartyAddress) {
-            groomPartyAddress.textContent =
-                groomParty.address || "";
-        }
-
-        if (groomPartyMap) {
-
-            if (groomParty.map) {
-
-                groomPartyMap.href =
-                    groomParty.map;
-
-                groomPartyMap.style.display =
-                    "inline-flex";
-
-            } else {
-
-                groomPartyMap.style.display =
-                    "none";
-            }
-        }
-    }
-
-
-    /* ---------- LỄ THÀNH HÔN ---------- */
-
-    const groomCeremonyTime =
-        document.getElementById(
-            "groom-ceremony-time"
-        );
-
-    const groomCeremonyDate =
-        document.getElementById(
-            "groom-ceremony-date"
-        );
-
-    const groomCeremonyLunar =
-        document.getElementById(
-            "groom-ceremony-lunar"
-        );
-
-
-    if (groomCeremony) {
-
-        if (groomCeremonyTime) {
-            groomCeremonyTime.textContent =
-                groomCeremony.time || "";
-        }
-
-        if (groomCeremonyDate) {
-            groomCeremonyDate.textContent =
-                groomCeremony.date || "";
-        }
-
-        if (groomCeremonyLunar) {
-            groomCeremonyLunar.textContent =
-                groomCeremony.lunar || "";
-        }
-    }
+    });
 
 }
+
+
+/* ==========================================================
+   GET CEREMONY DATA
+   Ví dụ:
+   brideParty.address
+   groomParty.map
+========================================================== */
+
+function getCeremonyValue(data, path) {
+
+    if (!data || !path) {
+        return "";
+    }
+
+    const parts =
+        path.split(".");
+
+    let current =
+        data;
+
+    for (const part of parts) {
+
+        if (
+            current === null ||
+            current === undefined
+        ) {
+            return "";
+        }
+
+        current =
+            current[part];
+
+    }
+
+    return current ?? "";
+}
+
+
 
 /* ==========================================================
    COUNTDOWN
