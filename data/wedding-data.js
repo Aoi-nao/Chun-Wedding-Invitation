@@ -65,43 +65,43 @@ const WeddingData = {
 
     ceremony: {
 
-        groomCeremony: {
-            title: "Lễ Thành Hôn",
-            time: "",
-            date: "",
-            lunar: "",
-            address: "",
-            map: ""
-        },
-
-        groomParty: {
-            title: "Tiệc Nhà Trai",
-            time: "",
-            date: "",
-            lunar: "",
-            address: "",
-            map: ""
-        },
-
-        brideCeremony: {
-            title: "Lễ Vu Quy",
-            time: "",
-            date: "",
-            lunar: "",
-            address: "",
-            map: ""
-        },
-
-        brideParty: {
-            title: "Tiệc Nhà Gái",
-            time: "",
-            date: "",
-            lunar: "",
-            address: "",
-            map: ""
-        }
-
+    groomCeremony: {
+        title: "Lễ Thành Hôn",
+        time: "09:00",
+        date: "Chủ Nhật, 09.08.2026",
+        lunar: "27 tháng 6 năm Bính Ngọ",
+        address: "",
+        map: ""
     },
+
+    groomParty: {
+        title: "Tiệc Nhà Trai",
+        time: "11:00",
+        date: "Chủ Nhật, 09.08.2026",
+        lunar: "27 tháng 6 năm Bính Ngọ",
+        address: "123 Đường Mẫu, Thành phố Hà Nội",
+        map: "https://maps.google.com/"
+    },
+
+    brideCeremony: {
+        title: "Lễ Vu Quy",
+        time: "09:00",
+        date: "Chủ Nhật, 09.08.2026",
+        lunar: "27 tháng 6 năm Bính Ngọ",
+        address: "",
+        map: ""
+    },
+
+    brideParty: {
+        title: "Tiệc Nhà Gái",
+        time: "11:00",
+        date: "Chủ Nhật, 09.08.2026",
+        lunar: "27 tháng 6 năm Bính Ngọ",
+        address: "456 Đường Mẫu, Thành phố Hà Nội",
+        map: "https://maps.google.com/"
+    }
+
+},
 
     gallery: [
 
