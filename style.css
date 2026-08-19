@@ -1933,537 +1933,321 @@ section{
 
 
 /* ==========================================================
-   CEREMONY — THÔNG TIN LỄ CƯỚI
-   Vintage editorial / sage green / champagne
+   CEREMONY — WEDDING INFORMATION
+   Mobile-first
+   Korean minimal · Vintage · Champagne + Sage
+========================================================== */
+
+
+/* ==========================================================
+   CEREMONY SECTION
 ========================================================== */
 
 #ceremony {
     position: relative;
-    z-index: 2;
 
-    padding: 74px 14px 100px;
+    width: 100%;
+    max-width: 520px;
 
-    background: var(--color-secondary);
+    margin: 0 auto;
+    padding: 72px 20px 88px;
+
+    box-sizing: border-box;
 
     overflow: hidden;
 }
 
-.ceremony-content {
-    width: 100%;
-    max-width: 520px;
-    margin: 0 auto;
-}
-
 
 /* ==========================================================
-   HEADER
+   CEREMONY HEADER
 ========================================================== */
 
-.ceremony-heading {
-    text-align: center;
-
-    margin-bottom: 52px;
-}
-
-.ceremony-eyebrow {
-    margin: 0 0 8px;
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: 11px;
-    font-weight: 400;
-
-    letter-spacing: 0.30em;
-    text-transform: uppercase;
-
-    color: #B08D49;
-}
-
-.ceremony-heading h2 {
-    margin: 0;
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: 39px;
-    font-weight: 400;
-    line-height: 1.1;
-
-    color: #506C58;
-}
-
-
-/* ==========================================================
-   HEADER DIVIDER
-========================================================== */
-
-.ceremony-divider {
+.ceremony-header {
     position: relative;
 
+    text-align: center;
+
+    margin-bottom: 42px;
+}
+
+.ceremony-title {
+    margin: 0;
+
+    color: var(--color-text);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 29px;
+    font-weight: 500;
+
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+}
+
+
+/* ----------------------------------------------------------
+   Header divider
+---------------------------------------------------------- */
+
+.ceremony-header-divider {
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    width: 160px;
+    width: 150px;
     height: 18px;
 
-    margin: 15px auto 0;
+    margin: 13px auto 0;
 }
 
-.ceremony-divider::before,
-.ceremony-divider::after {
+
+/* line */
+
+.ceremony-header-divider::before,
+.ceremony-header-divider::after {
     content: "";
 
-    position: absolute;
-    top: 50%;
-
-    width: 57px;
+    width: 52px;
     height: 1px;
 
     background: linear-gradient(
         to right,
         transparent,
-        rgba(201, 167, 93, 0.62)
+        rgba(216, 190, 132, 0.65)
     );
 }
 
-.ceremony-divider::before {
-    right: calc(50% + 9px);
+.ceremony-header-divider::after {
+    background: linear-gradient(
+        to left,
+        transparent,
+        rgba(216, 190, 132, 0.65)
+    );
 }
 
-.ceremony-divider::after {
-    left: calc(50% + 9px);
 
-    transform: scaleX(-1);
-}
+/* four-point star */
 
-.ceremony-divider span {
-    position: relative;
+.ceremony-header-divider img {
+    width: 15px;
+    height: 15px;
 
-    width: 9px;
-    height: 9px;
+    margin: 0 8px;
 
-    background: #C9A75D;
+    object-fit: contain;
 
-    transform: rotate(45deg);
+    color: var(--color-accent);
 
-    z-index: 2;
+    opacity: 0.9;
 }
 
 
 /* ==========================================================
-   GROUP
+   CEREMONY GROUP
 ========================================================== */
 
 .ceremony-group {
     position: relative;
 
-    display: grid;
+    width: 100%;
 
-    grid-template-columns:
-        minmax(0, 0.96fr)
-        minmax(0, 1.04fr);
-
-    column-gap: 0;
-
-    padding-bottom: 86px;
+    margin-bottom: 82px;
 }
 
 
 /* ==========================================================
-   TRỤC DỌC
-========================================================== */
-
-.ceremony-group::before {
-    content: "";
-
-    position: absolute;
-
-    top: 57px;
-    bottom: 15px;
-
-    left: 50%;
-
-    width: 1px;
-
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(201, 167, 93, 0.68) 7%,
-        rgba(201, 167, 93, 0.68) 93%,
-        transparent
-    );
-
-    transform: translateX(-50%);
-
-    z-index: 0;
-}
-
-
-/* ==========================================================
-   GROUP HEADING
+   GROUP TITLE
 ========================================================== */
 
 .ceremony-group-heading {
-    grid-column: 1 / -1;
-
-    position: relative;
-
     display: flex;
+
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
-
-    margin-bottom: 34px;
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: 13px;
-    font-weight: 400;
-
-    letter-spacing: 0.34em;
-    text-transform: uppercase;
-
-    color: #56715D;
-
-    z-index: 3;
-}
-
-.ceremony-group-heading::before,
-.ceremony-group-heading::after {
-    content: "";
-
-    width: 34px;
-    height: 1px;
-
-    background: linear-gradient(
-        to right,
-        transparent,
-        rgba(201, 167, 93, 0.68)
-    );
-}
-
-.ceremony-group-heading::after {
-    transform: scaleX(-1);
-}
-
-
-/* ==========================================================
-   GROUP ICON
-========================================================== */
-
-.ceremony-group-icon {
-    position: relative;
-
-    display: inline-block;
-
-    width: 22px;
-    height: 20px;
-
-    flex-shrink: 0;
-
-    font-size: 0;
-}
-
-
-/* ----------------------------------------------------------
-   HOA — NHÀ GÁI
----------------------------------------------------------- */
-
-.ceremony-group-bride .ceremony-group-icon::before {
-    content: "";
-
-    position: absolute;
-
-    left: 8px;
-    top: 1px;
-
-    width: 7px;
-    height: 11px;
-
-    border: 1px solid #C9A75D;
-    border-radius: 80% 25% 75% 30%;
-
-    transform: rotate(42deg);
-}
-
-.ceremony-group-bride .ceremony-group-icon::after {
-    content: "";
-
-    position: absolute;
-
-    left: 2px;
-    top: 7px;
-
-    width: 7px;
-    height: 11px;
-
-    border: 1px solid #C9A75D;
-    border-radius: 25% 80% 30% 75%;
-
-    transform: rotate(42deg);
-}
-
-
-/* ----------------------------------------------------------
-   NHẪN — NHÀ TRAI
----------------------------------------------------------- */
-
-.ceremony-group-groom .ceremony-group-icon::before,
-.ceremony-group-groom .ceremony-group-icon::after {
-    content: "";
-
-    position: absolute;
-
-    border: 1px solid #C9A75D;
-    border-radius: 50%;
-
-    box-sizing: border-box;
-}
-
-.ceremony-group-groom .ceremony-group-icon::before {
-    width: 14px;
-    height: 14px;
-
-    left: 1px;
-    top: 5px;
-}
-
-.ceremony-group-groom .ceremony-group-icon::after {
-    width: 11px;
-    height: 11px;
-
-    left: 10px;
-    top: 1px;
-}
-
-
-/* ==========================================================
-   EVENT
-========================================================== */
-
-.ceremony-event {
-    position: relative;
-
-    min-width: 0;
+    margin-bottom: 28px;
 
     text-align: center;
-
-    z-index: 2;
 }
 
 
-/* ==========================================================
-   TIỆC — BÊN TRÁI
-========================================================== */
+/* icon */
 
-.ceremony-party {
-    grid-column: 1;
+.ceremony-group-icon {
+    display: block;
 
-    padding:
-        3px
-        22px
-        0
-        5px;
+    width: 34px;
+    height: 34px;
+
+    margin-bottom: 9px;
+
+    object-fit: contain;
+
+    color: var(--color-accent);
+
+    opacity: 0.95;
 }
 
-.ceremony-party .ceremony-event-title {
-    position: relative;
 
-    display: inline-block;
+/* title */
 
+.ceremony-group-title {
     margin: 0;
 
-    padding: 0 0 13px;
+    color: var(--color-text);
 
     font-family: "Cormorant Garamond", serif;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
-    line-height: 1.08;
 
-    color: #55715C;
+    letter-spacing: 0.16em;
+    line-height: 1.2;
+
+    text-transform: uppercase;
 }
 
 
-/* decorative branch-like line */
+/* small ornament line */
 
-.ceremony-party .ceremony-event-title::after {
+.ceremony-group-ornament {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 128px;
+    height: 14px;
+
+    margin-top: 10px;
+}
+
+.ceremony-group-ornament::before,
+.ceremony-group-ornament::after {
     content: "";
 
-    position: absolute;
-
-    left: 50%;
-    bottom: 0;
-
-    width: 62px;
+    width: 43px;
     height: 1px;
 
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(201, 167, 93, 0.72),
-            transparent
-        );
+    background: rgba(216, 190, 132, 0.5);
+}
 
-    transform: translateX(-50%);
+.ceremony-group-ornament::after {
+    margin-left: 6px;
+}
+
+.ceremony-group-ornament::before {
+    margin-right: 6px;
+}
+
+.ceremony-group-ornament img {
+    width: 12px;
+    height: 12px;
+
+    object-fit: contain;
+
+    color: var(--color-accent);
 }
 
 
 /* ==========================================================
-   DETAILS
+   MAIN GROUP LAYOUT
 ========================================================== */
 
-.ceremony-details {
-    display: flex;
-    flex-direction: column;
-
-    gap: 17px;
-
-    margin-top: 21px;
-
-    text-align: left;
-}
-
-.ceremony-detail {
+.ceremony-content {
     display: grid;
 
-    grid-template-columns: 25px minmax(0, 1fr);
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(132px, 0.78fr);
 
-    column-gap: 7px;
+    gap: 15px;
 
-    align-items: start;
+    align-items: stretch;
 
     width: 100%;
 }
 
-.ceremony-detail-icon {
-    position: relative;
+
+/* ==========================================================
+   PARTY INFORMATION — LEFT
+========================================================== */
+
+.ceremony-party {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    padding: 4px 0 0;
+}
+
+
+/* party title */
+
+.ceremony-party-title {
+    margin: 0 0 18px;
+
+    color: var(--color-primary);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    font-weight: 600;
+
+    line-height: 1.25;
+}
+
+
+/* ----------------------------------------------------------
+   Detail row
+---------------------------------------------------------- */
+
+.ceremony-detail {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin-bottom: 13px;
+
+    min-width: 0;
+}
+
+
+/* icon wrapper */
+
+.ceremony-detail-icon-wrap {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 20px;
 
     width: 20px;
     height: 20px;
 
     margin-top: 1px;
-
-    color: #C49A45;
 }
 
 
-/* ==========================================================
-   ICON — CLOCK
-========================================================== */
+/* actual SVG */
 
-.ceremony-icon-time::before {
-    content: "";
+.ceremony-detail-icon {
+    display: block;
 
-    position: absolute;
+    width: 18px;
+    height: 18px;
 
-    width: 15px;
-    height: 15px;
+    object-fit: contain;
 
-    left: 2px;
-    top: 1px;
-
-    border: 1px solid #C49A45;
-    border-radius: 50%;
-}
-
-.ceremony-icon-time::after {
-    content: "";
-
-    position: absolute;
-
-    width: 1px;
-    height: 5px;
-
-    left: 9px;
-    top: 5px;
-
-    background: #C49A45;
-
-    box-shadow:
-        3px 4px 0 -0.2px #C49A45;
+    color: var(--color-accent);
 }
 
 
-/* ==========================================================
-   ICON — CALENDAR
-========================================================== */
-
-.ceremony-icon-date::before {
-    content: "";
-
-    position: absolute;
-
-    left: 2px;
-    top: 4px;
-
-    width: 15px;
-    height: 13px;
-
-    border: 1px solid #C49A45;
-    border-radius: 2px;
-}
-
-.ceremony-icon-date::after {
-    content: "";
-
-    position: absolute;
-
-    left: 5px;
-    top: 1px;
-
-    width: 2px;
-    height: 5px;
-
-    background: #C49A45;
-
-    box-shadow:
-        7px 0 0 #C49A45,
-        0 7px 0 -0.5px #C49A45,
-        4px 7px 0 -0.5px #C49A45,
-        8px 7px 0 -0.5px #C49A75;
-}
-
-
-/* ==========================================================
-   ICON — LUNAR
-========================================================== */
-
-.ceremony-icon-lunar::before {
-    content: "";
-
-    position: absolute;
-
-    left: 4px;
-    top: 2px;
-
-    width: 13px;
-    height: 16px;
-
-    border: 1px solid #C49A45;
-    border-radius: 50%;
-
-    transform: rotate(-25deg);
-}
-
-.ceremony-icon-lunar::after {
-    content: "";
-
-    position: absolute;
-
-    left: 9px;
-    top: 0;
-
-    width: 11px;
-    height: 17px;
-
-    background: var(--color-secondary);
-
-    border-radius: 50%;
-}
-
-
-/* ==========================================================
-   TEXT
-========================================================== */
+/* text */
 
 .ceremony-detail-content {
     min-width: 0;
@@ -2474,386 +2258,376 @@ section{
 
     margin-bottom: 2px;
 
+    color: rgba(74, 74, 74, 0.62);
+
     font-family: "Cormorant Garamond", serif;
-    font-size: 9px;
-    font-weight: 400;
+    font-size: 13px;
+    font-weight: 500;
 
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    line-height: 1.2;
 
-    color: #738075;
+    letter-spacing: 0.04em;
 }
 
 .ceremony-detail-value {
     display: block;
 
-    font-family: "Cormorant Garamond", serif;
-    font-size: 15px;
-    line-height: 1.25;
+    color: var(--color-text);
 
-    color: #4F5D53;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 16px;
+    font-weight: 500;
+
+    line-height: 1.35;
+
+    word-break: normal;
 }
 
 
 /* ==========================================================
-   PARTY LOCATION
+   LOCATION
 ========================================================== */
 
 .ceremony-location {
-    margin-top: 19px;
+    margin-top: 12px;
+
     padding-top: 17px;
 
-    border-top: 1px dashed rgba(201, 167, 93, 0.60);
-
-    text-align: left;
-}
-
-.ceremony-location-content {
-    position: relative;
-
-    padding-left: 32px;
-}
-
-.ceremony-location-icon {
-    position: absolute;
-
-    left: 2px;
-    top: 1px;
-
-    width: 20px;
-    height: 20px;
+    border-top: 1px solid rgba(216, 190, 132, 0.32);
 }
 
 
-/* location pin */
+.ceremony-location-title {
+    margin: 0 0 7px;
 
-.ceremony-icon-location::before {
-    content: "";
-
-    position: absolute;
-
-    left: 3px;
-    top: 1px;
-
-    width: 13px;
-    height: 16px;
-
-    border: 1px solid #C49A45;
-    border-radius: 50% 50% 50% 0;
-
-    transform: rotate(-45deg);
-}
-
-.ceremony-icon-location::after {
-    content: "";
-
-    position: absolute;
-
-    left: 8px;
-    top: 6px;
-
-    width: 4px;
-    height: 4px;
-
-    border: 1px solid #C49A45;
-    border-radius: 50%;
-}
-
-
-.ceremony-location-label {
-    display: block;
-
-    margin-bottom: 5px;
+    color: var(--color-primary);
 
     font-family: "Cormorant Garamond", serif;
-    font-size: 9px;
+    font-size: 17px;
+    font-weight: 600;
+
+    line-height: 1.25;
+}
+
+
+.ceremony-location-address {
+    margin: 0 0 13px;
+
+    color: var(--color-text);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 15px;
     font-weight: 400;
 
-    letter-spacing: 0.19em;
-    text-transform: uppercase;
-
-    color: #B08D49;
-}
-
-.ceremony-address {
-    display: block;
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: 14px;
-    line-height: 1.32;
-
-    color: #4F5D53;
+    line-height: 1.45;
 }
 
 
 /* ==========================================================
-   GOOGLE MAPS — XANH RÕ HƠN
+   GOOGLE MAPS BUTTON
 ========================================================== */
 
-.ceremony-map {
+.ceremony-map-button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 7px;
 
-    margin-top: 14px;
+    min-height: 34px;
 
-    padding: 9px 15px;
+    padding: 7px 13px;
 
-    border: 1px solid #78947D;
+    box-sizing: border-box;
+
+    border: 1px solid rgba(109, 140, 107, 0.75);
     border-radius: 999px;
 
-    background: #DCE7DD;
+    background: var(--color-primary);
 
-    box-shadow:
-        0 5px 16px rgba(77, 106, 84, 0.13);
+    color: #ffffff;
 
     font-family: "Cormorant Garamond", serif;
-    font-size: 8px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 500;
 
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
+    line-height: 1;
+
     text-decoration: none;
 
-    color: #496653;
+    letter-spacing: 0.03em;
 
     transition:
         background 0.25s ease,
         transform 0.25s ease;
 }
 
-.ceremony-map:hover {
-    background: #CBDDCF;
+.ceremony-map-button:hover {
+    background: #5f805d;
+}
 
-    transform: translateY(-1px);
+.ceremony-map-button:active {
+    transform: translateY(1px);
 }
 
 
-/* map crosshair */
+/* map SVG */
 
-.ceremony-map-icon {
-    position: relative;
+.ceremony-map-button img {
+    width: 15px;
+    height: 15px;
 
-    width: 10px;
-    height: 10px;
-}
+    object-fit: contain;
 
-.ceremony-map-icon::before,
-.ceremony-map-icon::after {
-    content: "";
-
-    position: absolute;
-
-    background: #52705B;
-}
-
-.ceremony-map-icon::before {
-    left: 4px;
-    top: 0;
-
-    width: 1px;
-    height: 10px;
-}
-
-.ceremony-map-icon::after {
-    left: 0;
-    top: 4px;
-
-    width: 10px;
-    height: 1px;
+    color: #ffffff;
 }
 
 
 /* ==========================================================
-   LỄ — CARD BÊN PHẢI
+   CEREMONY CARD — RIGHT
 ========================================================== */
 
-.ceremony-ritual {
-    grid-column: 2;
-
-    align-self: start;
-
+.ceremony-ritual-card {
     position: relative;
 
-    margin-top: -12px;
+    display: flex;
 
-    min-height: 330px;
+    flex-direction: column;
 
-    padding:
-        42px
-        16px
-        30px;
+    justify-content: center;
 
-    border:
-        1px solid
-        rgba(103, 132, 110, 0.27);
+    min-width: 0;
 
-    border-radius: 19px;
+    min-height: 245px;
 
+    padding: 25px 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(216, 190, 132, 0.68);
+    border-radius: 28px;
+
+    /*
+       Kem + ánh xanh rất nhẹ.
+       Không dùng xanh đặc vì card lễ cần nhẹ hơn
+       phần Map.
+    */
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,0.92),
-            rgba(231,239,232,0.78)
+            rgba(255, 255, 255, 0.96),
+            rgba(236, 241, 232, 0.72)
         );
 
     box-shadow:
-        0 12px 32px rgba(77, 101, 82, 0.11),
-        inset 0 0 0 1px
-        rgba(255,255,255,0.62);
+        0 10px 30px rgba(109, 140, 107, 0.08);
 
-    box-sizing: border-box;
+    overflow: hidden;
 }
 
 
-/* inner frame */
+/* subtle inner border */
 
-.ceremony-ritual::before {
+.ceremony-ritual-card::before {
     content: "";
 
     position: absolute;
 
-    inset: 9px;
+    inset: 6px;
 
-    border: 1px solid
-        rgba(201, 167, 93, 0.30);
-
-    border-radius: 13px;
+    border: 1px solid rgba(216, 190, 132, 0.18);
+    border-radius: 23px;
 
     pointer-events: none;
 }
 
 
-/* top ornament */
+/* ----------------------------------------------------------
+   Card ornament
+---------------------------------------------------------- */
 
-.ceremony-ritual::after {
-    content: "✦";
+.ceremony-card-ornament {
+    position: relative;
 
-    position: absolute;
+    display: flex;
 
-    top: 17px;
-    left: 50%;
+    align-items: center;
+    justify-content: center;
 
-    font-family: serif;
-    font-size: 12px;
-    line-height: 1;
+    width: 100%;
 
-    color: #C49A45;
+    margin-bottom: 12px;
+}
 
-    transform: translateX(-50%);
+.ceremony-card-ornament img {
+    width: 15px;
+    height: 15px;
+
+    object-fit: contain;
+
+    color: var(--color-accent);
+}
+
+
+/* ----------------------------------------------------------
+   Card title
+---------------------------------------------------------- */
+
+.ceremony-ritual-title {
+    position: relative;
+
+    margin: 0 0 22px;
+
+    color: var(--color-primary);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 19px;
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    text-align: center;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* ----------------------------------------------------------
+   Card details
+---------------------------------------------------------- */
+
+.ceremony-ritual-details {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.ceremony-ritual-detail {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    min-width: 0;
+}
+
+
+.ceremony-ritual-detail img {
+    flex: 0 0 auto;
+
+    width: 16px;
+    height: 16px;
+
+    margin-top: 1px;
+
+    object-fit: contain;
+
+    color: var(--color-accent);
+}
+
+
+.ceremony-ritual-detail-text {
+    min-width: 0;
+
+    color: var(--color-text);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.35;
 }
 
 
 /* ==========================================================
-   RITUAL TITLE
+   CENTER DIVIDER BETWEEN BRIDE / GROOM
 ========================================================== */
 
-.ceremony-ritual-title {
-    display: block;
+.ceremony-center-divider {
+    display: flex;
 
-    position: relative;
+    align-items: center;
+    justify-content: center;
 
-    margin: 0;
+    width: 100%;
 
-    font-family: "Cormorant Garamond", serif;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 1.12;
+    height: 42px;
 
-    color: #4F6C57;
-
-    z-index: 2;
+    margin: 2px 0 42px;
 }
 
 
-/* divider dưới title */
+/* vertical line */
 
-.ceremony-ritual-title::after {
+.ceremony-center-divider::before {
     content: "";
 
-    display: block;
+    position: absolute;
 
-    width: 45px;
-    height: 1px;
-
-    margin: 13px auto 0;
+    width: 1px;
+    height: 28px;
 
     background: linear-gradient(
-        to right,
+        to bottom,
         transparent,
-        rgba(201, 167, 93, 0.75),
+        rgba(216, 190, 132, 0.75),
         transparent
     );
 }
 
 
-/* details trong card */
+/* star */
 
-.ceremony-ritual .ceremony-details {
-    margin-top: 22px;
+.ceremony-center-divider img {
+    position: relative;
 
-    gap: 18px;
-}
+    width: 13px;
+    height: 13px;
 
-.ceremony-ritual .ceremony-detail {
-    grid-template-columns: 22px minmax(0, 1fr);
+    padding: 5px;
 
-    column-gap: 5px;
-}
+    box-sizing: content-box;
 
-.ceremony-ritual .ceremony-detail-content {
-    text-align: left;
-}
+    background: var(--color-secondary);
 
-.ceremony-ritual .ceremony-detail-label {
-    font-size: 8px;
-}
+    object-fit: contain;
 
-.ceremony-ritual .ceremony-detail-value {
-    font-size: 14px;
+    color: var(--color-accent);
+
+    z-index: 2;
 }
 
 
 /* ==========================================================
-   GROUP TRANSITION
+   SECOND GROUP
 ========================================================== */
 
-.ceremony-group-bride {
-    padding-bottom: 90px;
+.ceremony-group:last-child {
+    margin-bottom: 0;
 }
 
-.ceremony-group-bride::after {
-    content: "";
 
+/* ==========================================================
+   DECORATIVE SVG SUPPORT
+   Dùng cho ornament nhỏ khi cần.
+   Không dùng để tạo background hoa lớn.
+========================================================== */
+
+.ceremony-decoration {
     position: absolute;
 
-    left: 50%;
-    bottom: 0;
+    pointer-events: none;
 
-    width: 9px;
-    height: 9px;
+    object-fit: contain;
 
-    background: #C9A75D;
-
-    transform:
-        translate(-50%, 50%)
-        rotate(45deg);
-
-    box-shadow:
-        0 0 0 7px var(--color-secondary);
-
-    z-index: 5;
-}
-
-
-/* line ngang tại điểm chuyển */
-
-.ceremony-group-bride::after {
-    box-shadow:
-        0 0 0 7px var(--color-secondary),
-        -27px 3px 0 -3px rgba(201,167,93,0.50),
-         27px 3px 0 -3px rgba(201,167,93,0.50);
+    opacity: 0.55;
 }
 
 
@@ -2864,63 +2638,85 @@ section{
 @media (max-width: 380px) {
 
     #ceremony {
-        padding:
-            64px
-            10px
-            82px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
-    .ceremony-heading {
-        margin-bottom: 46px;
+    .ceremony-content {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(126px, 0.76fr);
+
+        gap: 12px;
     }
 
-    .ceremony-heading h2 {
-        font-size: 35px;
+    .ceremony-party-title {
+        font-size: 19px;
     }
 
-    .ceremony-group-heading {
-        font-size: 11px;
-        letter-spacing: 0.28em;
+    .ceremony-detail {
+        gap: 7px;
     }
 
-    .ceremony-party {
-        padding-right: 17px;
+    .ceremony-detail-icon-wrap {
+        flex-basis: 18px;
+
+        width: 18px;
     }
 
-    .ceremony-party .ceremony-event-title {
-        font-size: 22px;
+    .ceremony-detail-icon {
+        width: 16px;
+        height: 16px;
     }
 
     .ceremony-detail-value {
-        font-size: 13px;
+        font-size: 15px;
     }
 
-    .ceremony-detail-label {
-        font-size: 8px;
-    }
+    .ceremony-ritual-card {
+        min-height: 230px;
 
-    .ceremony-ritual {
-        min-height: 310px;
+        padding-left: 12px;
+        padding-right: 12px;
 
-        padding:
-            39px
-            12px
-            26px;
+        border-radius: 25px;
     }
 
     .ceremony-ritual-title {
-        font-size: 21px;
+        font-size: 18px;
     }
 
-    .ceremony-ritual .ceremony-detail-value {
+    .ceremony-ritual-detail-text {
         font-size: 13px;
     }
 
-    .ceremony-map {
-        padding:
-            8px
-            11px;
+}
 
-        font-size: 7px;
+
+/* ==========================================================
+   TABLET / LARGE MOBILE
+========================================================== */
+
+@media (min-width: 480px) {
+
+    #ceremony {
+        padding-left: 28px;
+        padding-right: 28px;
     }
+
+    .ceremony-content {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(150px, 0.78fr);
+
+        gap: 20px;
+    }
+
+    .ceremony-ritual-card {
+        min-height: 265px;
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
 }
