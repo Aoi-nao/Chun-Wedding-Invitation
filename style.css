@@ -2380,6 +2380,52 @@ section{
 
 
 /* ==========================================================
+   CARD DECORATIVE SVG
+========================================================== */
+
+.ceremony-card-decoration {
+    position: absolute;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    object-fit: contain;
+
+    opacity: 0.72;
+}
+
+
+/* nhánh nhỏ — góc trên */
+
+.ceremony-card-decoration-top {
+    top: 17px;
+    right: 13px;
+
+    width: 58px;
+    height: auto;
+
+    transform: rotate(8deg);
+
+    transform-origin: center;
+}
+
+
+/* nụ — góc dưới đối xứng */
+
+.ceremony-card-decoration-bottom {
+    bottom: 18px;
+    left: 13px;
+
+    width: 31px;
+    height: auto;
+
+    transform: rotate(-18deg);
+
+    opacity: 0.62;
+}
+
+/* ==========================================================
    INNER BORDER
 ========================================================== */
 
@@ -2459,6 +2505,8 @@ section{
     font-size: 19px;
     font-weight: 600;
 
+    z-index: 2;
+   
     line-height: 1.25;
 
     text-align: center;
@@ -2479,6 +2527,9 @@ section{
     flex-direction: column;
 
     gap: 16px;
+
+    z-index: 2;
+   
 }
 
 .ceremony-ritual-detail {
