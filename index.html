@@ -325,271 +325,306 @@
 
 <section id="ceremony">
 
-    <div class="ceremony-content">
+    <!-- ======================================================
+         HEADER
+    ======================================================= -->
+
+    <header class="ceremony-heading">
+
+        <p class="ceremony-eyebrow">
+            THE WEDDING DAY
+        </p>
+
+        <h2>
+            Thông tin lễ cưới
+        </h2>
+
+        <div class="ceremony-divider" aria-hidden="true">
+
+            <span></span>
+
+            <img
+                src="assets/icons/ceremony/four-point-star.svg"
+                alt=""
+            >
+
+            <span></span>
+
+        </div>
+
+    </header>
+
+
+    <!-- ======================================================
+         NHÀ GÁI
+    ======================================================= -->
+
+    <div class="ceremony-group ceremony-group-bride">
+
 
         <!-- ==================================================
-             HEADER
+             GROUP TITLE
         =================================================== -->
 
-        <header class="ceremony-heading">
+        <div class="ceremony-group-heading">
 
-            <p class="ceremony-eyebrow">
-                THE WEDDING DAY
-            </p>
+            <img
+                src="assets/icons/ceremony/bride-flower.svg"
+                class="ceremony-group-icon"
+                alt=""
+                aria-hidden="true"
+            >
 
-            <h2>
-                Thông tin lễ cưới
-            </h2>
+            <span class="ceremony-group-title">
+                NHÀ GÁI
+            </span>
 
-            <div class="ceremony-divider" aria-hidden="true">
+            <div
+                class="ceremony-group-ornament"
+                aria-hidden="true">
+
                 <span></span>
+
+                <img
+                    src="assets/icons/ceremony/four-point-star.svg"
+                    alt=""
+                >
+
+                <span></span>
+
             </div>
 
-        </header>
+        </div>
 
 
         <!-- ==================================================
-             NHÀ GÁI
+             CONTENT
         =================================================== -->
 
-        <div class="ceremony-group ceremony-group-bride">
-
-            <!-- GROUP TITLE -->
-
-            <div class="ceremony-group-heading">
-
-                <span
-                    class="ceremony-group-icon"
-                    aria-hidden="true">
-                </span>
-
-                <span>NHÀ GÁI</span>
-
-            </div>
+        <div class="ceremony-content">
 
 
-            <!-- =================================================
+            <!-- ==============================================
                  TIỆC NHÀ GÁI
-            ================================================== -->
+            =============================================== -->
 
-            <article class="ceremony-event ceremony-party">
+            <article class="ceremony-party ceremony-event">
 
-                <h3 class="ceremony-event-title">
+                <h3 class="ceremony-party-title">
                     Tiệc cưới nhà gái
                 </h3>
 
 
-                <div class="ceremony-details">
+                <!-- GIỜ -->
 
-                    <!-- GIỜ -->
+                <div class="ceremony-detail">
 
-                    <div class="ceremony-detail">
+                    <div class="ceremony-detail-icon-wrap">
 
-                        <span
-                            class="ceremony-detail-icon ceremony-icon-time"
-                            aria-hidden="true">
-                        </span>
-
-                        <div class="ceremony-detail-content">
-
-                            <span class="ceremony-detail-label">
-                                Vào lúc
-                            </span>
-
-                            <span
-                                class="ceremony-detail-value"
-                                data-ceremony="brideParty.time">
-                            </span>
-
-                        </div>
+                        <img
+                            src="assets/icons/ceremony/time.svg"
+                            class="ceremony-detail-icon"
+                            alt=""
+                            aria-hidden="true"
+                        >
 
                     </div>
 
+                    <div class="ceremony-detail-content">
 
-                    <!-- NGÀY -->
-
-                    <div class="ceremony-detail">
-
-                        <span
-                            class="ceremony-detail-icon ceremony-icon-date"
-                            aria-hidden="true">
+                        <span class="ceremony-detail-label">
+                            Vào lúc
                         </span>
 
-                        <div class="ceremony-detail-content">
-
-                            <span class="ceremony-detail-label">
-                                Thứ ngày tháng
-                            </span>
-
-                            <span
-                                class="ceremony-detail-value"
-                                data-ceremony="brideParty.date">
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ÂM LỊCH -->
-
-                    <div class="ceremony-detail">
-
                         <span
-                            class="ceremony-detail-icon ceremony-icon-lunar"
-                            aria-hidden="true">
+                            class="ceremony-detail-value"
+                            data-ceremony="brideParty.time">
                         </span>
-
-                        <div class="ceremony-detail-content">
-
-                            <span class="ceremony-detail-label">
-                                Âm lịch
-                            </span>
-
-                            <span
-                                class="ceremony-detail-value"
-                                data-ceremony="brideParty.lunar">
-                            </span>
-
-                        </div>
 
                     </div>
 
                 </div>
 
 
-                <!-- ĐỊA ĐIỂM -->
+                <!-- NGÀY -->
+
+                <div class="ceremony-detail">
+
+                    <div class="ceremony-detail-icon-wrap">
+
+                        <img
+                            src="assets/icons/ceremony/calendar.svg"
+                            class="ceremony-detail-icon"
+                            alt=""
+                            aria-hidden="true"
+                        >
+
+                    </div>
+
+                    <div class="ceremony-detail-content">
+
+                        <span class="ceremony-detail-label">
+                            Thứ ngày tháng
+                        </span>
+
+                        <span
+                            class="ceremony-detail-value"
+                            data-ceremony="brideParty.date">
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ÂM LỊCH -->
+
+                <div class="ceremony-detail">
+
+                    <div class="ceremony-detail-icon-wrap">
+
+                        <img
+                            src="assets/icons/ceremony/lunar.svg"
+                            class="ceremony-detail-icon"
+                            alt=""
+                            aria-hidden="true"
+                        >
+
+                    </div>
+
+                    <div class="ceremony-detail-content">
+
+                        <span class="ceremony-detail-label">
+                            Âm lịch
+                        </span>
+
+                        <span
+                            class="ceremony-detail-value"
+                            data-ceremony="brideParty.lunar">
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==========================================
+                     ĐỊA ĐIỂM NHÀ GÁI
+                =========================================== -->
 
                 <div class="ceremony-location">
 
-                    <div class="ceremony-location-content">
-
-                        <span
-                            class="ceremony-location-icon ceremony-icon-location"
-                            aria-hidden="true">
-                        </span>
-
-                        <span class="ceremony-location-label">
-                            Địa điểm
-                        </span>
-
-                        <span
-                            class="ceremony-address"
-                            data-ceremony="brideParty.address">
-                        </span>
-
-
-                        <!-- GOOGLE MAPS -->
-
-                        <a
-                            class="ceremony-map"
-                            data-ceremony-map="brideParty.map"
-                            href="#"
-                            target="_blank"
-                            rel="noopener noreferrer">
-
-                            <span
-                                class="ceremony-map-icon"
-                                aria-hidden="true">
-                            </span>
-
-                            <span>
-                                Xem Google Maps
-                            </span>
-
-                        </a>
-
+                    <div class="ceremony-location-title">
+                        Địa điểm
                     </div>
+
+                    <p
+                        class="ceremony-location-address"
+                        data-ceremony="brideParty.address">
+                    </p>
+
+
+                    <!-- GOOGLE MAPS -->
+
+                    <a
+                        class="ceremony-map-button"
+                        data-ceremony-map="brideParty.map"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <img
+                            src="assets/icons/ceremony/maps.svg"
+                            alt=""
+                            aria-hidden="true"
+                        >
+
+                        <span>
+                            Xem Google Maps
+                        </span>
+
+                    </a>
 
                 </div>
 
             </article>
 
 
-            <!-- =================================================
+            <!-- ==============================================
                  LỄ VU QUY
-            ================================================== -->
+            =============================================== -->
 
-            <article class="ceremony-event ceremony-ritual">
+            <article class="ceremony-ritual-card">
+
+                <div
+                    class="ceremony-card-ornament"
+                    aria-hidden="true">
+
+                    <img
+                        src="assets/icons/ceremony/four-point-star.svg"
+                        alt=""
+                    >
+
+                </div>
 
                 <h3 class="ceremony-ritual-title">
                     Lễ Vu Quy
                 </h3>
 
 
-                <div class="ceremony-details">
+                <div class="ceremony-ritual-details">
+
 
                     <!-- GIỜ -->
 
-                    <div class="ceremony-detail">
+                    <div class="ceremony-ritual-detail">
+
+                        <img
+                            src="assets/icons/ceremony/time.svg"
+                            alt=""
+                            aria-hidden="true"
+                        >
 
                         <span
-                            class="ceremony-detail-icon ceremony-icon-time"
-                            aria-hidden="true">
+                            class="ceremony-ritual-detail-text"
+                            data-ceremony="brideCeremony.time">
                         </span>
-
-                        <div class="ceremony-detail-content">
-
-                            <span class="ceremony-detail-label">
-                                Vào lúc
-                            </span>
-
-                            <span
-                                class="ceremony-detail-value"
-                                data-ceremony="brideCeremony.time">
-                            </span>
-
-                        </div>
 
                     </div>
 
 
                     <!-- NGÀY -->
 
-                    <div class="ceremony-detail">
+                    <div class="ceremony-ritual-detail">
+
+                        <img
+                            src="assets/icons/ceremony/calendar.svg"
+                            alt=""
+                            aria-hidden="true"
+                        >
 
                         <span
-                            class="ceremony-detail-icon ceremony-icon-date"
-                            aria-hidden="true">
+                            class="ceremony-ritual-detail-text"
+                            data-ceremony="brideCeremony.date">
                         </span>
-
-                        <div class="ceremony-detail-content">
-
-                            <span class="ceremony-detail-label">
-                                Thứ ngày tháng
-                            </span>
-
-                            <span
-                                class="ceremony-detail-value"
-                                data-ceremony="brideCeremony.date">
-                            </span>
-
-                        </div>
 
                     </div>
 
 
                     <!-- ÂM LỊCH -->
 
-                    <div class="ceremony-detail">
+                    <div class="ceremony-ritual-detail">
+
+                        <img
+                            src="assets/icons/ceremony/lunar.svg"
+                            alt=""
+                            aria-hidden="true"
+                        >
 
                         <span
-                            class="ceremony-detail-icon ceremony-icon-lunar"
-                            aria-hidden="true">
+                            class="ceremony-ritual-detail-text"
+                            data-ceremony="brideCeremony.lunar">
                         </span>
-
-                        <div class="ceremony-detail-content">
-
-                            <span class="ceremony-detail-label">
-                                Âm lịch
-                            </span>
-
-                            <span
-                                class="ceremony-detail-value"
-                                data-ceremony="brideCeremony.lunar">
-                            </span>
-
-                        </div>
 
                     </div>
 
@@ -599,249 +634,295 @@
 
         </div>
 
+    </div>
+
+
+    <!-- ======================================================
+         CENTER DIVIDER
+    ======================================================= -->
+
+    <div
+        class="ceremony-center-divider"
+        aria-hidden="true">
+
+        <img
+            src="assets/icons/ceremony/four-point-star.svg"
+            alt=""
+        >
+
+    </div>
+
+
+    <!-- ======================================================
+         NHÀ TRAI
+    ======================================================= -->
+
+    <div class="ceremony-group ceremony-group-groom">
+
 
         <!-- ==================================================
-             NHÀ TRAI
+             GROUP TITLE
         =================================================== -->
 
-        <div class="ceremony-group ceremony-group-groom">
+        <div class="ceremony-group-heading">
 
-            <!-- GROUP TITLE -->
+            <img
+                src="assets/icons/ceremony/groom-rings.svg"
+                class="ceremony-group-icon"
+                alt=""
+                aria-hidden="true"
+            >
 
-            <div class="ceremony-group-heading">
+            <span class="ceremony-group-title">
+                NHÀ TRAI
+            </span>
 
-                <span
-                    class="ceremony-group-icon"
-                    aria-hidden="true">
-                </span>
+            <div
+                class="ceremony-group-ornament"
+                aria-hidden="true">
 
-                <span>NHÀ TRAI</span>
+                <span></span>
+
+                <img
+                    src="assets/icons/ceremony/four-point-star.svg"
+                    alt=""
+                >
+
+                <span></span>
 
             </div>
 
+        </div>
 
-            <!-- =================================================
+
+        <!-- ==================================================
+             CONTENT
+        =================================================== -->
+
+        <div class="ceremony-content">
+
+
+            <!-- ==============================================
                  TIỆC NHÀ TRAI
-            ================================================== -->
+            =============================================== -->
 
-            <article class="ceremony-event ceremony-party">
+            <article class="ceremony-party ceremony-event">
 
-                <h3 class="ceremony-event-title">
+                <h3 class="ceremony-party-title">
                     Tiệc cưới nhà trai
                 </h3>
 
 
-                <div class="ceremony-details">
+                <!-- GIỜ -->
 
-                    <!-- GIỜ -->
+                <div class="ceremony-detail">
 
-                    <div class="ceremony-detail">
+                    <div class="ceremony-detail-icon-wrap">
 
-                        <span
-                            class="ceremony-detail-icon ceremony-icon-time"
-                            aria-hidden="true">
-                        </span>
-
-                        <div class="ceremony-detail-content">
-
-                            <span class="ceremony-detail-label">
-                                Vào lúc
-                            </span>
-
-                            <span
-                                class="ceremony-detail-value"
-                                data-ceremony="groomParty.time">
-                            </span>
-
-                        </div>
+                        <img
+                            src="assets/icons/ceremony/time.svg"
+                            class="ceremony-detail-icon"
+                            alt=""
+                            aria-hidden="true"
+                        >
 
                     </div>
 
+                    <div class="ceremony-detail-content">
 
-                    <!-- NGÀY -->
-
-                    <div class="ceremony-detail">
-
-                        <span
-                            class="ceremony-detail-icon ceremony-icon-date"
-                            aria-hidden="true">
+                        <span class="ceremony-detail-label">
+                            Vào lúc
                         </span>
 
-                        <div class="ceremony-detail-content">
-
-                            <span class="ceremony-detail-label">
-                                Thứ ngày tháng
-                            </span>
-
-                            <span
-                                class="ceremony-detail-value"
-                                data-ceremony="groomParty.date">
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ÂM LỊCH -->
-
-                    <div class="ceremony-detail">
-
                         <span
-                            class="ceremony-detail-icon ceremony-icon-lunar"
-                            aria-hidden="true">
+                            class="ceremony-detail-value"
+                            data-ceremony="groomParty.time">
                         </span>
-
-                        <div class="ceremony-detail-content">
-
-                            <span class="ceremony-detail-label">
-                                Âm lịch
-                            </span>
-
-                            <span
-                                class="ceremony-detail-value"
-                                data-ceremony="groomParty.lunar">
-                            </span>
-
-                        </div>
 
                     </div>
 
                 </div>
 
 
-                <!-- ĐỊA ĐIỂM -->
+                <!-- NGÀY -->
+
+                <div class="ceremony-detail">
+
+                    <div class="ceremony-detail-icon-wrap">
+
+                        <img
+                            src="assets/icons/ceremony/calendar.svg"
+                            class="ceremony-detail-icon"
+                            alt=""
+                            aria-hidden="true"
+                        >
+
+                    </div>
+
+                    <div class="ceremony-detail-content">
+
+                        <span class="ceremony-detail-label">
+                            Thứ ngày tháng
+                        </span>
+
+                        <span
+                            class="ceremony-detail-value"
+                            data-ceremony="groomParty.date">
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ÂM LỊCH -->
+
+                <div class="ceremony-detail">
+
+                    <div class="ceremony-detail-icon-wrap">
+
+                        <img
+                            src="assets/icons/ceremony/lunar.svg"
+                            class="ceremony-detail-icon"
+                            alt=""
+                            aria-hidden="true"
+                        >
+
+                    </div>
+
+                    <div class="ceremony-detail-content">
+
+                        <span class="ceremony-detail-label">
+                            Âm lịch
+                        </span>
+
+                        <span
+                            class="ceremony-detail-value"
+                            data-ceremony="groomParty.lunar">
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==========================================
+                     ĐỊA ĐIỂM NHÀ TRAI
+                =========================================== -->
 
                 <div class="ceremony-location">
 
-                    <div class="ceremony-location-content">
-
-                        <span
-                            class="ceremony-location-icon ceremony-icon-location"
-                            aria-hidden="true">
-                        </span>
-
-                        <span class="ceremony-location-label">
-                            Địa điểm
-                        </span>
-
-                        <span
-                            class="ceremony-address"
-                            data-ceremony="groomParty.address">
-                        </span>
-
-
-                        <!-- GOOGLE MAPS -->
-
-                        <a
-                            class="ceremony-map"
-                            data-ceremony-map="groomParty.map"
-                            href="#"
-                            target="_blank"
-                            rel="noopener noreferrer">
-
-                            <span
-                                class="ceremony-map-icon"
-                                aria-hidden="true">
-                            </span>
-
-                            <span>
-                                Xem Google Maps
-                            </span>
-
-                        </a>
-
+                    <div class="ceremony-location-title">
+                        Địa điểm
                     </div>
+
+                    <p
+                        class="ceremony-location-address"
+                        data-ceremony="groomParty.address">
+                    </p>
+
+
+                    <!-- GOOGLE MAPS -->
+
+                    <a
+                        class="ceremony-map-button"
+                        data-ceremony-map="groomParty.map"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <img
+                            src="assets/icons/ceremony/maps.svg"
+                            alt=""
+                            aria-hidden="true"
+                        >
+
+                        <span>
+                            Xem Google Maps
+                        </span>
+
+                    </a>
 
                 </div>
 
             </article>
 
 
-            <!-- =================================================
+            <!-- ==============================================
                  LỄ THÀNH HÔN
-            ================================================== -->
+            =============================================== -->
 
-            <article class="ceremony-event ceremony-ritual">
+            <article class="ceremony-ritual-card">
+
+                <div
+                    class="ceremony-card-ornament"
+                    aria-hidden="true">
+
+                    <img
+                        src="assets/icons/ceremony/four-point-star.svg"
+                        alt=""
+                    >
+
+                </div>
 
                 <h3 class="ceremony-ritual-title">
                     Lễ Thành Hôn
                 </h3>
 
 
-                <div class="ceremony-details">
+                <div class="ceremony-ritual-details">
+
 
                     <!-- GIỜ -->
 
-                    <div class="ceremony-detail">
+                    <div class="ceremony-ritual-detail">
+
+                        <img
+                            src="assets/icons/ceremony/time.svg"
+                            alt=""
+                            aria-hidden="true"
+                        >
 
                         <span
-                            class="ceremony-detail-icon ceremony-icon-time"
-                            aria-hidden="true">
+                            class="ceremony-ritual-detail-text"
+                            data-ceremony="groomCeremony.time">
                         </span>
-
-                        <div class="ceremony-detail-content">
-
-                            <span class="ceremony-detail-label">
-                                Vào lúc
-                            </span>
-
-                            <span
-                                class="ceremony-detail-value"
-                                data-ceremony="groomCeremony.time">
-                            </span>
-
-                        </div>
 
                     </div>
 
 
                     <!-- NGÀY -->
 
-                    <div class="ceremony-detail">
+                    <div class="ceremony-ritual-detail">
+
+                        <img
+                            src="assets/icons/ceremony/calendar.svg"
+                            alt=""
+                            aria-hidden="true"
+                        >
 
                         <span
-                            class="ceremony-detail-icon ceremony-icon-date"
-                            aria-hidden="true">
+                            class="ceremony-ritual-detail-text"
+                            data-ceremony="groomCeremony.date">
                         </span>
-
-                        <div class="ceremony-detail-content">
-
-                            <span class="ceremony-detail-label">
-                                Thứ ngày tháng
-                            </span>
-
-                            <span
-                                class="ceremony-detail-value"
-                                data-ceremony="groomCeremony.date">
-                            </span>
-
-                        </div>
 
                     </div>
 
 
                     <!-- ÂM LỊCH -->
 
-                    <div class="ceremony-detail">
+                    <div class="ceremony-ritual-detail">
+
+                        <img
+                            src="assets/icons/ceremony/lunar.svg"
+                            alt=""
+                            aria-hidden="true"
+                        >
 
                         <span
-                            class="ceremony-detail-icon ceremony-icon-lunar"
-                            aria-hidden="true">
+                            class="ceremony-ritual-detail-text"
+                            data-ceremony="groomCeremony.lunar">
                         </span>
-
-                        <div class="ceremony-detail-content">
-
-                            <span class="ceremony-detail-label">
-                                Âm lịch
-                            </span>
-
-                            <span
-                                class="ceremony-detail-value"
-                                data-ceremony="groomCeremony.lunar">
-                            </span>
-
-                        </div>
 
                     </div>
 
@@ -854,6 +935,8 @@
     </div>
 
 </section>
+
+
         
         
         <section id="gallery"></section>
