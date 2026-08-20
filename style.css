@@ -2045,7 +2045,7 @@ section{
 
     width: 100%;
 
-    margin-bottom: 64px;
+    margin-bottom: 50px;
 }
 
 .ceremony-group:last-child {
@@ -2408,28 +2408,31 @@ section{
 ---------------------------------------------------------- */
 
 .ceremony-group-bride .ceremony-card-main-decoration {
-    top: 8px;
-    right: -7px;
+    top: 4px;
+    right: -15px;
 
-    width: 72px;
+    width: 67px;
     height: auto;
 
     transform: rotate(7deg);
-}
 
+    opacity: 0.12;
+}
 
 /* ----------------------------------------------------------
    LỄ THÀNH HÔN — LY
 ---------------------------------------------------------- */
 
 .ceremony-group-groom .ceremony-card-main-decoration {
-    top: 9px;
-    right: -5px;
+    top: 5px;
+    right: -13px;
 
-    width: 60px;
+    width: 56px;
     height: auto;
 
     transform: rotate(-5deg);
+
+    opacity: 0.12;
 }
 
 
@@ -2567,16 +2570,17 @@ section{
     color: var(--color-primary);
 
     font-family: "Cormorant Garamond", serif;
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 600;
 
-    z-index: 2;
-   
     line-height: 1.25;
+    letter-spacing: 0.045em;
 
     text-align: center;
 
-    letter-spacing: 0.08em;
+    white-space: nowrap;
+
+    z-index: 2;
 }
 
 
@@ -2735,7 +2739,7 @@ section{
     }
 
     .ceremony-group {
-        margin-bottom: 56px;
+        margin-bottom: 46px;
     }
 
     .ceremony-group-icon {
@@ -2775,8 +2779,10 @@ section{
     }
 
     .ceremony-ritual-title {
-        font-size: 17px;
-    }
+    font-size: 16px;
+    letter-spacing: 0.025em;
+    white-space: nowrap;
+}
 
     .ceremony-ritual-detail-text {
         font-size: 13px;
