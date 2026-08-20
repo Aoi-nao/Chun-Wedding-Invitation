@@ -2380,50 +2380,115 @@ section{
 
 
 /* ==========================================================
-   CARD DECORATIVE SVG
+   CEREMONY CARD — BOTANICAL DECORATION
 ========================================================== */
 
-.ceremony-card-decoration {
+.ceremony-card-main-decoration {
     position: absolute;
 
-    z-index: 1;
+    z-index: 0;
 
     pointer-events: none;
 
     object-fit: contain;
 
-    opacity: 0.72;
+    opacity: 0.16;
+
+    filter: saturate(0.72);
+
+    /*
+       Không cho hoa/ly chen vào vùng text.
+       Decoration nằm ở góc trên ngoài vùng nội dung.
+    */
 }
 
 
-/* nhánh nhỏ — góc trên */
+/* ----------------------------------------------------------
+   LỄ VU QUY — HOA
+---------------------------------------------------------- */
 
-.ceremony-card-decoration-top {
-    top: 17px;
-    right: 13px;
+.ceremony-group-bride .ceremony-card-main-decoration {
+    top: 8px;
+    right: -7px;
 
-    width: 58px;
+    width: 72px;
     height: auto;
 
-    transform: rotate(8deg);
-
-    transform-origin: center;
+    transform: rotate(7deg);
 }
 
 
-/* nụ — góc dưới đối xứng */
+/* ----------------------------------------------------------
+   LỄ THÀNH HÔN — LY
+---------------------------------------------------------- */
 
-.ceremony-card-decoration-bottom {
-    bottom: 18px;
-    left: 13px;
+.ceremony-group-groom .ceremony-card-main-decoration {
+    top: 9px;
+    right: -5px;
 
-    width: 31px;
+    width: 60px;
     height: auto;
 
-    transform: rotate(-18deg);
-
-    opacity: 0.62;
+    transform: rotate(-5deg);
 }
+
+
+/* ==========================================================
+   SOFT DECORATION
+========================================================== */
+
+.ceremony-card-soft-decoration {
+    position: absolute;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    object-fit: contain;
+
+    opacity: 0.12;
+
+    filter: saturate(0.65);
+}
+
+
+/* Nhà gái */
+
+.ceremony-card-soft-decoration-bride {
+    left: -4px;
+    bottom: 9px;
+
+    width: 48px;
+    height: auto;
+
+    transform: rotate(-16deg);
+}
+
+
+/* Nhà trai */
+
+.ceremony-card-soft-decoration-groom {
+    left: -3px;
+    bottom: 11px;
+
+    width: 36px;
+    height: auto;
+
+    transform: rotate(14deg);
+}
+
+
+/* ==========================================================
+   KEEP CONTENT ABOVE DECORATION
+========================================================== */
+
+.ceremony-ritual-card .ceremony-card-ornament,
+.ceremony-ritual-card .ceremony-ritual-title,
+.ceremony-ritual-card .ceremony-ritual-details {
+    position: relative;
+    z-index: 2;
+}
+
 
 /* ==========================================================
    INNER BORDER
