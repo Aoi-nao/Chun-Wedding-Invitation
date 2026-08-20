@@ -30,6 +30,8 @@ function initializeApp() {
     initializeCountdown();
 
     renderCeremony();
+
+    initCeremonyAnimation();
     
     initializeMusicPlayer();
 
@@ -348,6 +350,62 @@ function renderCeremony() {
 
 }
 
+
+/* ==========================================================
+   CEREMONY — CARD REVEAL ANIMATION
+========================================================== */
+
+function initCeremonyAnimation() {
+
+    const ceremonySection =
+        document.getElementById("ceremony");
+
+    if (!ceremonySection) {
+        return;
+    }
+
+    const cards =
+        ceremonySection.querySelectorAll(
+            ".ceremony-ritual-card"
+        );
+
+    if (!cards.length) {
+        return;
+    }
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "is-visible"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.18
+            }
+        );
+
+    cards.forEach((card) => {
+
+        observer.observe(card);
+
+    });
+
+}
 
 /* ==========================================================
    GET CEREMONY DATA
