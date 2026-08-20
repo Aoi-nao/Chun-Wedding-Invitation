@@ -2818,3 +2818,56 @@ section{
     }
 
 }
+
+
+/* ==========================================================
+   CEREMONY — REVEAL ANIMATION
+   Card trượt nhẹ từ trái vào khi xuất hiện
+========================================================== */
+
+.ceremony-ritual-card {
+    opacity: 0;
+    transform: translateX(-34px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* Khi card xuất hiện trong viewport */
+
+.ceremony-ritual-card.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* Lễ Vu Quy xuất hiện trước một chút */
+
+.ceremony-group-bride .ceremony-ritual-card {
+    transition-delay: 0.05s;
+}
+
+
+/* Lễ Thành Hôn xuất hiện sau nhẹ */
+
+.ceremony-group-groom .ceremony-ritual-card {
+    transition-delay: 0.15s;
+}
+
+
+/* ==========================================================
+   ACCESSIBILITY
+   Người dùng bật Reduce Motion → không chạy animation
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ceremony-ritual-card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+}
