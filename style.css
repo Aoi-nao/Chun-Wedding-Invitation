@@ -2408,10 +2408,10 @@ section{
 ---------------------------------------------------------- */
 
 .ceremony-group-bride .ceremony-card-main-decoration {
-    top: 4px;
-    right: -15px;
+    top: 1px;
+    right: -19px;
 
-    width: 67px;
+    width: 82px;
     height: auto;
 
     transform: rotate(7deg);
