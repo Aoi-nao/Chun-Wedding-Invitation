@@ -2871,48 +2871,40 @@ section{
 
 /* ==========================================================
    GALLERY — MOMENTS
-   Korean minimal · Soft botanical stationery
+   Korean minimal · Editorial wedding album
 ========================================================== */
 
 #gallery {
     position: relative;
-
     width: 100%;
     max-width: 520px;
-
     margin: 0 auto;
 
     padding: 72px 20px 90px;
 
     box-sizing: border-box;
-
     overflow: hidden;
 }
 
 
 /* ==========================================================
-   GALLERY HEADER
+   HEADER
 ========================================================== */
 
 .gallery-heading {
     position: relative;
 
     display: flex;
-
     flex-direction: column;
     align-items: center;
 
-    text-align: center;
-
     margin-bottom: 42px;
+
+    text-align: center;
 
     z-index: 3;
 }
 
-
-/* ----------------------------------------------------------
-   TITLE
----------------------------------------------------------- */
 
 .gallery-title {
     margin: 0;
@@ -2924,14 +2916,9 @@ section{
     font-weight: 500;
 
     letter-spacing: 0.08em;
-
     line-height: 1.2;
 }
 
-
-/* ----------------------------------------------------------
-   SUBTITLE
----------------------------------------------------------- */
 
 .gallery-subtitle {
     margin: 8px 0 0;
@@ -2943,7 +2930,6 @@ section{
     font-weight: 400;
 
     letter-spacing: 0.05em;
-
     line-height: 1.4;
 }
 
@@ -2956,7 +2942,6 @@ section{
     position: relative;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -2966,10 +2951,6 @@ section{
     margin-top: 13px;
 }
 
-
-/* ----------------------------------------------------------
-   TWO SMALL BRANCHES
----------------------------------------------------------- */
 
 .gallery-divider-left,
 .gallery-divider-right {
@@ -2982,15 +2963,13 @@ section{
 
     object-fit: contain;
 
-    opacity: 0.52;
+    opacity: 0.48;
 
-    filter: saturate(0.72);
+    filter: saturate(0.68);
 
     transform-origin: center;
 }
 
-
-/* Left branch */
 
 .gallery-divider-left {
     left: 14px;
@@ -3001,8 +2980,6 @@ section{
 }
 
 
-/* Right branch */
-
 .gallery-divider-right {
     right: 14px;
 
@@ -3010,10 +2987,6 @@ section{
         rotate(72deg);
 }
 
-
-/* ----------------------------------------------------------
-   CENTER FLOWER
----------------------------------------------------------- */
 
 .gallery-divider-center {
     position: relative;
@@ -3025,17 +2998,16 @@ section{
 
     object-fit: contain;
 
-    opacity: 0.68;
+    opacity: 0.62;
 
-    filter: saturate(0.72);
+    filter: saturate(0.68);
 
-    transform:
-        rotate(-8deg);
+    transform: rotate(-8deg);
 }
 
 
 /* ==========================================================
-   GALLERY GRID
+   EDITORIAL GALLERY GRID
 ========================================================== */
 
 .gallery-grid {
@@ -3043,7 +3015,11 @@ section{
 
     display: grid;
 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    grid-auto-flow: dense;
 
     gap: 12px;
 
@@ -3054,8 +3030,7 @@ section{
 
 
 /* ==========================================================
-   GALLERY ITEM
-   JavaScript sẽ thêm class theo tỷ lệ ảnh
+   BASE IMAGE CARD
 ========================================================== */
 
 .gallery-item {
@@ -3063,14 +3038,20 @@ section{
 
     min-width: 0;
 
+    aspect-ratio: 1 / 1;
+
     overflow: hidden;
 
-    background: rgba(233, 240, 231, 0.35);
+    border-radius: 17px;
 
-    border-radius: 18px;
+    background:
+        rgba(233, 240, 231, 0.35);
 
     box-shadow:
-        0 8px 24px rgba(109, 140, 107, 0.055);
+        0 8px 24px
+        rgba(109, 140, 107, 0.055);
+
+    isolation: isolate;
 }
 
 
@@ -3085,44 +3066,55 @@ section{
     height: 100%;
 
     object-fit: cover;
-
     object-position: center;
 
+    opacity: 0;
+
     transition:
-        transform 1.4s ease,
-        opacity 0.8s ease;
+        opacity 0.8s ease,
+        transform 1.6s cubic-bezier(
+            0.22,
+            0.61,
+            0.36,
+            1
+        );
+}
+
+
+/* Khi ảnh load xong */
+
+.gallery-item img[src] {
+    opacity: 1;
 }
 
 
 /* ==========================================================
-   IMAGE RATIO
+   AUTO LAYOUT — PORTRAIT
 ========================================================== */
 
-/*
-   Mặc định:
-   ảnh vuông / chưa được JS phân loại
-*/
+.gallery-item.is-vertical {
+    grid-row: span 2;
 
-.gallery-item {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: auto;
+
+    min-height: 100%;
 }
 
 
-/* Ảnh ngang */
+/* ==========================================================
+   AUTO LAYOUT — LANDSCAPE
+========================================================== */
 
 .gallery-item.is-horizontal {
-    aspect-ratio: 4 / 3;
+    grid-column: span 2;
+
+    aspect-ratio: 16 / 10;
 }
 
 
-/* Ảnh dọc */
-
-.gallery-item.is-vertical {
-    aspect-ratio: 3 / 4;
-}
-
-
-/* Ảnh vuông */
+/* ==========================================================
+   AUTO LAYOUT — SQUARE
+========================================================== */
 
 .gallery-item.is-square {
     aspect-ratio: 1 / 1;
@@ -3130,8 +3122,27 @@ section{
 
 
 /* ==========================================================
-   LARGE FEATURE IMAGE
-   JS có thể dùng class này sau
+   SUBTLE IMAGE DEPTH
+========================================================== */
+
+.gallery-item:nth-child(3n + 1) {
+    transform: translateY(0);
+}
+
+
+.gallery-item:nth-child(3n + 2) {
+    transform: translateY(4px);
+}
+
+
+.gallery-item:nth-child(3n + 3) {
+    transform: translateY(-3px);
+}
+
+
+/* ==========================================================
+   FEATURE IMAGE
+   Chỉ dùng nếu JS sau này gắn class .is-feature
 ========================================================== */
 
 .gallery-item.is-feature {
@@ -3142,8 +3153,7 @@ section{
 
 
 /* ==========================================================
-   SOFT IMAGE HOVER
-   Desktop only
+   DESKTOP HOVER
 ========================================================== */
 
 @media (hover: hover) and (pointer: fine) {
@@ -3170,7 +3180,7 @@ section{
 
     z-index: 1;
 
-    filter: saturate(0.68);
+    filter: saturate(0.65);
 }
 
 
@@ -3179,16 +3189,15 @@ section{
 ---------------------------------------------------------- */
 
 .gallery-decoration-left {
-    left: -25px;
-    bottom: 120px;
+    left: -27px;
+    bottom: 125px;
 
     width: 82px;
     height: auto;
 
-    opacity: 0.105;
+    opacity: 0.09;
 
-    transform:
-        rotate(-24deg);
+    transform: rotate(-24deg);
 }
 
 
@@ -3197,13 +3206,13 @@ section{
 ---------------------------------------------------------- */
 
 .gallery-decoration-right {
-    right: -35px;
+    right: -36px;
     top: 285px;
 
     width: 105px;
     height: auto;
 
-    opacity: 0.085;
+    opacity: 0.075;
 
     transform:
         rotate(25deg)
@@ -3218,11 +3227,10 @@ section{
 @media (max-width: 380px) {
 
     #gallery {
-        padding-left: 16px;
-        padding-right: 16px;
-
-        padding-top: 64px;
-        padding-bottom: 78px;
+        padding:
+            64px
+            16px
+            78px;
     }
 
 
@@ -3247,7 +3255,7 @@ section{
 
 
     .gallery-item {
-        border-radius: 15px;
+        border-radius: 14px;
     }
 
 
@@ -3280,20 +3288,20 @@ section{
 
 
     .gallery-decoration-left {
-        width: 66px;
-
         left: -23px;
 
-        opacity: 0.08;
+        width: 66px;
+
+        opacity: 0.07;
     }
 
 
     .gallery-decoration-right {
-        width: 82px;
-
         right: -30px;
 
-        opacity: 0.07;
+        width: 82px;
+
+        opacity: 0.06;
     }
 
 }
@@ -3333,6 +3341,12 @@ section{
     }
 
 
+    .gallery-divider-center {
+        width: 18px;
+        height: 18px;
+    }
+
+
     .gallery-decoration-left {
         width: 92px;
     }
@@ -3341,5 +3355,7 @@ section{
     .gallery-decoration-right {
         width: 118px;
     }
+
+}
 
 }
