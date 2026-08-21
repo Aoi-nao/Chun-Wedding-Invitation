@@ -2866,3 +2866,480 @@ section{
     }
 
 }
+
+
+
+/* ==========================================================
+   GALLERY — MOMENTS
+   Korean minimal · Soft botanical stationery
+========================================================== */
+
+#gallery {
+    position: relative;
+
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    padding: 72px 20px 90px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+
+/* ==========================================================
+   GALLERY HEADER
+========================================================== */
+
+.gallery-heading {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    margin-bottom: 42px;
+
+    z-index: 3;
+}
+
+
+/* ----------------------------------------------------------
+   TITLE
+---------------------------------------------------------- */
+
+.gallery-title {
+    margin: 0;
+
+    color: var(--color-text);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+
+    line-height: 1.2;
+}
+
+
+/* ----------------------------------------------------------
+   SUBTITLE
+---------------------------------------------------------- */
+
+.gallery-subtitle {
+    margin: 8px 0 0;
+
+    color: rgba(74, 74, 74, 0.62);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 13px;
+    font-weight: 400;
+
+    letter-spacing: 0.05em;
+
+    line-height: 1.4;
+}
+
+
+/* ==========================================================
+   BOTANICAL DIVIDER
+========================================================== */
+
+.gallery-divider {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 118px;
+    height: 34px;
+
+    margin-top: 13px;
+}
+
+
+/* ----------------------------------------------------------
+   TWO SMALL BRANCHES
+---------------------------------------------------------- */
+
+.gallery-divider-left,
+.gallery-divider-right {
+    position: absolute;
+
+    display: block;
+
+    width: 35px;
+    height: 35px;
+
+    object-fit: contain;
+
+    opacity: 0.52;
+
+    filter: saturate(0.72);
+
+    transform-origin: center;
+}
+
+
+/* Left branch */
+
+.gallery-divider-left {
+    left: 14px;
+
+    transform:
+        rotate(-72deg)
+        scaleX(-1);
+}
+
+
+/* Right branch */
+
+.gallery-divider-right {
+    right: 14px;
+
+    transform:
+        rotate(72deg);
+}
+
+
+/* ----------------------------------------------------------
+   CENTER FLOWER
+---------------------------------------------------------- */
+
+.gallery-divider-center {
+    position: relative;
+
+    display: block;
+
+    width: 17px;
+    height: 17px;
+
+    object-fit: contain;
+
+    opacity: 0.68;
+
+    filter: saturate(0.72);
+
+    transform:
+        rotate(-8deg);
+}
+
+
+/* ==========================================================
+   GALLERY GRID
+========================================================== */
+
+.gallery-grid {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+
+    width: 100%;
+
+    z-index: 2;
+}
+
+
+/* ==========================================================
+   GALLERY ITEM
+   JavaScript sẽ thêm class theo tỷ lệ ảnh
+========================================================== */
+
+.gallery-item {
+    position: relative;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: rgba(233, 240, 231, 0.35);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 24px rgba(109, 140, 107, 0.055);
+}
+
+
+/* ==========================================================
+   IMAGE
+========================================================== */
+
+.gallery-item img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition:
+        transform 1.4s ease,
+        opacity 0.8s ease;
+}
+
+
+/* ==========================================================
+   IMAGE RATIO
+========================================================== */
+
+/*
+   Mặc định:
+   ảnh vuông / chưa được JS phân loại
+*/
+
+.gallery-item {
+    aspect-ratio: 1 / 1;
+}
+
+
+/* Ảnh ngang */
+
+.gallery-item.is-horizontal {
+    aspect-ratio: 4 / 3;
+}
+
+
+/* Ảnh dọc */
+
+.gallery-item.is-vertical {
+    aspect-ratio: 3 / 4;
+}
+
+
+/* Ảnh vuông */
+
+.gallery-item.is-square {
+    aspect-ratio: 1 / 1;
+}
+
+
+/* ==========================================================
+   LARGE FEATURE IMAGE
+   JS có thể dùng class này sau
+========================================================== */
+
+.gallery-item.is-feature {
+    grid-column: span 2;
+
+    aspect-ratio: 16 / 10;
+}
+
+
+/* ==========================================================
+   SOFT IMAGE HOVER
+   Desktop only
+========================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .gallery-item:hover img {
+        transform: scale(1.018);
+    }
+
+}
+
+
+/* ==========================================================
+   BOTANICAL DECORATION
+========================================================== */
+
+.gallery-decoration {
+    position: absolute;
+
+    display: block;
+
+    pointer-events: none;
+
+    object-fit: contain;
+
+    z-index: 1;
+
+    filter: saturate(0.68);
+}
+
+
+/* ----------------------------------------------------------
+   LEFT — light (2)
+---------------------------------------------------------- */
+
+.gallery-decoration-left {
+    left: -25px;
+    bottom: 120px;
+
+    width: 82px;
+    height: auto;
+
+    opacity: 0.105;
+
+    transform:
+        rotate(-24deg);
+}
+
+
+/* ----------------------------------------------------------
+   RIGHT — lá
+---------------------------------------------------------- */
+
+.gallery-decoration-right {
+    right: -35px;
+    top: 285px;
+
+    width: 105px;
+    height: auto;
+
+    opacity: 0.085;
+
+    transform:
+        rotate(25deg)
+        scaleX(-1);
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width: 380px) {
+
+    #gallery {
+        padding-left: 16px;
+        padding-right: 16px;
+
+        padding-top: 64px;
+        padding-bottom: 78px;
+    }
+
+
+    .gallery-title {
+        font-size: 28px;
+    }
+
+
+    .gallery-subtitle {
+        font-size: 12px;
+    }
+
+
+    .gallery-heading {
+        margin-bottom: 36px;
+    }
+
+
+    .gallery-grid {
+        gap: 9px;
+    }
+
+
+    .gallery-item {
+        border-radius: 15px;
+    }
+
+
+    .gallery-divider {
+        width: 108px;
+    }
+
+
+    .gallery-divider-left,
+    .gallery-divider-right {
+        width: 31px;
+        height: 31px;
+    }
+
+
+    .gallery-divider-left {
+        left: 13px;
+    }
+
+
+    .gallery-divider-right {
+        right: 13px;
+    }
+
+
+    .gallery-divider-center {
+        width: 15px;
+        height: 15px;
+    }
+
+
+    .gallery-decoration-left {
+        width: 66px;
+
+        left: -23px;
+
+        opacity: 0.08;
+    }
+
+
+    .gallery-decoration-right {
+        width: 82px;
+
+        right: -30px;
+
+        opacity: 0.07;
+    }
+
+}
+
+
+/* ==========================================================
+   LARGER MOBILE
+========================================================== */
+
+@media (min-width: 480px) {
+
+    #gallery {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+
+    .gallery-grid {
+        gap: 15px;
+    }
+
+
+    .gallery-item {
+        border-radius: 20px;
+    }
+
+
+    .gallery-divider {
+        width: 126px;
+    }
+
+
+    .gallery-divider-left,
+    .gallery-divider-right {
+        width: 39px;
+        height: 39px;
+    }
+
+
+    .gallery-decoration-left {
+        width: 92px;
+    }
+
+
+    .gallery-decoration-right {
+        width: 118px;
+    }
+
+}
