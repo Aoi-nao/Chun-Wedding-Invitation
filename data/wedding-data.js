@@ -104,8 +104,17 @@ const WeddingData = {
 },
 
     gallery: [
-
-    ],
+    "assets/images/gallery/gallery-01.jpg",
+    "assets/images/gallery/gallery-02.jpg",
+    "assets/images/gallery/gallery-03.jpg",
+    "assets/images/gallery/gallery-04.jpg",
+    "assets/images/gallery/gallery-05.jpg",
+    "assets/images/gallery/gallery-06.jpg",
+    "assets/images/gallery/gallery-07.jpg",
+    "assets/images/gallery/gallery-08.jpg",
+    "assets/images/gallery/gallery-09.jpg",
+    "assets/images/gallery/gallery-10.jpg"
+],
 
     rsvp: {
         maxGuests: 5
