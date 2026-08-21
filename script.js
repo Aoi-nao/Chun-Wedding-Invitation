@@ -32,6 +32,8 @@ function initializeApp() {
     renderCeremony();
 
     initCeremonyAnimation();
+
+    renderGallery();
     
     initializeMusicPlayer();
 
@@ -442,6 +444,156 @@ function getCeremonyValue(data, path) {
 
     return current ?? "";
 }
+
+
+
+/* ==========================================================
+   GALLERY — RENDER & AUTO DETECT IMAGE RATIO
+========================================================== */
+
+function renderGallery() {
+
+    const gallerySection =
+        document.getElementById("gallery");
+
+    const galleryGrid =
+        document.getElementById("galleryGrid");
+
+    if (!gallerySection || !galleryGrid) {
+        return;
+    }
+
+    const galleryData =
+        WeddingData.gallery;
+
+    if (
+        !Array.isArray(galleryData) ||
+        galleryData.length === 0
+    ) {
+        return;
+    }
+
+
+    /* ======================================================
+       CLEAR CURRENT GALLERY
+    ====================================================== */
+
+    galleryGrid.innerHTML = "";
+
+
+    /* ======================================================
+       CREATE IMAGE ITEMS
+    ====================================================== */
+
+    galleryData.forEach((imageSource, index) => {
+
+        if (!imageSource) {
+            return;
+        }
+
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "gallery-item";
+
+
+        const image =
+            document.createElement("img");
+
+        image.src =
+            imageSource;
+
+        image.alt =
+            `Khoảnh khắc ${index + 1}`;
+
+        image.loading =
+            index === 0
+                ? "eager"
+                : "lazy";
+
+        image.decoding =
+            "async";
+
+
+        /* ==================================================
+           AUTO DETECT IMAGE RATIO
+        ================================================== */
+
+        image.addEventListener(
+            "load",
+            () => {
+
+                const width =
+                    image.naturalWidth;
+
+                const height =
+                    image.naturalHeight;
+
+                if (
+                    !width ||
+                    !height
+                ) {
+                    return;
+                }
+
+
+                const ratio =
+                    width / height;
+
+
+                /* ------------------------------------------
+                   PORTRAIT
+                ------------------------------------------ */
+
+                if (ratio < 0.88) {
+
+                    item.classList.add(
+                        "is-vertical"
+                    );
+
+                }
+
+
+                /* ------------------------------------------
+                   LANDSCAPE
+                ------------------------------------------ */
+
+                else if (ratio > 1.12) {
+
+                    item.classList.add(
+                        "is-horizontal"
+                    );
+
+                }
+
+
+                /* ------------------------------------------
+                   SQUARE / NEAR SQUARE
+                ------------------------------------------ */
+
+                else {
+
+                    item.classList.add(
+                        "is-square"
+                    );
+
+                }
+
+            }
+        );
+
+
+        item.appendChild(image);
+
+        galleryGrid.appendChild(item);
+
+    });
+
+}
+
+
 
 
 
