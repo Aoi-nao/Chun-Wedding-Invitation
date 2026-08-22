@@ -125,8 +125,9 @@ const WeddingData = {
     ],
 
     music: {
-        autoplay: true,
-        file: ""
-    }
+    src: "assets/music/wedding-music.mp3",
+    autoplay: true,
+    loop: true
+},
 
 };
