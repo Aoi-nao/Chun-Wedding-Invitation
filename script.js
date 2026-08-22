@@ -769,7 +769,7 @@ function initializeCountdown() {
 
 
 /* ==========================================================
-   GALLERY — SOFT REVEAL ANIMATION
+   GALLERY — SOFT REVEAL TIMING
 ========================================================== */
 
 function initGalleryAnimation() {
@@ -787,19 +787,6 @@ function initGalleryAnimation() {
     if (!items.length) {
         return;
     }
-
-
-    const revealItem = (item, delay = 0) => {
-
-        setTimeout(() => {
-
-            item.classList.add(
-                "is-visible"
-            );
-
-        }, delay);
-
-    };
 
 
     const observer =
@@ -820,9 +807,11 @@ function initGalleryAnimation() {
                             item.dataset.galleryIndex || 0
                         );
 
+                    let delay = 0;
+
 
                     /*
-                       Nhịp nhẹ:
+                       NHỊP HIỆN ẢNH
 
                        Ảnh 1
                        ↓
@@ -831,13 +820,11 @@ function initGalleryAnimation() {
                        Ảnh 4
                        ↓
                        Ảnh 5 + 6
+                       ↓
                        ...
 
-                       Khoảng cách rất nhẹ,
-                       tránh cảm giác slideshow.
+                       Chuyển tiếp chậm và tự nhiên.
                     */
-
-                    let delay = 0;
 
                     if (index === 0) {
 
@@ -851,20 +838,21 @@ function initGalleryAnimation() {
                             );
 
                         delay =
-                            140 + group * 120;
+                            120 + group * 110;
 
                     }
 
 
-                    revealItem(
-                        item,
-                        delay
-                    );
+                    setTimeout(() => {
+
+                        item.classList.add(
+                            "is-visible"
+                        );
+
+                    }, delay);
 
 
-                    observer.unobserve(
-                        item
-                    );
+                    observer.unobserve(item);
 
                 });
 
@@ -884,4 +872,5 @@ function initGalleryAnimation() {
 
     });
 
+}
 }
