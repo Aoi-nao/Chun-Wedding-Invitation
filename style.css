@@ -3139,17 +3139,15 @@ section{
 ========================================================== */
 
 .gallery-item:nth-child(3n + 1) {
-    transform: translateY(0);
+    --gallery-offset: 0px;
 }
-
 
 .gallery-item:nth-child(3n + 2) {
-    transform: translateY(4px);
+    --gallery-offset: 4px;
 }
 
-
 .gallery-item:nth-child(3n + 3) {
-    transform: translateY(-3px);
+    --gallery-offset: -3px;
 }
 
 
@@ -3165,32 +3163,45 @@ section{
 }
 
 
-
 /* ==========================================================
-   GALLERY — SLOW BREATHING & DRIFT
+   GALLERY — SOFT REVEAL
 ========================================================== */
 
-.gallery-item img {
-    animation:
-        gallerySlowDrift 16s ease-in-out infinite;
-    transform-origin: center center;
-    will-change: transform;
+.gallery-item {
+    opacity: 0;
+    transform: translateY(
+        calc(var(--gallery-offset, 0px) + 18px)
+    );
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
-@keyframes gallerySlowDrift {
+/* Khi ảnh xuất hiện */
 
-    0%,
-    100% {
-        transform: scale(1) translate3d(0, 0, 0);
-    }
+.gallery-item.is-visible {
+    opacity: 1;
+    transform: translateY(
+        var(--gallery-offset, 0px)
+    );
+}
 
-    50% {
-        transform: scale(1.015) translate3d(0, -3px, 0);
+
+/* ==========================================================
+   GALLERY — REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .gallery-item {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 
 }
-
 
 
 /* ==========================================================
