@@ -16,7 +16,7 @@ const ThemeConfig = Object.freeze({
     white: "#FFFFFF",
         
     countdown: "#596A55",
-    gallery: "#74856F"
+    gallery: "#849680"
 },
 
     borderRadius: {
