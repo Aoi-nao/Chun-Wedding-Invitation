@@ -124,25 +124,48 @@ function initializeOpening() {
 
     button.addEventListener("click", () => {
 
-    const player = document.querySelector("#musicPlayer");
+        const player = document.querySelector("#musicPlayer");
 
-    if (player) {
+        if (player && player.audio) {
 
-    player.classList.add("show");
+            player.classList.add("show");
 
-    player.classList.add("playing");
+            player.audio.play()
+                .then(() => {
 
-}
+                    player.classList.add("playing");
 
-    opening.classList.add("opening-hide");
+                    const musicButton =
+                        document.querySelector("#musicToggle");
 
-    setTimeout(() => {
+                    if (musicButton) {
+                        musicButton.setAttribute(
+                            "aria-pressed",
+                            "true"
+                        );
+                    }
 
-        opening.remove();
+                })
+                .catch((error) => {
 
-    },800);
+                    console.warn(
+                        "Không thể phát nhạc:",
+                        error
+                    );
 
-});
+                });
+
+        }
+
+        opening.classList.add("opening-hide");
+
+        setTimeout(() => {
+
+            opening.remove();
+
+        }, 800);
+
+    });
 
 }
 
@@ -158,19 +181,55 @@ function initializeMusicPlayer() {
 
     if (!player || !button) return;
 
-    button.addEventListener("click", () => {
+    // Tạo audio từ dữ liệu WeddingData
+    const audio = new Audio(WeddingData.music.src);
 
-        const isPlaying = player.classList.toggle("playing");
+    audio.loop = WeddingData.music.loop ?? true;
+    audio.preload = "auto";
+
+    // Lưu audio vào player để có thể dùng lại nếu cần
+    player.audio = audio;
+
+    // Trạng thái Music Player
+    function updatePlayerState(isPlaying) {
+
+        player.classList.toggle("playing", isPlaying);
 
         button.setAttribute(
             "aria-pressed",
             isPlaying ? "true" : "false"
         );
 
+    }
+
+    // Nút bật / tắt nhạc
+    button.addEventListener("click", () => {
+
+        if (audio.paused) {
+
+            audio.play()
+                .then(() => {
+                    updatePlayerState(true);
+                })
+                .catch((error) => {
+                    console.warn("Không thể phát nhạc:", error);
+                });
+
+        } else {
+
+            audio.pause();
+            updatePlayerState(false);
+
+        }
+
+    });
+
+    // Nếu nhạc kết thúc
+    audio.addEventListener("ended", () => {
+        updatePlayerState(false);
     });
 
 }
-
 
 /* ==========================================================
    HERO
