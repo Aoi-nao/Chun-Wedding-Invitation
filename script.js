@@ -65,11 +65,19 @@ function applyTheme() {
 
     const root = document.documentElement;
 
-    root.style.setProperty('--color-primary', ThemeConfig.colors.primary);
-    root.style.setProperty('--color-secondary', ThemeConfig.colors.secondary);
-    root.style.setProperty('--color-accent', ThemeConfig.colors.accent);
-    root.style.setProperty('--color-text', ThemeConfig.colors.text);
-    root.style.setProperty('--color-white', ThemeConfig.colors.white);
+    root.style.setProperty('--color-primary',ThemeConfig.colors.primary);
+
+    root.style.setProperty('--color-secondary',ThemeConfig.colors.secondary);
+
+    root.style.setProperty('--color-accent',ThemeConfig.colors.accent);
+
+    root.style.setProperty('--color-text',ThemeConfig.colors.text);
+
+    root.style.setProperty('--color-white',ThemeConfig.colors.white);
+
+    root.style.setProperty('--color-countdown',ThemeConfig.colors.countdown);
+
+    root.style.setProperty('--color-gallery',ThemeConfig.colors.gallery);
 
 }
 
