@@ -3169,13 +3169,14 @@ section{
 
 .gallery-item {
     opacity: 0;
+
     transform: translateY(
-        calc(var(--gallery-offset, 0px) + 18px)
+        calc(var(--gallery-offset, 0px) + 8px)
     );
 
     transition:
-        opacity 0.9s ease,
-        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        opacity 1.3s ease,
+        transform 1.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
@@ -3183,6 +3184,7 @@ section{
 
 .gallery-item.is-visible {
     opacity: 1;
+
     transform: translateY(
         var(--gallery-offset, 0px)
     );
