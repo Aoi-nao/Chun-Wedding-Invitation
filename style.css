@@ -3086,8 +3086,8 @@ section{
     transform: translateY(6px);
 
     transition:
-        opacity 1.4s ease,
-        transform 1.4s cubic-bezier(
+        opacity 1.55s ease,
+        transform 1.55s cubic-bezier(
             0.22,
             1,
             0.36,
