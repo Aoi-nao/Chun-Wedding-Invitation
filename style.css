@@ -3165,6 +3165,34 @@ section{
 }
 
 
+
+/* ==========================================================
+   GALLERY — SLOW BREATHING & DRIFT
+========================================================== */
+
+.gallery-item img {
+    animation:
+        gallerySlowDrift 16s ease-in-out infinite;
+    transform-origin: center center;
+    will-change: transform;
+}
+
+
+@keyframes gallerySlowDrift {
+
+    0%,
+    100% {
+        transform: scale(1) translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: scale(1.015) translate3d(0, -3px, 0);
+    }
+
+}
+
+
+
 /* ==========================================================
    DESKTOP HOVER
 ========================================================== */
@@ -3372,3 +3400,7 @@ section{
 }
 
 }
+
+
+
+
