@@ -1726,7 +1726,7 @@ section{
 
     padding: 72px 20px 86px;
 
-    background:  #596A55;
+    background: var(--color-countdown);
 
     overflow: hidden;
 }
@@ -2888,7 +2888,7 @@ section{
 
     overflow: hidden;
 
-    background: #74856F;
+    background: var(--color-gallery);
 
     /*
        Gallery có bảng màu riêng vì section này
