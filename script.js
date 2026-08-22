@@ -802,29 +802,44 @@ function initGalleryAnimation() {
                         entry.target;
 
                     const index =
-                        Number(item.dataset.galleryIndex || 0);
+                        Number(
+                            item.dataset.galleryIndex || 0
+                        );
+
+                    let delay = 0;
 
                     /*
-                       Nhịp:
-                       0       → ảnh 1
-                       1, 2    → ảnh 2 + 3
-                       3       → ảnh 4
-                       4, 5    → ảnh 5 + 6
+                       Nhịp xuất hiện:
+
+                       Ảnh 1
+                          ↓
+                       Ảnh 2 + 3
+                          ↓
+                       Ảnh 4
+                          ↓
+                       Ảnh 5 + 6
+                          ↓
                        ...
+
+                       Delay được giữ rất nhẹ để
+                       không tạo cảm giác slideshow.
                     */
 
                     if (index === 0) {
-    delay = 0;
 
-} else {
+                        delay = 0;
 
-    const group =
-        Math.floor((index - 1) / 2);
+                    } else {
 
-    delay =
-        320 + group * 220;
+                        const group =
+                            Math.floor(
+                                (index - 1) / 2
+                            );
 
-}
+                        delay =
+                            180 + (group * 140);
+
+                    }
 
                     setTimeout(() => {
 
@@ -844,12 +859,15 @@ function initGalleryAnimation() {
             }
         );
 
+
     items.forEach((item, index) => {
 
-        item.dataset.galleryIndex = index;
+        item.dataset.galleryIndex =
+            index;
 
         observer.observe(item);
 
     });
 
+}
 }
