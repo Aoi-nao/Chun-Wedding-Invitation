@@ -813,19 +813,18 @@ function initGalleryAnimation() {
                        ...
                     */
 
-                    let delay = 0;
-
                     if (index === 0) {
-                        delay = 0;
-                    } else {
+    delay = 0;
 
-                        const group =
-                            Math.floor((index - 1) / 2);
+} else {
 
-                        delay =
-                            180 + group * 120;
+    const group =
+        Math.floor((index - 1) / 2);
 
-                    }
+    delay =
+        320 + group * 220;
+
+}
 
                     setTimeout(() => {
 
