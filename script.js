@@ -788,6 +788,20 @@ function initGalleryAnimation() {
         return;
     }
 
+
+    const revealItem = (item, delay = 0) => {
+
+        setTimeout(() => {
+
+            item.classList.add(
+                "is-visible"
+            );
+
+        }, delay);
+
+    };
+
+
     const observer =
         new IntersectionObserver(
             (entries) => {
@@ -806,24 +820,24 @@ function initGalleryAnimation() {
                             item.dataset.galleryIndex || 0
                         );
 
-                    let delay = 0;
 
                     /*
-                       Nhịp xuất hiện:
+                       Nhịp nhẹ:
 
                        Ảnh 1
-                          ↓
+                       ↓
                        Ảnh 2 + 3
-                          ↓
+                       ↓
                        Ảnh 4
-                          ↓
+                       ↓
                        Ảnh 5 + 6
-                          ↓
                        ...
 
-                       Delay được giữ rất nhẹ để
-                       không tạo cảm giác slideshow.
+                       Khoảng cách rất nhẹ,
+                       tránh cảm giác slideshow.
                     */
+
+                    let delay = 0;
 
                     if (index === 0) {
 
@@ -837,19 +851,20 @@ function initGalleryAnimation() {
                             );
 
                         delay =
-                            180 + (group * 140);
+                            140 + group * 120;
 
                     }
 
-                    setTimeout(() => {
 
-                        item.classList.add(
-                            "is-visible"
-                        );
+                    revealItem(
+                        item,
+                        delay
+                    );
 
-                    }, delay);
 
-                    observer.unobserve(item);
+                    observer.unobserve(
+                        item
+                    );
 
                 });
 
@@ -869,5 +884,4 @@ function initGalleryAnimation() {
 
     });
 
-}
 }
