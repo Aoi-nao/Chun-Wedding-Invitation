@@ -34,6 +34,8 @@ function initializeApp() {
     initCeremonyAnimation();
 
     renderGallery();
+
+    initGalleryAnimation();
     
     initializeMusicPlayer();
 
@@ -763,4 +765,92 @@ function initializeCountdown() {
         updateCountdown,
         1000
     );
+}
+
+
+/* ==========================================================
+   GALLERY — SOFT REVEAL ANIMATION
+========================================================== */
+
+function initGalleryAnimation() {
+
+    const gallery =
+        document.getElementById("gallery");
+
+    if (!gallery) {
+        return;
+    }
+
+    const items =
+        gallery.querySelectorAll(".gallery-item");
+
+    if (!items.length) {
+        return;
+    }
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    const item =
+                        entry.target;
+
+                    const index =
+                        Number(item.dataset.galleryIndex || 0);
+
+                    /*
+                       Nhịp:
+                       0       → ảnh 1
+                       1, 2    → ảnh 2 + 3
+                       3       → ảnh 4
+                       4, 5    → ảnh 5 + 6
+                       ...
+                    */
+
+                    let delay = 0;
+
+                    if (index === 0) {
+                        delay = 0;
+                    } else {
+
+                        const group =
+                            Math.floor((index - 1) / 2);
+
+                        delay =
+                            180 + group * 120;
+
+                    }
+
+                    setTimeout(() => {
+
+                        item.classList.add(
+                            "is-visible"
+                        );
+
+                    }, delay);
+
+                    observer.unobserve(item);
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+    items.forEach((item, index) => {
+
+        item.dataset.galleryIndex = index;
+
+        observer.observe(item);
+
+    });
+
 }
