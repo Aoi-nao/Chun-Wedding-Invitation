@@ -3069,7 +3069,7 @@ section{
 
 
 /* ==========================================================
-   IMAGE
+   IMAGE — SOFT REVEAL
 ========================================================== */
 
 .gallery-item img {
@@ -3083,11 +3083,11 @@ section{
 
     opacity: 0;
 
-    transform: translateY(8px);
+    transform: translateY(6px);
 
     transition:
-        opacity 1.25s ease,
-        transform 1.25s cubic-bezier(
+        opacity 1.4s ease,
+        transform 1.4s cubic-bezier(
             0.22,
             1,
             0.36,
@@ -3096,14 +3096,26 @@ section{
 }
 
 
-/* Khi ảnh được reveal */
-
 .gallery-item.is-visible img {
     opacity: 1;
 
     transform: translateY(0);
 }
 
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .gallery-item img {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+}
 
 /* ==========================================================
    AUTO LAYOUT — PORTRAIT
