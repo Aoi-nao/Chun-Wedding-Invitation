@@ -3083,21 +3083,25 @@ section{
 
     opacity: 0;
 
+    transform: translateY(8px);
+
     transition:
-        opacity 0.8s ease,
-        transform 1.6s cubic-bezier(
+        opacity 1.25s ease,
+        transform 1.25s cubic-bezier(
             0.22,
-            0.61,
+            1,
             0.36,
             1
         );
 }
 
 
-/* Khi ảnh load xong */
+/* Khi ảnh được reveal */
 
-.gallery-item img[src] {
+.gallery-item.is-visible img {
     opacity: 1;
+
+    transform: translateY(0);
 }
 
 
@@ -3163,47 +3167,7 @@ section{
 }
 
 
-/* ==========================================================
-   GALLERY — SOFT REVEAL
-========================================================== */
 
-.gallery-item {
-    opacity: 0;
-
-    transform: translateY(
-        calc(var(--gallery-offset, 0px) + 8px)
-    );
-
-    transition:
-        opacity 1.3s ease,
-        transform 1.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-
-/* Khi ảnh xuất hiện */
-
-.gallery-item.is-visible {
-    opacity: 1;
-
-    transform: translateY(
-        var(--gallery-offset, 0px)
-    );
-}
-
-
-/* ==========================================================
-   GALLERY — REDUCED MOTION
-========================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .gallery-item {
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
-
-}
 
 
 /* ==========================================================
