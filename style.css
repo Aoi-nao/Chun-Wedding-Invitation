@@ -3689,14 +3689,14 @@ section{
 }
 
 
-/* ----------------------------------------------------------
-   BOTANICAL CORNER ORNAMENTS
----------------------------------------------------------- */
+/* ==========================================================
+   RSVP — CORNER ORNAMENTS
+========================================================== */
 
 .rsvp-frame-decoration {
     position: absolute;
 
-    width: 78px;
+    width: 82px;
     height: auto;
 
     object-fit: contain;
@@ -3705,20 +3705,20 @@ section{
 
     z-index: 0;
 
-    filter:
-        saturate(0.55);
+    filter: saturate(0.55);
 
     transform-origin: center;
 }
 
 
 /* ----------------------------------------------------------
-   TOP RIGHT — rõ hơn
+   TOP RIGHT
+   Rõ hơn một chút
 ---------------------------------------------------------- */
 
 .rsvp-frame-top-right {
-    top: 2px;
-    right: 2px;
+    top: 4px;
+    right: 4px;
 
     opacity: 0.22;
 
@@ -3728,12 +3728,13 @@ section{
 
 
 /* ----------------------------------------------------------
-   BOTTOM LEFT — nhẹ hơn
+   BOTTOM LEFT
+   Nhẹ hơn
 ---------------------------------------------------------- */
 
 .rsvp-frame-bottom-left {
-    bottom: 2px;
-    left: 2px;
+    bottom: 4px;
+    left: 4px;
 
     opacity: 0.10;
 
@@ -3743,7 +3744,7 @@ section{
 
 
 /* ----------------------------------------------------------
-   CONTENT ABOVE ORNAMENT
+   CONTENT ABOVE ORNAMENTS
 ---------------------------------------------------------- */
 
 .rsvp-attendance .rsvp-label,
