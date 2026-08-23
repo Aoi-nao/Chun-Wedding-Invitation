@@ -24,7 +24,7 @@ function initializeApp() {
     renderCouple();
 
     initCoupleAnimation();
-    
+
     renderFamily();
 
     initializeCountdown();
@@ -33,13 +33,25 @@ function initializeApp() {
 
     initCeremonyAnimation();
 
-    renderGallery();
+    /* ======================================================
+       OPENING & MUSIC
+       Khởi tạo trước Gallery để một lỗi ở Gallery
+       không làm mất chức năng MỞ THIỆP.
+    ====================================================== */
 
-    initGalleryAnimation();
-    
     initializeMusicPlayer();
 
     initializeOpening();
+
+
+    /* ======================================================
+       GALLERY
+       Khởi tạo sau cùng.
+    ====================================================== */
+
+    renderGallery();
+
+    initGalleryAnimation();
 
 }
 
