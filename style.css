@@ -3388,24 +3388,23 @@ section{
 
 }
 
-
-
 /* ==========================================================
    RSVP — ATTENDANCE OPTIONS
+   Korean minimal · soft wedding form
 ========================================================== */
 
 .rsvp-options {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 
     width: 100%;
 }
 
 
-/* ----------------------------------------------------------
+/* ==========================================================
    OPTION
----------------------------------------------------------- */
+========================================================== */
 
 .rsvp-option {
     position: relative;
@@ -3420,9 +3419,7 @@ section{
 }
 
 
-/* ----------------------------------------------------------
-   HIDE NATIVE RADIO
----------------------------------------------------------- */
+/* Hide native radio */
 
 .rsvp-option input {
     position: absolute;
@@ -3436,9 +3433,9 @@ section{
 }
 
 
-/* ----------------------------------------------------------
+/* ==========================================================
    OPTION CONTENT
----------------------------------------------------------- */
+========================================================== */
 
 .rsvp-option-content {
     display: flex;
@@ -3446,19 +3443,19 @@ section{
     justify-content: center;
 
     width: 100%;
-    min-height: 54px;
+    min-height: 50px;
 
     box-sizing: border-box;
 
-    padding: 14px 18px;
+    padding: 13px 18px;
 
     border: 1px solid
-        rgba(132, 150, 128, 0.32);
+        rgba(132, 150, 128, 0.22);
 
-    border-radius: 14px;
+    border-radius: 13px;
 
     background:
-        rgba(255, 255, 255, 0.28);
+        rgba(255, 255, 255, 0.16);
 
     color: var(--color-text);
 
@@ -3478,45 +3475,48 @@ section{
 }
 
 
-/* ----------------------------------------------------------
-   HEART ICON
----------------------------------------------------------- */
+/* ==========================================================
+   HEART
+========================================================== */
 
 .rsvp-option-icon {
     margin-right: 7px;
 }
 
 
-/* ----------------------------------------------------------
+/* ==========================================================
    SELECTED
----------------------------------------------------------- */
+========================================================== */
 
 .rsvp-option input:checked
 + .rsvp-option-content {
 
     background:
-        rgba(132, 150, 128, 0.12);
+        rgba(132, 150, 128, 0.10);
 
     border-color:
-        var(--color-primary);
+        rgba(132, 150, 128, 0.55);
 
     box-shadow:
-        0 5px 18px
-        rgba(80, 100, 82, 0.08);
+        0 4px 16px
+        rgba(80, 100, 82, 0.06);
 }
 
 
-/* ----------------------------------------------------------
+/* ==========================================================
    HOVER
----------------------------------------------------------- */
+========================================================== */
 
 @media (hover: hover) and (pointer: fine) {
 
     .rsvp-option:hover
     .rsvp-option-content {
 
+        background:
+            rgba(132, 150, 128, 0.055);
+
         border-color:
-            rgba(132, 150, 128, 0.58);
+            rgba(132, 150, 128, 0.40);
 
         transform:
             translateY(-1px);
@@ -3525,22 +3525,22 @@ section{
 }
 
 
-/* ----------------------------------------------------------
-   FOCUS — ACCESSIBILITY
----------------------------------------------------------- */
+/* ==========================================================
+   FOCUS
+========================================================== */
 
 .rsvp-option input:focus-visible
 + .rsvp-option-content {
 
     outline:
-        1px solid var(--color-primary);
+        1px solid rgba(132, 150, 128, 0.65);
 
     outline-offset: 3px;
 }
 
 
 /* ==========================================================
-   RSVP — GUEST COUNTER
+   GUEST COUNTER
 ========================================================== */
 
 .rsvp-counter {
@@ -3559,13 +3559,13 @@ section{
     align-items: center;
     justify-content: center;
 
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
 
     padding: 0;
 
     border: 1px solid
-        rgba(132, 150, 128, 0.38);
+        rgba(132, 150, 128, 0.30);
 
     border-radius: 50%;
 
@@ -3574,23 +3574,22 @@ section{
     color: var(--color-primary);
 
     font-family: "Cormorant Garamond", serif;
-    font-size: 21px;
+    font-size: 20px;
 
     cursor: pointer;
 
     transition:
         background 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease;
+        border-color 0.3s ease;
 }
 
 
 .rsvp-counter-button:hover {
     background:
-        rgba(132, 150, 128, 0.10);
+        rgba(132, 150, 128, 0.08);
 
     border-color:
-        var(--color-primary);
+        rgba(132, 150, 128, 0.55);
 }
 
 
@@ -3604,4 +3603,70 @@ section{
 
     text-align: center;
 }
+
+
+/* ==========================================================
+   SUBMIT — TEXT BUTTON
+========================================================== */
+
+.rsvp-submit {
+    display: block;
+
+    margin: 28px auto 0;
+
+    padding: 8px 4px;
+
+    border: 0;
+
+    border-bottom:
+        1px solid
+        rgba(132, 150, 128, 0.55);
+
+    background: transparent;
+
+    color: var(--color-primary);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 15px;
+    font-weight: 500;
+
+    letter-spacing: 0.10em;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.rsvp-submit:hover {
+    opacity: 0.72;
+
+    border-color:
+        var(--color-primary);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* ==========================================================
+   STATUS
+========================================================== */
+
+.rsvp-status {
+    margin: 16px 0 0;
+
+    min-height: 20px;
+
+    color: var(--color-primary);
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+
+    text-align: center;
+}
+
 
