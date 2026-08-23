@@ -3690,33 +3690,68 @@ section{
 
 
 /* ----------------------------------------------------------
-   BOTANICAL FRAME
+   BOTANICAL CORNER ORNAMENTS
 ---------------------------------------------------------- */
 
 .rsvp-frame-decoration {
     position: absolute;
 
-    top: 0;
-    left: 50%;
+    width: 78px;
+    height: auto;
 
-    width: 100%;
-    height: 100%;
+    object-fit: contain;
 
-    object-fit: fill;
+    pointer-events: none;
 
-    transform:
-        translateX(-50%);
-
-    opacity: 0.16;
+    z-index: 0;
 
     filter:
         saturate(0.55);
 
-    pointer-events: none;
-
-    z-index: -1;
+    transform-origin: center;
 }
 
+
+/* ----------------------------------------------------------
+   TOP RIGHT — rõ hơn
+---------------------------------------------------------- */
+
+.rsvp-frame-top-right {
+    top: 2px;
+    right: 2px;
+
+    opacity: 0.22;
+
+    transform:
+        rotate(0deg);
+}
+
+
+/* ----------------------------------------------------------
+   BOTTOM LEFT — nhẹ hơn
+---------------------------------------------------------- */
+
+.rsvp-frame-bottom-left {
+    bottom: 2px;
+    left: 2px;
+
+    opacity: 0.10;
+
+    transform:
+        rotate(180deg);
+}
+
+
+/* ----------------------------------------------------------
+   CONTENT ABOVE ORNAMENT
+---------------------------------------------------------- */
+
+.rsvp-attendance .rsvp-label,
+.rsvp-attendance .rsvp-options {
+    position: relative;
+
+    z-index: 1;
+}
 
 /* ----------------------------------------------------------
    KEEP CONTENT ABOVE SVG
