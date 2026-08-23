@@ -885,4 +885,3 @@ function initGalleryAnimation() {
     });
 
 }
-}
