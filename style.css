@@ -3721,7 +3721,7 @@ section{
 .rsvp-frame-decoration {
     position: absolute;
 
-    width: 78px;
+    width: 92px;
     height: auto;
 
     object-fit: contain;
@@ -3745,7 +3745,7 @@ section{
     top: 2px;
     right: 2px;
 
-    opacity: 0.22;
+    opacity: 0.28;
 
     transform:
         rotate(0deg);
@@ -3760,7 +3760,7 @@ section{
     bottom: 2px;
     left: 2px;
 
-    opacity: 0.10;
+    opacity: 0.14;
 
     transform:
         rotate(180deg);
