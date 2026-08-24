@@ -3480,7 +3480,32 @@ section{
 ========================================================== */
 
 .rsvp-option-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     margin-right: 7px;
+
+    color: var(--color-primary);
+}
+
+
+.rsvp-heart-icon {
+    width: 16px;
+    height: 16px;
+
+    display: block;
+
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+}
+
+
+.rsvp-option input:checked
++ .rsvp-option-content
+.rsvp-heart-icon {
+    transform: scale(1.06);
 }
 
 
