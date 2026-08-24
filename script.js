@@ -33,6 +33,8 @@ function initializeApp() {
 
     initCeremonyAnimation();
 
+    initializeRSVP();
+
     /* ======================================================
        OPENING & MUSIC
        Khởi tạo trước Gallery để một lỗi ở Gallery
@@ -883,5 +885,145 @@ function initGalleryAnimation() {
         observer.observe(item);
 
     });
+
+}
+
+
+/* ==========================================================
+   RSVP
+========================================================== */
+
+function initializeRSVP() {
+
+    const form =
+        document.getElementById("rsvpForm");
+
+    const guests =
+        document.getElementById("rsvpGuests");
+
+    const guestCount =
+        document.getElementById("rsvpGuestCount");
+
+    const minusButton =
+        document.getElementById("rsvpMinus");
+
+    const plusButton =
+        document.getElementById("rsvpPlus");
+
+    const status =
+        document.getElementById("rsvpStatus");
+
+
+    if (
+        !form ||
+        !guests ||
+        !guestCount ||
+        !minusButton ||
+        !plusButton ||
+        !status
+    ) {
+        return;
+    }
+
+
+    /* ======================================================
+       DEFAULT
+    ====================================================== */
+
+    let count = 1;
+
+    guests.hidden = true;
+
+    guestCount.textContent = count;
+
+
+    /* ======================================================
+       ATTENDANCE
+    ====================================================== */
+
+    const attendanceInputs =
+        form.querySelectorAll(
+            'input[name="attendance"]'
+        );
+
+
+    attendanceInputs.forEach((input) => {
+
+        input.addEventListener(
+            "change",
+            () => {
+
+                if (input.value === "yes") {
+
+                    guests.hidden = false;
+
+                } else if (input.value === "no") {
+
+                    guests.hidden = true;
+
+                }
+
+            }
+        );
+
+    });
+
+
+    /* ======================================================
+       MINUS
+    ====================================================== */
+
+    minusButton.addEventListener(
+        "click",
+        () => {
+
+            if (count > 1) {
+
+                count--;
+
+                guestCount.textContent =
+                    count;
+
+            }
+
+        }
+    );
+
+
+    /* ======================================================
+       PLUS
+    ====================================================== */
+
+    plusButton.addEventListener(
+        "click",
+        () => {
+
+            if (count < 5) {
+
+                count++;
+
+                guestCount.textContent =
+                    count;
+
+            }
+
+        }
+    );
+
+
+    /* ======================================================
+       SUBMIT
+    ====================================================== */
+
+    form.addEventListener(
+        "submit",
+        (event) => {
+
+            event.preventDefault();
+
+            status.textContent = "";
+
+        }
+    );
 
 }
