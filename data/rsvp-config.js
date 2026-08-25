@@ -5,6 +5,6 @@
 const RSVPConfig = {
 
     endpoint:
-        "DÁN_URL_GOOGLE_APPS_SCRIPT_VÀO_ĐÂY"
+        "https://script.google.com/macros/s/AKfycbwAtGDufNv0qohQWNIzhuxo7jUGxa7hl7enmpIr4BWpl4JgWYStOuKn_T8spDaWNhEG/exec"
 
 };
