@@ -1016,14 +1016,124 @@ function initializeRSVP() {
     ====================================================== */
 
     form.addEventListener(
-        "submit",
-        (event) => {
+    "submit",
+    async (event) => {
 
-            event.preventDefault();
+        event.preventDefault();
 
-            status.textContent = "";
+
+        const nameInput =
+            form.querySelector(
+                'input[name="name"]'
+            );
+
+        const attendanceInput =
+            form.querySelector(
+                'input[name="attendance"]:checked'
+            );
+
+
+        if (
+            !nameInput ||
+            !attendanceInput
+        ) {
+            return;
+        }
+
+
+        const name =
+            nameInput.value.trim();
+
+        const attendance =
+            attendanceInput.value;
+
+
+        if (!name) {
+            return;
+        }
+
+
+        const formData =
+            new URLSearchParams();
+
+
+        formData.append(
+            "name",
+            name
+        );
+
+
+        formData.append(
+            "attendance",
+            attendance
+        );
+
+
+        formData.append(
+            "guests",
+            attendance === "yes"
+                ? count
+                : ""
+        );
+
+
+        try {
+
+            const response =
+                await fetch(
+                    RSVPConfig.endpoint,
+                    {
+                        method: "POST",
+
+                        body: formData
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (
+                result &&
+                result.success
+            ) {
+
+                status.textContent =
+                    "Cảm ơn bạn đã phản hồi ❤️";
+
+                status.classList.add(
+                    "is-success"
+                );
+
+
+            } else {
+
+                throw new Error(
+                    "RSVP không thành công"
+                );
+
+            }
+
+
+        } catch (error) {
+
+            console.error(
+                "RSVP error:",
+                error
+            );
+
+
+            status.textContent =
+                "Đã có lỗi xảy ra. Vui lòng thử lại.";
+
+            status.classList.add(
+                "is-error"
+            );
 
         }
-    );
+
+    }
+);
 
 }
