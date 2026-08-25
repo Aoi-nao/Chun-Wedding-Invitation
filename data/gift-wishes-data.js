@@ -11,6 +11,10 @@ const GIFT_WISHES_DATA = {
 
     gift: {
 
+        /* --------------------------------------------------
+           CÔ DÂU
+        --------------------------------------------------- */
+
         bride: {
             name: "Tên cô dâu",
             bankName: "Tên ngân hàng",
@@ -18,11 +22,25 @@ const GIFT_WISHES_DATA = {
             qr: "assets/images/qr-bride.png"
         },
 
+
+        /* --------------------------------------------------
+           CHÚ RỂ
+        --------------------------------------------------- */
+
         groom: {
             name: "Tên chú rể",
             bankName: "Tên ngân hàng",
             accountNumber: "XXXXXXXXXX",
             qr: "assets/images/qr-groom.png"
+        },
+
+
+        /* --------------------------------------------------
+           THÔNG TIN SAO CHÉP
+        --------------------------------------------------- */
+
+        transfer: {
+            accountNumber: "XXXXXXXXXX"
         }
 
     },
