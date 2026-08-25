@@ -1012,10 +1012,10 @@ function initializeRSVP() {
 
 
     /* ======================================================
-       SUBMIT
-    ====================================================== */
+   SUBMIT
+====================================================== */
 
-    form.addEventListener(
+form.addEventListener(
     "submit",
     async (event) => {
 
@@ -1077,43 +1077,41 @@ function initializeRSVP() {
         );
 
 
+        status.classList.remove(
+            "is-success",
+            "is-error"
+        );
+
+
         try {
 
-            const response =
-                await fetch(
-                    RSVPConfig.endpoint,
-                    {
-                        method: "POST",
+            await fetch(
+                RSVPConfig.endpoint,
+                {
+                    method: "POST",
 
-                        body: formData
-                    }
-                );
+                    mode: "no-cors",
 
-
-            const result =
-                await response.json();
+                    body: formData
+                }
+            );
 
 
-            if (
-                result &&
-                result.success
-            ) {
+            /*
+               Google Apps Script nhận dữ liệu
+               nhưng trình duyệt không cho website
+               đọc response vì CORS.
 
-                status.textContent =
-                    "Cảm ơn bạn đã phản hồi ❤️";
+               Vì vậy không dùng response.json()
+               ở đây.
+            */
 
-                status.classList.add(
-                    "is-success"
-                );
+            status.textContent =
+                "Cảm ơn bạn đã phản hồi ❤️";
 
-
-            } else {
-
-                throw new Error(
-                    "RSVP không thành công"
-                );
-
-            }
+            status.classList.add(
+                "is-success"
+            );
 
 
         } catch (error) {
