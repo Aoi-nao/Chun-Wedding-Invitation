@@ -5,6 +5,6 @@
 const RSVPConfig = {
 
     endpoint:
-        "https://script.google.com/macros/s/AKfycbwAtGDufNv0qohQWNIzhuxo7jUGxa7hl7enmpIr4BWpl4JgWYStOuKn_T8spDaWNhEG/exec"
+        "https://script.google.com/macros/s/AKfycbxwa4EsjcyAwNwD7BjVZMV4_qOc7cx98SSbiUVBYkvoQmOJCBp3IyEjJkZo5rw-einIEg/exec"
 
 };
