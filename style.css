@@ -4184,7 +4184,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .wishes-quill {
@@ -4192,10 +4192,10 @@ section{
     align-items: center;
     justify-content: center;
 
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
 
-    opacity: 0.72;
+    opacity: 0.95;
 }
 
 .wishes-quill img {
@@ -4540,12 +4540,12 @@ section{
 }
 
 .wishes-title-row {
-    gap: 8px;
+    gap: 6px;
 }
 
 .wishes-quill {
-    width: 26px;
-    height: 26px;
+    width: 36px;
+    height: 36px;
 }
 
     .wishes-quill img {
