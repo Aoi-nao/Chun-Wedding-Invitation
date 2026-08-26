@@ -4574,3 +4574,50 @@ section{
     }
 
 }
+
+
+
+
+
+
+/* ==========================================================
+   FLORAL DECORATION — HERO
+========================================================== */
+
+.hero-flower{
+    position:absolute;
+    pointer-events:none;
+    z-index:1;
+
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:contain;
+
+    opacity:.72;
+
+    user-select:none;
+}
+
+.hero-flower-left{
+    width:150px;
+    height:150px;
+
+    top:-28px;
+    left:-38px;
+
+    background-image:url("assets/images/floral/floral-corner-top.png");
+
+    transform:rotate(-8deg);
+}
+
+.hero-flower-right{
+    width:135px;
+    height:180px;
+
+    right:-42px;
+    bottom:92px;
+
+    background-image:url("assets/images/floral/floral-branch-vertical.png");
+
+    transform:rotate(2deg);
+}
