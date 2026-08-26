@@ -1273,92 +1273,146 @@
 
         <div class="gift-inner">
 
-            <div class="gift-heading">
+    <div class="gift-heading">
 
-                <p class="gift-message">
-                    Sự hiện diện của bạn đã là món quà quý giá nhất
-                    dành cho chúng mình.
-                </p>
+        <p
+            class="gift-message"
+            id="giftMessage"
+        ></p>
 
-                <p class="gift-message gift-message-secondary">
-                    Nếu muốn gửi thêm một chút yêu thương,
-                </p>
+        <p
+            class="gift-message gift-message-secondary"
+            id="giftInvitation"
+        ></p>
 
-            </div>
+        <p
+            class="gift-message gift-message-open"
+            id="giftOpenMessage"
+        ></p>
+
+    </div>
 
 
-            <!-- ICON MỞ THÔNG TIN MỪNG CƯỚI -->
+    <div class="gift-trigger-wrap">
 
-            <div class="gift-trigger-wrap">
+        <button
+            type="button"
+            class="gift-trigger"
+            id="giftTrigger"
+            aria-label="Mở hộp quà"
+            aria-expanded="false"
+            aria-controls="giftDetails"
+        >
+
+            <span
+                class="gift-icon"
+                aria-hidden="true"
+            >
+                <img
+                    src="assets/icons/gift-box.svg"
+                    alt=""
+                >
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="gift-details"
+        id="giftDetails"
+        hidden
+    >
+
+        <div class="gift-qr-grid">
+
+            <article class="gift-qr-card">
+
+                <h3
+                    class="gift-qr-title"
+                    id="giftBrideTitle"
+                ></h3>
+
+                <div class="gift-qr-image-wrap">
+
+                    <img
+                        class="gift-qr-image"
+                        id="giftQrBride"
+                        src=""
+                        alt=""
+                    >
+
+                </div>
+
+                <p
+                    class="gift-qr-owner"
+                    id="giftBrideAccountName"
+                ></p>
+
+            </article>
+
+
+            <article class="gift-qr-card">
+
+                <h3
+                    class="gift-qr-title"
+                    id="giftGroomTitle"
+                ></h3>
+
+                <div class="gift-qr-image-wrap">
+
+                    <img
+                        class="gift-qr-image"
+                        id="giftQrGroom"
+                        src=""
+                        alt=""
+                    >
+
+                </div>
+
+                <p
+                    class="gift-qr-owner"
+                    id="giftGroomAccountName"
+                ></p>
+
+            </article>
+
+        </div>
+
+
+        <div class="gift-bank-info">
+
+            <p
+                class="gift-bank-title"
+                id="giftBankTitle"
+            ></p>
+
+            <div class="gift-bank-account">
+
+                <span
+                    class="gift-bank-label"
+                    id="giftBankLabel"
+                ></span>
+
+                <span
+                    class="gift-bank-number"
+                    id="giftAccountNumber"
+                ></span>
 
                 <button
                     type="button"
-                    class="gift-trigger"
-                    id="giftTrigger"
-                    aria-label="Mở thông tin mừng cưới"
-                    aria-expanded="false"
-                    aria-controls="giftDetails"
-                >
-
-                   <span
-                        class="gift-icon"
-                       aria-hidden="true"
-                   >
-                       <img
-                             src="assets/icons/gift-box.svg"
-                             alt=""
-                       >
-                   </span>
-
-                        <svg
-                            viewBox="0 0 64 64"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <rect
-                                x="10"
-                                y="24"
-                                width="44"
-                                height="30"
-                                rx="4"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-
-                            <path
-                                d="M8 24H56V34H8V24Z"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linejoin="round"
-                            />
-
-                            <path
-                                d="M32 24V54"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-
-                            <path
-                                d="M32 24C32 24 25 23 22 20C19 17 20 13 23 12C27 11 32 18 32 24Z"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linejoin="round"
-                            />
-
-                            <path
-                                d="M32 24C32 24 39 23 42 20C45 17 44 13 41 12C37 11 32 18 32 24Z"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-
-                    </span>
-
-                </button>
+                    class="gift-copy-button"
+                    id="giftCopyButton"
+                ></button>
 
             </div>
 
+        </div>
+
+    </div>
+
+</div>
 
             <!-- ==================================================
                  THÔNG TIN MỪNG CƯỚI
@@ -1491,24 +1545,27 @@
 
             <div class="wishes-heading">
 
-                <h2
-                    class="wishes-title"
-                    id="wishesTitle"
-                ></h2>
-                <div class="wishes-quill" aria-hidden="true">
-    <img
-        src="assets/icons/quill-pen.svg"
-        alt=""
+    <h2
+        class="wishes-title"
+        id="wishesTitle"
+    ></h2>
+
+    <div
+        class="wishes-quill"
+        aria-hidden="true"
     >
+        <img
+            src="assets/icons/quill-pen.svg"
+            alt=""
+        >
+    </div>
+
+    <p
+        class="wishes-description"
+        id="wishesDescription"
+    ></p>
+
 </div>
-
-                <p
-                    class="wishes-description"
-                    id="wishesDescription"
-                ></p>
-
-            </div>
-
 
             <!-- FORM LỜI CHÚC -->
 
