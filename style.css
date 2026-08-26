@@ -4094,7 +4094,21 @@ section{
 .gift-wishes-divider span:last-child {
     flex: 1;
     height: 1px;
-    background: rgba(199, 164, 93, 0.32);
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(199, 164, 93, 0.28) 70%,
+        rgba(199, 164, 93, 0.42) 100%
+    );
+}
+
+.gift-wishes-divider span:last-child {
+    background: linear-gradient(
+        to left,
+        transparent 0%,
+        rgba(199, 164, 93, 0.28) 70%,
+        rgba(199, 164, 93, 0.42) 100%
+    );
 }
 
 .gift-wishes-divider-symbol {
