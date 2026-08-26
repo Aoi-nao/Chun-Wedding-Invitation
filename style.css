@@ -3824,7 +3824,7 @@ section{
     position: relative;
     width: min(100%, 1080px);
     margin: 0 auto;
-    padding: 96px 24px 78px;
+    padding: 96px 24px 42px;
     text-align: center;
 }
 
@@ -4418,7 +4418,7 @@ section{
 @media (max-width: 560px) {
 
     .gift-inner {
-        padding: 58px 18px 46px;
+        padding: 58px 18px 28px;
     }
 
     .gift-heading {
