@@ -3834,13 +3834,23 @@ section{
 ----------------------------------------------------------- */
 
 .gift-heading {
+    display: block;
+
     width: min(100%, 760px);
+    max-width: 760px;
+
     margin: 0 auto;
+
+    text-align: center;
 }
 
 .gift-message {
-    margin: 0 auto;
+    display: block;
+
     width: 100%;
+    max-width: none;
+
+    margin: 0 auto;
 
     font-family: "Cormorant Garamond", serif;
     font-size: 21px;
@@ -3848,7 +3858,12 @@ section{
     font-weight: 400;
 
     text-align: center;
+
     color: var(--color-text, #35443A);
+
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
 }
 .gift-message-secondary {
     margin-top: 8px;
@@ -4405,8 +4420,11 @@ section{
     }
 
     .gift-heading {
-        width: min(100%, 360px);
-    }
+    width: min(100%, 100%);
+    max-width: 390px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
     .gift-message {
         font-size: 17px;
