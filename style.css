@@ -3791,16 +3791,15 @@ section{
 
 
 
-
 /* ==========================================================
    GIFT & WISHES
-   Visual V1
+   Visual V2
    Chun & Dam Wedding Invitation
 ========================================================== */
 
 
 /* ==========================================================
-   SECTION WRAPPER
+   SECTION
 ========================================================== */
 
 #gift-wishes {
@@ -3813,7 +3812,7 @@ section{
 
 
 /* ==========================================================
-   GIFT
+   GIFT — MỪNG CƯỚI
 ========================================================== */
 
 #gift {
@@ -3823,9 +3822,9 @@ section{
 
 .gift-inner {
     position: relative;
-    width: min(100%, 1100px);
+    width: min(100%, 1080px);
     margin: 0 auto;
-    padding: 90px 24px 70px;
+    padding: 96px 24px 78px;
     text-align: center;
 }
 
@@ -3835,60 +3834,52 @@ section{
 ----------------------------------------------------------- */
 
 .gift-heading {
-    max-width: 620px;
+    width: min(100%, 620px);
     margin: 0 auto;
 }
 
 .gift-message {
     margin: 0;
     font-family: "Cormorant Garamond", serif;
-    font-size: 20px;
+    font-size: 21px;
     line-height: 1.7;
     font-weight: 400;
     color: var(--color-text, #35443A);
 }
 
 .gift-message-secondary {
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 
-/* ----------------------------------------------------------
-   Gift trigger
------------------------------------------------------------ */
+/* ==========================================================
+   GIFT ICON
+========================================================== */
 
 .gift-trigger-wrap {
     display: flex;
     justify-content: center;
-    margin-top: 34px;
+    margin-top: 32px;
 }
 
 .gift-trigger {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 92px;
-    height: 92px;
+    width: 82px;
+    height: 82px;
     padding: 0;
-    border: 1px solid rgba(199, 164, 93, 0.45);
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.72);
+    border: 0;
+    background: transparent;
     color: var(--color-primary, #506B55);
     cursor: pointer;
-    box-shadow:
-        0 4px 16px rgba(53, 68, 58, 0.06);
     transition:
         transform 0.35s ease,
-        box-shadow 0.35s ease,
-        background 0.35s ease;
+        opacity 0.35s ease;
 }
 
 .gift-trigger:hover {
     transform: translateY(-3px);
-    background: #FFFFFF;
-    box-shadow:
-        0 8px 24px rgba(53, 68, 58, 0.10);
 }
 
 .gift-trigger:active {
@@ -3897,24 +3888,29 @@ section{
 
 .gift-trigger:focus-visible {
     outline: 1px solid var(--color-accent, #C7A45D);
-    outline-offset: 5px;
+    outline-offset: 7px;
+    border-radius: 50%;
 }
 
 .gift-icon {
     display: flex;
-    width: 42px;
-    height: 42px;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
 }
 
-.gift-icon svg {
+.gift-icon img {
+    display: block;
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 
-/* ----------------------------------------------------------
-   Gift details
------------------------------------------------------------ */
+/* ==========================================================
+   GIFT DETAILS
+========================================================== */
 
 .gift-details {
     width: 100%;
@@ -3934,27 +3930,27 @@ section{
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
-    width: min(100%, 760px);
+    width: min(100%, 720px);
     margin: 0 auto;
 }
 
 .gift-qr-card {
     position: relative;
-    padding: 30px 24px 26px;
-    border: 1px solid rgba(80, 107, 85, 0.10);
-    border-radius: 20px;
+    padding: 28px 24px 26px;
+    border: 1px solid rgba(80, 107, 85, 0.12);
+    border-radius: 18px;
     background: #FFFFFF;
     box-shadow:
-        0 8px 28px rgba(53, 68, 58, 0.055);
-    overflow: hidden;
+        0 8px 26px rgba(53, 68, 58, 0.045);
 }
 
 .gift-qr-title {
     margin: 0 0 20px;
     font-family: "Cormorant Garamond", serif;
-    font-size: 24px;
+    font-size: 23px;
     line-height: 1.2;
     font-weight: 500;
+    letter-spacing: 0.02em;
     color: var(--color-primary, #506B55);
 }
 
@@ -3962,20 +3958,17 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
 }
 
 .gift-qr-image {
     display: block;
-    width: min(100%, 220px);
+    width: min(100%, 210px);
     aspect-ratio: 1 / 1;
     object-fit: contain;
-    border-radius: 10px;
-    background: #FFFFFF;
 }
 
 .gift-qr-owner {
-    margin: 18px 0 0;
+    margin: 16px 0 0;
     min-height: 22px;
     font-family: "Cormorant Garamond", serif;
     font-size: 18px;
@@ -3989,20 +3982,14 @@ section{
 ========================================================== */
 
 .gift-bank-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    width: min(100%, 760px);
+    width: min(100%, 720px);
     margin: 22px auto 0;
-    padding: 20px 24px;
-    border: 1px solid rgba(80, 107, 85, 0.18);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.55);
+    padding: 18px 22px;
+    text-align: center;
 }
 
 .gift-bank-title {
-    margin: 0;
+    margin: 0 0 8px;
     font-family: "Cormorant Garamond", serif;
     font-size: 18px;
     line-height: 1.3;
@@ -4012,7 +3999,7 @@ section{
 .gift-bank-account {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 8px;
     flex-wrap: wrap;
     font-family: "Cormorant Garamond", serif;
@@ -4025,18 +4012,19 @@ section{
 
 .gift-bank-number {
     font-weight: 600;
+    letter-spacing: 0.04em;
     color: var(--color-text, #35443A);
 }
 
 .gift-copy-button {
-    margin-left: 12px;
-    padding: 8px 18px;
-    border: 1px solid rgba(80, 107, 85, 0.55);
+    margin-left: 8px;
+    padding: 6px 16px;
+    border: 1px solid rgba(80, 107, 85, 0.45);
     border-radius: 999px;
     background: transparent;
     color: var(--color-primary, #506B55);
     font-family: "Cormorant Garamond", serif;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
     transition:
         background 0.3s ease,
@@ -4045,8 +4033,8 @@ section{
 }
 
 .gift-copy-button:hover {
-    background: var(--color-primary, #506B55);
     border-color: var(--color-primary, #506B55);
+    background: var(--color-primary, #506B55);
     color: #FFFFFF;
 }
 
@@ -4058,8 +4046,8 @@ section{
 .gift-wishes-divider {
     display: flex;
     align-items: center;
-    gap: 18px;
-    width: min(100% - 48px, 1000px);
+    gap: 16px;
+    width: min(calc(100% - 48px), 900px);
     margin: 0 auto;
 }
 
@@ -4067,13 +4055,13 @@ section{
 .gift-wishes-divider span:last-child {
     flex: 1;
     height: 1px;
-    background: rgba(199, 164, 93, 0.35);
+    background: rgba(199, 164, 93, 0.32);
 }
 
 .gift-wishes-divider-symbol {
     flex: 0 0 auto;
     font-family: "Cormorant Garamond", serif;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1;
     color: var(--color-accent, #C7A45D);
 }
@@ -4089,35 +4077,62 @@ section{
 }
 
 .wishes-inner {
-    width: min(100%, 900px);
+    width: min(100%, 860px);
     margin: 0 auto;
-    padding: 70px 24px 100px;
+    padding: 76px 24px 110px;
     text-align: center;
 }
 
 
-/* ----------------------------------------------------------
-   Wishes heading
------------------------------------------------------------ */
+/* ==========================================================
+   WISHES HEADING
+========================================================== */
 
 .wishes-heading {
-    max-width: 650px;
-    margin: 0 auto 38px;
+    width: min(100%, 650px);
+    margin: 0 auto 36px;
 }
 
 .wishes-title {
     margin: 0;
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(38px, 5vw, 54px);
+    font-size: clamp(40px, 5vw, 56px);
     line-height: 1;
     font-weight: 500;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     color: var(--color-primary, #506B55);
 }
 
+
+/* ==========================================================
+   QUILL PEN
+========================================================== */
+
+.wishes-quill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 58px;
+    margin: 12px 0 4px;
+    opacity: 0.58;
+}
+
+.wishes-quill img {
+    display: block;
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+
+/* ----------------------------------------------------------
+   Wishes description
+----------------------------------------------------------- */
+
 .wishes-description {
-    margin: 18px auto 0;
-    max-width: 560px;
+    width: min(100%, 560px);
+    margin: 0 auto;
     font-family: "Cormorant Garamond", serif;
     font-size: 19px;
     line-height: 1.65;
@@ -4130,8 +4145,8 @@ section{
 ========================================================== */
 
 .wishes-form {
-    width: 100%;
-    margin: 0 auto;
+    width: min(100%, 680px);
+    margin: 42px auto 0;
     text-align: left;
 }
 
@@ -4141,7 +4156,7 @@ section{
 
 .wishes-label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 7px;
     font-family: "Cormorant Garamond", serif;
     font-size: 17px;
     color: var(--color-primary, #506B55);
@@ -4151,17 +4166,17 @@ section{
 .wishes-textarea {
     display: block;
     width: 100%;
-    border: 1px solid rgba(80, 107, 85, 0.20);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(80, 107, 85, 0.18);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.68);
     color: var(--color-text, #35443A);
     font-family: "Cormorant Garamond", serif;
     font-size: 18px;
     line-height: 1.5;
     transition:
         border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+        background 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .wishes-input {
@@ -4170,53 +4185,52 @@ section{
 }
 
 .wishes-textarea {
-    min-height: 140px;
+    min-height: 150px;
     padding: 14px 16px;
     resize: vertical;
 }
 
 .wishes-input::placeholder,
 .wishes-textarea::placeholder {
-    color: rgba(53, 68, 58, 0.48);
+    color: rgba(53, 68, 58, 0.42);
 }
 
 .wishes-input:focus,
 .wishes-textarea:focus {
     outline: none;
-    border-color: rgba(80, 107, 85, 0.55);
+    border-color: rgba(80, 107, 85, 0.48);
     background: #FFFFFF;
     box-shadow:
-        0 0 0 3px rgba(80, 107, 85, 0.06);
+        0 0 0 3px rgba(80, 107, 85, 0.045);
 }
 
 
-/* ----------------------------------------------------------
-   Submit
------------------------------------------------------------ */
+/* ==========================================================
+   SUBMIT BUTTON
+========================================================== */
 
 .wishes-submit {
     display: block;
     min-width: 190px;
     margin: 28px auto 0;
-    padding: 13px 28px;
+    padding: 12px 28px;
     border: 1px solid var(--color-primary, #506B55);
     border-radius: 999px;
     background: var(--color-primary, #506B55);
     color: #FFFFFF;
     font-family: "Cormorant Garamond", serif;
     font-size: 17px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     cursor: pointer;
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
+        box-shadow 0.3s ease;
 }
 
 .wishes-submit:hover {
     transform: translateY(-2px);
     box-shadow:
-        0 7px 20px rgba(53, 68, 58, 0.12);
+        0 7px 18px rgba(53, 68, 58, 0.10);
 }
 
 .wishes-submit:active {
@@ -4224,9 +4238,9 @@ section{
 }
 
 
-/* ----------------------------------------------------------
-   Status
------------------------------------------------------------ */
+/* ==========================================================
+   STATUS
+========================================================== */
 
 .wishes-status {
     min-height: 24px;
@@ -4239,36 +4253,37 @@ section{
 
 
 /* ==========================================================
-   WISH LIST
+   GUESTBOOK
 ========================================================== */
 
 .wishes-list {
-    width: 100%;
-    margin-top: 62px;
+    width: min(100%, 680px);
+    margin: 64px auto 0;
     text-align: left;
 }
 
 .wishes-empty {
     margin: 0;
+    padding: 20px 0;
     text-align: center;
     font-family: "Cormorant Garamond", serif;
     font-size: 19px;
     font-style: italic;
-    color: rgba(53, 68, 58, 0.70);
+    color: rgba(53, 68, 58, 0.68);
 }
 
 .wish-item {
     position: relative;
     padding: 24px 4px;
-    border-bottom: 1px solid rgba(80, 107, 85, 0.15);
+    border-bottom: 1px solid rgba(80, 107, 85, 0.13);
 }
 
 .wish-item:first-child {
-    border-top: 1px solid rgba(80, 107, 85, 0.15);
+    border-top: 1px solid rgba(80, 107, 85, 0.13);
 }
 
 .wish-name {
-    margin: 0 0 7px;
+    margin: 0 0 6px;
     font-family: "Cormorant Garamond", serif;
     font-size: 20px;
     line-height: 1.25;
@@ -4286,17 +4301,17 @@ section{
 
 
 /* ==========================================================
-   RESPONSIVE — TABLET
+   TABLET
 ========================================================== */
 
 @media (max-width: 768px) {
 
     .gift-inner {
-        padding: 70px 20px 55px;
+        padding: 76px 20px 60px;
     }
 
     .gift-message {
-        font-size: 18px;
+        font-size: 19px;
     }
 
     .gift-qr-grid {
@@ -4304,7 +4319,7 @@ section{
     }
 
     .gift-qr-card {
-        padding: 24px 16px 22px;
+        padding: 24px 18px;
         border-radius: 16px;
     }
 
@@ -4313,50 +4328,28 @@ section{
     }
 
     .gift-qr-image {
-        width: min(100%, 180px);
-    }
-
-    .gift-bank-info {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 12px;
-    }
-
-    .gift-bank-account {
-        justify-content: center;
-    }
-
-    .gift-copy-button {
-        margin-left: 6px;
+        width: min(100%, 190px);
     }
 
     .wishes-inner {
-        padding: 60px 20px 80px;
+        padding: 64px 20px 90px;
     }
 
 }
 
 
 /* ==========================================================
-   RESPONSIVE — MOBILE
+   MOBILE
 ========================================================== */
 
 @media (max-width: 560px) {
 
-    #gift-wishes {
-        overflow-x: hidden;
-    }
-
-
-    /* Gift */
-
     .gift-inner {
-        padding: 58px 18px 48px;
+        padding: 58px 18px 46px;
     }
 
     .gift-heading {
-        max-width: 330px;
+        width: min(100%, 340px);
     }
 
     .gift-message {
@@ -4365,21 +4358,21 @@ section{
     }
 
     .gift-message-secondary {
-        margin-top: 8px;
+        margin-top: 6px;
     }
 
     .gift-trigger-wrap {
-        margin-top: 28px;
+        margin-top: 26px;
     }
 
     .gift-trigger {
-        width: 82px;
-        height: 82px;
+        width: 76px;
+        height: 76px;
     }
 
     .gift-icon {
-        width: 38px;
-        height: 38px;
+        width: 54px;
+        height: 54px;
     }
 
     .gift-details {
@@ -4391,35 +4384,30 @@ section{
 
     .gift-qr-grid {
         grid-template-columns: 1fr;
-        width: min(100%, 360px);
+        width: min(100%, 350px);
         gap: 14px;
     }
 
     .gift-qr-card {
-        padding: 24px 20px;
+        padding: 24px 18px;
     }
 
     .gift-qr-title {
-        margin-bottom: 16px;
         font-size: 22px;
+        margin-bottom: 16px;
     }
 
     .gift-qr-image {
         width: min(100%, 210px);
     }
 
-    .gift-qr-owner {
-        font-size: 17px;
-    }
-
 
     /* Bank */
 
     .gift-bank-info {
-        width: min(100%, 360px);
+        width: min(100%, 350px);
         margin-top: 16px;
-        padding: 18px 16px;
-        border-radius: 12px;
+        padding: 16px 8px;
     }
 
     .gift-bank-title {
@@ -4427,22 +4415,16 @@ section{
     }
 
     .gift-bank-account {
-        gap: 5px;
         font-size: 16px;
     }
 
     .gift-bank-label {
         width: 100%;
-    }
-
-    .gift-bank-number {
-        font-size: 17px;
+        text-align: center;
     }
 
     .gift-copy-button {
         margin: 7px 0 0;
-        padding: 7px 18px;
-        font-size: 15px;
     }
 
 
@@ -4451,10 +4433,6 @@ section{
     .gift-wishes-divider {
         width: calc(100% - 36px);
         gap: 12px;
-    }
-
-    .gift-wishes-divider-symbol {
-        font-size: 18px;
     }
 
 
@@ -4472,14 +4450,23 @@ section{
         font-size: 40px;
     }
 
+    .wishes-quill {
+        height: 52px;
+        margin: 10px 0 2px;
+    }
+
+    .wishes-quill img {
+        width: 64px;
+        height: 64px;
+    }
+
     .wishes-description {
-        margin-top: 15px;
         font-size: 17px;
         line-height: 1.6;
     }
 
-    .wishes-label {
-        font-size: 16px;
+    .wishes-form {
+        margin-top: 34px;
     }
 
     .wishes-input {
@@ -4491,8 +4478,7 @@ section{
     }
 
     .wishes-submit {
-        width: 100%;
-        max-width: 260px;
+        width: min(100%, 260px);
         margin-top: 24px;
     }
 
