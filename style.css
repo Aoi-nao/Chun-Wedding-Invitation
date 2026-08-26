@@ -3834,19 +3834,22 @@ section{
 ----------------------------------------------------------- */
 
 .gift-heading {
-    width: min(100%, 620px);
+    width: min(100%, 760px);
     margin: 0 auto;
 }
 
 .gift-message {
-    margin: 0;
+    margin: 0 auto;
+    width: 100%;
+
     font-family: "Cormorant Garamond", serif;
     font-size: 21px;
-    line-height: 1.7;
+    line-height: 1.6;
     font-weight: 400;
+
+    text-align: center;
     color: var(--color-text, #35443A);
 }
-
 .gift-message-secondary {
     margin-top: 8px;
 }
@@ -4402,7 +4405,7 @@ section{
     }
 
     .gift-heading {
-        width: min(100%, 340px);
+        width: min(100%, 360px);
     }
 
     .gift-message {
