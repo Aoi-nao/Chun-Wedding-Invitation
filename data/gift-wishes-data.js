@@ -10,6 +10,14 @@ const GIFT_WISHES_DATA = {
     ======================================================= */
 
     gift: {
+        message:
+            "Sự hiện diện của bạn đã là món quà quý giá nhất dành cho chúng mình.",
+
+        invitation:
+            "Nếu muốn gửi thêm một chút yêu thương,",
+
+        openMessage:
+            "Mời bạn mở hộp quà nhỏ này nhé.♡",
 
         /* --------------------------------------------------
            CÔ DÂU
@@ -40,7 +48,9 @@ const GIFT_WISHES_DATA = {
         --------------------------------------------------- */
 
         transfer: {
-            accountNumber: "XXXXXXXXXX"
+            accountNumber: "XXXXXXXXXX",
+            copyText: "Sao chép",
+            copiedText: "Đã sao chép"
         }
 
     },
@@ -61,8 +71,13 @@ const GIFT_WISHES_DATA = {
             "Hãy là người đầu tiên gửi lời chúc ❤️",
 
         submitText:
-            "GỬI LỜI CHÚC"
+            "GỬI LỜI CHÚC",
+           
+　　　　namePlaceholder:
+            "Tên của bạn",
 
+        messagePlaceholder:
+            "Viết lời chúc của bạn tại đây..."
     }
 
 };
