@@ -4657,3 +4657,82 @@ section{
 
     transform:rotate(2deg);
 }
+
+/* ==========================================================
+   FLORAL DECORATION — HERO
+========================================================== */
+
+.floral{
+    position:absolute;
+
+    display:block;
+
+    pointer-events:none;
+    user-select:none;
+
+    object-fit:contain;
+
+    z-index:3;
+}
+
+
+/* ----------------------------------------------------------
+   HERO — TOP LEFT
+   Asset A
+---------------------------------------------------------- */
+
+#hero{
+    position:relative;
+}
+
+.floral-hero-top{
+    width:150px;
+    height:auto;
+
+    top:-18px;
+    left:-38px;
+
+    opacity:.78;
+
+    transform:rotate(-8deg);
+}
+
+
+/* ----------------------------------------------------------
+   HERO — RIGHT VERTICAL
+   Asset C
+---------------------------------------------------------- */
+
+.floral-hero-vertical{
+    width:105px;
+    height:auto;
+
+    right:-42px;
+    bottom:78px;
+
+    opacity:.68;
+
+    transform:rotate(3deg);
+}
+
+@media (max-width:480px){
+
+    .floral-hero-top{
+        width:120px;
+
+        top:-12px;
+        left:-32px;
+
+        opacity:.72;
+    }
+
+    .floral-hero-vertical{
+        width:82px;
+
+        right:-30px;
+        bottom:70px;
+
+        opacity:.62;
+    }
+
+}
