@@ -1127,7 +1127,7 @@ form.addEventListener(
 
             status.classList.add(
                 "is-error"
-            );
+            )
 
         }
 
@@ -1135,3 +1135,43 @@ form.addEventListener(
 );
 
 }
+
+/* ==========================================================
+   GIFT & WISHES — DATA BINDING
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (typeof GIFT_WISHES_DATA === "undefined") {
+        console.warn("GIFT_WISHES_DATA is not available.");
+        return;
+    }
+
+    const data = GIFT_WISHES_DATA;
+
+
+    // =========================
+    // GIFT
+    // =========================
+
+    document.getElementById("giftMessage").textContent =
+        data.gift.message;
+
+    document.getElementById("giftInvitation").textContent =
+        data.gift.invitation;
+
+    document.getElementById("giftOpenMessage").textContent =
+        data.gift.openMessage;
+
+
+    // =========================
+    // WISHES
+    // =========================
+
+    document.getElementById("wishesTitle").textContent =
+        data.wishes.title;
+
+    document.getElementById("wishesDescription").textContent =
+        data.wishes.description;
+
+});
