@@ -4686,11 +4686,11 @@ section{
 }
 
 .floral-hero-top{
-    width:150px;
+    width:280px;
     height:auto;
 
-    top:-18px;
-    left:-38px;
+    top:-42px;
+    left:-78px;
 
     opacity:.78;
 
@@ -4704,11 +4704,11 @@ section{
 ---------------------------------------------------------- */
 
 .floral-hero-vertical{
-    width:105px;
+    width:175px;
     height:auto;
 
-    right:-42px;
-    bottom:78px;
+    right:-68px;
+    bottom:55px;
 
     opacity:.68;
 
@@ -4718,21 +4718,21 @@ section{
 @media (max-width:480px){
 
     .floral-hero-top{
-        width:120px;
+    width:235px;
 
-        top:-12px;
-        left:-32px;
+    top:-34px;
+    left:-68px;
 
-        opacity:.72;
-    }
+    opacity:.76;
+}
 
-    .floral-hero-vertical{
-        width:82px;
+.floral-hero-vertical{
+    width:145px;
 
-        right:-30px;
-        bottom:70px;
+    right:-58px;
+    bottom:52px;
 
-        opacity:.62;
-    }
+    opacity:.64;
+}
 
 }
