@@ -1175,3 +1175,25 @@ document.addEventListener("DOMContentLoaded", () => {
         data.wishes.description;
 
 });
+
+/* ==========================================================
+   GIFT — OPEN QR
+========================================================== */
+
+const giftTrigger = document.getElementById("giftTrigger");
+const giftDetails = document.getElementById("giftDetails");
+
+if (giftTrigger && giftDetails) {
+
+    giftTrigger.addEventListener("click", () => {
+
+        giftDetails.hidden = false;
+
+        giftTrigger.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+    });
+
+}
