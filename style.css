@@ -4676,63 +4676,105 @@ section{
 }
 
 
-/* ----------------------------------------------------------
-   HERO — TOP LEFT
-   Asset A
----------------------------------------------------------- */
+/* ==========================================================
+   FLORAL COMPOSITION — HERO
+========================================================== */
 
 #hero{
     position:relative;
 }
 
-.floral-hero-top{
-    width:280px;
-    height:auto;
+.floral{
+    position:absolute;
 
-    top:-42px;
-    left:-78px;
+    display:block;
 
-    opacity:.78;
+    pointer-events:none;
+    user-select:none;
+
+    object-fit:contain;
+
+    z-index:3;
+}
+
+
+/* ----------------------------------------------------------
+   A — MAIN CORNER
+---------------------------------------------------------- */
+
+.floral-hero-a{
+    width:360px;
+
+    top:-70px;
+    left:-105px;
+
+    opacity:.82;
 
     transform:rotate(-8deg);
 }
 
 
 /* ----------------------------------------------------------
-   HERO — RIGHT VERTICAL
-   Asset C
+   B — CONNECTING HORIZONTAL BRANCH
 ---------------------------------------------------------- */
 
-.floral-hero-vertical{
-    width:175px;
-    height:auto;
+.floral-hero-b{
+    width:300px;
 
-    right:-68px;
-    bottom:55px;
+    top:42px;
+    left:55px;
 
-    opacity:.68;
+    opacity:.74;
 
-    transform:rotate(3deg);
+    transform:rotate(-10deg);
 }
 
+
+/* ----------------------------------------------------------
+   C — RIGHT VERTICAL BRANCH
+---------------------------------------------------------- */
+
+.floral-hero-c{
+    width:210px;
+
+    right:-82px;
+    bottom:35px;
+
+    opacity:.70;
+
+    transform:rotate(4deg);
+}
+
+/* ----------------------------------------------------------
+   MOBILE
+---------------------------------------------------------- */
 @media (max-width:480px){
 
-    .floral-hero-top{
-    width:235px;
+    .floral-hero-a{
+        width:300px;
 
-    top:-34px;
-    left:-68px;
+        top:-58px;
+        left:-100px;
 
-    opacity:.76;
-}
+        opacity:.80;
+    }
 
-.floral-hero-vertical{
-    width:145px;
+    .floral-hero-b{
+        width:245px;
 
-    right:-58px;
-    bottom:52px;
+        top:34px;
+        left:28px;
 
-    opacity:.64;
-}
+        opacity:.72;
+    }
+
+    .floral-hero-c{
+        width:175px;
+
+        right:-70px;
+        bottom:28px;
+
+        opacity:.66;
+    }
 
 }
