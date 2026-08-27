@@ -1178,6 +1178,15 @@ document.addEventListener("DOMContentLoaded", () => {
     
     document.getElementById("wishesEmpty").textContent =
         data.wishes.emptyMessage;
+
+    document.getElementById("wishName").placeholder =
+    data.wishes.namePlaceholder;
+
+    document.getElementById("wishMessage").placeholder =
+    data.wishes.messagePlaceholder;
+
+    document.getElementById("wishesSubmit").textContent =
+    data.wishes.submitText;
 });
 
 /* ==========================================================
