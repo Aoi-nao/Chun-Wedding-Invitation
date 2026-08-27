@@ -3972,6 +3972,19 @@ section{
 .gift-details {
     width: 100%;
     margin-top: 48px;
+
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+    transform-origin: top center;
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease;
+}
+
+.gift-details.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .gift-details[hidden] {
