@@ -4658,9 +4658,6 @@ section{
     position:absolute;
     inset:0;
 
-    width:100%;
-    height:100%;
-
     overflow:hidden;
 
     pointer-events:none;
@@ -4670,129 +4667,83 @@ section{
 }
 
 
-/* ==========================================================
-   CỤM CHÍNH — TOP LEFT
-========================================================== */
+/* ----------------------------------------------------------
+   MAIN CORNER
+---------------------------------------------------------- */
 
 .hero-floral-corner{
     position:absolute;
 
-    width:235px;
-    height:auto;
+    width:330px;
 
-    top:-42px;
-    left:-62px;
+    top:-68px;
+    left:-95px;
 
-    opacity:.86;
+    opacity:.90;
 
-    transform:rotate(-7deg);
+    transform:rotate(-8deg);
 
     z-index:1;
 }
 
 
-/* ==========================================================
-   NHÁNH DÀI — NỐI TỪ CỤM CHÍNH
-========================================================== */
+/* ----------------------------------------------------------
+   LONG BRANCH — CONNECTS THE COMPOSITION
+---------------------------------------------------------- */
 
 .hero-floral-long{
     position:absolute;
 
-    width:245px;
-    height:auto;
+    width:330px;
 
-    top:18px;
-    left:70px;
+    top:20px;
+    left:55px;
 
-    opacity:.78;
+    opacity:.82;
 
-    transform:rotate(-9deg);
+    transform:rotate(-10deg);
 
     z-index:2;
 }
 
 
-/* ==========================================================
-   NHÁNH NGANG — LÀM DÀY COMPOSITION
-========================================================== */
+/* ----------------------------------------------------------
+   HORIZONTAL BRANCH — OVERLAPS MAIN CLUSTER
+---------------------------------------------------------- */
 
 .hero-floral-horizontal{
     position:absolute;
 
-    width:190px;
-    height:auto;
+    width:250px;
 
-    top:38px;
-    left:18px;
+    top:35px;
+    left:-5px;
 
-    opacity:.72;
+    opacity:.76;
 
-    transform:rotate(-18deg);
+    transform:rotate(-16deg);
 
     z-index:3;
 }
 
 
-/* ==========================================================
-   MINI ACCENT — ĐIỂM NHẤN
-========================================================== */
+/* ----------------------------------------------------------
+   MINI ACCENT
+---------------------------------------------------------- */
 
 .hero-floral-mini{
     position:absolute;
 
-    width:62px;
-    height:auto;
+    width:75px;
 
-    top:96px;
-    left:174px;
+    top:105px;
+    left:205px;
 
-    opacity:.78;
-
-    transform:rotate(12deg);
-
-    z-index:4;
-}
-
-
-/* ==========================================================
-   NHÁNH DỌC — CHUYỂN HƯỚNG SANG PHẢI
-========================================================== */
-
-.hero-floral-vertical{
-    position:absolute;
-
-    width:125px;
-    height:auto;
-
-    right:-38px;
-    bottom:8px;
-
-    opacity:.68;
-
-    transform:rotate(7deg);
-
-    z-index:2;
-}
-
-
-/* ==========================================================
-   CỤM KẾT — BOTTOM RIGHT
-========================================================== */
-
-.hero-floral-bottom{
-    position:absolute;
-
-    width:120px;
-    height:auto;
-
-    right:-28px;
-    bottom:-34px;
-
-    opacity:.72;
+    opacity:.80;
 
     transform:rotate(8deg);
 
-    z-index:3;
+    z-index:4;
 }
 
 
@@ -4803,62 +4754,31 @@ section{
 @media (max-width:480px){
 
     .hero-floral-corner{
-        width:220px;
+        width:300px;
 
-        top:-38px;
-        left:-60px;
-
-        opacity:.84;
+        top:-62px;
+        left:-90px;
     }
-
 
     .hero-floral-long{
-        width:220px;
+        width:295px;
 
-        top:16px;
-        left:58px;
-
-        opacity:.76;
+        top:18px;
+        left:45px;
     }
-
 
     .hero-floral-horizontal{
-        width:170px;
+        width:225px;
 
-        top:34px;
-        left:12px;
-
-        opacity:.70;
+        top:30px;
+        left:-5px;
     }
-
 
     .hero-floral-mini{
-        width:54px;
+        width:65px;
 
-        top:88px;
-        left:148px;
-
-        opacity:.76;
-    }
-
-
-    .hero-floral-vertical{
-        width:110px;
-
-        right:-34px;
-        bottom:8px;
-
-        opacity:.64;
-    }
-
-
-    .hero-floral-bottom{
-        width:105px;
-
-        right:-25px;
-        bottom:-30px;
-
-        opacity:.68;
+        top:98px;
+        left:182px;
     }
 
 }
