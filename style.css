@@ -4699,6 +4699,7 @@ section{
         rotate(18deg);
 }
 
+/* Một vài sắc độ rất nhẹ để hoa không đồng đều */
 .falling-petal:nth-child(3n) {
     width: 7px;
     height: 11px;
@@ -4732,19 +4733,6 @@ section{
     background: rgba(248, 211, 220, 0.62);
 }
 
-/* Một vài sắc độ rất nhẹ để hoa không đồng đều */
-
-.falling-petal:nth-child(3n) {
-    background: rgba(255, 225, 232, 0.72);
-}
-
-.falling-petal:nth-child(4n) {
-    background: rgba(238, 198, 207, 0.58);
-}
-
-.falling-petal:nth-child(5n) {
-    background: rgba(248, 211, 220, 0.62);
-}
 
 
 /* ----------------------------------------------------------
