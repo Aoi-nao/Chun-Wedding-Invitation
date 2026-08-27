@@ -1192,16 +1192,30 @@ if (giftTrigger && giftDetails) {
 
         if (isOpen) {
 
-            giftDetails.hidden = true;
+            giftDetails.classList.remove("is-visible");
 
             giftTrigger.setAttribute(
                 "aria-expanded",
                 "false"
             );
 
+            setTimeout(() => {
+                giftDetails.hidden = true;
+            }, 450);
+
         } else {
 
             giftDetails.hidden = false;
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+
+                    giftDetails.classList.add(
+                        "is-visible"
+                    );
+
+                });
+            });
 
             giftTrigger.setAttribute(
                 "aria-expanded",
