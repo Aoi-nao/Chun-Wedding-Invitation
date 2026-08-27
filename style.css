@@ -4648,24 +4648,40 @@ section{
     z-index: 999;
 
     user-select: none;
-}
+
+
+   /* ==========================================================
+   PETAL SHAPE
+========================================================== */
 
 .falling-petal {
     position: absolute;
 
     top: -24px;
 
-    width: 8px;
-    height: 12px;
+    width: 9px;
+    height: 13px;
 
     background: rgba(242, 190, 202, 0.68);
 
-    /* Cánh hoa mềm và hơi bất đối xứng */
-    border-radius:
-        72% 38%
-        68% 32%;
-
-    transform-origin: 50% 50%;
+    /*
+       Silhouette cánh hoa:
+       - không tròn đều
+       - đầu hơi nhọn
+       - một bên cong nhiều hơn
+    */
+    clip-path: polygon(
+        50% 0%,
+        76% 18%,
+        91% 43%,
+        84% 68%,
+        62% 88%,
+        43% 100%,
+        38% 78%,
+        24% 62%,
+        13% 40%,
+        22% 18%
+    );
 
     opacity: 0;
 
@@ -4678,63 +4694,74 @@ section{
         petal-sway var(--sway-duration) ease-in-out infinite alternate;
 }
 
-/* Nếp cánh rất nhẹ */
-.falling-petal::after {
-    content: "";
 
-    position: absolute;
+/* Cánh 2 — nhỏ và hơi nghiêng */
 
-    left: 50%;
-    top: 16%;
-
-    width: 1px;
-    height: 68%;
-
-    background: rgba(255, 255, 255, 0.25);
-
-    border-radius: 50%;
-
-    transform:
-        translateX(-50%)
-        rotate(18deg);
-}
-
-/* Một vài sắc độ rất nhẹ để hoa không đồng đều */
 .falling-petal:nth-child(3n) {
-    width: 7px;
-    height: 11px;
-
-    border-radius:
-        45% 70%
-        35% 68%;
+    width: 8px;
+    height: 12px;
 
     background: rgba(255, 225, 232, 0.72);
+
+    clip-path: polygon(
+        46% 0%,
+        72% 15%,
+        92% 39%,
+        82% 65%,
+        59% 86%,
+        39% 100%,
+        35% 76%,
+        20% 60%,
+        10% 36%,
+        24% 14%
+    );
 }
+
+
+/* Cánh 3 — dài và mảnh hơn */
 
 .falling-petal:nth-child(4n) {
-    width: 9px;
-    height: 13px;
-
-    border-radius:
-        75% 30%
-        60% 38%;
+    width: 7px;
+    height: 14px;
 
     background: rgba(238, 198, 207, 0.58);
+
+    clip-path: polygon(
+        52% 0%,
+        78% 20%,
+        88% 44%,
+        77% 70%,
+        57% 91%,
+        42% 100%,
+        37% 77%,
+        22% 57%,
+        17% 34%,
+        29% 13%
+    );
 }
+
+
+/* Cánh 4 — hơi mở */
 
 .falling-petal:nth-child(5n) {
-    width: 7px;
-    height: 13px;
-
-    border-radius:
-        60% 40%
-        75% 28%;
+    width: 10px;
+    height: 12px;
 
     background: rgba(248, 211, 220, 0.62);
+
+    clip-path: polygon(
+        50% 0%,
+        79% 19%,
+        96% 42%,
+        86% 63%,
+        65% 81%,
+        46% 100%,
+        40% 77%,
+        23% 63%,
+        8% 41%,
+        21% 18%
+    );
 }
-
-
-
 /* ----------------------------------------------------------
    RƠI
 ---------------------------------------------------------- */
