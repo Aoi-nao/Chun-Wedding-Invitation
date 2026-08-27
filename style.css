@@ -4701,7 +4701,7 @@ section{
     width: 8px;
     height: 12px;
 
-    background: rgba(255, 225, 232, 0.72);
+   background: rgba(247, 207, 216, 0.64);
 
     clip-path: polygon(
         46% 0%,
@@ -4724,7 +4724,7 @@ section{
     width: 7px;
     height: 14px;
 
-    background: rgba(238, 198, 207, 0.58);
+       background: rgba(247, 207, 216, 0.64);
 
     clip-path: polygon(
         52% 0%,
@@ -4747,7 +4747,7 @@ section{
     width: 10px;
     height: 12px;
 
-    background: rgba(248, 211, 220, 0.62);
+    background: rgba(249, 211, 220, 0.62);
 
     clip-path: polygon(
         50% 0%,
