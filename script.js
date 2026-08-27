@@ -1175,7 +1175,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("wishesDescription").textContent =
         data.wishes.description;
-
+    
+    document.getElementById("wishesEmpty").textContent =
+        data.wishes.emptyMessage;
 });
 
 /* ==========================================================
