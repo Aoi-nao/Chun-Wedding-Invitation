@@ -4184,16 +4184,18 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 0;
 }
-
 .wishes-quill {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
+
+    margin-left: 6px;
+    margin-top: 2px;
 
     opacity: 0.95;
 }
@@ -4546,6 +4548,9 @@ section{
 .wishes-quill {
     width: 36px;
     height: 36px;
+
+    margin-left: 5px;
+    margin-top: 2px;
 }
 
     .wishes-quill img {
