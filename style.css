@@ -4649,6 +4649,222 @@ section{
 
 
 
+/* ==========================================================
+   FLORAL V2 — HERO
+   BOTANICAL CORNER
+========================================================== */
+
+.hero-floral{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    pointer-events:none;
+    user-select:none;
+
+    z-index:3;
+}
+
+
+/* ==========================================================
+   CỤM CHÍNH — TOP LEFT
+========================================================== */
+
+.hero-floral-corner{
+    position:absolute;
+
+    width:235px;
+    height:auto;
+
+    top:-42px;
+    left:-62px;
+
+    opacity:.86;
+
+    transform:rotate(-7deg);
+
+    z-index:1;
+}
+
+
+/* ==========================================================
+   NHÁNH DÀI — NỐI TỪ CỤM CHÍNH
+========================================================== */
+
+.hero-floral-long{
+    position:absolute;
+
+    width:245px;
+    height:auto;
+
+    top:18px;
+    left:70px;
+
+    opacity:.78;
+
+    transform:rotate(-9deg);
+
+    z-index:2;
+}
+
+
+/* ==========================================================
+   NHÁNH NGANG — LÀM DÀY COMPOSITION
+========================================================== */
+
+.hero-floral-horizontal{
+    position:absolute;
+
+    width:190px;
+    height:auto;
+
+    top:38px;
+    left:18px;
+
+    opacity:.72;
+
+    transform:rotate(-18deg);
+
+    z-index:3;
+}
+
+
+/* ==========================================================
+   MINI ACCENT — ĐIỂM NHẤN
+========================================================== */
+
+.hero-floral-mini{
+    position:absolute;
+
+    width:62px;
+    height:auto;
+
+    top:96px;
+    left:174px;
+
+    opacity:.78;
+
+    transform:rotate(12deg);
+
+    z-index:4;
+}
+
+
+/* ==========================================================
+   NHÁNH DỌC — CHUYỂN HƯỚNG SANG PHẢI
+========================================================== */
+
+.hero-floral-vertical{
+    position:absolute;
+
+    width:125px;
+    height:auto;
+
+    right:-38px;
+    bottom:8px;
+
+    opacity:.68;
+
+    transform:rotate(7deg);
+
+    z-index:2;
+}
+
+
+/* ==========================================================
+   CỤM KẾT — BOTTOM RIGHT
+========================================================== */
+
+.hero-floral-bottom{
+    position:absolute;
+
+    width:120px;
+    height:auto;
+
+    right:-28px;
+    bottom:-34px;
+
+    opacity:.72;
+
+    transform:rotate(8deg);
+
+    z-index:3;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:480px){
+
+    .hero-floral-corner{
+        width:220px;
+
+        top:-38px;
+        left:-60px;
+
+        opacity:.84;
+    }
+
+
+    .hero-floral-long{
+        width:220px;
+
+        top:16px;
+        left:58px;
+
+        opacity:.76;
+    }
+
+
+    .hero-floral-horizontal{
+        width:170px;
+
+        top:34px;
+        left:12px;
+
+        opacity:.70;
+    }
+
+
+    .hero-floral-mini{
+        width:54px;
+
+        top:88px;
+        left:148px;
+
+        opacity:.76;
+    }
+
+
+    .hero-floral-vertical{
+        width:110px;
+
+        right:-34px;
+        bottom:8px;
+
+        opacity:.64;
+    }
+
+
+    .hero-floral-bottom{
+        width:105px;
+
+        right:-25px;
+        bottom:-30px;
+
+        opacity:.68;
+    }
+
+}
+
+
+
 
 /* ==========================================================
    FALLING PETALS — SOFT
