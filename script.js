@@ -1231,69 +1231,7 @@ if (giftTrigger && giftDetails) {
 }
 
 
-/* ==========================================================
-   GIFT — COPY BANK ACCOUNT
-========================================================== */
 
-const giftCopyButton =
-    document.getElementById("giftCopyButton");
-
-const giftAccountNumber =
-    document.getElementById("giftAccountNumber");
-
-if (
-    giftCopyButton &&
-    giftAccountNumber &&
-    typeof data !== "undefined" &&
-    data.gift &&
-    data.gift.transfer
-) {
-
-    const copyText =
-        data.gift.transfer.copyText || "Sao chép";
-
-    const copiedText =
-        data.gift.transfer.copiedText || "Đã sao chép";
-
-    giftCopyButton.textContent = copyText;
-
-    giftCopyButton.addEventListener("click", async () => {
-
-        const accountNumber =
-            giftAccountNumber.textContent.trim();
-
-        if (!accountNumber) {
-            return;
-        }
-
-        try {
-
-            await navigator.clipboard.writeText(
-                accountNumber
-            );
-
-            giftCopyButton.textContent =
-                copiedText;
-
-            setTimeout(() => {
-
-                giftCopyButton.textContent =
-                    copyText;
-
-            }, 2500);
-
-        } catch (error) {
-
-            console.error(
-                "Copy account number error:",
-                error
-            );
-
-        }
-
-    });
-
-}
 
 /* ==========================================================
    FALLING PETALS — SOFT
