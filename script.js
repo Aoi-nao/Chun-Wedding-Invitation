@@ -1177,7 +1177,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ==========================================================
-   GIFT — OPEN QR
+   GIFT — OPEN / CLOSE QR
 ========================================================== */
 
 const giftTrigger = document.getElementById("giftTrigger");
@@ -1187,12 +1187,28 @@ if (giftTrigger && giftDetails) {
 
     giftTrigger.addEventListener("click", () => {
 
-        giftDetails.hidden = false;
+        const isOpen =
+            giftTrigger.getAttribute("aria-expanded") === "true";
 
-        giftTrigger.setAttribute(
-            "aria-expanded",
-            "true"
-        );
+        if (isOpen) {
+
+            giftDetails.hidden = true;
+
+            giftTrigger.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        } else {
+
+            giftDetails.hidden = false;
+
+            giftTrigger.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+
+        }
 
     });
 
