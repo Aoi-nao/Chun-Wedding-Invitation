@@ -49,8 +49,6 @@ const GIFT_WISHES_DATA = {
 
         transfer: {
             accountNumber: "XXXXXXXXXX",
-            copyText: "Sao chép",
-            copiedText: "Đã sao chép"
         }
 
     },
