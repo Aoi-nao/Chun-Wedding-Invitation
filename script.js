@@ -55,6 +55,8 @@ function initializeApp() {
 
     initGalleryAnimation();
 
+    initializeFallingPetals();
+
 }
 
 function checkConfiguration() {
@@ -1225,5 +1227,169 @@ if (giftTrigger && giftDetails) {
         }
 
     });
+
+}
+
+
+
+
+/* ==========================================================
+   FALLING PETALS — SOFT
+   CÁNH HOA
+========================================================== */
+
+function initializeFallingPetals() {
+
+    const container =
+        document.getElementById("petals-container");
+
+    if (!container) {
+        return;
+    }
+
+    const isMobile =
+        window.innerWidth <= 480;
+
+    const maxPetals =
+        isMobile ? 12 : 18;
+
+    function createPetal() {
+
+        if (
+            container.children.length >= maxPetals
+        ) {
+            return;
+        }
+
+        const petal =
+            document.createElement("span");
+
+        petal.className =
+            "falling-petal";
+
+        /* ------------------------------------------
+           SIZE
+        ------------------------------------------ */
+
+        const size =
+            isMobile
+                ? Math.random() * 3 + 6
+                : Math.random() * 4 + 7;
+
+        petal.style.width =
+            `${size}px`;
+
+        petal.style.height =
+            `${size * 1.35}px`;
+
+
+        /* ------------------------------------------
+           POSITION
+        ------------------------------------------ */
+
+        petal.style.left =
+            `${Math.random() * 100}%`;
+
+
+        /* ------------------------------------------
+           MOVEMENT
+        ------------------------------------------ */
+
+        const driftX =
+            (Math.random() - 0.5) * 180;
+
+        const rotation =
+            (Math.random() - 0.5) * 720;
+
+
+        petal.style.setProperty(
+            "--drift-x",
+            `${driftX}px`
+        );
+
+        petal.style.setProperty(
+            "--rotation",
+            `${rotation}deg`
+        );
+
+
+        /* ------------------------------------------
+           TIMING
+        ------------------------------------------ */
+
+        const fallDuration =
+            Math.random() * 7 + 10;
+
+        const swayDuration =
+            Math.random() * 2 + 3;
+
+        const delay =
+            Math.random() * 2;
+
+
+        petal.style.setProperty(
+            "--fall-duration",
+            `${fallDuration}s`
+        );
+
+        petal.style.setProperty(
+            "--sway-duration",
+            `${swayDuration}s`
+        );
+
+        petal.style.animationDelay =
+            `${delay}s, 0s`;
+
+
+        container.appendChild(petal);
+
+
+        /* ------------------------------------------
+           CLEAN UP
+        ------------------------------------------ */
+
+        setTimeout(() => {
+
+            petal.remove();
+
+        }, (fallDuration + delay) * 1000 + 500);
+
+    }
+
+
+    /* ------------------------------------------
+       INITIAL PETALS
+    ------------------------------------------ */
+
+    for (
+        let i = 0;
+        i < maxPetals;
+        i++
+    ) {
+
+        setTimeout(
+            createPetal,
+            Math.random() * 5000
+        );
+
+    }
+
+
+    /* ------------------------------------------
+       CONTINUOUS FLOW
+    ------------------------------------------ */
+
+    setInterval(() => {
+
+        if (
+            container.children.length <
+            maxPetals
+        ) {
+
+            createPetal();
+
+        }
+
+    }, 1800);
 
 }
