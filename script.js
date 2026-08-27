@@ -1241,7 +1241,21 @@ const giftCopyButton =
 const giftAccountNumber =
     document.getElementById("giftAccountNumber");
 
-if (giftCopyButton && giftAccountNumber) {
+if (
+    giftCopyButton &&
+    giftAccountNumber &&
+    typeof data !== "undefined" &&
+    data.gift &&
+    data.gift.transfer
+) {
+
+    const copyText =
+        data.gift.transfer.copyText || "Sao chép";
+
+    const copiedText =
+        data.gift.transfer.copiedText || "Đã sao chép";
+
+    giftCopyButton.textContent = copyText;
 
     giftCopyButton.addEventListener("click", async () => {
 
@@ -1258,16 +1272,13 @@ if (giftCopyButton && giftAccountNumber) {
                 accountNumber
             );
 
-            const originalText =
-                giftCopyButton.textContent;
-
             giftCopyButton.textContent =
-                "Đã sao chép";
+                copiedText;
 
             setTimeout(() => {
 
                 giftCopyButton.textContent =
-                    originalText || "Sao chép";
+                    copyText;
 
             }, 2500);
 
