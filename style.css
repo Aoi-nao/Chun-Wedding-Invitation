@@ -1239,6 +1239,87 @@ section{
     color: var(--color-text);
 }
 
+
+/* ==========================================================
+   INVITATION — BOTANICAL BACKGROUND
+========================================================== */
+
+#invitation {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 8% 18%,
+            rgba(216, 190, 132, 0.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 92% 82%,
+            rgba(109, 140, 107, 0.07),
+            transparent 30%
+        ),
+        var(--color-secondary);
+}
+
+
+/* ----------------------------------------------------------
+   SOFT BOTANICAL CORNER
+---------------------------------------------------------- */
+
+#invitation::after {
+    content: "";
+
+    position: absolute;
+
+    width: 270px;
+    height: 270px;
+
+    right: -105px;
+    bottom: -55px;
+
+    background-image:
+        url("assets/images/floral/floral-corner-horizontal.png");
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    opacity: 0.13;
+
+    transform: rotate(7deg);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* ----------------------------------------------------------
+   KEEP INVITATION CONTENT ABOVE DECORATION
+---------------------------------------------------------- */
+
+#invitation .container,
+#invitation .invitation-content {
+    position: relative;
+    z-index: 1;
+}
+
+
+@media (max-width: 480px) {
+
+    #invitation::after {
+        width: 250px;
+        height: 250px;
+
+        right: -105px;
+        bottom: -48px;
+
+        opacity: 0.12;
+    }
+
+}
+
 /* ==========================================================
    COUPLE
 ========================================================== */
