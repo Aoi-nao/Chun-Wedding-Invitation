@@ -1421,20 +1421,41 @@ async function loadWishes() {
         wishes.forEach((wish) => {
 
             const item =
-                document.createElement("article");
+    document.createElement("article");
 
-            item.className =
-                "wish-item";
+item.className =
+    "wish-item";
 
 
-            const name =
-                document.createElement("p");
+const avatar =
+    document.createElement("span");
 
-            name.className =
-                "wish-name";
+avatar.className =
+    "wish-avatar";
 
-            name.textContent =
-                wish.name;
+
+const avatarImage =
+    document.createElement("img");
+
+avatarImage.src =
+    "assets/icons/decorative/Asset%20%20(2).svg";
+
+avatarImage.alt =
+    "";
+
+avatar.appendChild(
+    avatarImage
+);
+
+
+const name =
+    document.createElement("p");
+
+name.className =
+    "wish-name";
+
+name.textContent =
+    wish.name;
 
 
             const message =
@@ -1447,9 +1468,9 @@ async function loadWishes() {
                 wish.message;
 
 
+            item.appendChild(avatar);
             item.appendChild(name);
-
-            item.appendChild(message);
+item.appendChild(message);
 
             wishesList.appendChild(item);
 
