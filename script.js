@@ -35,6 +35,8 @@ function initializeApp() {
 
     initializeRSVP();
 
+    initializeWishes();
+
     /* ======================================================
        OPENING & MUSIC
        Khởi tạo trước Gallery để một lỗi ở Gallery
@@ -1238,6 +1240,132 @@ if (giftTrigger && giftDetails) {
         }
 
     });
+
+}
+
+
+
+/* ==========================================================
+   WISHES — SUBMIT
+========================================================== */
+
+function initializeWishes() {
+
+    const form =
+        document.getElementById("wishesForm");
+
+    const status =
+        document.getElementById("wishesStatus");
+
+    if (!form || !status) {
+        return;
+    }
+
+
+    form.addEventListener(
+        "submit",
+        async (event) => {
+
+            event.preventDefault();
+
+
+            const nameInput =
+                document.getElementById("wishName");
+
+            const messageInput =
+                document.getElementById("wishMessage");
+
+
+            if (
+                !nameInput ||
+                !messageInput
+            ) {
+                return;
+            }
+
+
+            const name =
+                nameInput.value.trim();
+
+            const message =
+                messageInput.value.trim();
+
+
+            if (!name || !message) {
+                return;
+            }
+
+
+            const formData =
+                new URLSearchParams();
+
+
+            formData.append(
+                "type",
+                "wish"
+            );
+
+            formData.append(
+                "name",
+                name
+            );
+
+            formData.append(
+                "message",
+                message
+            );
+
+
+            status.classList.remove(
+                "is-success",
+                "is-error"
+            );
+
+
+            try {
+
+                await fetch(
+                    RSVPConfig.endpoint,
+                    {
+                        method: "POST",
+
+                        mode: "no-cors",
+
+                        body: formData
+                    }
+                );
+
+
+                status.textContent =
+                    "Cảm ơn bạn đã gửi lời chúc ❤️";
+
+                status.classList.add(
+                    "is-success"
+                );
+
+
+                form.reset();
+
+
+            } catch (error) {
+
+                console.error(
+                    "Wishes error:",
+                    error
+                );
+
+
+                status.textContent =
+                    "Đã có lỗi xảy ra. Vui lòng thử lại.";
+
+                status.classList.add(
+                    "is-error"
+                );
+
+            }
+
+        }
+    );
 
 }
 
