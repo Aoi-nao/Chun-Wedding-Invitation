@@ -1596,60 +1596,42 @@ section{
   }
 
 
-
 /* ==========================================================
-   COUPLE — BOTANICAL SVG FRAME
+   COUPLE — BOTANICAL FRAME v2
+   PNG floral + SVG linework
 ========================================================== */
+
+#couple {
+    isolation: isolate;
+}
+
+
+/* ----------------------------------------------------------
+   TOP RIGHT — LIGHT BOTANICAL
+   Chỉ mở section, không chạm heading
+---------------------------------------------------------- */
 
 #couple::before {
     content: "";
 
     position: absolute;
 
-    width: 185px;
-    height: 235px;
+    width: 145px;
+    height: 175px;
 
-    top: -48px;
-    left: -72px;
+    top: 6px;
+    right: -42px;
 
     background-image:
-        url("assets/icons/decorative/nhành.svg");
+        url("assets/images/floral/floral-branch-vertical.png");
 
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
 
-    opacity: 0.16;
+    opacity: 0.10;
 
-    transform: rotate(-8deg);
-
-    pointer-events: none;
-
-    z-index: 0;
-}
-
-
-#couple::after {
-    content: "";
-
-    position: absolute;
-
-    width: 185px;
-    height: 235px;
-
-    right: -72px;
-    bottom: -48px;
-
-    background-image:
-        url("assets/icons/decorative/nhành.svg");
-
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-
-    opacity: 0.16;
-
-    transform: scaleX(-1) rotate(-8deg);
+    transform: rotate(5deg);
 
     pointer-events: none;
 
@@ -1658,7 +1640,106 @@ section{
 
 
 /* ----------------------------------------------------------
-   COUPLE CONTENT
+   BOTTOM LEFT — SOFT FLORAL
+   Điểm kết của section
+---------------------------------------------------------- */
+
+#couple::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    left: -92px;
+    bottom: -55px;
+
+    background-image:
+        url("assets/images/floral/floral-corner-horizontal.png");
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    opacity: 0.10;
+
+    transform: rotate(185deg);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* ----------------------------------------------------------
+   DECORATIVE SVG — FINE LINEWORK
+---------------------------------------------------------- */
+
+.couple-grid::before {
+    content: "";
+
+    position: absolute;
+
+    width: 105px;
+    height: 125px;
+
+    top: -34px;
+    right: -38px;
+
+    background-image:
+        url("assets/icons/decorative/nhành.svg");
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    opacity: 0.10;
+
+    transform: rotate(12deg);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* ----------------------------------------------------------
+   DECORATIVE SVG — LOWER LEFT
+---------------------------------------------------------- */
+
+.couple-grid::after {
+    content: "";
+
+    position: absolute;
+
+    width: 95px;
+    height: 115px;
+
+    bottom: -48px;
+    left: -38px;
+
+    background-image:
+        url("assets/icons/decorative/nhành.svg");
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    opacity: 0.08;
+
+    transform:
+        scaleX(-1)
+        rotate(12deg);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* ----------------------------------------------------------
+   KEEP COUPLE CONTENT ABOVE SECTION BACKGROUND
 ---------------------------------------------------------- */
 
 #couple .couple-content {
@@ -1674,27 +1755,46 @@ section{
 @media (max-width: 480px) {
 
     #couple::before {
-        width: 170px;
-        height: 215px;
+        width: 130px;
+        height: 160px;
 
-        top: -42px;
-        left: -68px;
+        top: 8px;
+        right: -38px;
 
-        opacity: 0.15;
+        opacity: 0.09;
     }
 
     #couple::after {
-        width: 170px;
-        height: 215px;
+        width: 205px;
+        height: 205px;
 
-        right: -68px;
+        left: -88px;
+        bottom: -52px;
+
+        opacity: 0.09;
+    }
+
+    .couple-grid::before {
+        width: 90px;
+        height: 110px;
+
+        top: -28px;
+        right: -32px;
+
+        opacity: 0.09;
+    }
+
+    .couple-grid::after {
+        width: 82px;
+        height: 100px;
+
         bottom: -42px;
+        left: -32px;
 
-        opacity: 0.15;
+        opacity: 0.07;
     }
 
 }
-
 
 
 /* ==========================================================
