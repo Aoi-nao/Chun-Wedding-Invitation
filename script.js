@@ -37,6 +37,8 @@ function initializeApp() {
 
     initializeWishes();
 
+    loadWishes();
+    
     /* ======================================================
        OPENING & MUSIC
        Khởi tạo trước Gallery để một lỗi ở Gallery
@@ -1366,6 +1368,102 @@ function initializeWishes() {
 
         }
     );
+
+}
+
+
+
+
+/* ==========================================================
+   WISHES — LOAD GUESTBOOK
+========================================================== */
+
+async function loadWishes() {
+
+    const wishesList =
+        document.getElementById("wishesList");
+
+    const wishesEmpty =
+        document.getElementById("wishesEmpty");
+
+    if (!wishesList || !wishesEmpty) {
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                RSVPConfig.endpoint
+            );
+
+
+        const wishes =
+            await response.json();
+
+
+        if (
+            !Array.isArray(wishes) ||
+            wishes.length === 0
+        ) {
+
+            wishesEmpty.hidden = false;
+
+            return;
+
+        }
+
+
+        wishesEmpty.hidden = true;
+
+
+        wishes.forEach((wish) => {
+
+            const item =
+                document.createElement("article");
+
+            item.className =
+                "wish-item";
+
+
+            const name =
+                document.createElement("p");
+
+            name.className =
+                "wish-name";
+
+            name.textContent =
+                wish.name;
+
+
+            const message =
+                document.createElement("p");
+
+            message.className =
+                "wish-message";
+
+            message.textContent =
+                wish.message;
+
+
+            item.appendChild(name);
+
+            item.appendChild(message);
+
+            wishesList.appendChild(item);
+
+        });
+
+
+    } catch (error) {
+
+        console.error(
+            "Load wishes error:",
+            error
+        );
+
+    }
 
 }
 
