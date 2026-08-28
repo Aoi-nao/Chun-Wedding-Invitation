@@ -1595,6 +1595,108 @@ section{
     }
   }
 
+
+
+/* ==========================================================
+   COUPLE — BOTANICAL SVG FRAME
+========================================================== */
+
+#couple::before {
+    content: "";
+
+    position: absolute;
+
+    width: 185px;
+    height: 235px;
+
+    top: -48px;
+    left: -72px;
+
+    background-image:
+        url("assets/icons/decorative/nhành.svg");
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    opacity: 0.16;
+
+    transform: rotate(-8deg);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+#couple::after {
+    content: "";
+
+    position: absolute;
+
+    width: 185px;
+    height: 235px;
+
+    right: -72px;
+    bottom: -48px;
+
+    background-image:
+        url("assets/icons/decorative/nhành.svg");
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    opacity: 0.16;
+
+    transform: scaleX(-1) rotate(-8deg);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* ----------------------------------------------------------
+   COUPLE CONTENT
+---------------------------------------------------------- */
+
+#couple .couple-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ----------------------------------------------------------
+   MOBILE
+---------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+    #couple::before {
+        width: 170px;
+        height: 215px;
+
+        top: -42px;
+        left: -68px;
+
+        opacity: 0.15;
+    }
+
+    #couple::after {
+        width: 170px;
+        height: 215px;
+
+        right: -68px;
+        bottom: -42px;
+
+        opacity: 0.15;
+    }
+
+}
+
+
+
 /* ==========================================================
    FAMILY
 ========================================================== */
