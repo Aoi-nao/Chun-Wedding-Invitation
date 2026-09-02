@@ -1597,7 +1597,165 @@ section{
 
 
 
+/* ==========================================================
+   COUPLE — VINTAGE BOTANICAL BGR
+   I + mirrored I / cropped H / small F
+========================================================== */
 
+#couple {
+    position: relative;
+    overflow: hidden;
+}
+
+/* ----------------------------------------------------------
+   I — TOP RIGHT
+---------------------------------------------------------- */
+
+#couple::before {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: -48px;
+    right: -38px;
+
+    background-image: url("assets/images/floral/floral-top-right.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    opacity: 0.16;
+
+    transform: scaleY(1);
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* ----------------------------------------------------------
+   I — TOP LEFT / MIRRORED
+---------------------------------------------------------- */
+
+#couple::after {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: -48px;
+    left: -38px;
+
+    background-image: url("assets/images/floral/floral-top-right.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    opacity: 0.16;
+
+    transform: scaleY(-1);
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* ----------------------------------------------------------
+   H — VERY LARGE / CROPPED
+   Bottom right botanical edge
+---------------------------------------------------------- */
+
+.couple-content::before {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    right: -300px;
+    bottom: -250px;
+
+    background-image: url("assets/images/floral/floral-right-baby.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    opacity: 0.15;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* ----------------------------------------------------------
+   F — SMALL
+   Bottom left
+---------------------------------------------------------- */
+
+.couple-content::after {
+    content: "";
+
+    position: absolute;
+
+    width: 145px;
+    height: 145px;
+
+    left: -52px;
+    bottom: -35px;
+
+    background-image: url("assets/images/floral/floral-corner-top.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    opacity: 0.14;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* ----------------------------------------------------------
+   MOBILE
+---------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+    #couple::before,
+    #couple::after {
+        width: 235px;
+        height: 235px;
+        top: -35px;
+    }
+
+    #couple::before {
+        right: -32px;
+    }
+
+    #couple::after {
+        left: -32px;
+    }
+
+    .couple-content::before {
+        width: 390px;
+        height: 390px;
+
+        right: -225px;
+        bottom: -180px;
+    }
+
+    .couple-content::after {
+        width: 110px;
+        height: 110px;
+
+        left: -42px;
+        bottom: -28px;
+    }
+}
 
 
 
