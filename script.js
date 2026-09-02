@@ -1347,7 +1347,7 @@ function initializeWishes() {
 
 
                 form.reset();
-
+                await loadWishes();
 
             } catch (error) {
 
@@ -1398,6 +1398,13 @@ async function loadWishes() {
         const wishes =
             await response.json();
 
+        /* Xóa danh sách cũ trước khi render lại */
+        wishesList
+            .querySelectorAll(".wish-item")
+            .forEach((item) => {
+                item.remove();
+            });
+
         if (
             !Array.isArray(wishes) ||
             wishes.length === 0
@@ -1411,9 +1418,11 @@ async function loadWishes() {
 
         wishesEmpty.hidden = true;
 
+        /* Mới nhất lên đầu */
         const latestWishes =
             [...wishes].reverse();
 
+        /* Chỉ hiển thị 5 lời chúc */
         const visibleWishes =
             latestWishes.slice(0, 5);
 
