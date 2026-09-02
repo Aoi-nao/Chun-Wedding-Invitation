@@ -1417,7 +1417,10 @@ if (wishesList && wishesEmpty) {
 ========================================================== */
 
 async function loadWishes() {
-
+    
+   const wishesMore =
+    document.getElementById("wishesMore");
+    
     const wishesList =
         document.getElementById("wishesList");
 
@@ -1459,12 +1462,18 @@ async function loadWishes() {
         wishesEmpty.hidden = true;
 
         /* Mới nhất lên đầu */
-        const latestWishes =
-            [...wishes].reverse();
+const latestWishes =
+    [...wishes].reverse();
 
-        /* Chỉ hiển thị 5 lời chúc */
-        const visibleWishes =
-            latestWishes.slice(0, 5);
+/* Chỉ hiển thị 5 lời chúc */
+const visibleWishes =
+    latestWishes.slice(0, 5);
+
+/* Hiển thị nút "XEM THÊM" nếu còn lời chúc */
+if (wishesMore) {
+    wishesMore.hidden =
+        latestWishes.length <= 5;
+}
 
         visibleWishes.forEach((wish) => {
 
