@@ -1700,20 +1700,12 @@ section{
 
 .couple-heading-floral {
     display: inline-block;
-
-    width: 72px;
+    width: 42px;
     height: auto;
-
-    margin-left: 7px;
-
-    vertical-align: middle;
-
-    opacity: 0.70;
-
-    transform:
-        rotate(90deg)
-        translateY(-2px);
-
+    margin-left: 3px;
+    vertical-align: -4px;
+    opacity: 0.62;
+    transform: rotate(90deg);
     transform-origin: center;
 }
 
@@ -1809,12 +1801,11 @@ section{
     }
 
     .couple-heading-floral {
-        width: 68px;
-
-        margin-left: 5px;
-
-        opacity: 0.68;
-    }
+    width: 39px;
+    margin-left: 2px;
+    vertical-align: -3px;
+    opacity: 0.60;
+}
 
     .couple-svg-left {
         width: 56px;
