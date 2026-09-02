@@ -1692,8 +1692,7 @@ section{
 
 
 /* ----------------------------------------------------------
-   F — BIG
-   Bottom left
+   F — EXTREME CROPPED / BOTTOM LEFT
 ---------------------------------------------------------- */
 
 .couple-content::after {
@@ -1701,18 +1700,18 @@ section{
 
     position: absolute;
 
-    width: 230px;
-    height: 230px;
+    width: 520px;
+    height: 520px;
 
-    left: -125px;
-    bottom: -115px;
+    left: -330px;
+    bottom: -285px;
 
     background-image: url("assets/images/floral/floral-corner-top.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 
-    opacity: 0.14;
+    opacity: 0.15;
 
     pointer-events: none;
     z-index: -1;
@@ -1747,12 +1746,12 @@ section{
         bottom: -180px;
     }
 
-    .couple-content::after {
-    width: 180px;
-    height: 180px;
+  .couple-content::after {
+    width: 430px;
+    height: 430px;
 
-    left: -100px;
-    bottom: -90px;
+    left: -285px;
+    bottom: -240px;
 }
 }
 
