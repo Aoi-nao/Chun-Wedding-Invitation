@@ -1372,8 +1372,6 @@ function initializeWishes() {
 }
 
 
-
-
 /* ==========================================================
    WISHES — LOAD GUESTBOOK
 ========================================================== */
@@ -1390,7 +1388,6 @@ async function loadWishes() {
         return;
     }
 
-
     try {
 
         const response =
@@ -1398,10 +1395,8 @@ async function loadWishes() {
                 RSVPConfig.endpoint
             );
 
-
         const wishes =
             await response.json();
-
 
         if (
             !Array.isArray(wishes) ||
@@ -1414,49 +1409,48 @@ async function loadWishes() {
 
         }
 
-
         wishesEmpty.hidden = true;
 
+        const latestWishes =
+            [...wishes].reverse();
 
-        wishes.forEach((wish) => {
+        const visibleWishes =
+            latestWishes.slice(0, 5);
+
+        visibleWishes.forEach((wish) => {
 
             const item =
-    document.createElement("article");
+                document.createElement("article");
 
-item.className =
-    "wish-item";
+            item.className =
+                "wish-item";
 
+            const avatar =
+                document.createElement("span");
 
-const avatar =
-    document.createElement("span");
+            avatar.className =
+                "wish-avatar";
 
-avatar.className =
-    "wish-avatar";
+            const avatarImage =
+                document.createElement("img");
 
+            avatarImage.src =
+                "assets/icons/decorative/Asset%20%20(2).svg";
 
-const avatarImage =
-    document.createElement("img");
+            avatarImage.alt = "";
 
-avatarImage.src =
-    "assets/icons/decorative/Asset%20%20(2).svg";
+            avatar.appendChild(
+                avatarImage
+            );
 
-avatarImage.alt =
-    "";
+            const name =
+                document.createElement("p");
 
-avatar.appendChild(
-    avatarImage
-);
+            name.className =
+                "wish-name";
 
-
-const name =
-    document.createElement("p");
-
-name.className =
-    "wish-name";
-
-name.textContent =
-    wish.name;
-
+            name.textContent =
+                wish.name;
 
             const message =
                 document.createElement("p");
@@ -1467,15 +1461,13 @@ name.textContent =
             message.textContent =
                 wish.message;
 
-
             item.appendChild(avatar);
             item.appendChild(name);
-item.appendChild(message);
+            item.appendChild(message);
 
             wishesList.appendChild(item);
 
         });
-
 
     } catch (error) {
 
@@ -1487,6 +1479,10 @@ item.appendChild(message);
     }
 
 }
+
+loadWishes();
+
+
 
 
 
