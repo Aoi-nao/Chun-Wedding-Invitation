@@ -2023,6 +2023,106 @@ section{
     overflow: hidden;
 }
 
+
+/* ==========================================================
+   COUNTDOWN — BOTANICAL BACKGROUND
+   G — extreme cropped / bottom left
+   H — cropped / top right
+========================================================== */
+
+#countdown::before,
+#countdown::after {
+    content: "";
+
+    position: absolute;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* ----------------------------------------------------------
+   G — EXTREME LARGE / BOTTOM LEFT
+---------------------------------------------------------- */
+
+#countdown::before {
+    width: 480px;
+    height: 480px;
+
+    left: -165px;
+    bottom: -145px;
+
+    background-image:
+        url("assets/images/floral/floral-mini-accent.png");
+
+    background-position: center;
+
+    opacity: 0.95;
+}
+
+
+/* ----------------------------------------------------------
+   H — MEDIUM / TOP RIGHT
+---------------------------------------------------------- */
+
+#countdown::after {
+    width: 215px;
+    height: 215px;
+
+    top: -45px;
+    right: -48px;
+
+    background-image:
+        url("assets/images/floral/floral-right-baby.png");
+
+    background-position: center;
+
+    opacity: 0.90;
+}
+
+
+/* ----------------------------------------------------------
+   KEEP COUNTDOWN CONTENT ABOVE FLOWERS
+---------------------------------------------------------- */
+
+#countdown .countdown-content {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ----------------------------------------------------------
+   MOBILE
+---------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+    #countdown::before {
+        width: 430px;
+        height: 430px;
+
+        left: -285px;
+        bottom: -175px;
+
+        opacity: 0.95;
+    }
+
+    #countdown::after {
+        width: 185px;
+        height: 185px;
+
+        top: -38px;
+        right: -48px;
+
+        opacity: 0.90;
+    }
+
+}
+
 .countdown-content {
     width: 100%;
     max-width: 520px;
