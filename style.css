@@ -1828,6 +1828,124 @@ section{
 }
 
 
+/* ==========================================================
+   COUPLE — BOTANICAL COMPOSITION
+========================================================== */
+
+#couple {
+    position: relative;
+    overflow: hidden;
+}
+
+.couple-botanical {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ----------------------------------------------------------
+   TOP LEFT
+---------------------------------------------------------- */
+
+.couple-floral-top-left {
+    position: absolute;
+    width: 235px;
+    top: -42px;
+    left: -92px;
+    opacity: 0.14;
+    transform: scaleX(-1) rotate(-90deg);
+    transform-origin: center;
+}
+
+/* ----------------------------------------------------------
+   TOP RIGHT
+---------------------------------------------------------- */
+
+.couple-floral-top-right {
+    position: absolute;
+    width: 235px;
+    top: -42px;
+    right: -92px;
+    opacity: 0.14;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+/* ----------------------------------------------------------
+   RIGHT — CROPPED BOTANICAL EDGE
+---------------------------------------------------------- */
+
+.couple-floral-right-baby {
+    position: absolute;
+    width: 430px;
+    top: 220px;
+    right: -275px;
+    opacity: 0.085;
+    transform: rotate(4deg);
+    transform-origin: center;
+}
+
+/* ----------------------------------------------------------
+   BOTTOM LEFT
+---------------------------------------------------------- */
+
+.couple-floral-bottom-left {
+    position: absolute;
+    width: 165px;
+    left: -62px;
+    bottom: -34px;
+    opacity: 0.12;
+    transform: rotate(2deg);
+    transform-origin: center;
+}
+
+/* ----------------------------------------------------------
+   CONTENT ABOVE BOTANICALS
+---------------------------------------------------------- */
+
+#couple .couple-content {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 480px) {
+
+    .couple-floral-top-left {
+        width: 205px;
+        top: -38px;
+        left: -82px;
+        opacity: 0.125;
+    }
+
+    .couple-floral-top-right {
+        width: 205px;
+        top: -38px;
+        right: -82px;
+        opacity: 0.125;
+    }
+
+    .couple-floral-right-baby {
+        width: 370px;
+        top: 225px;
+        right: -245px;
+        opacity: 0.075;
+    }
+
+    .couple-floral-bottom-left {
+        width: 145px;
+        left: -55px;
+        bottom: -30px;
+        opacity: 0.11;
+    }
+}
+
+
 
 /* ==========================================================
    FAMILY
