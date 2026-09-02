@@ -1597,8 +1597,9 @@ section{
 
 
 
+
 /* ==========================================================
-   COUPLE — VINTAGE BOTANICAL COMPOSITION
+   COUPLE — VINTAGE BOTANICAL COMPOSITION v2
 ========================================================== */
 
 #couple {
@@ -1622,7 +1623,7 @@ section{
 
 
 /* ----------------------------------------------------------
-   PNG — TOP FLORAL
+   TOP LEFT — FLORAL OPENING
 ---------------------------------------------------------- */
 
 .couple-floral-top {
@@ -1630,8 +1631,8 @@ section{
 
     width: 205px;
 
-    top: -18px;
-    left: -62px;
+    top: -28px;
+    left: -72px;
 
     opacity: 0.13;
 
@@ -1640,120 +1641,127 @@ section{
 
 
 /* ----------------------------------------------------------
-   PNG — LONG SIDE BRANCH
+   TOP RIGHT — FLORAL ARCH
 ---------------------------------------------------------- */
 
-.couple-floral-side {
+.couple-floral-top-right {
     position: absolute;
 
-    width: 245px;
+    width: 190px;
 
-    top: 250px;
-    right: -145px;
+    top: -22px;
+    right: -58px;
 
-    opacity: 0.09;
-
-    transform: rotate(86deg);
-}
-
-
-/* ----------------------------------------------------------
-   PNG — BOTTOM FLORAL
----------------------------------------------------------- */
-
-.couple-floral-bottom {
-    position: absolute;
-
-    width: 235px;
-
-    left: -86px;
-    bottom: -45px;
-
-    opacity: 0.13;
-
-    transform: rotate(2deg);
-}
-
-
-/* ----------------------------------------------------------
-   PNG — MINI ACCENT
----------------------------------------------------------- */
-
-.couple-floral-mini {
-    position: absolute;
-
-    width: 52px;
-
-    top: 285px;
-    left: calc(50% - 26px);
-
-    opacity: 0.38;
-}
-
-
-/* ----------------------------------------------------------
-   SVG — LEFT LINEWORK
----------------------------------------------------------- */
-
-.couple-svg-left {
-    position: absolute;
-
-    width: 78px;
-
-    top: 355px;
-    left: 5px;
-
-    opacity: 0.18;
-
-    transform: rotate(-8deg);
-}
-
-
-/* ----------------------------------------------------------
-   SVG — RIGHT LINEWORK
----------------------------------------------------------- */
-
-.couple-svg-right {
-    position: absolute;
-
-    width: 70px;
-
-    top: 470px;
-    right: 8px;
-
-    opacity: 0.17;
+    opacity: 0.12;
 
     transform: rotate(8deg);
 }
 
 
 /* ----------------------------------------------------------
-   SVG — VINTAGE CENTER ORNAMENT
+   LONG BRANCH — SIDE FLOW
 ---------------------------------------------------------- */
 
-.couple-svg-ornament {
+.couple-floral-side {
     position: absolute;
 
-    width: 70px;
+    width: 235px;
 
-    top: 245px;
-    left: 50%;
+    top: 250px;
+    right: -150px;
 
-    transform:
-        translateX(-50%)
-        scale(0.9);
+    opacity: 0.075;
 
-    opacity: 0.20;
+    transform: rotate(86deg);
 }
 
 
 /* ----------------------------------------------------------
-   KEEP CONTENT ABOVE DECORATION
+   BOTTOM LEFT — FLORAL ENDING
+---------------------------------------------------------- */
+
+.couple-floral-bottom {
+    position: absolute;
+
+    width: 225px;
+
+    left: -88px;
+    bottom: -48px;
+
+    opacity: 0.12;
+
+    transform: rotate(2deg);
+}
+
+
+/* ----------------------------------------------------------
+   HEADING — MINI FLORAL
+---------------------------------------------------------- */
+
+.couple-heading-floral {
+    display: inline-block;
+
+    width: 72px;
+    height: auto;
+
+    margin-left: 7px;
+
+    vertical-align: middle;
+
+    opacity: 0.70;
+
+    transform:
+        rotate(90deg)
+        translateY(-2px);
+
+    transform-origin: center;
+}
+
+
+/* ----------------------------------------------------------
+   LIGHT 10 — DIAGONAL LEFT
+---------------------------------------------------------- */
+
+.couple-svg-left {
+    position: absolute;
+
+    width: 62px;
+
+    top: 355px;
+    left: 24px;
+
+    opacity: 0.22;
+
+    transform: rotate(-24deg);
+}
+
+
+/* ----------------------------------------------------------
+   LIGHT 10 — DIAGONAL RIGHT
+---------------------------------------------------------- */
+
+.couple-svg-right {
+    position: absolute;
+
+    width: 62px;
+
+    top: 425px;
+    right: 24px;
+
+    opacity: 0.22;
+
+    transform:
+        scaleX(-1)
+        rotate(-24deg);
+}
+
+
+/* ----------------------------------------------------------
+   KEEP COUPLE CONTENT ABOVE DECORATION
 ---------------------------------------------------------- */
 
 #couple .couple-content {
     position: relative;
-
     z-index: 3;
 }
 
@@ -1767,66 +1775,67 @@ section{
     .couple-floral-top {
         width: 185px;
 
-        top: -12px;
+        top: -24px;
         left: -70px;
 
         opacity: 0.12;
     }
 
+    .couple-floral-top-right {
+        width: 175px;
+
+        top: -20px;
+        right: -56px;
+
+        opacity: 0.11;
+    }
+
     .couple-floral-side {
-        width: 215px;
+        width: 210px;
 
-        top: 250px;
-        right: -142px;
+        top: 245px;
+        right: -140px;
 
-        opacity: 0.085;
+        opacity: 0.07;
     }
 
     .couple-floral-bottom {
-        width: 215px;
+        width: 210px;
 
         left: -82px;
-        bottom: -42px;
+        bottom: -44px;
 
-        opacity: 0.12;
+        opacity: 0.11;
     }
 
-    .couple-floral-mini {
-        width: 46px;
+    .couple-heading-floral {
+        width: 68px;
 
-        top: 275px;
-        left: calc(50% - 23px);
+        margin-left: 5px;
 
-        opacity: 0.34;
+        opacity: 0.68;
     }
 
     .couple-svg-left {
-        width: 68px;
+        width: 56px;
 
-        top: 350px;
-        left: 4px;
+        top: 345px;
+        left: 20px;
 
-        opacity: 0.16;
+        opacity: 0.20;
     }
 
     .couple-svg-right {
-        width: 62px;
+        width: 56px;
 
-        top: 465px;
-        right: 5px;
+        top: 415px;
+        right: 20px;
 
-        opacity: 0.15;
-    }
-
-    .couple-svg-ornament {
-        width: 62px;
-
-        top: 238px;
-
-        opacity: 0.18;
+        opacity: 0.20;
     }
 
 }
+
 
 
 /* ==========================================================
