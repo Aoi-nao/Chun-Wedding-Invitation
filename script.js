@@ -37,7 +37,6 @@ function initializeApp() {
 
     initializeWishes();
 
-    loadWishes();
     
     /* ======================================================
        OPENING & MUSIC
@@ -1347,7 +1346,48 @@ function initializeWishes() {
 
 
                 form.reset();
-                await loadWishes();
+
+const newWish = {
+    name: name,
+    message: message
+};
+
+const wishesList = document.getElementById("wishesList");
+const wishesEmpty = document.getElementById("wishesEmpty");
+
+if (wishesList && wishesEmpty) {
+    wishesEmpty.hidden = true;
+
+    const item = document.createElement("article");
+    item.className = "wish-item";
+
+    const avatar = document.createElement("span");
+    avatar.className = "wish-avatar";
+
+    const avatarImage = document.createElement("img");
+    avatarImage.src =
+        "assets/icons/decorative/Asset%20%20(2).svg";
+    avatarImage.alt = "";
+
+    avatar.appendChild(avatarImage);
+
+    const nameElement = document.createElement("p");
+    nameElement.className = "wish-name";
+    nameElement.textContent = newWish.name;
+
+    const messageElement = document.createElement("p");
+    messageElement.className = "wish-message";
+    messageElement.textContent = newWish.message;
+
+    item.appendChild(avatar);
+    item.appendChild(nameElement);
+    item.appendChild(messageElement);
+
+    wishesList.insertBefore(
+        item,
+        wishesList.querySelector(".wish-item")
+    );
+}
 
             } catch (error) {
 
