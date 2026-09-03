@@ -2053,15 +2053,15 @@ section{
     width: 480px;
     height: 480px;
 
-    left: -165px;
-    bottom: -145px;
+    left: -150px;
+    bottom: -155px;
 
     background-image:
         url("assets/images/floral/floral-mini-accent.png");
 
     background-position: center;
 
-    opacity: 0.95;
+    opacity: 0.90;
 }
 
 
@@ -2070,8 +2070,8 @@ section{
 ---------------------------------------------------------- */
 
 #countdown::after {
-    width: 215px;
-    height: 215px;
+    width: 260px;
+    height: 260px;
 
     top: -45px;
     right: -48px;
@@ -2081,7 +2081,7 @@ section{
 
     background-position: center;
 
-    opacity: 0.90;
+    opacity: 0.80;
 }
 
 
