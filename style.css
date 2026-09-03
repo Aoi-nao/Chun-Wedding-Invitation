@@ -3325,19 +3325,23 @@ section{
 
     background-image:
         url("assets/images/floral/baby-right-bottom.png"),
+        url("assets/images/floral/baby-bottom-center.png"),
         url("assets/images/floral/baby-bottom-center.png");
 
     background-repeat:
+        no-repeat,
         no-repeat,
         no-repeat;
 
     background-position:
         right -135px bottom 20px,
-        left -5px bottom -120px;
+        left -5px bottom -120px,
+        left 100px bottom -155px;
 
     background-size:
         390px auto,
-        260px auto;
+        260px auto,
+        220px auto;
 
     opacity: 0.18;
 
