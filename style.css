@@ -3267,6 +3267,131 @@ section{
 
 
 /* ==========================================================
+   WEDDING DAY — SOFT BOTANICAL BACKGROUND
+   Baby's breath + Lily of the Valley
+========================================================== */
+
+#ceremony {
+    position: relative;
+    overflow: hidden;
+
+    background-color: var(--color-secondary);
+}
+
+
+/* ==========================================================
+   TOP BOTANICAL
+   Baby bên phải + Linh lan bên trái
+========================================================== */
+
+#ceremony::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("assets/images/floral/baby-right-top.png"),
+        url("assets/images/floral/linhlan-left.png");
+
+    background-repeat:
+        no-repeat,
+        no-repeat;
+
+    background-position:
+        right -72px top -42px,
+        left -30px top 135px;
+
+    background-size:
+        265px auto,
+        105px auto;
+
+    opacity: 0.14;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* ==========================================================
+   BOTTOM BOTANICAL
+   Baby bên phải + baby nhẹ ở đáy
+========================================================== */
+
+#ceremony::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("assets/images/floral/baby-right-bottom.png"),
+        url("assets/images/floral/baby-bottom-center.png");
+
+    background-repeat:
+        no-repeat,
+        no-repeat;
+
+    background-position:
+        right -105px bottom -70px,
+        left 18px bottom -42px;
+
+    background-size:
+        290px auto,
+        210px auto;
+
+    opacity: 0.13;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* ==========================================================
+   KEEP WEDDING DAY CONTENT ABOVE FLOWERS
+========================================================== */
+
+#ceremony .ceremony-heading,
+#ceremony .ceremony-group,
+#ceremony .ceremony-center-divider {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ==========================================================
+   MOBILE — SOFTER + MORE CROPPED
+========================================================== */
+
+@media (max-width: 480px) {
+
+    #ceremony::before {
+        background-position:
+            right -82px top -30px,
+            left -38px top 125px;
+
+        background-size:
+            235px auto,
+            92px auto;
+
+        opacity: 0.13;
+    }
+
+    #ceremony::after {
+        background-position:
+            right -125px bottom -55px,
+            left 5px bottom -35px;
+
+        background-size:
+            260px auto,
+            175px auto;
+
+        opacity: 0.12;
+    }
+}
+   
+
+/* ==========================================================
    GALLERY — MOMENTS
    Korean minimal · Editorial wedding album
 ========================================================== */
