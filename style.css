@@ -1676,7 +1676,7 @@ section{
     width: 520px;
     height: 520px;
 
-    right: -300px;
+    right: -250px;
     bottom: -250px;
 
     background-image: url("assets/images/floral/floral-right-baby.png");
@@ -1700,11 +1700,11 @@ section{
 
     position: absolute;
 
-    width: 520px;
-    height: 520px;
+    width: 500px;
+    height: 500px;
 
-    left: -210px;
-    bottom: -300px;
+    left: -190px;
+    bottom: -400px;
 
     background-image: url("assets/images/floral/floral-corner-top.png");
     background-repeat: no-repeat;
@@ -1715,6 +1715,9 @@ section{
 
     pointer-events: none;
     z-index: -1;
+
+
+   
 }
 
 /* ----------------------------------------------------------
@@ -2073,8 +2076,8 @@ section{
     width: 260px;
     height: 260px;
 
-    top: -45px;
-    right: -48px;
+    top: 30px;
+    right: 30px;
 
     background-image:
         url("assets/images/floral/floral-right-baby.png");
