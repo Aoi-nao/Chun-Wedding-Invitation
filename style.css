@@ -1656,7 +1656,7 @@ section{
 
     opacity: 0.16;
 
-    transform: scaleY(-1);
+    transform: scaleX(-1);
 
     pointer-events: none;
     z-index: 0;
