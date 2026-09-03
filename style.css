@@ -1308,7 +1308,7 @@ section{
     width: 300px;
     height: 300px;
 
-    right: -200px;
+    right: 100px;
     bottom: -70px;
 
     background-image:
@@ -1700,11 +1700,11 @@ section{
 
     position: absolute;
 
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
 
-    left: -60px;
-    bottom: -800px;
+    left: -20px;
+    bottom: -1000px;
 
     background-image: url("assets/images/floral/floral-corner-top.png");
     background-repeat: no-repeat;
@@ -2084,7 +2084,7 @@ section{
 
     background-position: center;
 
-    transform: scaleY(-1) rotate(10deg);
+    transform: scaleY(-1) rotate(17deg);
    
     opacity: 0.80;
 }
