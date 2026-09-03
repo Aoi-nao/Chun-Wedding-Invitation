@@ -1308,8 +1308,8 @@ section{
     width: 300px;
     height: 300px;
 
-    right: 100px;
-    bottom: -70px;
+    right: -200px;
+    bottom: -30px;
 
     background-image:
         url("assets/images/floral/floral-corner-horizontal.png");
@@ -1700,8 +1700,8 @@ section{
 
     position: absolute;
 
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 
     left: -20px;
     bottom: -1000px;
@@ -2077,14 +2077,14 @@ section{
     height: 260px;
 
     top: 150px;
-    right: -50px;
+    right: -60px;
 
     background-image:
         url("assets/images/floral/floral-right-baby.png");
 
     background-position: center;
 
-    transform: scaleY(-1) rotate(17deg);
+    transform: scaleY(-1) rotate(30deg);
    
     opacity: 0.80;
 }
