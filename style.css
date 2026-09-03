@@ -1320,7 +1320,7 @@ section{
 
     opacity: 0.15;
 
-    transform: rotate(7deg);
+    transform: scaleX(-1) rotate(7deg);
 
     pointer-events: none;
 
@@ -1676,7 +1676,7 @@ section{
     width: 520px;
     height: 520px;
 
-    right: -250px;
+    right: -150px;
     bottom: -250px;
 
     background-image: url("assets/images/floral/floral-right-baby.png");
@@ -1700,11 +1700,11 @@ section{
 
     position: absolute;
 
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
 
-    left: -190px;
-    bottom: -400px;
+    left: -100px;
+    bottom: -600px;
 
     background-image: url("assets/images/floral/floral-corner-top.png");
     background-repeat: no-repeat;
@@ -2076,8 +2076,8 @@ section{
     width: 260px;
     height: 260px;
 
-    top: 30px;
-    right: 30px;
+    top: 150px;
+    right: -50px;
 
     background-image:
         url("assets/images/floral/floral-right-baby.png");
