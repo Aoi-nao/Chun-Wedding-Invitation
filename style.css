@@ -3332,8 +3332,8 @@ section{
         no-repeat;
 
     background-position:
-        right -135px bottom -85px,
-        left -5px bottom -55px;
+        right -135px bottom 20px,
+        left -5px bottom -120px;
 
     background-size:
         390px auto,
