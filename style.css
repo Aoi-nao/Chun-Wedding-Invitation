@@ -3299,19 +3299,18 @@ section{
         no-repeat;
 
     background-position:
-        right -72px top -42px,
-        left -30px top 135px;
+        right -95px top -55px,
+        left -38px top 115px;
 
     background-size:
-        265px auto,
-        105px auto;
+        350px auto,
+        145px auto;
 
-    opacity: 0.14;
+    opacity: 0.19;
 
     pointer-events: none;
     z-index: 0;
 }
-
 
 /* ==========================================================
    BOTTOM BOTANICAL
@@ -3333,14 +3332,14 @@ section{
         no-repeat;
 
     background-position:
-        right -105px bottom -70px,
-        left 18px bottom -42px;
+        right -135px bottom -85px,
+        left -5px bottom -55px;
 
     background-size:
-        290px auto,
-        210px auto;
+        390px auto,
+        260px auto;
 
-    opacity: 0.13;
+    opacity: 0.18;
 
     pointer-events: none;
     z-index: 0;
@@ -3367,26 +3366,26 @@ section{
 
     #ceremony::before {
         background-position:
-            right -82px top -30px,
-            left -38px top 125px;
+            right -100px top -42px,
+            left -48px top 110px;
 
         background-size:
-            235px auto,
-            92px auto;
+            305px auto,
+            125px auto;
 
-        opacity: 0.13;
+        opacity: 0.18;
     }
 
     #ceremony::after {
         background-position:
-            right -125px bottom -55px,
-            left 5px bottom -35px;
+            right -135px bottom -65px,
+            left -20px bottom -45px;
 
         background-size:
-            260px auto,
-            175px auto;
+            335px auto,
+            225px auto;
 
-        opacity: 0.12;
+        opacity: 0.17;
     }
 }
    
