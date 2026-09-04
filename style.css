@@ -2053,7 +2053,7 @@ section{
     width: 480px;
     height: 480px;
 
-    left: -150px;
+    left: -110px;
     bottom: -155px;
 
     background-image:
@@ -2081,7 +2081,7 @@ section{
 
     background-position: center;
 
-    transform: scaleY(-1)rotate(7deg);
+    transform: scaleY(-1)rotate(-7deg);
    
     opacity: 0.80;
 }
