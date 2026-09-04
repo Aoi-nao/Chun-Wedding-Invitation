@@ -1088,6 +1088,14 @@ form.addEventListener(
         );
 
 
+        const submitButton =
+    document.getElementById("wishesSubmit");
+
+if (submitButton) {
+    submitButton.disabled = true;
+}
+        
+
         try {
 
             await fetch(
@@ -1117,6 +1125,9 @@ form.addEventListener(
             status.classList.add(
                 "is-success"
             );
+            if (submitButton) {
+    submitButton.disabled = false;
+}
 
 
         } catch (error) {
@@ -1134,6 +1145,9 @@ form.addEventListener(
                 "is-error"
             )
 
+            if (submitButton) {
+    submitButton.disabled = false;
+}
         }
 
     }
