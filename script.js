@@ -1671,7 +1671,7 @@ if (wishesMore) {
 
     wishesMore.hidden = true;
 };
-    };
+
 }
         
         
