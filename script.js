@@ -1554,53 +1554,123 @@ if (wishesMore) {
 
 if (wishesMore) {
     wishesMore.onclick = () => {
-        wishesList
-            .querySelectorAll(".wish-item")
-            .forEach((item) => {
-                item.remove();
-            });
-
-        latestWishes.forEach((wish) => {
-            const item =
-                document.createElement("article");
-
-            item.className = "wish-item";
-
-            const avatar =
-                document.createElement("span");
-
-            avatar.className = "wish-avatar";
-
-            const avatarImage =
-                document.createElement("img");
-
-            avatarImage.src =
-                "assets/icons/decorative/Asset%20%20(2).svg";
-
-            avatarImage.alt = "";
-
-            avatar.appendChild(avatarImage);
-
-            const name =
-                document.createElement("p");
-
-            name.className = "wish-name";
-            name.textContent = wish.name;
-
-            const message =
-                document.createElement("p");
-
-            message.className = "wish-message";
-            message.textContent = wish.message;
-
-            item.appendChild(avatar);
-            item.appendChild(name);
-            item.appendChild(message);
-
-            wishesList.appendChild(item);
+    wishesList
+        .querySelectorAll(".wish-item")
+        .forEach((item) => {
+            item.remove();
         });
 
-        wishesMore.hidden = true;
+    latestWishes.forEach((wish) => {
+        const item =
+            document.createElement("article");
+
+        item.className =
+            "wish-item";
+
+        const avatar =
+            document.createElement("span");
+
+        avatar.className =
+            "wish-avatar";
+
+        const avatarImage =
+            document.createElement("img");
+
+        avatarImage.src =
+            "assets/icons/decorative/Asset%20%20(2).svg";
+
+        avatarImage.alt = "";
+
+        avatar.appendChild(avatarImage);
+
+        const header =
+            document.createElement("div");
+
+        header.className =
+            "wish-header";
+
+        const nameWrap =
+            document.createElement("div");
+
+        nameWrap.className =
+            "wish-name-wrap";
+
+        const nameElement =
+            document.createElement("p");
+
+        nameElement.className =
+            "wish-name";
+
+        nameElement.textContent =
+            wish.name;
+
+        const timeElement =
+            document.createElement("p");
+
+        timeElement.className =
+            "wish-time";
+
+        timeElement.textContent =
+            formatWishTime(wish.time);
+
+        nameWrap.appendChild(
+            nameElement
+        );
+
+        nameWrap.appendChild(
+            timeElement
+        );
+
+        const heart =
+            document.createElement("span");
+
+        heart.className =
+            "wish-heart";
+
+        heart.textContent =
+            "♡";
+
+        heart.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        header.appendChild(
+            nameWrap
+        );
+
+        header.appendChild(
+            heart
+        );
+
+        const messageElement =
+            document.createElement("p");
+
+        messageElement.className =
+            "wish-message";
+
+        messageElement.textContent =
+            wish.message;
+
+        item.appendChild(
+            avatar
+        );
+
+        item.appendChild(
+            header
+        );
+
+        item.appendChild(
+            messageElement
+        );
+
+        wishesList.appendChild(
+            item
+        );
+    });
+
+    wishesMore.hidden = true;
+};
     };
 }
         
