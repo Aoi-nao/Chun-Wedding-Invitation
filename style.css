@@ -5657,3 +5657,123 @@ section{
 }
 
 
+
+/*======================================
+FOOTER
+======================================*/
+
+.site-footer {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    overflow: hidden;
+}
+
+.footer-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.footer-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.footer-overlay {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 520px;
+    padding: 60px 24px;
+    background: rgba(248, 244, 234, 0.72);
+}
+
+.footer-content {
+    width: min(100%, 620px);
+    text-align: center;
+}
+
+.footer-thank-you {
+    margin: 0 auto;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 19px;
+    line-height: 1.7;
+    font-weight: 400;
+    color: var(--color-text, #35443A);
+}
+
+.footer-heart {
+    display: block;
+    margin: 22px 0 18px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    line-height: 1;
+    font-weight: 400;
+    color: rgba(199, 164, 93, 0.78);
+}
+
+.footer-names {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 27px;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--color-primary, #506B55);
+}
+
+.footer-date {
+    margin: 10px 0 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    color: rgba(53, 68, 58, 0.68);
+}
+
+
+/* Footer — portrait couple photo */
+.site-footer {
+    min-height: 620px;
+}
+
+.footer-overlay {
+    min-height: 620px;
+}
+
+
+@media (max-width: 600px) {
+    .site-footer {
+        min-height: 680px;
+    }
+
+    .footer-overlay {
+        min-height: 680px;
+        padding: 56px 22px;
+    }
+
+    .footer-thank-you {
+        font-size: 18px;
+        line-height: 1.65;
+    }
+
+    .footer-heart {
+        margin: 20px 0 16px;
+        font-size: 24px;
+    }
+
+    .footer-names {
+        font-size: 25px;
+    }
+
+    .footer-date {
+        margin-top: 9px;
+        font-size: 14px;
+    }
+}
