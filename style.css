@@ -5665,7 +5665,8 @@ FOOTER
 .site-footer {
     position: relative;
     width: 100%;
-    min-height: 520px;
+    min-height: 560px;
+    margin-top: 20px;
     overflow: hidden;
 }
 
@@ -5684,14 +5685,20 @@ FOOTER
 }
 
 .footer-overlay {
-    position: relative;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 520px;
-    padding: 60px 24px;
-    background: rgba(248, 244, 234, 0.72);
+
+    min-height: 220px;
+    padding: 38px 24px 42px;
+
+    background: rgba(248, 244, 234, 0.78);
 }
 
 .footer-content {
@@ -5750,12 +5757,13 @@ FOOTER
 
 @media (max-width: 600px) {
     .site-footer {
-        min-height: 680px;
+        min-height: 620px;
+        margin-top: 10px;
     }
 
     .footer-overlay {
-        min-height: 680px;
-        padding: 56px 22px;
+        min-height: 210px;
+        padding: 34px 22px 38px;
     }
 
     .footer-thank-you {
