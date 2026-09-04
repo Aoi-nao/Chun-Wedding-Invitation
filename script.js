@@ -1475,6 +1475,59 @@ if (wishesMore) {
         latestWishes.length <= 5;
 }
 
+if (wishesMore) {
+    wishesMore.onclick = () => {
+        wishesList
+            .querySelectorAll(".wish-item")
+            .forEach((item) => {
+                item.remove();
+            });
+
+        latestWishes.forEach((wish) => {
+            const item =
+                document.createElement("article");
+
+            item.className = "wish-item";
+
+            const avatar =
+                document.createElement("span");
+
+            avatar.className = "wish-avatar";
+
+            const avatarImage =
+                document.createElement("img");
+
+            avatarImage.src =
+                "assets/icons/decorative/Asset%20%20(2).svg";
+
+            avatarImage.alt = "";
+
+            avatar.appendChild(avatarImage);
+
+            const name =
+                document.createElement("p");
+
+            name.className = "wish-name";
+            name.textContent = wish.name;
+
+            const message =
+                document.createElement("p");
+
+            message.className = "wish-message";
+            message.textContent = wish.message;
+
+            item.appendChild(avatar);
+            item.appendChild(name);
+            item.appendChild(message);
+
+            wishesList.appendChild(item);
+        });
+
+        wishesMore.hidden = true;
+    };
+}
+        
+        
         visibleWishes.forEach((wish) => {
 
             const item =
