@@ -2077,7 +2077,7 @@ section{
     right: -50px;
 
     background-image:
-        url("assets/images/floral/floral-right-baby.png");
+        url("assets/images/floral/floral-mini-accent.png");
 
     background-position: center;
 
@@ -2114,11 +2114,11 @@ section{
     }
 
     #countdown::after {
-        width: 185px;
-        height: 185px;
+        width: 200px;
+        height: 200px;
 
         top: 10px;
-        right: -300px;
+        right: -50px;
 
         opacity: 0.90;
     }
