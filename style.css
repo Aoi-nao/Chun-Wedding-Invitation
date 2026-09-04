@@ -3424,6 +3424,114 @@ section{
 
 
 /* ==========================================================
+   GALLERY — VINTAGE BOTANICAL BACKGROUND
+   Baby's breath + Lily of the Valley
+========================================================== */
+
+#gallery {
+    position: relative;
+    overflow: hidden;
+}
+
+/* ----------------------------------------------------------
+   TOP — một nhánh linh lan rất nhẹ ở góc trái
+---------------------------------------------------------- */
+#gallery::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("assets/images/floral/linhlan-left.png");
+
+    background-repeat: no-repeat;
+
+    background-position:
+        left -48px top 18px;
+
+    background-size:
+        135px auto;
+
+    opacity: 0.16;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ----------------------------------------------------------
+   BOTTOM — baby's breath tràn nhẹ từ cuối section
+---------------------------------------------------------- */
+#gallery::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("assets/images/floral/baby-bottom-center.png"),
+        url("assets/images/floral/baby-bottom-center.png"),
+        url("assets/images/floral/linhlan-left.png");
+
+    background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat;
+
+    background-position:
+        left -18px bottom -105px,
+        left 58px bottom -125px,
+        right -62px bottom -42px;
+
+    background-size:
+        245px auto,
+        205px auto,
+        120px auto;
+
+    opacity: 0.16;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Nội dung Gallery nằm trên lớp hoa */
+#gallery > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 480px) {
+
+    #gallery::before {
+        background-position:
+            left -52px top 14px;
+
+        background-size:
+            120px auto;
+
+        opacity: 0.14;
+    }
+
+    #gallery::after {
+        background-position:
+            left -24px bottom -88px,
+            left 45px bottom -108px,
+            right -58px bottom -35px;
+
+        background-size:
+            220px auto,
+            185px auto,
+            105px auto;
+
+        opacity: 0.15;
+    }
+}
+
+
+/* ==========================================================
    HEADER
 ========================================================== */
 
