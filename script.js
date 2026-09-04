@@ -1129,7 +1129,8 @@ if (submitButton) {
     submitButton.disabled = false;
 }
 
-
+isSubmitting = false;
+            
         } catch (error) {
 
             console.error(
@@ -1146,8 +1147,9 @@ if (submitButton) {
             )
 
             if (submitButton) {
-    submitButton.disabled = false;
+            submitButton.disabled = false;
 }
+            isSubmitting = false;
         }
 
     }
@@ -1272,6 +1274,8 @@ function initializeWishes() {
     const status =
         document.getElementById("wishesStatus");
 
+    let isSubmitting = false;
+
     if (!form || !status) {
         return;
     }
@@ -1283,6 +1287,11 @@ function initializeWishes() {
 
             event.preventDefault();
 
+            if (isSubmitting) {
+    return;
+}
+
+isSubmitting = true;
 
             const nameInput =
                 document.getElementById("wishName");
