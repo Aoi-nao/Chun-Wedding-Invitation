@@ -1408,35 +1408,62 @@ const wishesEmpty = document.getElementById("wishesEmpty");
 if (wishesList && wishesEmpty) {
     wishesEmpty.hidden = true;
 
-    const item = document.createElement("article");
-    item.className = "wish-item";
+const item = document.createElement("article");
+item.className = "wish-item";
 
-    const avatar = document.createElement("span");
-    avatar.className = "wish-avatar";
+const avatar = document.createElement("span");
+avatar.className = "wish-avatar";
 
-    const avatarImage = document.createElement("img");
-    avatarImage.src =
-        "assets/icons/decorative/Asset%20%20(2).svg";
-    avatarImage.alt = "";
+const avatarImage = document.createElement("img");
+avatarImage.src =
+    "assets/icons/decorative/Asset%20%20(2).svg";
+avatarImage.alt = "";
 
-    avatar.appendChild(avatarImage);
+avatar.appendChild(avatarImage);
 
-    const nameElement = document.createElement("p");
-    nameElement.className = "wish-name";
-    nameElement.textContent = newWish.name;
+const header = document.createElement("div");
+header.className = "wish-header";
 
-    const messageElement = document.createElement("p");
-    messageElement.className = "wish-message";
-    messageElement.textContent = newWish.message;
+const nameWrap = document.createElement("div");
+nameWrap.className = "wish-name-wrap";
 
-    item.appendChild(avatar);
-    item.appendChild(nameElement);
-    item.appendChild(messageElement);
+const nameElement = document.createElement("p");
+nameElement.className = "wish-name";
+nameElement.textContent = newWish.name;
 
-    wishesList.insertBefore(
-        item,
-        wishesList.querySelector(".wish-item")
-    );
+const timeElement = document.createElement("p");
+timeElement.className = "wish-time";
+timeElement.textContent =
+    formatWishTime(newWish.time);
+
+nameWrap.appendChild(nameElement);
+nameWrap.appendChild(timeElement);
+
+const heart = document.createElement("span");
+heart.className = "wish-heart";
+heart.textContent = "♡";
+heart.setAttribute(
+    "aria-hidden",
+    "true"
+);
+
+header.appendChild(nameWrap);
+header.appendChild(heart);
+
+const messageElement = document.createElement("p");
+messageElement.className = "wish-message";
+messageElement.textContent = newWish.message;
+
+item.appendChild(avatar);
+item.appendChild(header);
+item.appendChild(messageElement);
+
+wishesList.insertBefore(
+    item,
+    wishesList.querySelector(".wish-item")
+);
+
+    
 }
 
             } catch (error) {
