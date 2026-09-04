@@ -4969,8 +4969,8 @@ section{
 .wish-avatar img {
     display: block;
 
-    width: 27px;
-    height: 27px;
+    width: 32px;
+    height: 32px;
 
     object-fit: contain;
 }
