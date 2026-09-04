@@ -1347,6 +1347,11 @@ function initializeWishes() {
 
                 form.reset();
 
+                status.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+              });
+                
 const newWish = {
     name: name,
     message: message
