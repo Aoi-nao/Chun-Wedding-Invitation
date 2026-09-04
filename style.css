@@ -3330,7 +3330,7 @@ section{
         no-repeat;
 
     background-position:
-        right -135px bottom 20px,
+        right -135px bottom 8px,
         left -5px bottom -120px,
         left 45px bottom -135px;
 
@@ -3378,7 +3378,7 @@ section{
 
    #ceremony::after {
     background-position:
-        right -110px bottom 10px,
+        right -110px bottom -2px,
         left -18px bottom -95px,
         left 35px bottom -110px;
 
