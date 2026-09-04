@@ -1266,6 +1266,27 @@ if (giftTrigger && giftDetails) {
    WISHES — SUBMIT
 ========================================================== */
 
+function formatWishTime(time) {
+    if (!time) {
+        return "";
+    }
+
+    const date = new Date(time);
+
+    if (Number.isNaN(date.getTime())) {
+        return "";
+    }
+
+    return date.toLocaleString("vi-VN", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+    }).replace(",", " ·");
+}
+
 function initializeWishes() {
 
     const form =
@@ -1377,7 +1398,8 @@ isSubmitting = true;
                 
 const newWish = {
     name: name,
-    message: message
+    message: message,
+    time: new Date().toISOString()
 };
 
 const wishesList = document.getElementById("wishesList");
@@ -1582,27 +1604,57 @@ if (wishesMore) {
                 avatarImage
             );
 
-            const name =
-                document.createElement("p");
+            const header =
+    document.createElement("div");
+header.className =
+    "wish-header";
 
-            name.className =
-                "wish-name";
+const nameWrap =
+    document.createElement("div");
+nameWrap.className =
+    "wish-name-wrap";
 
-            name.textContent =
-                wish.name;
+const name =
+    document.createElement("p");
+name.className =
+    "wish-name";
+name.textContent =
+    wish.name;
 
-            const message =
-                document.createElement("p");
+const time =
+    document.createElement("p");
+time.className =
+    "wish-time";
+time.textContent =
+    formatWishTime(wish.time);
 
-            message.className =
-                "wish-message";
+nameWrap.appendChild(name);
+nameWrap.appendChild(time);
 
-            message.textContent =
-                wish.message;
+const heart =
+    document.createElement("span");
+heart.className =
+    "wish-heart";
+heart.textContent =
+    "♡";
+heart.setAttribute(
+    "aria-hidden",
+    "true"
+);
 
-            item.appendChild(avatar);
-            item.appendChild(name);
-            item.appendChild(message);
+header.appendChild(nameWrap);
+header.appendChild(heart);
+
+const message =
+    document.createElement("p");
+message.className =
+    "wish-message";
+message.textContent =
+    wish.message;
+
+item.appendChild(avatar);
+item.appendChild(header);
+item.appendChild(message);
 
             wishesList.appendChild(item);
 
