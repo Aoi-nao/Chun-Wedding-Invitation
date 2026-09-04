@@ -1359,8 +1359,8 @@ section{
         width: 285px;
         height: 285px;
 
-        right: -112px;
-        bottom: -64px;
+        right: -80px;
+        bottom: -35px;
 
         opacity: 0.14;
     }
@@ -1676,7 +1676,7 @@ section{
     width: 520px;
     height: 520px;
 
-    right: -50px;
+    right: -200px;
     bottom: -250px;
 
     background-image: url("assets/images/floral/floral-right-baby.png");
@@ -1742,7 +1742,7 @@ section{
         width: 390px;
         height: 390px;
 
-        right: -225px;
+        right: -200px;
         bottom: -180px;
     }
 
@@ -2073,15 +2073,15 @@ section{
     width: 260px;
     height: 260px;
 
-    top: 150px;
-    right: -90px;
+    top: -50px;
+    right: -50px;
 
     background-image:
         url("assets/images/floral/floral-right-baby.png");
 
     background-position: center;
 
-    transform: scaleY(-1) rotate(3deg);
+    transform: scaleY(-1) rotate(5deg);
    
     opacity: 0.80;
 }
@@ -2118,7 +2118,7 @@ section{
         height: 185px;
 
         top: -38px;
-        right: -48px;
+        right: -20px;
 
         opacity: 0.90;
     }
