@@ -5687,9 +5687,10 @@ FOOTER
         font-size: 24px;
     }
 
-    .footer-names {
-        font-size: 25px;
-    }
+   .footer-names {
+    font-size: 22px;
+    letter-spacing: 0.07em;
+}
 
     .footer-date {
         margin-top: 9px;
