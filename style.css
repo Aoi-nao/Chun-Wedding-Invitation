@@ -5618,11 +5618,13 @@ FOOTER
 }
 
 .footer-thank-you {
+    width: min(100%, 480px);
     margin: 0 auto;
     font-family: "Cormorant Garamond", serif;
-    font-size: 19px;
-    line-height: 1.7;
+    font-size: 18px;
+    line-height: 1.65;
     font-weight: 400;
+    letter-spacing: 0.01em;
     color: var(--color-text, #35443A);
 }
 
@@ -5678,9 +5680,11 @@ FOOTER
     }
 
     .footer-thank-you {
-        font-size: 18px;
-        line-height: 1.65;
-    }
+    width: min(100%, 340px);
+    font-size: 17px;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+}
 
     .footer-heart {
         margin: 20px 0 16px;
