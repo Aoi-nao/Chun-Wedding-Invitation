@@ -3656,20 +3656,12 @@ section{
 
 .gallery-grid {
     position: relative;
-
     display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
-
-    grid-auto-flow: dense;
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
-
     width: 100%;
-
     z-index: 2;
+    align-items: start;
 }
 
 
@@ -3679,23 +3671,13 @@ section{
 
 .gallery-item {
     position: relative;
-
     min-width: 0;
-
-    aspect-ratio: 1 / 1;
-
     overflow: hidden;
-
     border-radius: 17px;
-
-    background:
-        rgba(233, 240, 231, 0.35);
-
-    box-shadow:
-        0 8px 24px
-        rgba(35, 55, 38, 0.12);
-
+    background: rgba(233, 240, 231, 0.35);
+    box-shadow: 0 8px 24px rgba(35, 55, 38, 0.12);
     isolation: isolate;
+    height: auto;
 }
 
 
@@ -3705,31 +3687,19 @@ section{
 
 .gallery-item img {
     display: block;
-
     width: 100%;
-    height: 100%;
-
+    height: auto;
     object-fit: cover;
     object-position: center;
-
     opacity: 0;
-
     transform: translateY(6px);
-
     transition:
         opacity 1.55s ease,
-        transform 1.55s cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        );
+        transform 1.55s cubic-bezier(.22,1,.36,1);
 }
-
 
 .gallery-item.is-visible img {
     opacity: 1;
-
     transform: translateY(0);
 }
 
@@ -3753,10 +3723,8 @@ section{
 ========================================================== */
 
 .gallery-item.is-vertical {
-    grid-row: auto;
-    aspect-ratio: 1 / 1.45;
-    min-height: 0;
-    height: auto;
+   grid-row: auto;
+    aspect-ratio: auto;
 }
 
 /* ==========================================================
@@ -3765,8 +3733,7 @@ section{
 
 .gallery-item.is-horizontal {
     grid-column: span 2;
-
-    aspect-ratio: 16 / 10;
+    aspect-ratio: auto;
 }
 
 
@@ -3775,7 +3742,8 @@ section{
 ========================================================== */
 
 .gallery-item.is-square {
-    aspect-ratio: 1 / 1;
+    grid-row: auto;
+    aspect-ratio: auto;
 }
 
 
