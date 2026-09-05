@@ -3987,12 +3987,12 @@ section{
     padding: 13px 18px;
 
     border: 1px solid
-        rgba(132, 150, 128, 0.22);
+        rgba(91, 116, 91, 0.38);
 
     border-radius: 13px;
 
     background:
-        rgba(255, 255, 255, 0.16);
+        rgba(255, 255, 255, 0.42);
 
     color: var(--color-text);
 
@@ -4054,14 +4054,14 @@ section{
 + .rsvp-option-content {
 
     background:
-        rgba(132, 150, 128, 0.10);
+        rgba(109, 140, 107, 0.16);
 
     border-color:
-        rgba(132, 150, 128, 0.55);
+        rgba(91, 116, 91, 0.72);
 
     box-shadow:
-        0 4px 16px
-        rgba(80, 100, 82, 0.06);
+        0 5px 18px
+        rgba(80, 100, 82, 0.10);
 }
 
 
@@ -4268,7 +4268,7 @@ section{
     z-index: 0;
 
     filter:
-        saturate(0.9);
+        saturate(1);
 
     transform-origin: center;
 }
@@ -4361,9 +4361,9 @@ section{
         300px auto,
         270px auto;
 
-    opacity: 0.35;
+    opacity: 0.72;
 
-    filter: saturate(0.65);
+   filter: saturate(0.85);
 
     pointer-events: none;
 
