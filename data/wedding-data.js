@@ -8,8 +8,8 @@
 const WeddingData = {
 
     groom: {
-        fullName: "Nguyễn Văn A",
-        shortName: "",
+        fullName: "Nguyễn Văn AAA",
+        shortName: "NGUYỄN AAA",
         father: "",
         mother: "",
         avatar: "assets/images/groom.jpg",
@@ -20,8 +20,8 @@ const WeddingData = {
     },
 
     bride: {
-        fullName: "Hoàng Thị B",
-        shortName: "",
+        fullName: "Hoàng Thị BBB",
+        shortName: "HOÀNG BBB",
         father: "",
         mother: "",
         avatar: "assets/images/bride.jpg",
