@@ -3755,11 +3755,10 @@ section{
 .gallery-item.is-vertical {
     grid-row: span 2;
 
-    aspect-ratio: auto;
+    aspect-ratio: 1 / 2;
 
-    min-height: 100%;
+    min-height: 0;
 }
-
 
 /* ==========================================================
    AUTO LAYOUT — LANDSCAPE
