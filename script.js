@@ -787,8 +787,9 @@ function initializeCountdown() {
 }
 
 
+
 /* ==========================================================
-   GALLERY — SOFT REVEAL TIMING
+   GALLERY — EDITORIAL REVEAL
 ========================================================== */
 
 function initGalleryAnimation() {
@@ -801,7 +802,9 @@ function initGalleryAnimation() {
     }
 
     const items =
-        gallery.querySelectorAll(".gallery-item");
+        gallery.querySelectorAll(
+            ".gallery-item"
+        );
 
     if (!items.length) {
         return;
@@ -826,40 +829,17 @@ function initGalleryAnimation() {
                             item.dataset.galleryIndex || 0
                         );
 
-                    let delay = 0;
-
 
                     /*
-                       NHỊP HIỆN ẢNH
-
-                       Ảnh 1
-                       ↓
-                       Ảnh 2 + 3
-                       ↓
-                       Ảnh 4
-                       ↓
-                       Ảnh 5 + 6
-                       ↓
-                       ...
-
-                       Chuyển tiếp chậm và tự nhiên.
+                       Mỗi ảnh có một nhịp rất nhẹ.
+                       Không còn hiệu ứng nhóm 2 ảnh.
                     */
 
-                    if (index === 0) {
-
-                        delay = 0;
-
-                    } else {
-
-                        const group =
-                            Math.floor(
-                                (index - 1) / 2
-                            );
-
-                        delay =
-                            120 + group * 110;
-
-                    }
+                    const delay =
+                        Math.min(
+                            index * 90,
+                            420
+                        );
 
 
                     setTimeout(() => {
@@ -877,21 +857,24 @@ function initGalleryAnimation() {
 
             },
             {
-                threshold: 0.12
+                threshold: 0.14
             }
         );
 
 
-    items.forEach((item, index) => {
+    items.forEach(
+        (item, index) => {
 
-        item.dataset.galleryIndex =
-            index;
+            item.dataset.galleryIndex =
+                index;
 
-        observer.observe(item);
+            observer.observe(item);
 
-    });
+        }
+    );
 
 }
+
 
 
 /* ==========================================================
