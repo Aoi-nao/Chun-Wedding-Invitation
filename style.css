@@ -4326,7 +4326,64 @@ section{
     z-index: 1;
 }
 
+/* ==========================================================
+   RSVP — BOTANICAL BACKGROUND
+========================================================== */
 
+#rsvp {
+    position: relative;
+    overflow: hidden;
+
+    background: #F3F5EF;
+
+    padding-bottom: 34px;
+}
+
+#rsvp::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("assets/images/floral/baby-right-bottom.png"),
+        url("assets/images/floral/baby-bottom-center.png");
+
+    background-repeat:
+        no-repeat,
+        no-repeat;
+
+    background-position:
+        right -125px bottom -35px,
+        left -120px bottom -95px;
+
+    background-size:
+        300px auto,
+        270px auto;
+
+    opacity: 0.16;
+
+    filter: saturate(0.65);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+#rsvp > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ==========================================================
+   REMOVE NESTED SECTION SPACING
+========================================================== */
+
+#gift,
+#wishes {
+    padding: 0;
+}
 
 /* ==========================================================
    GIFT & WISHES
@@ -4361,7 +4418,7 @@ section{
     position: relative;
     width: min(100%, 1080px);
     margin: 0 auto;
-    padding: 96px 24px 42px;
+    padding: 54px 24px 42px;
     text-align: center;
 }
 
@@ -4654,8 +4711,10 @@ section{
     display: flex;
     align-items: center;
     gap: 16px;
+
     width: min(calc(100% - 48px), 900px);
-    margin: 0 auto;
+
+    margin: 4px auto 0;
 }
 
 .gift-wishes-divider span:first-child,
