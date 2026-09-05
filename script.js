@@ -1146,6 +1146,34 @@ isSubmitting = false;
 
 document.addEventListener("DOMContentLoaded", () => {
 
+        const footerNames =
+        document.getElementById("footerNames");
+
+    const footerDate =
+        document.getElementById("footerDate");
+
+    if (footerNames && typeof WeddingData !== "undefined") {
+        const brideName =
+            WeddingData.bride.shortName ||
+            WeddingData.bride.fullName;
+
+        const groomName =
+            WeddingData.groom.shortName ||
+            WeddingData.groom.fullName;
+
+        footerNames.textContent =
+            `${brideName} & ${groomName}`;
+    }
+
+    if (footerDate && typeof WeddingData !== "undefined") {
+        const day = WeddingData.wedding.day;
+        const month = WeddingData.wedding.month;
+        const year = WeddingData.wedding.year;
+
+        footerDate.textContent =
+            `${day} • ${month} • ${year}`;
+    }
+
     if (typeof GIFT_WISHES_DATA === "undefined") {
         console.warn("GIFT_WISHES_DATA is not available.");
         return;
