@@ -5600,7 +5600,7 @@ FOOTER
     align-items: center;
     justify-content: center;
 
-    min-height: 220px;
+    min-height: 270px;
     padding: 38px 24px 42px;
 
     background: linear-gradient(
@@ -5673,7 +5673,7 @@ FOOTER
     }
 
     .footer-overlay {
-        min-height: 210px;
+        min-height: 250px;
         padding: 34px 22px 38px;
     }
 
