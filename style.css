@@ -3439,43 +3439,52 @@ section{
    Phủ rất nhẹ phía sau toàn bộ album
 ---------------------------------------------------------- */
 
+/* ----------------------------------------------------------
+   SOFT BABY'S BREATH — MORE VISIBLE
+---------------------------------------------------------- */
+
 #gallery::before {
     background-image:
+        url("assets/images/floral/baby-bottom-center.png"),
         url("assets/images/floral/baby-bottom-center.png"),
         url("assets/images/floral/baby-right-top.png");
 
     background-position:
-        left -125px top 135px,
-        right -155px center;
+        left -115px top 90px,
+        left -75px center,
+        right -135px top 38%;
 
     background-size:
-        360px auto,
-        350px auto;
+        330px auto,
+        250px auto,
+        320px auto;
 
-    opacity: 0.055;
+    opacity: 0.105;
 
-    filter: saturate(0.65);
+    filter: saturate(0.7);
 }
 
 
 /* ----------------------------------------------------------
-   LILY OF THE VALLEY
-   Một cụm rất nhẹ ở phần cuối, như stationery
+   LILY OF THE VALLEY — SOFT BOTANICAL ACCENTS
 ---------------------------------------------------------- */
 
 #gallery::after {
     background-image:
+        url("assets/images/floral/linhlan-left.png"),
         url("assets/images/floral/linhlan-left.png");
 
     background-position:
-        right -55px bottom -25px;
+        right -55px bottom -20px,
+        left -75px top 58%;
 
     background-size:
-        175px auto;
+        175px auto,
+        145px auto;
 
-    opacity: 0.095;
+    opacity: 0.115;
 
-    filter: saturate(0.60);
+    filter: saturate(0.65);
 }
 
 
