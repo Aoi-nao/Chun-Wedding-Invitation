@@ -3440,7 +3440,7 @@ section{
 ---------------------------------------------------------- */
 
 /* ----------------------------------------------------------
-   SOFT BABY'S BREATH — MORE VISIBLE
+   BABY'S BREATH — VISIBLE BOTANICAL LAYER
 ---------------------------------------------------------- */
 
 #gallery::before {
@@ -3450,23 +3450,23 @@ section{
         url("assets/images/floral/baby-right-top.png");
 
     background-position:
-        left -115px top 90px,
-        left -75px center,
-        right -135px top 38%;
+        left -85px top 55px,
+        left -45px center,
+        right -95px top 36%;
 
     background-size:
-        330px auto,
-        250px auto,
-        320px auto;
+        390px auto,
+        290px auto,
+        370px auto;
 
-    opacity: 0.105;
+    opacity: 0.19;
 
-    filter: saturate(0.7);
+    filter: saturate(0.72);
 }
 
 
 /* ----------------------------------------------------------
-   LILY OF THE VALLEY — SOFT BOTANICAL ACCENTS
+   LILY OF THE VALLEY — VISIBLE ACCENTS
 ---------------------------------------------------------- */
 
 #gallery::after {
@@ -3475,16 +3475,16 @@ section{
         url("assets/images/floral/linhlan-left.png");
 
     background-position:
-        right -55px bottom -20px,
-        left -75px top 58%;
+        right -35px bottom -10px,
+        left -55px top 56%;
 
     background-size:
-        175px auto,
-        145px auto;
+        205px auto,
+        170px auto;
 
-    opacity: 0.115;
+    opacity: 0.20;
 
-    filter: saturate(0.65);
+    filter: saturate(0.68);
 }
 
 
