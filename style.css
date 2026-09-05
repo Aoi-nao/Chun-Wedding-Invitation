@@ -3659,10 +3659,9 @@ section{
     display: block;
 
     width: 100%;
-    height: auto;
+    height: 100%;
 
     object-fit: cover;
-
     opacity: 0;
 
     transform:
@@ -3679,6 +3678,9 @@ section{
         );
 }
 
+.gallery-item {
+    aspect-ratio: 1 / 1;
+}
 
 .gallery-item.is-visible img {
     opacity: 1;
@@ -3763,21 +3765,6 @@ section{
 }
 
 
-/* ==========================================================
-   IMAGE SHAPE
-========================================================== */
-
-.gallery-item.is-vertical img {
-    aspect-ratio: auto;
-}
-
-.gallery-item.is-square img {
-    aspect-ratio: 1 / 1;
-}
-
-.gallery-item.is-horizontal img {
-    aspect-ratio: auto;
-}
 
 
 /* ==========================================================
