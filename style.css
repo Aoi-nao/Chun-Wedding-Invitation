@@ -3418,72 +3418,64 @@ section{
 
 
 /* ==========================================================
-   BOTANICAL BACKGROUND
+   GALLERY — SOFT BOTANICAL PAPER BACKGROUND
 ========================================================== */
 
 #gallery::before,
 #gallery::after {
     content: "";
     position: absolute;
+    inset: 0;
+
     pointer-events: none;
     z-index: 0;
+
+    background-repeat: no-repeat;
 }
 
 
 /* ----------------------------------------------------------
-   BABY'S BREATH — chìm phía sau album
+   SOFT BABY'S BREATH
+   Phủ rất nhẹ phía sau toàn bộ album
 ---------------------------------------------------------- */
 
 #gallery::before {
-    inset: 0;
-
     background-image:
         url("assets/images/floral/baby-bottom-center.png"),
         url("assets/images/floral/baby-right-top.png");
 
-    background-repeat:
-        no-repeat,
-        no-repeat;
-
     background-position:
-        left -115px top 210px,
-        right -145px bottom 180px;
+        left -125px top 135px,
+        right -155px center;
 
     background-size:
-        310px auto,
-        340px auto;
+        360px auto,
+        350px auto;
 
-    opacity: 0.075;
+    opacity: 0.055;
+
+    filter: saturate(0.65);
 }
 
 
 /* ----------------------------------------------------------
-   BOTTOM BOTANICAL
+   LILY OF THE VALLEY
+   Một cụm rất nhẹ ở phần cuối, như stationery
 ---------------------------------------------------------- */
 
 #gallery::after {
-    left: -35px;
-    right: -35px;
-    bottom: -55px;
-    height: 260px;
-
     background-image:
-        url("assets/images/floral/baby-bottom-center.png"),
         url("assets/images/floral/linhlan-left.png");
 
-    background-repeat:
-        no-repeat,
-        no-repeat;
-
     background-position:
-        left -55px bottom -45px,
-        right -38px bottom -8px;
+        right -55px bottom -25px;
 
     background-size:
-        300px auto,
-        145px auto;
+        175px auto;
 
-    opacity: 0.20;
+    opacity: 0.095;
+
+    filter: saturate(0.60);
 }
 
 
