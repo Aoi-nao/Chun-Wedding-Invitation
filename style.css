@@ -3753,11 +3753,10 @@ section{
 ========================================================== */
 
 .gallery-item.is-vertical {
-    grid-row: span 2;
-
-    aspect-ratio: 1 / 2;
-
+    grid-row: auto;
+    aspect-ratio: 1 / 1.45;
     min-height: 0;
+    height: auto;
 }
 
 /* ==========================================================
