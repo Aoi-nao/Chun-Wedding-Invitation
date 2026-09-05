@@ -3405,7 +3405,7 @@ section{
 
     margin: 0 auto;
 
-    padding: 72px 20px 90px;
+    padding: 72px 20px 28px;;
 
     box-sizing: border-box;
 
@@ -3888,11 +3888,11 @@ section{
 @media (max-width: 380px) {
 
     #gallery {
-        padding:
-            64px
-            16px
-            78px;
-    }
+    padding:
+        64px
+        16px
+        28px;
+}
 
 
     .gallery-title {
