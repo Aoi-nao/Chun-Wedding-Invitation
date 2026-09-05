@@ -5649,7 +5649,7 @@ FOOTER
 }
 
 .footer-date {
-    margin: 8px 0 0;
+    margin: 14px 0 0;
     font-family: "Cormorant Garamond", serif;
     font-size: 15px;
     line-height: 1.4;
@@ -5697,7 +5697,7 @@ FOOTER
 }
 
     .footer-date {
-        margin-top: 7px;
+        margin-top: 12px;
         font-size: 14px;
     }
 }
