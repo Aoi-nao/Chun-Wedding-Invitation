@@ -5630,7 +5630,7 @@ FOOTER
 
 .footer-heart {
     display: block;
-    margin: 22px 0 18px;
+    margin: 20px 0 16px;
     font-family: "Cormorant Garamond", serif;
     font-size: 25px;
     line-height: 1;
@@ -5649,7 +5649,7 @@ FOOTER
 }
 
 .footer-date {
-    margin: 10px 0 0;
+    margin: 8px 0 0;
     font-family: "Cormorant Garamond", serif;
     font-size: 15px;
     line-height: 1.4;
@@ -5687,7 +5687,7 @@ FOOTER
 }
 
     .footer-heart {
-        margin: 20px 0 16px;
+        margin: 18px 0 15px;
         font-size: 24px;
     }
 
@@ -5697,7 +5697,7 @@ FOOTER
 }
 
     .footer-date {
-        margin-top: 9px;
+        margin-top: 7px;
         font-size: 14px;
     }
 }
