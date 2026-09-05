@@ -5615,6 +5615,7 @@ FOOTER
 .footer-content {
     width: min(100%, 620px);
     text-align: center;
+    transform: translateY(20px);
 }
 
 .footer-thank-you {
