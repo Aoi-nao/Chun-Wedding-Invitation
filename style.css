@@ -3392,142 +3392,108 @@ section{
 }
    
 
+
+
 /* ==========================================================
-   GALLERY — MOMENTS
-   Korean minimal · Editorial wedding album
+   GALLERY — WEDDING ALBUM V3
+   Soft editorial · Korean minimal · Botanical
 ========================================================== */
 
 #gallery {
     position: relative;
-
     width: 100%;
     max-width: 520px;
-
     margin: 0 auto;
 
-    padding: 72px 20px 28px;;
+    padding: 78px 20px 58px;
 
     box-sizing: border-box;
-
     overflow: hidden;
 
     background: var(--color-gallery);
 
-    /*
-       Gallery có bảng màu riêng vì section này
-       sử dụng nền sage đậm hơn toàn website.
-    */
     --gallery-text: #F8F4EA;
     --gallery-text-soft: rgba(248, 244, 234, 0.72);
-    --gallery-line: rgba(216, 190, 132, 0.65);
 }
 
 
 /* ==========================================================
-   GALLERY — VINTAGE BOTANICAL BACKGROUND
-   Baby's breath + Lily of the Valley
+   BOTANICAL BACKGROUND
 ========================================================== */
 
-#gallery {
-    position: relative;
-    overflow: hidden;
-}
-
-/* ----------------------------------------------------------
-   TOP — một nhánh linh lan rất nhẹ ở góc trái
----------------------------------------------------------- */
-#gallery::before {
+#gallery::before,
+#gallery::after {
     content: "";
     position: absolute;
-    inset: 0;
-
-    background-image:
-        url("assets/images/floral/linhlan-left.png");
-
-    background-repeat: no-repeat;
-
-    background-position:
-        left -48px top 18px;
-
-    background-size:
-        135px auto;
-
-    opacity: 0.16;
-
     pointer-events: none;
     z-index: 0;
 }
 
+
 /* ----------------------------------------------------------
-   BOTTOM — baby's breath tràn nhẹ từ cuối section
+   BABY'S BREATH — chìm phía sau album
 ---------------------------------------------------------- */
-#gallery::after {
-    content: "";
-    position: absolute;
+
+#gallery::before {
     inset: 0;
 
     background-image:
         url("assets/images/floral/baby-bottom-center.png"),
+        url("assets/images/floral/baby-right-top.png");
+
+    background-repeat:
+        no-repeat,
+        no-repeat;
+
+    background-position:
+        left -115px top 210px,
+        right -145px bottom 180px;
+
+    background-size:
+        310px auto,
+        340px auto;
+
+    opacity: 0.075;
+}
+
+
+/* ----------------------------------------------------------
+   BOTTOM BOTANICAL
+---------------------------------------------------------- */
+
+#gallery::after {
+    left: -35px;
+    right: -35px;
+    bottom: -55px;
+    height: 260px;
+
+    background-image:
         url("assets/images/floral/baby-bottom-center.png"),
         url("assets/images/floral/linhlan-left.png");
 
     background-repeat:
         no-repeat,
-        no-repeat,
         no-repeat;
 
     background-position:
-        left -18px bottom -105px,
-        left 58px bottom -125px,
-        right -62px bottom -42px;
+        left -55px bottom -45px,
+        right -38px bottom -8px;
 
     background-size:
-        245px auto,
-        205px auto,
-        120px auto;
+        300px auto,
+        145px auto;
 
-    opacity: 0.16;
-
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Nội dung Gallery nằm trên lớp hoa */
-#gallery > * {
-    position: relative;
-    z-index: 1;
+    opacity: 0.20;
 }
 
 
 /* ==========================================================
-   MOBILE
+   KEEP CONTENT ABOVE BOTANICAL
 ========================================================== */
 
-@media (max-width: 480px) {
-
-    #gallery::before {
-        background-position:
-            left -52px top 14px;
-
-        background-size:
-            120px auto;
-
-        opacity: 0.14;
-    }
-
-    #gallery::after {
-        background-position:
-            left -24px bottom -88px,
-            left 45px bottom -108px,
-            right -58px bottom -35px;
-
-        background-size:
-            220px auto,
-            185px auto,
-            105px auto;
-
-        opacity: 0.15;
-    }
+#gallery > * {
+    position: relative;
+    z-index: 1;
 }
 
 
@@ -3545,7 +3511,6 @@ section{
     margin-bottom: 42px;
 
     text-align: center;
-
     z-index: 3;
 }
 
@@ -3556,10 +3521,10 @@ section{
     color: var(--gallery-text);
 
     font-family: "Cormorant Garamond", serif;
-    font-size: 30px;
+    font-size: 31px;
     font-weight: 500;
 
-    letter-spacing: 0.08em;
+    letter-spacing: 0.10em;
     line-height: 1.2;
 }
 
@@ -3573,13 +3538,13 @@ section{
     font-size: 13px;
     font-weight: 400;
 
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     line-height: 1.4;
 }
 
 
 /* ==========================================================
-   BOTANICAL DIVIDER
+   SMALL BOTANICAL DIVIDER
 ========================================================== */
 
 .gallery-divider {
@@ -3589,10 +3554,10 @@ section{
     align-items: center;
     justify-content: center;
 
-    width: 118px;
-    height: 34px;
+    width: 110px;
+    height: 30px;
 
-    margin-top: 13px;
+    margin-top: 12px;
 }
 
 
@@ -3600,23 +3565,19 @@ section{
 .gallery-divider-right {
     position: absolute;
 
-    display: block;
-
-    width: 35px;
-    height: 35px;
+    width: 31px;
+    height: 31px;
 
     object-fit: contain;
 
-    opacity: 0.48;
+    opacity: 0.38;
 
-    filter: saturate(0.68);
-
-    transform-origin: center;
+    filter: saturate(0.60);
 }
 
 
 .gallery-divider-left {
-    left: 14px;
+    left: 12px;
 
     transform:
         rotate(-72deg)
@@ -3625,7 +3586,7 @@ section{
 
 
 .gallery-divider-right {
-    right: 14px;
+    right: 12px;
 
     transform:
         rotate(72deg);
@@ -3633,302 +3594,317 @@ section{
 
 
 .gallery-divider-center {
-    position: relative;
-
-    display: block;
-
-    width: 17px;
-    height: 17px;
+    width: 15px;
+    height: 15px;
 
     object-fit: contain;
 
-    opacity: 0.62;
+    opacity: 0.48;
 
-    filter: saturate(0.68);
+    filter: saturate(0.60);
 
     transform: rotate(-8deg);
 }
 
 
 /* ==========================================================
-   EDITORIAL GALLERY GRID
+   ALBUM LAYOUT
 ========================================================== */
 
 .gallery-grid {
     position: relative;
+
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 13px;
+
     width: 100%;
-    z-index: 2;
+
     align-items: start;
 }
 
 
 /* ==========================================================
-   BASE IMAGE CARD
+   IMAGE ITEM
 ========================================================== */
 
 .gallery-item {
     position: relative;
+
     min-width: 0;
+
     overflow: hidden;
-    border-radius: 17px;
-    background: rgba(233, 240, 231, 0.35);
-    box-shadow: 0 8px 24px rgba(35, 55, 38, 0.12);
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 8px 26px
+        rgba(35,55,38,0.10);
+
     isolation: isolate;
-    height: auto;
 }
 
 
 /* ==========================================================
-   IMAGE — SOFT REVEAL
+   IMAGE
 ========================================================== */
 
 .gallery-item img {
     display: block;
+
     width: 100%;
     height: auto;
+
     object-fit: cover;
-    object-position: center;
+
     opacity: 0;
-    transform: translateY(6px);
+
+    transform:
+        scale(0.985)
+        translateY(8px);
+
     transition:
-        opacity 1.55s ease,
-        transform 1.55s cubic-bezier(.22,1,.36,1);
+        opacity 1.25s ease,
+        transform 1.25s cubic-bezier(
+            .22,
+            1,
+            .36,
+            1
+        );
 }
+
 
 .gallery-item.is-visible img {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        scale(1)
+        translateY(0);
 }
 
 
-/* Reduced motion */
+/* ==========================================================
+   EDITORIAL PATTERN
+========================================================== */
+
+/*
+   Không còn span row.
+   Không ép ảnh vuông phải cao bằng ảnh dọc.
+*/
+
+.gallery-item:nth-child(1) {
+    grid-column: 1 / -1;
+}
+
+.gallery-item:nth-child(1) img {
+    aspect-ratio: 16 / 10;
+}
+
+
+.gallery-item:nth-child(2) {
+    grid-column: 1;
+}
+
+
+.gallery-item:nth-child(3) {
+    grid-column: 2;
+}
+
+
+.gallery-item:nth-child(4) {
+    grid-column: 1;
+}
+
+
+.gallery-item:nth-child(5) {
+    grid-column: 2;
+}
+
+
+.gallery-item:nth-child(6) {
+    grid-column: 1 / -1;
+}
+
+.gallery-item:nth-child(6) img {
+    aspect-ratio: 16 / 9;
+}
+
+
+.gallery-item:nth-child(7) {
+    grid-column: 1;
+}
+
+
+.gallery-item:nth-child(8) {
+    grid-column: 2;
+}
+
+
+.gallery-item:nth-child(9) {
+    grid-column: 1 / -1;
+}
+
+.gallery-item:nth-child(9) img {
+    aspect-ratio: 16 / 9;
+}
+
+
+.gallery-item:nth-child(10) {
+    grid-column: 1 / -1;
+
+    width: 72%;
+    margin: 0 auto;
+}
+
+
+/* ==========================================================
+   IMAGE SHAPE
+========================================================== */
+
+.gallery-item.is-vertical img {
+    aspect-ratio: auto;
+}
+
+.gallery-item.is-square img {
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-item.is-horizontal img {
+    aspect-ratio: auto;
+}
+
+
+/* ==========================================================
+   SUBTLE RHYTHM
+========================================================== */
+
+.gallery-item:nth-child(2),
+.gallery-item:nth-child(5),
+.gallery-item:nth-child(8) {
+    transform: translateY(5px);
+}
+
+
+.gallery-item:nth-child(3),
+.gallery-item:nth-child(6),
+.gallery-item:nth-child(9) {
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================================
+   LAST IMAGE — nhẹ hơn để tạo điểm kết
+========================================================== */
+
+.gallery-item:nth-child(10) {
+    box-shadow:
+        0 7px 22px
+        rgba(35,55,38,0.08);
+}
+
+
+/* ==========================================================
+   HOVER — DESKTOP ONLY
+========================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .gallery-item img {
+        transition:
+            opacity 1.25s ease,
+            transform 1.25s cubic-bezier(
+                .22,
+                1,
+                .36,
+                1
+            );
+    }
+
+    .gallery-item:hover img {
+        transform:
+            scale(1.018)
+            translateY(0);
+    }
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
     .gallery-item img {
         opacity: 1;
-
         transform: none;
-
         transition: none;
     }
 
 }
 
-/* ==========================================================
-   AUTO LAYOUT — PORTRAIT
-========================================================== */
-
-.gallery-item.is-vertical {
-   grid-row: auto;
-    aspect-ratio: auto;
-}
 
 /* ==========================================================
-   AUTO LAYOUT — LANDSCAPE
-========================================================== */
-
-.gallery-item.is-horizontal {
-    grid-column: span 2;
-    aspect-ratio: auto;
-}
-
-
-/* ==========================================================
-   AUTO LAYOUT — SQUARE
-========================================================== */
-
-.gallery-item.is-square {
-    grid-row: auto;
-    aspect-ratio: auto;
-}
-
-
-/* ==========================================================
-   SUBTLE IMAGE DEPTH
-========================================================== */
-
-.gallery-item:nth-child(3n + 1) {
-    --gallery-offset: 0px;
-}
-
-.gallery-item:nth-child(3n + 2) {
-    --gallery-offset: 4px;
-}
-
-.gallery-item:nth-child(3n + 3) {
-    --gallery-offset: -3px;
-}
-
-
-/* ==========================================================
-   FEATURE IMAGE
-   Chỉ dùng nếu JS sau này gắn class .is-feature
-========================================================== */
-
-.gallery-item.is-feature {
-    grid-column: span 2;
-
-    aspect-ratio: 16 / 10;
-}
-
-
-
-
-
-/* ==========================================================
-   DESKTOP HOVER
-========================================================== */
-
-@media (hover: hover) and (pointer: fine) {
-
-    .gallery-item:hover img {
-        transform: scale(1.018);
-    }
-
-}
-
-
-/* ==========================================================
-   BOTANICAL DECORATION
-========================================================== */
-
-.gallery-decoration {
-    position: absolute;
-
-    display: block;
-
-    pointer-events: none;
-
-    object-fit: contain;
-
-    z-index: 1;
-
-    filter: saturate(0.65);
-}
-
-
-/* ----------------------------------------------------------
-   LEFT — light (2)
----------------------------------------------------------- */
-
-.gallery-decoration-left {
-    left: -27px;
-    bottom: 125px;
-
-    width: 82px;
-    height: auto;
-
-    opacity: 0.09;
-
-    transform: rotate(-24deg);
-}
-
-
-/* ----------------------------------------------------------
-   RIGHT — lá
----------------------------------------------------------- */
-
-.gallery-decoration-right {
-    right: -36px;
-    top: 285px;
-
-    width: 105px;
-    height: auto;
-
-    opacity: 0.075;
-
-    transform:
-        rotate(25deg)
-        scaleX(-1);
-}
-
-
-/* ==========================================================
-   SMALL MOBILE
+   MOBILE
 ========================================================== */
 
 @media (max-width: 380px) {
 
     #gallery {
-    padding:
-        64px
-        16px
-        28px;
-}
-
-
-    .gallery-title {
-        font-size: 28px;
+        padding:
+            64px
+            16px
+            46px;
     }
-
-
-    .gallery-subtitle {
-        font-size: 12px;
-    }
-
 
     .gallery-heading {
         margin-bottom: 36px;
     }
 
+    .gallery-title {
+        font-size: 28px;
+    }
+
+    .gallery-subtitle {
+        font-size: 12px;
+    }
 
     .gallery-grid {
         gap: 9px;
     }
 
-
     .gallery-item {
         border-radius: 14px;
     }
 
-
-    .gallery-divider {
-        width: 108px;
+    .gallery-item:nth-child(10) {
+        width: 74%;
     }
 
+    #gallery::before {
+        background-size:
+            260px auto,
+            290px auto;
 
-    .gallery-divider-left,
-    .gallery-divider-right {
-        width: 31px;
-        height: 31px;
+        background-position:
+            left -105px top 190px,
+            right -135px bottom 160px;
     }
 
+    #gallery::after {
+        bottom: -45px;
 
-    .gallery-divider-left {
-        left: 13px;
-    }
+        background-size:
+            270px auto,
+            125px auto;
 
-
-    .gallery-divider-right {
-        right: 13px;
-    }
-
-
-    .gallery-divider-center {
-        width: 15px;
-        height: 15px;
-    }
-
-
-    .gallery-decoration-left {
-        left: -23px;
-
-        width: 66px;
-
-        opacity: 0.07;
-    }
-
-
-    .gallery-decoration-right {
-        right: -30px;
-
-        width: 82px;
-
-        opacity: 0.06;
+        opacity: 0.18;
     }
 
 }
@@ -3945,45 +3921,21 @@ section{
         padding-right: 28px;
     }
 
-
     .gallery-grid {
         gap: 15px;
     }
 
-
     .gallery-item {
-        border-radius: 20px;
-    }
-
-
-    .gallery-divider {
-        width: 126px;
-    }
-
-
-    .gallery-divider-left,
-    .gallery-divider-right {
-        width: 39px;
-        height: 39px;
-    }
-
-
-    .gallery-divider-center {
-        width: 18px;
-        height: 18px;
-    }
-
-
-    .gallery-decoration-left {
-        width: 92px;
-    }
-
-
-    .gallery-decoration-right {
-        width: 118px;
+        border-radius: 19px;
     }
 
 }
+
+
+
+
+
+
 
 /* ==========================================================
    RSVP — ATTENDANCE OPTIONS
