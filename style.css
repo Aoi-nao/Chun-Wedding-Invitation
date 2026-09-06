@@ -4384,6 +4384,36 @@ section{
     padding: 0;
 }
 
+
+/* ==========================================================
+   WISHES — TOP BABY'S BREATH
+========================================================== */
+
+#wishes {
+    position: relative;
+    overflow: hidden;
+}
+
+#wishes::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    width: 320px;
+    height: 150px;
+    transform: translateX(-50%);
+    background: url("assets/images/floral/baby-bottom-center.png")
+        center top / contain no-repeat;
+    opacity: 0.;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#wishes > * {
+    position: relative;
+    z-index: 1;
+}
+
 /* ==========================================================
    GIFT & WISHES
    Visual V2
@@ -4758,7 +4788,7 @@ section{
 .wishes-inner {
     width: min(100%, 860px);
     margin: 0 auto;
-    padding: 76px 24px 110px;
+    padding: 92px 24px 110px;
     text-align: center;
 }
 
@@ -5263,7 +5293,7 @@ section{
     /* Wishes */
 
     .wishes-inner {
-        padding: 54px 18px 72px;
+        padding: 82px 18px 72px;
     }
 
     .wishes-heading {
