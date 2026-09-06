@@ -17,6 +17,8 @@ function initializeApp() {
 
     applyTheme();
 
+    initializeDeviceNotice();
+
     renderOpening();
 
     renderHero();
@@ -101,6 +103,80 @@ function applyTheme() {
     root.style.setProperty('--color-gallery',ThemeConfig.colors.gallery);
 
 }
+
+
+/* ==========================================================
+   DEVICE NOTICE
+   Hiển thị trên desktop / tablet
+========================================================== */
+
+function initializeDeviceNotice() {
+
+    const notice = document.querySelector("#deviceNotice");
+    const continueButton =
+        document.querySelector("#deviceNoticeContinue");
+
+    const groomName =
+        document.querySelector("#deviceNoticeGroom");
+
+    const brideName =
+        document.querySelector("#deviceNoticeBride");
+
+    if (!notice || !continueButton) {
+        return;
+    }
+
+    /*
+     * Chỉ hiển thị trên màn hình lớn hơn 768px.
+     * Điện thoại sẽ đi thẳng vào Opening hiện tại.
+     */
+    if (window.innerWidth <= 768) {
+        return;
+    }
+
+    /*
+     * Lấy tên từ WeddingData.shortName
+     */
+    if (typeof WeddingData !== "undefined") {
+
+        if (groomName) {
+            groomName.textContent =
+                WeddingData.groom.shortName || "";
+        }
+
+        if (brideName) {
+            brideName.textContent =
+                WeddingData.bride.shortName || "";
+        }
+    }
+
+    /*
+     * Hiển thị notice
+     */
+    notice.classList.add("show");
+    notice.setAttribute("aria-hidden", "false");
+
+    document.body.classList.add("device-notice-open");
+
+    /*
+     * Tiếp tục → đóng notice
+     * Opening hiện tại vẫn giữ nguyên.
+     */
+    continueButton.addEventListener("click", () => {
+
+        notice.classList.remove("show");
+        notice.setAttribute("aria-hidden", "true");
+
+        document.body.classList.remove("device-notice-open");
+
+        setTimeout(() => {
+            notice.remove();
+        }, 500);
+
+    });
+
+}
+
 
 /* ==========================================================
    OPENING
