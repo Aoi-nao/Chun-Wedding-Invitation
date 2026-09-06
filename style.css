@@ -4443,6 +4443,41 @@ section{
     width: 100%;
 }
 
+
+/* ==========================================================
+   GIFT — TOP BOTANICAL EDGE
+   Hoa nằm tại đường tiếp giáp RSVP → Gift
+========================================================== */
+
+#gift::before {
+    content: "";
+
+    position: absolute;
+
+    top: -48px;
+    left: 50%;
+
+    width: 340px;
+    height: 130px;
+
+    transform:
+        translateX(-50%)
+        rotate(180deg);
+
+    background-image:
+        url("assets/images/floral/babys-bottom.png");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    opacity: 0.9;
+
+    pointer-events: none;
+    z-index: 3;
+}
+
+
 .gift-inner {
     position: relative;
     width: min(100%, 1080px);
@@ -4614,38 +4649,6 @@ section{
 }
 
 
-
-/* ==========================================================
-   GIFT DETAILS — TOP BOTANICAL EDGE
-========================================================== */
-
-.gift-details::before {
-    content: "";
-
-    position: absolute;
-
-    top: -12px;
-    left: 50%;
-
-    width: 300px;
-    height: 105px;
-
-    transform:
-        translateX(-50%)
-        rotate(180deg);
-
-    background-image:
-        url("assets/images/floral/babys-bottom.png");
-
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-
-    opacity: 0.9;
-
-    pointer-events: none;
-    z-index: 3;
-}
 
 
 
