@@ -5924,10 +5924,10 @@ FOOTER
 /* Message */
 
 .device-notice-title {
-    margin: 0 0 14px;
+    margin: 0 0 16px;
 
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.55rem;
+    font-size: 1.8rem;
     font-weight: 600;
 
     color: var(--color-text);
@@ -5937,8 +5937,8 @@ FOOTER
     margin: 0;
 
     font-family: "EB Garamond", serif;
-    font-size: 1.08rem;
-    line-height: 1.7;
+    font-size: 1.2rem;
+    line-height: 1.75;
 
     color: var(--color-text);
 }
@@ -5947,8 +5947,8 @@ FOOTER
     margin: 12px 0 0;
 
     font-family: "EB Garamond", serif;
-    font-size: 0.98rem;
-    line-height: 1.65;
+    font-size: 1.08rem;
+    line-height: 1.7;
 
     color: var(--color-text);
 
@@ -5969,7 +5969,7 @@ FOOTER
     color: var(--color-primary);
 
     font-family: "EB Garamond", serif;
-    font-size: 0.82rem;
+    font-size: 0.80rem;
     letter-spacing: 0.2em;
 
     cursor: pointer;
