@@ -5816,8 +5816,7 @@ FOOTER
     background:
         radial-gradient(
             circle at center,
-            rgba(255, 255, 255, 0.98) 0%,
-            rgba(248, 246, 242, 0.98) 100%
+            #AEB9A1 0%, #9CAA8D 55%, #8A9A7B 100%
         );
 
     opacity: 0;
@@ -5844,12 +5843,14 @@ FOOTER
 
     text-align: center;
 
-    border: 1px solid rgba(138, 154, 123, 0.28);
 
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(248, 244, 234, 0.96);
+
+    border: 1px solid rgba(216, 190, 132, 0.45);
 
     box-shadow:
-        0 20px 60px rgba(74, 81, 69, 0.08);
+    0 24px 70px rgba(74, 81, 69, 0.18);
+
 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
