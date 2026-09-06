@@ -5900,6 +5900,7 @@ FOOTER
 }
 
 
+
 /* ----------------------------------------------------------
    SOFT HEART DIVIDER
 ---------------------------------------------------------- */
@@ -5910,9 +5911,7 @@ FOOTER
     justify-content: center;
 
     gap: 14px;
-
     width: min(210px, 70%);
-
     margin: 32px auto 36px;
 
     color: var(--color-accent);
@@ -5951,6 +5950,7 @@ FOOTER
 
     color: var(--color-accent);
 }
+
 
 
 /* ----------------------------------------------------------
