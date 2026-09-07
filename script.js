@@ -1619,17 +1619,14 @@ async function loadWishes() {
         const wishes =
             await response.json();
 
-        /* Xóa danh sách cũ trước khi render lại */
-      wishesList
+      /* Xóa danh sách cũ trước khi render lại */
+wishesList
     .querySelectorAll(
         ".wish-item, .wish-flower-gap"
     )
     .forEach((item) => {
         item.remove();
     });
-            .forEach((item) => {
-                item.remove();
-            });
 
         if (
             !Array.isArray(wishes) ||
@@ -1661,10 +1658,13 @@ if (wishesMore) {
 if (wishesMore) {
     wishesMore.onclick = () => {
         wishesList
-            .querySelectorAll(".wish-item")
-            .forEach((item) => {
-                item.remove();
-            });
+           wishesList
+    .querySelectorAll(
+        ".wish-item, .wish-flower-gap"
+    )
+    .forEach((item) => {
+        item.remove();
+    });
 
         latestWishes.forEach((wish) => {
             const item =
