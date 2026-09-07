@@ -4418,6 +4418,55 @@ section{
 }
 
 
+
+/* ==========================================================
+   WISHES / FOOTER — BOTTOM FLORAL
+========================================================== */
+
+#footer {
+    position: relative;
+
+    background: transparent;
+    padding: 0;
+    min-height: 180px;
+}
+
+#footer::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 180px;
+
+    background-image:
+        url("assets/images/floral/baby-right-bottom.png"),
+        url("assets/images/floral/baby-bottom-center.png");
+
+    background-repeat:
+        no-repeat,
+        no-repeat;
+
+    background-position:
+        right -45px bottom -5px,
+        left -120px bottom -95px;
+
+    background-size:
+        300px auto,
+        270px auto;
+
+    opacity: 0.65;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+
 /* ==========================================================
    GIFT — MỪNG CƯỚI
 ========================================================== */
@@ -5077,6 +5126,123 @@ section{
     border-bottom: 1px solid rgba(80, 107, 85, 0.13);
 }
 
+/* ==========================================================
+   WISHES — FLOWERS BETWEEN COMMENTS
+========================================================== */
+
+.wish-flower-gap {
+    position: relative;
+
+    width: 100%;
+    height: 34px;
+
+    pointer-events: none;
+}
+
+.wish-flower-gap::before {
+    content: "";
+
+    position: absolute;
+
+    width: 52px;
+    height: 52px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    opacity: 0.22;
+}
+
+
+/* ----------------------------------------------------------
+   FLOWER 1 — RIGHT
+---------------------------------------------------------- */
+
+.wish-flower-gap.flower-1::before {
+    right: 18px;
+    top: -10px;
+
+    background-image:
+        url("assets/images/floral/small-baby-1.png");
+}
+
+
+/* ----------------------------------------------------------
+   FLOWER 2 — LEFT
+---------------------------------------------------------- */
+
+.wish-flower-gap.flower-2::before {
+    left: 28px;
+    top: -8px;
+
+    background-image:
+        url("assets/images/floral/chamoline1.png");
+}
+
+
+/* ----------------------------------------------------------
+   FLOWER 3 — RIGHT
+---------------------------------------------------------- */
+
+.wish-flower-gap.flower-3::before {
+    right: 42px;
+    top: -14px;
+
+    width: 46px;
+    height: 46px;
+
+    background-image:
+        url("assets/images/floral/small-baby-2.png");
+}
+
+
+/* ----------------------------------------------------------
+   FLOWER 4 — LEFT
+---------------------------------------------------------- */
+
+.wish-flower-gap.flower-4::before {
+    left: 12px;
+    top: -9px;
+
+    width: 50px;
+    height: 50px;
+
+    background-image:
+        url("assets/images/floral/chamoline3.png");
+}
+
+
+/* ----------------------------------------------------------
+   FLOWER 5 — RIGHT
+---------------------------------------------------------- */
+
+.wish-flower-gap.flower-5::before {
+    right: 22px;
+    top: -12px;
+
+    width: 48px;
+    height: 48px;
+
+    background-image:
+        url("assets/images/floral/small-baby-3.png");
+}
+
+
+/* ----------------------------------------------------------
+   FLOWER 6 — LEFT
+---------------------------------------------------------- */
+
+.wish-flower-gap.flower-6::before {
+    left: 42px;
+    top: -10px;
+
+    width: 46px;
+    height: 46px;
+
+    background-image:
+        url("assets/images/floral/chamoline4.png");
+}
 
 /* ==========================================================
    WISHES — SCATTERED FLOWERS PER COMMENT
