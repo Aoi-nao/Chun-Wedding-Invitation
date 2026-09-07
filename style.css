@@ -4353,14 +4353,14 @@ section{
         no-repeat;
 
     background-position:
-        right -75px bottom -5px,
+        right -45px bottom -5px,
         left -120px bottom -95px;
 
     background-size:
         300px auto,
         270px auto;
 
-    opacity: 0.75;
+    opacity: 1;
 
    filter: saturate(0.9);
 
