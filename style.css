@@ -4361,42 +4361,6 @@ section{
 
 
 
-/* ==========================================================
-   WISHES — BOTTOM FLORAL FOOTER
-========================================================== */
-
-#wishes::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: -1px;
-
-    height: 300px;
-
-    background-image:
-        url("assets/images/floral/baby-right-bottom.png"),
-        url("assets/images/floral/baby-bottom-center.png");
-
-    background-repeat:
-        no-repeat,
-        no-repeat;
-
-    background-position:
-        right -45px bottom -5px,
-        left -120px bottom -95px;
-
-    background-size:
-        300px auto,
-        270px auto;
-
-    opacity: 0.65;
-
-    pointer-events: none;
-    z-index: 0;
-}
 
 /* ==========================================================
    GIFT & WISHES
@@ -4423,7 +4387,7 @@ section{
    WISHES / FOOTER — BOTTOM FLORAL
 ========================================================== */
 
-#footer {
+#wishes-footer-space {
     position: relative;
 
     background: transparent;
@@ -4431,7 +4395,7 @@ section{
     min-height: 180px;
 }
 
-#footer::before {
+#wishes-footer-space::before {
     content: "";
 
     position: absolute;
@@ -5244,97 +5208,6 @@ section{
         url("assets/images/floral/chamoline4.png");
 }
 
-/* ==========================================================
-   WISHES — SCATTERED FLOWERS PER COMMENT
-========================================================== */
-
-.wish-item::before,
-.wish-item::after {
-    content: "";
-
-    position: absolute;
-
-    width: 48px;
-    height: 48px;
-
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-
-    pointer-events: none;
-
-    opacity: 0.20;
-
-    z-index: 0;
-}
-
-
-/* ----------------------------------------------------------
-   KEEP COMMENT CONTENT ABOVE FLOWERS
----------------------------------------------------------- */
-
-.wish-item > * {
-    position: relative;
-    z-index: 1;
-}
-
-
-/* ----------------------------------------------------------
-   1 — BABY RIGHT
----------------------------------------------------------- */
-
-.wish-item:nth-child(4n + 1)::before {
-    right: -18px;
-    bottom: 8px;
-
-    background-image:
-        url("assets/images/floral/small-baby-1.png");
-}
-
-
-/* ----------------------------------------------------------
-   2 — CHAMOMILE LEFT
----------------------------------------------------------- */
-
-.wish-item:nth-child(4n + 2)::after {
-    left: -18px;
-    top: 10px;
-
-    background-image:
-        url("assets/images/floral/chamoline1.png");
-}
-
-
-/* ----------------------------------------------------------
-   3 — BABY LEFT
----------------------------------------------------------- */
-
-.wish-item:nth-child(4n + 3)::before {
-    left: -20px;
-    bottom: 10px;
-
-    width: 52px;
-    height: 52px;
-
-    background-image:
-        url("assets/images/floral/small-baby-2.png");
-}
-
-
-/* ----------------------------------------------------------
-   4 — CHAMOMILE RIGHT
----------------------------------------------------------- */
-
-.wish-item:nth-child(4n)::after {
-    right: -16px;
-    top: 12px;
-
-    width: 50px;
-    height: 50px;
-
-    background-image:
-        url("assets/images/floral/chamoline3.png");
-}
 
 
 
