@@ -4389,31 +4389,69 @@ section{
    WISHES — TOP BABY'S BREATH
 ========================================================== */
 
-#wishes {
-    position: relative;
-    overflow: hidden;
-}
-
 #wishes::before {
     content: "";
+
     position: absolute;
-    top: -8px;
-    left: 50%;
-    width: 320px;
-    height: 150px;
-    transform: translateX(-50%);
-    background: url("assets/images/floral/baby-bottom-center.png")
-        center top / contain no-repeat;
-    opacity: 0.;
+    inset: 0;
+
+    background-image:
+        url("assets/images/floral/small-baby-1.png"),
+        url("assets/images/floral/small-baby-2.png"),
+        url("assets/images/floral/small-baby-3.png");
+
+    background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat;
+
+    background-position:
+        left -20px top 120px,
+        right -18px top 250px,
+        left 10px bottom 170px;
+
+    background-size:
+        105px auto,
+        120px auto,
+        95px auto;
+
+    opacity: 0.18;
+
     pointer-events: none;
     z-index: 0;
 }
 
-#wishes > * {
-    position: relative;
-    z-index: 1;
-}
+#wishes::after {
+    content: "";
 
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("assets/images/floral/chamoline1.png"),
+        url("assets/images/floral/chamoline3.png"),
+        url("assets/images/floral/chamoline4.png");
+
+    background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat;
+
+    background-position:
+        right 22px top 110px,
+        left 35px center,
+        right -5px bottom 80px;
+
+    background-size:
+        72px auto,
+        58px auto,
+        68px auto;
+
+    opacity: 0.20;
+
+    pointer-events: none;
+    z-index: 0;
+}
 /* ==========================================================
    GIFT & WISHES
    Visual V2
