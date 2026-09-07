@@ -4353,11 +4353,11 @@ section{
         no-repeat;
 
     background-position:
-        right -125px bottom -35px,
+        right -125px bottom 20px,
         left -120px bottom -95px;
 
     background-size:
-        300px auto,
+        350px auto,
         270px auto;
 
     opacity: 0.75;
