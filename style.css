@@ -4338,7 +4338,78 @@ section{
     padding-bottom: 34px;
 }
 
-#rsvp::before {
+
+
+#rsvp > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ==========================================================
+   REMOVE NESTED SECTION SPACING
+========================================================== */
+
+#gift,
+#wishes {
+    padding: 0;
+}
+
+
+/* ==========================================================
+   WISHES — SCATTERED BOTANICAL BACKGROUND
+========================================================== */
+
+#wishes::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("assets/images/floral/small-baby-1.png"),
+        url("assets/images/floral/small-baby-2.png"),
+        url("assets/images/floral/small-baby-3.png"),
+        url("assets/images/floral/chamoline1.png"),
+        url("assets/images/floral/chamoline3.png"),
+        url("assets/images/floral/chamoline4.png");
+
+    background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat;
+
+    background-position:
+        left -18px top 260px,
+        right -20px top 410px,
+        left -12px top 590px,
+        right 8px top 330px,
+        left 18px top 470px,
+        right -4px top 650px;
+
+    background-size:
+        82px auto,
+        90px auto,
+        78px auto,
+        52px auto,
+        58px auto,
+        55px auto;
+
+    opacity: 0.16;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* ==========================================================
+   WISHES — BOTTOM FLORAL BACKGROUND
+========================================================== */
+
+#wishes::after {
     content: "";
 
     position: absolute;
@@ -4360,98 +4431,12 @@ section{
         300px auto,
         270px auto;
 
-    opacity: 1;
-
-   filter: saturate(0.9);
-
-    pointer-events: none;
-
-    z-index: 0;
-}
-
-#rsvp > * {
-    position: relative;
-    z-index: 1;
-}
-
-
-/* ==========================================================
-   REMOVE NESTED SECTION SPACING
-========================================================== */
-
-#gift,
-#wishes {
-    padding: 0;
-}
-
-
-/* ==========================================================
-   WISHES — TOP BABY'S BREATH
-========================================================== */
-
-#wishes::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background-image:
-        url("assets/images/floral/small-baby-1.png"),
-        url("assets/images/floral/small-baby-2.png"),
-        url("assets/images/floral/small-baby-3.png");
-
-    background-repeat:
-        no-repeat,
-        no-repeat,
-        no-repeat;
-
-    background-position:
-        left -20px top 120px,
-        right -18px top 250px,
-        left 10px bottom 170px;
-
-    background-size:
-        105px auto,
-        120px auto,
-        95px auto;
-
-    opacity: 0.18;
+    opacity: 0.65;
 
     pointer-events: none;
     z-index: 0;
 }
 
-#wishes::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background-image:
-        url("assets/images/floral/chamoline1.png"),
-        url("assets/images/floral/chamoline3.png"),
-        url("assets/images/floral/chamoline4.png");
-
-    background-repeat:
-        no-repeat,
-        no-repeat,
-        no-repeat;
-
-    background-position:
-        right 22px top 110px,
-        left 35px center,
-        right -5px bottom 80px;
-
-    background-size:
-        72px auto,
-        58px auto,
-        68px auto;
-
-    opacity: 0.20;
-
-    pointer-events: none;
-    z-index: 0;
-}
 /* ==========================================================
    GIFT & WISHES
    Visual V2
