@@ -4356,64 +4356,25 @@ section{
 }
 
 
-/* ==========================================================
-   WISHES — SCATTERED BOTANICAL BACKGROUND
-========================================================== */
 
-#wishes::before {
-    content: "";
 
-    position: absolute;
-    inset: 0;
 
-    background-image:
-        url("assets/images/floral/small-baby-1.png"),
-        url("assets/images/floral/small-baby-2.png"),
-        url("assets/images/floral/small-baby-3.png"),
-        url("assets/images/floral/chamoline1.png"),
-        url("assets/images/floral/chamoline3.png"),
-        url("assets/images/floral/chamoline4.png");
-
-    background-repeat:
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat;
-
-    background-position:
-        left -18px top 260px,
-        right -20px top 410px,
-        left -12px top 590px,
-        right 8px top 330px,
-        left 18px top 470px,
-        right -4px top 650px;
-
-    background-size:
-        82px auto,
-        90px auto,
-        78px auto,
-        52px auto,
-        58px auto,
-        55px auto;
-
-    opacity: 0.16;
-
-    pointer-events: none;
-    z-index: 0;
-}
 
 
 /* ==========================================================
-   WISHES — BOTTOM FLORAL BACKGROUND
+   WISHES — BOTTOM FLORAL FOOTER
 ========================================================== */
 
 #wishes::after {
     content: "";
 
     position: absolute;
-    inset: 0;
+
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 300px;
 
     background-image:
         url("assets/images/floral/baby-right-bottom.png"),
@@ -5115,6 +5076,101 @@ section{
 
     border-bottom: 1px solid rgba(80, 107, 85, 0.13);
 }
+
+
+/* ==========================================================
+   WISHES — SCATTERED FLOWERS PER COMMENT
+========================================================== */
+
+.wish-item::before,
+.wish-item::after {
+    content: "";
+
+    position: absolute;
+
+    width: 48px;
+    height: 48px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    pointer-events: none;
+
+    opacity: 0.20;
+
+    z-index: 0;
+}
+
+
+/* ----------------------------------------------------------
+   KEEP COMMENT CONTENT ABOVE FLOWERS
+---------------------------------------------------------- */
+
+.wish-item > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ----------------------------------------------------------
+   1 — BABY RIGHT
+---------------------------------------------------------- */
+
+.wish-item:nth-child(4n + 1)::before {
+    right: -18px;
+    bottom: 8px;
+
+    background-image:
+        url("assets/images/floral/small-baby-1.png");
+}
+
+
+/* ----------------------------------------------------------
+   2 — CHAMOMILE LEFT
+---------------------------------------------------------- */
+
+.wish-item:nth-child(4n + 2)::after {
+    left: -18px;
+    top: 10px;
+
+    background-image:
+        url("assets/images/floral/chamoline1.png");
+}
+
+
+/* ----------------------------------------------------------
+   3 — BABY LEFT
+---------------------------------------------------------- */
+
+.wish-item:nth-child(4n + 3)::before {
+    left: -20px;
+    bottom: 10px;
+
+    width: 52px;
+    height: 52px;
+
+    background-image:
+        url("assets/images/floral/small-baby-2.png");
+}
+
+
+/* ----------------------------------------------------------
+   4 — CHAMOMILE RIGHT
+---------------------------------------------------------- */
+
+.wish-item:nth-child(4n)::after {
+    right: -16px;
+    top: 12px;
+
+    width: 50px;
+    height: 50px;
+
+    background-image:
+        url("assets/images/floral/chamoline3.png");
+}
+
+
 
 
 /* ==========================================================
