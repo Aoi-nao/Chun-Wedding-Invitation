@@ -1579,7 +1579,21 @@ wishesList.insertBefore(
 /* ==========================================================
    WISHES — LOAD GUESTBOOK
 ========================================================== */
+function createWishFlower(index) {
 
+    const flower = document.createElement("div");
+
+    flower.className =
+        "wish-flower-gap flower-" +
+        ((index % 6) + 1);
+
+    flower.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    return flower;
+}
 async function loadWishes() {
     
    const wishesMore =
@@ -1606,8 +1620,13 @@ async function loadWishes() {
             await response.json();
 
         /* Xóa danh sách cũ trước khi render lại */
-        wishesList
-            .querySelectorAll(".wish-item")
+      wishesList
+    .querySelectorAll(
+        ".wish-item, .wish-flower-gap"
+    )
+    .forEach((item) => {
+        item.remove();
+    });
             .forEach((item) => {
                 item.remove();
             });
@@ -1741,21 +1760,30 @@ if (wishesMore) {
             messageElement.textContent =
                 wish.message;
 
-            item.appendChild(
-                avatar
-            );
+         item.appendChild(
+    avatar
+);
 
-            item.appendChild(
-                header
-            );
+item.appendChild(
+    header
+);
 
-            item.appendChild(
-                messageElement
-            );
+item.appendChild(
+    messageElement
+);
 
-            wishesList.appendChild(
-                item
-            );
+wishesList.appendChild(
+    item
+);
+
+const flower =
+    createWishFlower(
+        wishesList.querySelectorAll(".wish-item").length - 1
+    );
+
+wishesList.appendChild(
+    flower
+);
         });
 
         wishesMore.hidden = true;
@@ -1841,7 +1869,14 @@ item.appendChild(avatar);
 item.appendChild(header);
 item.appendChild(message);
 
-            wishesList.appendChild(item);
+wishesList.appendChild(item);
+
+const flower =
+    createWishFlower(
+        wishesList.querySelectorAll(".wish-item").length - 1
+    );
+
+wishesList.appendChild(flower);
 
         });
 
