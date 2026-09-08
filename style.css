@@ -4384,28 +4384,45 @@ section{
 
 /* ==========================================================
    WISHES — BOTTOM FLORAL
+   FULL WIDTH / FOOTER TRANSITION
 ========================================================== */
 
 .wishes-bottom-floral {
     position: relative;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+
+    width: 100vw;
+    height: clamp(220px, 62vw, 340px);
+
+    margin-left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateY(10px);
+
+    overflow: hidden;
+
     line-height: 0;
-    overflow: visible;
     pointer-events: none;
-    z-index: 0;
+
+    z-index: 2;
 }
 
 .wishes-bottom-floral img {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
     display: block;
+
     width: 100%;
     height: auto;
+
     margin: 0;
     padding: 0;
+
     object-fit: contain;
 }
-
 
 
 /* ==========================================================
