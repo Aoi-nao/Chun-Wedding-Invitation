@@ -4382,51 +4382,30 @@ section{
 }
 
 
-
 /* ==========================================================
-   WISHES / FOOTER — BOTTOM FLORAL
+   WISHES — BOTTOM FLORAL
 ========================================================== */
 
-#wishes-footer-space {
+.wishes-bottom-floral {
     position: relative;
-
-    background: transparent;
+    width: 100%;
+    margin: 0;
     padding: 0;
-    min-height: 180px;
-}
-
-#wishes-footer-space::before {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    /* Không thay đổi chiều cao bố cục */
-    height: 180px;
-
-    background-image:
-        url("assets/images/floral/big-floral.png");
-
-    background-repeat: no-repeat;
-
-    background-position:
-        center bottom;
-
-    /*
-       Cho PNG vươn lên khỏi vùng 180px
-       nhưng vẫn neo đáy tại footer
-    */
-    background-size:
-        min(100vw, 768px) auto;
-
-    opacity: 1;
-
+    line-height: 0;
+    overflow: visible;
     pointer-events: none;
-
     z-index: 0;
 }
+
+.wishes-bottom-floral img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+}
+
 
 
 /* ==========================================================
