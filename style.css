@@ -4399,7 +4399,6 @@ section{
     content: "";
 
     position: absolute;
-
     left: 0;
     right: 0;
     bottom: 0;
@@ -4407,21 +4406,17 @@ section{
     height: 180px;
 
     background-image:
-        url("assets/images/floral/baby-right-bottom.png"),
-        url("assets/images/floral/baby-bottom-center.png");
+        url("assets/images/floral/big-floral.png");
 
-    background-repeat:
-        no-repeat,
-        no-repeat;
+    background-repeat: no-repeat;
 
     background-position:
-        right -45px bottom -25px,
-        left -120px bottom -115px;
-    background-size:
-        380px auto,
-        340px auto;
+        center bottom;
 
-    opacity: 0.65;
+    background-size:
+        100% auto;
+
+    opacity: 1;
 
     pointer-events: none;
 
