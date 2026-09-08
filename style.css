@@ -4403,6 +4403,7 @@ section{
     right: 0;
     bottom: 0;
 
+    /* Không thay đổi chiều cao bố cục */
     height: 180px;
 
     background-image:
@@ -4413,8 +4414,12 @@ section{
     background-position:
         center bottom;
 
+    /*
+       Cho PNG vươn lên khỏi vùng 180px
+       nhưng vẫn neo đáy tại footer
+    */
     background-size:
-        100% auto;
+        min(100vw, 768px) auto;
 
     opacity: 1;
 
@@ -4422,7 +4427,6 @@ section{
 
     z-index: 0;
 }
-
 
 
 /* ==========================================================
