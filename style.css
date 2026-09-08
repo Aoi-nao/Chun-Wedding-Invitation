@@ -2081,7 +2081,7 @@ section{
 
     background-position: center;
 
-    transform: scaleY(-1)rotate(-7deg);
+    transform: scaleX(-1);
    
     opacity: 0.80;
 }
