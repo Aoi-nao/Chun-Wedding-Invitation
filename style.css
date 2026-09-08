@@ -4415,9 +4415,8 @@ section{
         no-repeat;
 
     background-position:
-        right -45px bottom -5px,
-        left -120px bottom -95px;
-
+        right -45px bottom -25px,
+        left -120px bottom -115px;
     background-size:
         300px auto,
         270px auto;
