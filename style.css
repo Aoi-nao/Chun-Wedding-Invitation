@@ -4381,17 +4381,16 @@ section{
     color: var(--color-text, #35443A);
 }
 
-
 /* ==========================================================
    WISHES — BOTTOM FLORAL
-   FULL WIDTH / FOOTER TRANSITION
+   FULL PNG / NO CROP / FOOTER TRANSITION
 ========================================================== */
 
 .wishes-bottom-floral {
     position: relative;
 
     width: 100vw;
-    height: clamp(220px, 62vw, 340px);
+    height: 220px;
 
     margin-left: 50%;
 
@@ -4399,7 +4398,7 @@ section{
         translateX(-50%)
         translateY(10px);
 
-    overflow: hidden;
+    overflow: visible;
 
     line-height: 0;
     pointer-events: none;
@@ -4423,7 +4422,6 @@ section{
 
     object-fit: contain;
 }
-
 
 /* ==========================================================
    GIFT — MỪNG CƯỚI
