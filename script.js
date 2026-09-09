@@ -21,6 +21,8 @@ function initializeApp() {
 
     renderOpening();
 
+    initializeOpeningPreload();
+
     renderHero();
 
     renderCouple();
