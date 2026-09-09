@@ -578,6 +578,93 @@ section{
 
 }
 
+
+/* ==========================================================
+   HERO — BOTANICAL FRAME
+   Background decoration — Phase 1
+========================================================== */
+
+.hero-botanical {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+.hero-botanical::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 38%,
+            rgba(255, 255, 255, 0.22) 0%,
+            rgba(255, 255, 255, 0.08) 38%,
+            rgba(255, 255, 255, 0) 72%
+        );
+
+    pointer-events: none;
+}
+
+.hero-botanical-branch {
+    position: absolute;
+
+    width: 155px;
+    height: auto;
+
+    opacity: 0.62;
+
+    object-fit: contain;
+}
+
+.hero-botanical-left {
+    left: -72px;
+    bottom: -28px;
+
+    transform:
+        rotate(-10deg);
+}
+
+.hero-botanical-right {
+    right: -72px;
+    bottom: -28px;
+
+    transform:
+        scaleX(-1)
+        rotate(-10deg);
+}
+
+.hero-botanical-top {
+    position: absolute;
+
+    width: 74px;
+    height: auto;
+
+    opacity: 0.48;
+}
+
+.hero-botanical-top-left {
+    left: -18px;
+    top: 18px;
+
+    transform: rotate(-18deg);
+}
+
+.hero-botanical-top-right {
+    right: -18px;
+    top: 18px;
+
+    transform:
+        scaleX(-1)
+        rotate(-18deg);
+}
+
 /* ------------------------------
    Wave
 -------------------------------- */
