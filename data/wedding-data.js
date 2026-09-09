@@ -33,11 +33,11 @@ const WeddingData = {
 
     wedding: {
         weekday: "Chủ Nhật",
-        day: "09",
-        month: "08",
+        day: "11",
+        month: "10",
         year: "2026",
         solarDate: "",
-        lunarDate: "27 tháng 6 năm Bính Ngọ",
+        lunarDate: "02 tháng 09 năm Bính Ngọ",
         monogram: "",
         quote: "Together is a beautiful place to be"
     },
