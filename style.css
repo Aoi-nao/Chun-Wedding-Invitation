@@ -534,15 +534,17 @@ section{
    ========================================================================== */
 
 #hero{
-
     position:relative;
 
-    background:#ffffff;
+    background:
+        linear-gradient(
+            180deg,
+            #FBFAF6 0%,
+            #F7F6F0 100%
+        );
 
     overflow:hidden;
-
     padding:0;
-
 }
 
 /* ------------------------------
@@ -562,19 +564,15 @@ section{
 }
 
 .hero-photo-image{
-
     width:100%;
-
     height:100%;
 
-    object-fit:cover;
-
-    object-position:center;
+    object-fit:contain;
+    object-position:center center;
 
     display:block;
 
-    transform:scale(1.02);
-
+    transform:none;
 }
 
 .hero-overlay{
