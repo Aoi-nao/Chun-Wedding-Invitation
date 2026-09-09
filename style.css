@@ -6330,3 +6330,33 @@ body.device-notice-open {
 }
 
 
+/* ==========================================================
+   OPENING LOADING STATUS
+   Trạng thái chuẩn bị ảnh trước khi mở thiệp
+========================================================== */
+
+.opening-loading-status {
+    margin: 18px 0 0;
+
+    font-family: "EB Garamond", serif;
+    font-size: 1rem;
+    line-height: 1.5;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    letter-spacing: 0.04em;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+.opening-loading-status.is-ready {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.opening-button:disabled {
+    opacity: 0.55;
+    cursor: wait;
+    pointer-events: none;
+}
