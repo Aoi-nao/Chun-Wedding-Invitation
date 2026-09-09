@@ -535,14 +535,7 @@ section{
 
 #hero{
     position:relative;
-
-    background:
-        linear-gradient(
-            180deg,
-            #FBFAF6 0%,
-            #F7F6F0 100%
-        );
-
+    background:#ffffff;
     overflow:hidden;
     padding:0;
 }
