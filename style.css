@@ -6354,8 +6354,11 @@ body.device-notice-open {
     color: rgba(255, 255, 255, 0.95);
 }
 
+.opening-button {
+    border-radius: 999px;
+}
+
 .opening-button:disabled {
     opacity: 0.55;
     cursor: wait;
-    pointer-events: none;
 }
