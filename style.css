@@ -638,12 +638,12 @@ section{
 .hero-botanical-corner {
     position: absolute;
 
-    width: 190px;
+    width: 220px;
     height: auto;
 
-    bottom: -48px;
+    bottom: -38px;
 
-    opacity: 0.72;
+    opacity: 0.78;
 
     z-index: 3;
 }
@@ -652,18 +652,15 @@ section{
 /* LEFT */
 
 .hero-botanical-left {
-    left: -92px;
-
-    transform:
-        rotate(-8deg);
+    left: -55px;
+    transform: rotate(-8deg);
 }
 
 
 /* RIGHT */
 
 .hero-botanical-right {
-    right: -92px;
-
+    right: -55px;
     transform:
         scaleX(-1)
         rotate(-8deg);
@@ -682,18 +679,16 @@ section{
     }
 
     .hero-botanical-corner {
-        width: 175px;
-        bottom: -42px;
+    width: 205px;
+    bottom: -34px;
     }
 
-    .hero-botanical-left {
-        left: -86px;
-    }
+  .hero-botanical-left {
+    left: -52px;
+}
 
-    .hero-botanical-right {
-        right: -86px;
-    }
-
+.hero-botanical-right {
+    right: -52px;
 }
 
 /* ------------------------------
