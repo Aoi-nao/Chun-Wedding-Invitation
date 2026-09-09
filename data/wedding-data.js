@@ -63,15 +63,13 @@ const WeddingData = {
         ]
     },
 
-    ceremony: {
+   ceremony: {
 
     groomCeremony: {
         title: "Lễ Thành Hôn",
         time: "09:00",
         date: "Chủ Nhật, 09.08.2026",
-        lunar: "27 tháng 6 năm Bính Ngọ",
-        address: "",
-        map: ""
+        lunar: "27 tháng 6 năm Bính Ngọ"
     },
 
     groomParty: {
@@ -80,16 +78,14 @@ const WeddingData = {
         date: "Chủ Nhật, 09.08.2026",
         lunar: "27 tháng 6 năm Bính Ngọ",
         address: "123 Đường Mẫu, Thành phố Hà Nội",
-        map: "https://maps.google.com/"
+        map: "https://maps.app.goo.gl/u3iYstrY8vfWwGiAA"
     },
 
     brideCeremony: {
         title: "Lễ Vu Quy",
         time: "09:00",
         date: "Chủ Nhật, 09.08.2026",
-        lunar: "27 tháng 6 năm Bính Ngọ",
-        address: "",
-        map: ""
+        lunar: "27 tháng 6 năm Bính Ngọ"
     },
 
     brideParty: {
@@ -98,7 +94,7 @@ const WeddingData = {
         date: "Chủ Nhật, 09.08.2026",
         lunar: "27 tháng 6 năm Bính Ngọ",
         address: "456 Đường Mẫu, Thành phố Hà Nội",
-        map: "https://maps.google.com/"
+        map: "https://maps.app.goo.gl/g5hnyQbzh97xeAio6"
     }
 
 },
