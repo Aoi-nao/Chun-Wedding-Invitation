@@ -256,13 +256,19 @@ function initializeOpening() {
 
         }
 
-        opening.classList.add("opening-hide");
+window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "instant"
+});
 
-        setTimeout(() => {
+opening.classList.add("opening-hide");
 
-            opening.remove();
+setTimeout(() => {
 
-        }, 800);
+    opening.remove();
+
+}, 800);
 
     });
 
