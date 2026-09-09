@@ -2060,3 +2060,96 @@ function initializeFallingPetals() {
     }, 1800);
 
 }
+
+
+/* ==========================================================
+   OPENING PRELOAD
+   Chỉ chuẩn bị các ảnh quan trọng trước khi mở thiệp.
+   Không can thiệp Gallery hoặc các section khác.
+========================================================== */
+
+function initializeOpeningPreload() {
+
+    const opening = document.querySelector("#opening");
+    const button = document.querySelector("#openInvitation");
+
+    if (!opening || !button) {
+        return;
+    }
+
+    const content =
+        opening.querySelector(".opening-content");
+
+    if (!content) {
+        return;
+    }
+
+    const status =
+        document.createElement("p");
+
+    status.className =
+        "opening-loading-status";
+
+    status.textContent =
+        "Đang chuẩn bị thiệp...";
+
+    content.appendChild(status);
+
+    button.disabled = true;
+    button.setAttribute(
+        "aria-disabled",
+        "true"
+    );
+
+    button.textContent =
+        "ĐANG CHUẨN BỊ...";
+
+
+    const criticalImages = [
+        WeddingData.opening.background,
+        WeddingData.hero.image,
+        WeddingData.groom.avatar,
+        WeddingData.bride.avatar
+    ].filter(Boolean);
+
+
+    const preloadImage = (src) => {
+
+        return new Promise((resolve) => {
+
+            const image = new Image();
+
+            image.onload = resolve;
+            image.onerror = resolve;
+
+            image.src = src;
+
+        });
+
+    };
+
+
+    Promise.all(
+        criticalImages.map(preloadImage)
+    ).then(() => {
+
+        status.textContent =
+            "Thiệp đã sẵn sàng ♡";
+
+        status.classList.add(
+            "is-ready"
+        );
+
+        button.disabled = false;
+
+        button.removeAttribute(
+            "aria-disabled"
+        );
+
+        button.textContent =
+            WeddingData.opening.buttonText ||
+            "MỞ THIỆP";
+
+    });
+
+}
