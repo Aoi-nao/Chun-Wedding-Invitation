@@ -578,10 +578,8 @@ section{
 
 }
 
-
 /* ==========================================================
-   HERO — BOTANICAL FRAME
-   Background decoration — Phase 1
+   HERO — BOTANICAL FRAME V3
 ========================================================== */
 
 .hero-botanical {
@@ -591,9 +589,12 @@ section{
     overflow: hidden;
 
     pointer-events: none;
+    user-select: none;
 
     z-index: 2;
 }
+
+/* ---------- SOFT LIGHT ---------- */
 
 .hero-botanical::before {
     content: "";
@@ -604,65 +605,95 @@ section{
     background:
         radial-gradient(
             circle at 50% 38%,
-            rgba(255, 255, 255, 0.22) 0%,
-            rgba(255, 255, 255, 0.08) 38%,
-            rgba(255, 255, 255, 0) 72%
+            rgba(255,255,255,0.20) 0%,
+            rgba(255,255,255,0.08) 38%,
+            rgba(255,255,255,0) 72%
         );
 
     pointer-events: none;
 }
 
-.hero-botanical-branch {
+
+/* ---------- TOP CANOPY ---------- */
+
+.hero-botanical-canopy {
     position: absolute;
 
-    width: 155px;
+    top: -2px;
+    left: 50%;
+
+    width: 118%;
     height: auto;
 
-    opacity: 0.62;
+    transform: translateX(-50%);
 
-    object-fit: contain;
+    opacity: 0.88;
+
+    z-index: 2;
 }
+
+
+/* ---------- BOTTOM CORNERS ---------- */
+
+.hero-botanical-corner {
+    position: absolute;
+
+    width: 190px;
+    height: auto;
+
+    bottom: -48px;
+
+    opacity: 0.72;
+
+    z-index: 3;
+}
+
+
+/* LEFT */
 
 .hero-botanical-left {
-    left: -72px;
-    bottom: -28px;
+    left: -92px;
 
     transform:
-        rotate(-10deg);
+        rotate(-8deg);
 }
+
+
+/* RIGHT */
 
 .hero-botanical-right {
-    right: -72px;
-    bottom: -28px;
+    right: -92px;
 
     transform:
         scaleX(-1)
-        rotate(-10deg);
+        rotate(-8deg);
 }
 
-.hero-botanical-top {
-    position: absolute;
 
-    width: 74px;
-    height: auto;
+/* ==========================================================
+   HERO — MOBILE
+========================================================== */
 
-    opacity: 0.48;
-}
+@media (max-width: 480px) {
 
-.hero-botanical-top-left {
-    left: -18px;
-    top: 18px;
+    .hero-botanical-canopy {
+        width: 125%;
+        top: -2px;
+    }
 
-    transform: rotate(-18deg);
-}
+    .hero-botanical-corner {
+        width: 175px;
+        bottom: -42px;
+    }
 
-.hero-botanical-top-right {
-    right: -18px;
-    top: 18px;
+    .hero-botanical-left {
+        left: -86px;
+    }
 
-    transform:
-        scaleX(-1)
-        rotate(-18deg);
+    .hero-botanical-right {
+        right: -86px;
+    }
+
 }
 
 /* ------------------------------
