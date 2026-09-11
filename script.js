@@ -25,6 +25,8 @@ function initializeApp() {
 
     renderHero();
 
+    initHeroTextReveal();
+    
     renderCouple();
 
     initCoupleAnimation();
@@ -2162,11 +2164,66 @@ function initializeOpeningPreload() {
 }
 
 
+/* ==========================================================
+   HERO — TEXT REVEAL
+   Animation riêng cho Hero
+   Thứ tự:
+   Monogram → Name → Date → Quote
+========================================================== */
+
+function initHeroTextReveal() {
+
+    const hero =
+        document.getElementById("hero");
+
+    if (!hero) {
+        return;
+    }
+
+    const textElements =
+        hero.querySelectorAll(
+            ".hero-monogram, " +
+            ".hero-name, " +
+            ".hero-date, " +
+            ".hero-quote"
+        );
+
+    if (!textElements.length) {
+        return;
+    }
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    hero.classList.add(
+                        "hero-text-visible"
+                    );
+
+                    observer.unobserve(hero);
+
+                });
+
+            },
+            {
+                threshold: 0.18
+            }
+        );
+
+    observer.observe(hero);
+}
+
 
 /* ==========================================================
    GLOBAL TEXT REVEAL — FINAL POLISH
    Reveal text khi người dùng scroll tới
-   Không can thiệp animation riêng
+   Chỉ dùng cho phần chưa có animation riêng
 ========================================================== */
 
 function initGlobalTextReveal() {
@@ -2190,49 +2247,69 @@ function initGlobalTextReveal() {
 
 
     /* ------------------------------------------------------
-       LOẠI TRỪ CÁC PHẦN ĐÃ CÓ ANIMATION RIÊNG
+       LOẠI TRỪ CÁC PHẦN ĐÃ CÓ / SẼ CÓ ANIMATION RIÊNG
     ------------------------------------------------------ */
 
     const excludedSelectors = [
+
+        /* Opening */
         "#opening",
+
+        /* Hero — dùng animation riêng */
         "#hero",
+
+        /* Couple — giữ animation card hiện tại */
         "#couple .couple-card",
-        "#ceremony .ceremony-ritual-card",
+
+        /* Ceremony — sẽ làm sequence riêng */
+        "#ceremony",
+
+        /* Gallery — tuyệt đối không đụng animation ảnh */
         "#gallery .gallery-item",
+
+        /* RSVP — sẽ làm sequence riêng */
+        "#rsvp",
+
+        /* Wishes — sẽ làm sequence riêng */
+        "#wishes",
+
+        /* Những phần đã có hệ thống animation riêng */
         ".global-text-reveal",
         ".fade-in"
+
     ];
 
 
-    const shouldExclude = (element) => {
+    const shouldExclude =
+        (element) => {
 
-        return excludedSelectors.some(
-            (selector) =>
-                element.matches(selector) ||
-                element.closest(selector)
-        );
+            return excludedSelectors.some(
+                (selector) =>
+                    element.matches(selector) ||
+                    element.closest(selector)
+            );
 
-    };
+        };
 
 
     /* ------------------------------------------------------
        CHỈ GIỮ ELEMENT THỰC SỰ CÓ TEXT
     ------------------------------------------------------ */
 
-    const candidates = Array.from(
-        textElements
-    ).filter((element) => {
+    const candidates =
+        Array.from(textElements)
+            .filter((element) => {
 
-        if (shouldExclude(element)) {
-            return false;
-        }
+                if (shouldExclude(element)) {
+                    return false;
+                }
 
-        const text =
-            element.textContent.trim();
+                const text =
+                    element.textContent.trim();
 
-        return text.length > 0;
+                return text.length > 0;
 
-    });
+            });
 
 
     if (!candidates.length) {
@@ -2241,82 +2318,89 @@ function initGlobalTextReveal() {
 
 
     /* ------------------------------------------------------
-       GÁN CLASS + STAGGER NHẸ
+       GÁN CLASS
+       Delay chỉ tạo nhịp nhẹ giữa các text gần nhau
     ------------------------------------------------------ */
 
-    candidates.forEach((element, index) => {
+    candidates.forEach(
+        (element, index) => {
 
-        element.classList.add(
-            "global-text-reveal"
-        );
+            element.classList.add(
+                "global-text-reveal"
+            );
 
-        /*
-         * Không tạo delay lớn.
-         * Chỉ dùng nhịp rất nhẹ để các dòng
-         * không xuất hiện cùng một thời điểm.
-         */
+            const position =
+                index % 4;
 
-        const position =
-            index % 4;
+            if (position === 1) {
 
-        if (position === 1) {
-            element.dataset.textDelay = "1";
+                element.dataset.textDelay =
+                    "1";
+
+            }
+
+            else if (position === 2) {
+
+                element.dataset.textDelay =
+                    "2";
+
+            }
+
+            else if (position === 3) {
+
+                element.dataset.textDelay =
+                    "3";
+
+            }
+
         }
-
-        else if (position === 2) {
-            element.dataset.textDelay = "2";
-        }
-
-        else if (position === 3) {
-            element.dataset.textDelay = "3";
-        }
-
-    });
+    );
 
 
     /* ------------------------------------------------------
        INTERSECTION OBSERVER
+
        Scroll tới đâu → text hiện tới đó
+       Mỗi text chỉ chạy một lần
     ------------------------------------------------------ */
 
     const observer =
         new IntersectionObserver(
             (entries) => {
 
-                entries.forEach((entry) => {
+                entries.forEach(
+                    (entry) => {
 
-                    if (!entry.isIntersecting) {
-                        return;
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+                        entry.target.classList.add(
+                            "is-text-visible"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
                     }
-
-                    entry.target.classList.add(
-                        "is-text-visible"
-                    );
-
-                    /*
-                     * Chỉ chạy một lần.
-                     * Scroll lên / xuống lại sẽ không
-                     * làm text chạy lại.
-                     */
-
-                    observer.unobserve(
-                        entry.target
-                    );
-
-                });
+                );
 
             },
             {
                 threshold: 0.12,
-                rootMargin: "0px 0px -40px 0px"
+                rootMargin:
+                    "0px 0px -40px 0px"
             }
         );
 
 
-    candidates.forEach((element) => {
+    candidates.forEach(
+        (element) => {
 
-        observer.observe(element);
+            observer.observe(element);
 
-    });
+        }
+    );
 
 }
