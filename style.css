@@ -6417,3 +6417,155 @@ body.device-notice-open {
     }
 
 }
+/* ==========================================================
+   TEXT REVEAL SYSTEM
+   Global fallback + Hero specific
+========================================================== */
+
+
+/* ----------------------------------------------------------
+   GLOBAL TEXT REVEAL
+   Nhẹ · chậm · không scale · không bounce
+---------------------------------------------------------- */
+
+.global-text-reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        opacity 0.95s ease,
+        transform 0.95s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+    will-change:
+        opacity,
+        transform;
+}
+
+
+/* Visible */
+
+.global-text-reveal.is-text-visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* ----------------------------------------------------------
+   GLOBAL STAGGER
+---------------------------------------------------------- */
+
+.global-text-reveal[data-text-delay="1"] {
+    transition-delay: 0.10s;
+}
+
+.global-text-reveal[data-text-delay="2"] {
+    transition-delay: 0.20s;
+}
+
+.global-text-reveal[data-text-delay="3"] {
+    transition-delay: 0.30s;
+}
+
+
+/* ==========================================================
+   HERO — DEDICATED TEXT REVEAL
+========================================================== */
+
+#hero .hero-monogram,
+#hero .hero-name,
+#hero .hero-date,
+#hero .hero-quote {
+
+    opacity: 0;
+
+    transform:
+        translateY(12px);
+
+    transition:
+        opacity 1.05s ease,
+        transform 1.05s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+    will-change:
+        opacity,
+        transform;
+
+}
+
+
+/* ----------------------------------------------------------
+   HERO — SEQUENCE
+   Monogram → Name → Date → Quote
+---------------------------------------------------------- */
+
+#hero .hero-monogram {
+    transition-delay: 0.05s;
+}
+
+#hero .hero-name {
+    transition-delay: 0.20s;
+}
+
+#hero .hero-date {
+    transition-delay: 0.38s;
+}
+
+#hero .hero-quote {
+    transition-delay: 0.56s;
+}
+
+
+/* ----------------------------------------------------------
+   HERO — VISIBLE
+---------------------------------------------------------- */
+
+#hero.hero-text-visible .hero-monogram,
+#hero.hero-text-visible .hero-name,
+#hero.hero-text-visible .hero-date,
+#hero.hero-text-visible .hero-quote {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .global-text-reveal,
+    #hero .hero-monogram,
+    #hero .hero-name,
+    #hero .hero-date,
+    #hero .hero-quote {
+
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+
+    }
+
+}
