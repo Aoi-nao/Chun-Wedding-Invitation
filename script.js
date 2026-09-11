@@ -64,6 +64,7 @@ function initializeApp() {
 
     initializeFallingPetals();
 
+    initGlobalTextReveal();
 }
 
 function checkConfiguration() {
@@ -2155,6 +2156,166 @@ function initializeOpeningPreload() {
         button.textContent =
             WeddingData.opening.buttonText ||
             "MỞ THIỆP";
+
+    });
+
+}
+
+
+
+/* ==========================================================
+   GLOBAL TEXT REVEAL — FINAL POLISH
+   Reveal text khi người dùng scroll tới
+   Không can thiệp animation riêng
+========================================================== */
+
+function initGlobalTextReveal() {
+
+    const textElements =
+        document.querySelectorAll(
+            "section h1, " +
+            "section h2, " +
+            "section h3, " +
+            "section h4, " +
+            "section p, " +
+            "section li, " +
+            "section small, " +
+            "section figcaption, " +
+            "section blockquote"
+        );
+
+    if (!textElements.length) {
+        return;
+    }
+
+
+    /* ------------------------------------------------------
+       LOẠI TRỪ CÁC PHẦN ĐÃ CÓ ANIMATION RIÊNG
+    ------------------------------------------------------ */
+
+    const excludedSelectors = [
+        "#opening",
+        "#hero",
+        "#couple .couple-card",
+        "#ceremony .ceremony-ritual-card",
+        "#gallery .gallery-item",
+        ".global-text-reveal",
+        ".fade-in"
+    ];
+
+
+    const shouldExclude = (element) => {
+
+        return excludedSelectors.some(
+            (selector) =>
+                element.matches(selector) ||
+                element.closest(selector)
+        );
+
+    };
+
+
+    /* ------------------------------------------------------
+       CHỈ GIỮ ELEMENT THỰC SỰ CÓ TEXT
+    ------------------------------------------------------ */
+
+    const candidates = Array.from(
+        textElements
+    ).filter((element) => {
+
+        if (shouldExclude(element)) {
+            return false;
+        }
+
+        const text =
+            element.textContent.trim();
+
+        return text.length > 0;
+
+    });
+
+
+    if (!candidates.length) {
+        return;
+    }
+
+
+    /* ------------------------------------------------------
+       GÁN CLASS + STAGGER NHẸ
+    ------------------------------------------------------ */
+
+    candidates.forEach((element, index) => {
+
+        element.classList.add(
+            "global-text-reveal"
+        );
+
+        /*
+         * Không tạo delay lớn.
+         * Chỉ dùng nhịp rất nhẹ để các dòng
+         * không xuất hiện cùng một thời điểm.
+         */
+
+        const position =
+            index % 4;
+
+        if (position === 1) {
+            element.dataset.textDelay = "1";
+        }
+
+        else if (position === 2) {
+            element.dataset.textDelay = "2";
+        }
+
+        else if (position === 3) {
+            element.dataset.textDelay = "3";
+        }
+
+    });
+
+
+    /* ------------------------------------------------------
+       INTERSECTION OBSERVER
+       Scroll tới đâu → text hiện tới đó
+    ------------------------------------------------------ */
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    entry.target.classList.add(
+                        "is-text-visible"
+                    );
+
+                    /*
+                     * Chỉ chạy một lần.
+                     * Scroll lên / xuống lại sẽ không
+                     * làm text chạy lại.
+                     */
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                });
+
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -40px 0px"
+            }
+        );
+
+
+    candidates.forEach((element) => {
+
+        observer.observe(element);
 
     });
 
