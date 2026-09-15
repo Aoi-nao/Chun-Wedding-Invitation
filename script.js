@@ -71,6 +71,8 @@ function initializeApp() {
     initGlobalTextReveal();
 
     initRSVPTextReveal();
+
+    initWishesTextReveal();
 }
 
 function checkConfiguration() {
@@ -2580,4 +2582,116 @@ function initRSVPTextReveal() {
     );
 
     observer.observe(rsvp);
+}
+
+/* ==========================================================
+   WISHES — TEXT REVEAL
+========================================================== */
+
+function initWishesTextReveal() {
+
+    const wishes = document.querySelector("#wishes");
+
+    if (!wishes) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        wishes.classList.add("wishes-text-visible");
+
+        wishes
+            .querySelectorAll(".wish-item")
+            .forEach((item) => {
+                item.classList.add("wish-item-visible");
+            });
+
+        return;
+    }
+
+    /* ------------------------------------------------------
+       WISHES SECTION
+    ------------------------------------------------------ */
+
+    const wishesObserver = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) return;
+
+                wishes.classList.add("wishes-text-visible");
+
+                wishesObserver.unobserve(wishes);
+
+            });
+
+        },
+        {
+            threshold: 0.12,
+            rootMargin: "0px 0px -40px 0px"
+        }
+    );
+
+    wishesObserver.observe(wishes);
+
+
+    /* ------------------------------------------------------
+       DYNAMIC WISH ITEMS
+    ------------------------------------------------------ */
+
+    const observeWishItems = () => {
+
+        const wishItems = wishes.querySelectorAll(
+            ".wish-item:not([data-wish-animation-ready])"
+        );
+
+        if (!wishItems.length) return;
+
+        const wishItemObserver = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (!entry.isIntersecting) return;
+
+                    entry.target.classList.add("wish-item-visible");
+
+                    wishItemObserver.unobserve(entry.target);
+
+                });
+
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -30px 0px"
+            }
+        );
+
+        wishItems.forEach((item) => {
+
+            item.dataset.wishAnimationReady = "true";
+
+            wishItemObserver.observe(item);
+
+        });
+
+    };
+
+
+    /* Observe items already present */
+    observeWishItems();
+
+
+    /* Watch items loaded dynamically */
+    const wishesList = wishes.querySelector(".wishes-list");
+
+    if (!wishesList) return;
+
+    const mutationObserver = new MutationObserver(() => {
+        observeWishItems();
+    });
+
+    mutationObserver.observe(wishesList, {
+        childList: true,
+        subtree: true
+    });
+
 }
