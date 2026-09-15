@@ -35,6 +35,8 @@ function initializeApp() {
 
     initializeCountdown();
 
+    initCountdownTextReveal();
+    
     renderCeremony();
 
     initCeremonyTextReveal();
@@ -974,7 +976,43 @@ function initializeCountdown() {
     );
 }
 
+/* ==========================================================
+   COUNTDOWN — TEXT REVEAL
+========================================================== */
 
+function initCountdownTextReveal() {
+
+    const countdown = document.querySelector("#countdown");
+
+    if (!countdown) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        countdown.classList.add("countdown-text-visible");
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) return;
+
+                countdown.classList.add("countdown-text-visible");
+
+                observer.unobserve(countdown);
+
+            });
+
+        },
+        {
+            threshold: 0.12,
+            rootMargin: "0px 0px -40px 0px"
+        }
+    );
+
+    observer.observe(countdown);
+}
 
 /* ==========================================================
    GALLERY — EDITORIAL REVEAL
