@@ -77,6 +77,8 @@ function initializeApp() {
     initWishesTextReveal();
 
     initGiftTextReveal();
+
+    initFooterTextReveal();
 }
 
 function checkConfiguration() {
@@ -2773,4 +2775,43 @@ function initGiftTextReveal() {
     );
 
     observer.observe(gift);
+}
+
+
+/* ==========================================================
+   FOOTER — TEXT REVEAL
+========================================================== */
+
+function initFooterTextReveal() {
+
+    const footer = document.querySelector("footer");
+
+    if (!footer) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        footer.classList.add("footer-text-visible");
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) return;
+
+                footer.classList.add("footer-text-visible");
+
+                observer.unobserve(footer);
+
+            });
+
+        },
+        {
+            threshold: 0.15,
+            rootMargin: "0px 0px -30px 0px"
+        }
+    );
+
+    observer.observe(footer);
 }
