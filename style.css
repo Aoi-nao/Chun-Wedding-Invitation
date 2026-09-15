@@ -3336,14 +3336,14 @@ section{
 /* Lễ Vu Quy */
 
 .ceremony-group-bride .ceremony-ritual-card {
-    transition-delay: 0.08s;
+    transition-delay: 0.68s;
 }
 
 
 /* Lễ Thành Hôn */
 
 .ceremony-group-groom .ceremony-ritual-card {
-    transition-delay: 0.18s;
+    transition-delay: 0.88s;
 }
 
 
@@ -3361,7 +3361,96 @@ section{
 
 }
 
+/* ==========================================================
+   CEREMONY — TEXT REVEAL
+========================================================== */
 
+#ceremony .ceremony-text-reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(9px);
+
+    transition:
+        opacity 0.90s ease,
+        transform 0.90s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+    will-change:
+        opacity,
+        transform;
+}
+
+
+/* ----------------------------------------------------------
+   TEXT VISIBLE
+---------------------------------------------------------- */
+
+#ceremony .ceremony-text-reveal.ceremony-text-visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* ----------------------------------------------------------
+   NHỊP NHẸ CHO TỪNG DÒNG
+---------------------------------------------------------- */
+
+#ceremony .ceremony-party-title {
+    transition-delay: 0.08s;
+}
+
+#ceremony .ceremony-detail:nth-of-type(1) {
+    transition-delay: 0.16s;
+}
+
+#ceremony .ceremony-detail:nth-of-type(2) {
+    transition-delay: 0.23s;
+}
+
+#ceremony .ceremony-detail:nth-of-type(3) {
+    transition-delay: 0.30s;
+}
+
+#ceremony .ceremony-location-title {
+    transition-delay: 0.37s;
+}
+
+#ceremony .ceremony-location-address {
+    transition-delay: 0.44s;
+}
+
+#ceremony .ceremony-map-button {
+    transition-delay: 0.51s;
+}
+
+
+/* ----------------------------------------------------------
+   REDUCED MOTION
+---------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #ceremony .ceremony-text-reveal {
+
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+
+    }
+
+}
 
 /* ==========================================================
    WEDDING DAY — SOFT BOTANICAL BACKGROUND
