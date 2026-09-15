@@ -2166,7 +2166,7 @@ function initializeOpeningPreload() {
 
 /* ==========================================================
    HERO — TEXT REVEAL
-   Animation riêng cho Hero
+   Animation bắt đầu sau khi Opening đóng
    Thứ tự:
    Monogram → Name → Date → Quote
 ========================================================== */
@@ -2192,31 +2192,72 @@ function initHeroTextReveal() {
         return;
     }
 
-    const observer =
-        new IntersectionObserver(
-            (entries) => {
 
-                entries.forEach((entry) => {
+    /*
+       Hero chưa animation ngay khi JS khởi tạo.
 
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
+       Chờ Opening đóng xong rồi mới bắt đầu.
+    */
 
-                    hero.classList.add(
-                        "hero-text-visible"
-                    );
+    const startReveal = () => {
 
-                    observer.unobserve(hero);
+        requestAnimationFrame(() => {
 
-                });
+            requestAnimationFrame(() => {
 
-            },
+                hero.classList.add(
+                    "hero-text-visible"
+                );
+
+            });
+
+        });
+
+    };
+
+
+    /*
+       Opening tồn tại → chờ nó biến mất.
+    */
+
+    const opening =
+        document.getElementById("opening");
+
+    if (opening) {
+
+        const openingObserver =
+            new MutationObserver(() => {
+
+                if (
+                    !document.body.contains(opening)
+                ) {
+
+                    openingObserver.disconnect();
+
+                    startReveal();
+
+                }
+
+            });
+
+        openingObserver.observe(
+            opening.parentNode,
             {
-                threshold: 0.18
+                childList: true
             }
         );
 
-    observer.observe(hero);
+    } else {
+
+        /*
+           Nếu Opening không tồn tại,
+           Hero chạy ngay.
+        */
+
+        startReveal();
+
+    }
+
 }
 
 
