@@ -6795,3 +6795,58 @@ body.device-notice-open {
     }
 
 }
+
+
+/* ==========================================================
+   GIFT — TEXT REVEAL
+========================================================== */
+
+#gift .gift-message,
+#gift .gift-message-secondary,
+#gift .gift-message-open,
+#gift .gift-trigger {
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+#gift .gift-message-secondary {
+    transition-delay: 0.14s;
+}
+
+#gift .gift-message-open {
+    transition-delay: 0.28s;
+}
+
+#gift .gift-trigger {
+    transition-delay: 0.44s;
+}
+
+#gift.gift-text-visible .gift-message,
+#gift.gift-text-visible .gift-message-secondary,
+#gift.gift-text-visible .gift-message-open,
+#gift.gift-text-visible .gift-trigger {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ----------------------------------------------------------
+   REDUCED MOTION
+---------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #gift .gift-message,
+    #gift .gift-message-secondary,
+    #gift .gift-message-open,
+    #gift .gift-trigger {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+}
