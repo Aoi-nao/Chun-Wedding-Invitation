@@ -6657,3 +6657,62 @@ body.device-notice-open {
     }
 
 }
+
+/* ==========================================================
+   RSVP — TEXT REVEAL
+========================================================== */
+
+#rsvp .rsvp-title,
+#rsvp .rsvp-description,
+#rsvp .rsvp-field,
+#rsvp .rsvp-attendance,
+#rsvp .rsvp-submit {
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+#rsvp .rsvp-description {
+    transition-delay: 0.12s;
+}
+
+#rsvp .rsvp-field:nth-of-type(1) {
+    transition-delay: 0.24s;
+}
+
+#rsvp .rsvp-field:nth-of-type(2) {
+    transition-delay: 0.34s;
+}
+
+#rsvp .rsvp-field:nth-of-type(3) {
+    transition-delay: 0.44s;
+}
+
+#rsvp .rsvp-attendance {
+    transition-delay: 0.54s;
+}
+
+#rsvp .rsvp-submit {
+    transition-delay: 0.68s;
+}
+
+#rsvp.rsvp-text-visible .rsvp-title,
+#rsvp.rsvp-text-visible .rsvp-description,
+#rsvp.rsvp-text-visible .rsvp-field,
+#rsvp.rsvp-text-visible .rsvp-attendance,
+#rsvp.rsvp-text-visible .rsvp-submit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* RSVP — hidden guest counter must stay hidden */
+
+#rsvp .rsvp-guests {
+    transition:
+        opacity 0.75s ease,
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
