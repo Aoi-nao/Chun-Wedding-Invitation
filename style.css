@@ -6914,3 +6914,49 @@ body.device-notice-open {
     }
 
 }
+
+
+/* ==========================================================
+   FOOTER — TEXT REVEAL
+========================================================== */
+
+footer .footer-thank-you,
+footer .footer-names,
+footer .footer-date {
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+footer .footer-names {
+    transition-delay: 0.18s;
+}
+
+footer .footer-date {
+    transition-delay: 0.34s;
+}
+
+footer.footer-text-visible .footer-thank-you,
+footer.footer-text-visible .footer-names,
+footer.footer-text-visible .footer-date {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    footer .footer-thank-you,
+    footer .footer-names,
+    footer .footer-date {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+}
