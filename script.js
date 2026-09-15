@@ -37,6 +37,8 @@ function initializeApp() {
 
     renderCeremony();
 
+    initCeremonyTextReveal();
+
     initCeremonyAnimation();
 
     initializeRSVP();
@@ -580,6 +582,99 @@ function initCeremonyAnimation() {
 
         observer.observe(card);
 
+    });
+
+}
+
+/* ==========================================================
+   CEREMONY — TEXT REVEAL
+   Text xuất hiện trước ritual card
+========================================================== */
+
+function initCeremonyTextReveal() {
+
+    const ceremony =
+        document.getElementById("ceremony");
+
+    if (!ceremony) {
+        return;
+    }
+
+    const groups =
+        ceremony.querySelectorAll(
+            ".ceremony-group"
+        );
+
+    if (!groups.length) {
+        return;
+    }
+
+    const revealTargets = [];
+
+    groups.forEach((group) => {
+
+        const targets =
+            group.querySelectorAll(
+                ".ceremony-party-title, " +
+                ".ceremony-detail, " +
+                ".ceremony-location-title, " +
+                ".ceremony-location-address, " +
+                ".ceremony-map-button"
+            );
+
+        targets.forEach((element) => {
+            revealTargets.push(element);
+        });
+
+    });
+
+    const heading =
+        ceremony.querySelector(
+            ".ceremony-heading"
+        );
+
+    if (heading) {
+        revealTargets.unshift(heading);
+    }
+
+    revealTargets.forEach((element) => {
+
+        element.classList.add(
+            "ceremony-text-reveal"
+        );
+
+    });
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    entry.target.classList.add(
+                        "ceremony-text-visible"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                });
+
+            },
+            {
+                threshold: 0.12,
+                rootMargin:
+                    "0px 0px -35px 0px"
+            }
+        );
+
+    revealTargets.forEach((element) => {
+        observer.observe(element);
     });
 
 }
