@@ -6515,21 +6515,20 @@ body.device-notice-open {
 ---------------------------------------------------------- */
 
 #hero .hero-monogram {
-    transition-delay: 0.05s;
+    transition-delay: 0.10s;
 }
 
 #hero .hero-name {
-    transition-delay: 0.20s;
+    transition-delay: 0.32s;
 }
 
 #hero .hero-date {
-    transition-delay: 0.38s;
+    transition-delay: 0.58s;
 }
 
 #hero .hero-quote {
-    transition-delay: 0.56s;
+    transition-delay: 0.82s;
 }
-
 
 /* ----------------------------------------------------------
    HERO — VISIBLE
