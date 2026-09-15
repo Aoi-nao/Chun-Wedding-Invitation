@@ -73,6 +73,8 @@ function initializeApp() {
     initRSVPTextReveal();
 
     initWishesTextReveal();
+
+    initGiftTextReveal();
 }
 
 function checkConfiguration() {
@@ -2694,4 +2696,43 @@ function initWishesTextReveal() {
         subtree: true
     });
 
+}
+
+
+/* ==========================================================
+   GIFT — TEXT REVEAL
+========================================================== */
+
+function initGiftTextReveal() {
+
+    const gift = document.querySelector("#gift");
+
+    if (!gift) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gift.classList.add("gift-text-visible");
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) return;
+
+                gift.classList.add("gift-text-visible");
+
+                observer.unobserve(gift);
+
+            });
+
+        },
+        {
+            threshold: 0.12,
+            rootMargin: "0px 0px -40px 0px"
+        }
+    );
+
+    observer.observe(gift);
 }
