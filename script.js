@@ -1105,148 +1105,125 @@ function initGalleryAnimation() {
 
 }
 
+
 /* ==========================================================
    CLOSING GALLERY
-   Horizontal reveal + touch scroll
+   Infinite horizontal gallery
 ========================================================== */
 
 function initClosingGallery() {
-
-    const section =
-        document.getElementById(
-            "closing-gallery"
-        );
 
     const track =
         document.getElementById(
             "closingGalleryTrack"
         );
 
-    if (!section || !track) {
+    if (!track) {
         return;
     }
 
 
-    const galleryData =
-        WeddingData.gallery;
+    const closingImages =
+        WeddingData.closingGallery;
 
 
     if (
-        !Array.isArray(galleryData) ||
-        galleryData.length === 0
+        !Array.isArray(closingImages) ||
+        closingImages.length === 0
     ) {
+        console.warn(
+            "Closing Gallery: chưa có ảnh."
+        );
+
         return;
     }
 
 
-    /* ------------------------------------------------------
-       LẤY 6 ẢNH CUỐI
-    ------------------------------------------------------ */
+    /*
+     * Tạo 2 bản giống nhau.
+     *
+     * Bản thứ hai nối ngay sau bản thứ nhất
+     * để animation có thể chạy vô hạn
+     * mà không xuất hiện điểm nhảy.
+     */
 
-    const closingImages =
-        galleryData.slice(-6);
-
-
-    closingImages.forEach(
-        (imageSource, index) => {
-
-            if (!imageSource) {
-                return;
-            }
+    const imageSets = [
+        closingImages,
+        closingImages
+    ];
 
 
-            const item =
-                document.createElement(
-                    "div"
-                );
+    imageSets.forEach(
+        (imageSet, setIndex) => {
 
-            item.className =
-                "closing-gallery-item";
+            imageSet.forEach(
+                (imageSource, index) => {
 
-
-            const image =
-                document.createElement(
-                    "img"
-                );
-
-            image.src =
-                imageSource;
-
-            image.alt =
-                `Khoảnh khắc đáng nhớ ${index + 1}`;
-
-            image.loading =
-                "lazy";
-
-            image.decoding =
-                "async";
+                    if (!imageSource) {
+                        return;
+                    }
 
 
-            item.appendChild(image);
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
 
-            track.appendChild(item);
+                    item.className =
+                        "closing-gallery-item";
+
+
+                    const image =
+                        document.createElement(
+                            "img"
+                        );
+
+
+                    image.src =
+                        imageSource;
+
+
+                    image.alt =
+                        setIndex === 0
+                            ? `Khoảnh khắc đáng nhớ ${index + 1}`
+                            : "";
+
+
+                    image.loading =
+                        "lazy";
+
+
+                    image.decoding =
+                        "async";
+
+
+                    /*
+                     * Bản sao thứ hai không cần
+                     * đọc lại bằng screen reader.
+                     */
+
+                    if (setIndex === 1) {
+
+                        item.setAttribute(
+                            "aria-hidden",
+                            "true"
+                        );
+
+                    }
+
+
+                    item.appendChild(image);
+
+                    track.appendChild(item);
+
+                }
+            );
 
         }
     );
 
-
-    /* ------------------------------------------------------
-       SCROLL REVEAL
-    ------------------------------------------------------ */
-
-    if (
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) {
-
-        section.classList.add(
-            "is-visible"
-        );
-
-        return;
-
-    }
-
-
-    const observer =
-        new IntersectionObserver(
-            (entries) => {
-
-                entries.forEach(
-                    (entry) => {
-
-                        if (
-                            !entry.isIntersecting
-                        ) {
-                            return;
-                        }
-
-
-                        section.classList.add(
-                            "is-visible"
-                        );
-
-
-                        observer.unobserve(
-                            section
-                        );
-
-                    }
-                );
-
-            },
-            {
-                threshold: 0.18,
-                rootMargin:
-                    "0px 0px -40px 0px"
-            }
-        );
-
-
-    observer.observe(section);
-
 }
+
 
 /* ==========================================================
    RSVP
