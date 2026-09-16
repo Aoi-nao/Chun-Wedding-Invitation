@@ -286,6 +286,8 @@ opening.classList.add("opening-hide");
 
 if (floralTransition) {
 
+    floralTransition.classList.add("is-visible");
+
     requestAnimationFrame(() => {
         floralTransition.classList.add("is-opening");
     });
