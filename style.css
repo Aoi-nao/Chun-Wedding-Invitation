@@ -7283,10 +7283,10 @@ footer.footer-text-visible .footer-date {
 .floral-transition__flower{
     position:absolute;
     top:50%;
-    width:150vw;
-    height:auto;
+    width:200vw;
+    height:200vh;
     max-width:none;
-    object-fit:contain;
+    object-fit:cover;
     object-position:center;
     will-change:transform;
     transform:translateY(-50%);
