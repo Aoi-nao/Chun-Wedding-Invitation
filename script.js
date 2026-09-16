@@ -279,13 +279,28 @@ window.scrollTo({
     behavior: "instant"
 });
 
+const floralTransition =
+    document.querySelector(".floral-transition");
+
 opening.classList.add("opening-hide");
 
-setTimeout(() => {
+if (floralTransition) {
 
-    opening.remove();
+    requestAnimationFrame(() => {
+        floralTransition.classList.add("is-opening");
+    });
 
-}, 800);
+    setTimeout(() => {
+        opening.remove();
+    }, 1800);
+
+} else {
+
+    setTimeout(() => {
+        opening.remove();
+    }, 800);
+
+}
 
     });
 
