@@ -7275,8 +7275,11 @@ footer.footer-text-visible .footer-date {
     overflow:hidden;
     pointer-events:none;
     z-index:10;
+   visibility:hidden;
 }
-
+.floral-transition.is-visible{
+    visibility:visible;
+}
 .floral-transition__flower{
     position:absolute;
     top:0;
