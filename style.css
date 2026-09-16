@@ -7262,3 +7262,39 @@ footer.footer-text-visible .footer-date {
     }
 
 }
+
+/* ==========================================================================
+   FLORAL TRANSITION
+   ========================================================================== */
+
+.floral-transition{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:10;
+}
+
+.floral-transition__flower{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    will-change:transform;
+}
+
+/* CLOSED STATE */
+
+.floral-transition__flower--left{
+    left:0;
+    transform:translateX(0);
+}
+
+.floral-transition__flower--right{
+    right:0;
+    transform:translateX(0);
+}
