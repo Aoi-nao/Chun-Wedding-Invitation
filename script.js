@@ -68,6 +68,8 @@ function initializeApp() {
 
     initGalleryAnimation();
 
+    initClosingGallery();
+
     initializeFallingPetals();
 
     initGlobalTextReveal();
@@ -1103,7 +1105,148 @@ function initGalleryAnimation() {
 
 }
 
+/* ==========================================================
+   CLOSING GALLERY
+   Horizontal reveal + touch scroll
+========================================================== */
 
+function initClosingGallery() {
+
+    const section =
+        document.getElementById(
+            "closing-gallery"
+        );
+
+    const track =
+        document.getElementById(
+            "closingGalleryTrack"
+        );
+
+    if (!section || !track) {
+        return;
+    }
+
+
+    const galleryData =
+        WeddingData.gallery;
+
+
+    if (
+        !Array.isArray(galleryData) ||
+        galleryData.length === 0
+    ) {
+        return;
+    }
+
+
+    /* ------------------------------------------------------
+       LẤY 6 ẢNH CUỐI
+    ------------------------------------------------------ */
+
+    const closingImages =
+        galleryData.slice(-6);
+
+
+    closingImages.forEach(
+        (imageSource, index) => {
+
+            if (!imageSource) {
+                return;
+            }
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+            item.className =
+                "closing-gallery-item";
+
+
+            const image =
+                document.createElement(
+                    "img"
+                );
+
+            image.src =
+                imageSource;
+
+            image.alt =
+                `Khoảnh khắc đáng nhớ ${index + 1}`;
+
+            image.loading =
+                "lazy";
+
+            image.decoding =
+                "async";
+
+
+            item.appendChild(image);
+
+            track.appendChild(item);
+
+        }
+    );
+
+
+    /* ------------------------------------------------------
+       SCROLL REVEAL
+    ------------------------------------------------------ */
+
+    if (
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+
+        section.classList.add(
+            "is-visible"
+        );
+
+        return;
+
+    }
+
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach(
+                    (entry) => {
+
+                        if (
+                            !entry.isIntersecting
+                        ) {
+                            return;
+                        }
+
+
+                        section.classList.add(
+                            "is-visible"
+                        );
+
+
+                        observer.unobserve(
+                            section
+                        );
+
+                    }
+                );
+
+            },
+            {
+                threshold: 0.18,
+                rootMargin:
+                    "0px 0px -40px 0px"
+            }
+        );
+
+
+    observer.observe(section);
+
+}
 
 /* ==========================================================
    RSVP
