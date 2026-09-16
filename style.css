@@ -7298,3 +7298,20 @@ footer.footer-text-visible .footer-date {
     right:0;
     transform:translateX(0);
 }
+
+/* FLORAL TRANSITION — OPEN */
+
+.floral-transition__flower{
+    transition:
+        transform 1.8s cubic-bezier(.77, 0, .18, 1);
+}
+
+.floral-transition.is-opening
+.floral-transition__flower--left{
+    transform:translateX(-100%);
+}
+
+.floral-transition.is-opening
+.floral-transition__flower--right{
+    transform:translateX(100%);
+}
