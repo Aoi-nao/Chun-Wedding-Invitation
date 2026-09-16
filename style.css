@@ -7287,7 +7287,7 @@ footer.footer-text-visible .footer-date {
     height:200vh;
     max-width:none;
     object-fit:cover;
-    object-position:center;
+    object-position:center top;
     will-change:transform;
     transform:translateY(-50%);
 }
