@@ -7301,8 +7301,27 @@ footer.footer-text-visible .footer-date {
 }
 
 /* ==========================================================
-   LEFT PANEL
-   Hiển thị đúng NỬA PHẢI của PNG trái
+   PNG BASE
+   Scale theo chiều cao viewport.
+   Không dùng object-fit / min-width.
+   ========================================================== */
+
+.floral-transition__flower{
+    position:absolute;
+    top:50%;
+
+    height:100vh;
+    width:auto;
+
+    max-width:none;
+
+    transform:translateY(-50%);
+}
+
+/* ==========================================================
+   LEFT
+   PNG 1240px → đường 620px của PNG nằm đúng tại tâm màn hình
+   Panel chỉ nhìn nửa phải của PNG.
    ========================================================== */
 
 .floral-transition__panel--left{
@@ -7310,19 +7329,13 @@ footer.footer-text-visible .footer-date {
 }
 
 .floral-transition__flower--left{
-    position:absolute;
-    top:50%;
-    right:0;
-
-    width:100vw;
-    height:auto;
-    max-width:none;
-
-    transform:translateY(-50%);
+    right:-50vw;
 }
+
 /* ==========================================================
-   RIGHT PANEL
-   Hiển thị đúng NỬA TRÁI của PNG phải
+   RIGHT
+   PNG 1240px → đường 620px của PNG nằm đúng tại tâm màn hình
+   Panel chỉ nhìn nửa trái của PNG.
    ========================================================== */
 
 .floral-transition__panel--right{
@@ -7330,15 +7343,7 @@ footer.footer-text-visible .footer-date {
 }
 
 .floral-transition__flower--right{
-    position:absolute;
-    top:50%;
-    left:0;
-
-    width:100vw;
-    height:auto;
-    max-width:none;
-
-    transform:translateY(-50%);
+    left:-50vw;
 }
 
 /* ==========================================================
@@ -7355,7 +7360,7 @@ footer.footer-text-visible .footer-date {
     transform:translateX(100%);
 }
 
-/* Floral nằm trên Opening khi transition bắt đầu */
+/* Đưa floral lên trên Opening khi bắt đầu transition */
 
 .floral-transition.is-opening{
     z-index:10000;
