@@ -7310,14 +7310,13 @@ footer.footer-text-visible .footer-date {
     position:absolute;
     top:50%;
 
-    height:100vh;
-    width:auto;
+    width:100vw;
+    height:auto;
 
     max-width:none;
 
     transform:translateY(-50%);
 }
-
 /* ==========================================================
    LEFT
    PNG 1240px → đường 620px của PNG nằm đúng tại tâm màn hình
@@ -7329,7 +7328,7 @@ footer.footer-text-visible .footer-date {
 }
 
 .floral-transition__flower--left{
-    right:-50vw;
+    right:0;
 }
 
 /* ==========================================================
@@ -7343,7 +7342,7 @@ footer.footer-text-visible .footer-date {
 }
 
 .floral-transition__flower--right{
-    left:-50vw;
+    left:0;
 }
 
 /* ==========================================================
