@@ -7369,3 +7369,30 @@ footer.footer-text-visible .footer-date {
 }
 
 
+/* ==========================================================
+   CEREMONY — RESPONSIVE BACKGROUND
+   Giữ nguyên các cụm PNG trang trí hiện tại
+========================================================== */
+
+#ceremony {
+    background-image: url("assets/images/background/ceremony-desktop.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+
+/* ==========================================================
+   CEREMONY — MOBILE BACKGROUND
+========================================================== */
+
+@media (max-width: 767px) {
+
+    #ceremony {
+        background-image: url("assets/images/background/ceremony-mobile.png");
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 100% auto;
+    }
+
+}
