@@ -7263,7 +7263,6 @@ footer.footer-text-visible .footer-date {
 
 }
 
-
 /* ==========================================================================
    FLORAL TRANSITION
    ========================================================================== */
@@ -7271,11 +7270,16 @@ footer.footer-text-visible .footer-date {
 .floral-transition{
     position:fixed;
     inset:0;
+
     width:100%;
     height:100vh;
+
     overflow:hidden;
     pointer-events:none;
+
+    /* Ban đầu nằm sau Opening */
     z-index:9998;
+
     visibility:hidden;
 }
 
@@ -7284,14 +7288,14 @@ footer.footer-text-visible .footer-date {
 }
 
 /* ==========================================================
-   HAI PNG — CÙNG MỘT VỊ TRÍ, CÙNG MỘT KÍCH THƯỚC
+   HAI PNG CÙNG VỊ TRÍ + CÙNG KÍCH THƯỚC
    ========================================================== */
 
 .floral-transition__flower{
     position:absolute;
 
-    top:50%;
-    left:50%;
+    top:0;
+    left:0;
 
     width:100%;
     height:100%;
@@ -7302,56 +7306,64 @@ footer.footer-text-visible .footer-date {
     max-width:none;
 
     will-change:transform;
+
+    transition:
+        transform 2.2s cubic-bezier(.77, 0, .18, 1);
 }
 
 /* ==========================================================
    CLOSED STATE
 
-   Hai PNG nằm chồng chính xác lên nhau.
+   PNG trái:
+   chỉ lấy 50% BÊN TRÁI của chính PNG.
 
-   Ảnh trái:
-   chỉ hiển thị 50% BÊN TRÁI.
+   PNG phải:
+   chỉ lấy 50% BÊN PHẢI của chính PNG.
 
-   Ảnh phải:
-   chỉ hiển thị 50% BÊN PHẢI.
+   Hai PNG vẫn nằm CHỒNG ĐÚNG MỘT VỊ TRÍ.
    ========================================================== */
 
 .floral-transition__flower--left{
     clip-path:inset(0 50% 0 0);
 
-    transform:
-        translate(-50%, -50%);
+    transform:translateX(0);
 }
 
 .floral-transition__flower--right{
     clip-path:inset(0 0 0 50%);
 
-    transform:
-        translate(-50%, -50%);
+    transform:translateX(0);
 }
 
 /* ==========================================================
    OPEN STATE
 
-   Hai ảnh tách khỏi nhau từ chính giữa.
+   Trái → kéo sang trái
+   Phải → kéo sang phải
    ========================================================== */
 
 .floral-transition.is-opening
 .floral-transition__flower--left{
-    transform:
-        translate(calc(-50% - 50vw), -50%);
+    transform:translateX(-50vw);
 }
 
 .floral-transition.is-opening
 .floral-transition__flower--right{
-    transform:
-        translate(calc(-50% + 50vw), -50%);
+    transform:translateX(50vw);
 }
 
 /* ==========================================================
-   ĐƯA HOA LÊN TRÊN OPENING KHI BẮT ĐẦU
+   KHI ĐANG CHẠY → NẰM TRÊN OPENING
    ========================================================== */
 
 .floral-transition.is-opening{
     z-index:10000;
+}
+
+/* ==========================================================
+   KẾT THÚC → BIẾN MẤT HOÀN TOÀN
+   ========================================================== */
+
+.floral-transition.is-done{
+    visibility:hidden;
 }
