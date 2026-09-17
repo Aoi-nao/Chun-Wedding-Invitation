@@ -37,7 +37,7 @@ const WeddingData = {
         month: "10",
         year: "2026",
         solarDate: "",
-        lunarDate: "0909 tháng 09 năm Bính Ngọ",
+        lunarDate: "09 tháng 09 năm Bính Ngọ",
         monogram: "",
         quote: "Together is a beautiful place to be"
     },
@@ -75,9 +75,9 @@ const WeddingData = {
     groomParty: {
         title: "Tiệc Nhà Trai",
         time: "07:00",
-        date: "Chủ Nhật, 18.09.2026",
-        lunar: "09 tháng  năm Bính Ngọ",
-        address: "Thôn Thống Nhất,Thần Khê, Hưng ",
+        date: "Chủ Nhật, 18.10.2026",
+        lunar: "09 tháng 09 năm Bính Ngọ",
+        address: "Thôn Thống Nhất, Thần Khê, Hưng Yên ",
         map: "https://maps.app.goo.gl/HNtfPMC3Kd6xeCMn6"
     },
 
@@ -91,7 +91,7 @@ const WeddingData = {
     brideParty: {
         title: "Tiệc Nhà Gái",
         time: "07:30",
-        date: "Chủ Nhật, .08.2026",
+        date: "Chủ Nhật, 18.10.2026",
         lunar: "09 tháng 09 năm Bính Ngọ",
         address: "Thôn Long Tiên, Nam Tiên Hưng, Hưng Yên",
         map: "https://maps.app.goo.gl/g5hnyQbzh97xeAio6"
