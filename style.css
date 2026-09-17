@@ -7307,7 +7307,7 @@ footer.footer-text-visible .footer-date {
     will-change:transform;
 
     transition:
-        transform 1.8s cubic-bezier(.77, 0, .18, 1);
+        transform 2.2s cubic-bezier(.77, 0, .18, 1);
 }
 
 /* ==========================================================
