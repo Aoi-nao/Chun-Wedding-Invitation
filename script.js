@@ -300,8 +300,8 @@ if (floralTransition) {
 
     /* Sau khi hoa mở xong mới bỏ Opening */
     setTimeout(() => {
-        opening.remove();
-    }, 1800);
+    opening.remove();
+}, 2200);
 
 } else {
 
