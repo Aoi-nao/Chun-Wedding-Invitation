@@ -7263,6 +7263,7 @@ footer.footer-text-visible .footer-date {
 
 }
 
+
 /* ==========================================================================
    FLORAL TRANSITION
    ========================================================================== */
@@ -7271,45 +7272,67 @@ footer.footer-text-visible .footer-date {
     position:fixed;
     inset:0;
     width:100%;
-    height:100%;
+    height:100vh;
     overflow:hidden;
     pointer-events:none;
-    z-index:10000;
-   visibility:hidden;
+
+    /* Nằm sau Opening khi chưa mở thiệp */
+    z-index:9998;
+
+    visibility:hidden;
 }
+
 .floral-transition.is-visible{
     visibility:visible;
 }
+
+/* ==========================================================
+   HAI CÁNH HOA
+   Mỗi PNG chiếm đúng 50% màn hình
+   ========================================================== */
+
 .floral-transition__flower{
     position:absolute;
-    top:50%;
-    width:200vw;
-    height:200vh;
-    max-width:none;
+
+    top:0;
+
+    width:50vw;
+    height:100vh;
+
     object-fit:cover;
-    object-position:center top;
+    object-position:center;
+
+    max-width:none;
+
     will-change:transform;
-    transform:translateY(-50%);
+
+    transition:
+        transform 1.8s cubic-bezier(.77, 0, .18, 1);
 }
 
-/* CLOSED STATE */
+/* ==========================================================
+   CLOSED STATE
+   Hai ảnh gặp nhau tại chính giữa màn hình
+   ========================================================== */
 
 .floral-transition__flower--left{
-    left:0;
+    right:50%;
+    left:auto;
+
     transform:translateX(0);
 }
 
 .floral-transition__flower--right{
-    right:0;
+    left:50%;
+    right:auto;
+
     transform:translateX(0);
 }
 
-/* FLORAL TRANSITION — OPEN */
-
-.floral-transition__flower{
-    transition:
-        transform 1.8s cubic-bezier(.77, 0, .18, 1);
-}
+/* ==========================================================
+   OPEN STATE
+   Kéo hai cánh ra khỏi màn hình
+   ========================================================== */
 
 .floral-transition.is-opening
 .floral-transition__flower--left{
@@ -7319,4 +7342,13 @@ footer.footer-text-visible .footer-date {
 .floral-transition.is-opening
 .floral-transition__flower--right{
     transform:translateX(100%);
+}
+
+/* ==========================================================
+   KHI TRANSITION BẮT ĐẦU
+   Đưa floral lên trên Opening
+   ========================================================== */
+
+.floral-transition.is-opening{
+    z-index:10000;
 }
