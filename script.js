@@ -1153,7 +1153,24 @@ function initClosingGallery() {
 
     const closingImages =
         WeddingData.closingGallery;
+    /* ======================================================
+       PRELOAD CLOSING GALLERY
+       Tải trước 5 ảnh gốc để khi scroll tới
+       không bị khựng một nhịp.
+    ====================================================== */
+    closingImages.forEach((imageSource) => {
 
+        if (!imageSource) {
+            return;
+        }
+
+        const preload =
+            new Image();
+
+        preload.src =
+            imageSource;
+
+    });
 
     if (
         !Array.isArray(closingImages) ||
@@ -1217,8 +1234,10 @@ function initClosingGallery() {
                             : "";
 
 
-                    image.loading =
-                        "lazy";
+                   image.loading =
+    setIndex === 0
+        ? "eager"
+        : "lazy";
 
 
                     image.decoding =
