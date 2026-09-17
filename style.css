@@ -7275,10 +7275,7 @@ footer.footer-text-visible .footer-date {
     height:100vh;
     overflow:hidden;
     pointer-events:none;
-
-    /* Nằm sau Opening khi chưa mở thiệp */
     z-index:9998;
-
     visibility:hidden;
 }
 
@@ -7287,67 +7284,85 @@ footer.footer-text-visible .footer-date {
 }
 
 /* ==========================================================
-   HAI CÁNH HOA
-   Mỗi PNG chiếm đúng 50% màn hình
+   TWO 50% PANELS
    ========================================================== */
 
-.floral-transition__flower{
+.floral-transition__panel{
     position:absolute;
-
     top:0;
-
-    width:50vw;
-    height:100vh;
-
-    object-fit:cover;
-    object-position:center;
-
-    max-width:none;
-
-    will-change:transform;
+    width:50%;
+    height:100%;
+    overflow:hidden;
 
     transition:
         transform 2.2s cubic-bezier(.77, 0, .18, 1);
+
+    will-change:transform;
 }
 
 /* ==========================================================
-   CLOSED STATE
-   Hai ảnh gặp nhau tại chính giữa màn hình
+   LEFT PANEL
+   Hiển thị đúng NỬA PHẢI của PNG trái
    ========================================================== */
 
-.floral-transition__flower--left{
-    right:50%;
-    left:auto;
+.floral-transition__panel--left{
+    left:0;
+}
 
-    transform:translateX(0);
+.floral-transition__flower--left{
+    position:absolute;
+    top:50%;
+    right:0;
+
+    width:auto;
+    height:auto;
+
+    min-height:100%;
+    min-width:100vw;
+    max-width:none;
+
+    transform:translateY(-50%);
+}
+
+/* ==========================================================
+   RIGHT PANEL
+   Hiển thị đúng NỬA TRÁI của PNG phải
+   ========================================================== */
+
+.floral-transition__panel--right{
+    right:0;
 }
 
 .floral-transition__flower--right{
-    left:50%;
-    right:auto;
+    position:absolute;
+    top:50%;
+    left:0;
 
-    transform:translateX(0);
+    width:auto;
+    height:auto;
+
+    min-height:100%;
+    min-width:100vw;
+    max-width:none;
+
+    transform:translateY(-50%);
 }
 
 /* ==========================================================
-   OPEN STATE
-   Kéo hai cánh ra khỏi màn hình
+   OPEN
    ========================================================== */
 
 .floral-transition.is-opening
-.floral-transition__flower--left{
+.floral-transition__panel--left{
     transform:translateX(-100%);
 }
 
 .floral-transition.is-opening
-.floral-transition__flower--right{
+.floral-transition__panel--right{
     transform:translateX(100%);
 }
 
-/* ==========================================================
-   KHI TRANSITION BẮT ĐẦU
-   Đưa floral lên trên Opening
-   ========================================================== */
+/* Floral nằm trên Opening khi transition bắt đầu */
 
 .floral-transition.is-opening{
     z-index:10000;
