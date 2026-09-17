@@ -7381,7 +7381,7 @@ footer.footer-text-visible .footer-date {
 
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 100% 100%;
+    background-size: 100% auto;
 }
 
 
@@ -7397,7 +7397,7 @@ footer.footer-text-visible .footer-date {
 
         background-repeat: no-repeat;
         background-position: center center;
-        background-size: 100% 100%;
+        background-size: 100% auto;
     }
 
 }
