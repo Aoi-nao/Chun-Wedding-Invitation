@@ -286,12 +286,19 @@ opening.classList.add("opening-hide");
 
 if (floralTransition) {
 
+    /* Hiện hai cánh hoa khi Opening bắt đầu biến mất */
     floralTransition.classList.add("is-visible");
 
+    /* Cho browser render CLOSED STATE trước */
     requestAnimationFrame(() => {
-        floralTransition.classList.add("is-opening");
+
+        requestAnimationFrame(() => {
+            floralTransition.classList.add("is-opening");
+        });
+
     });
 
+    /* Sau khi hoa mở xong mới bỏ Opening */
     setTimeout(() => {
         opening.remove();
     }, 1800);
