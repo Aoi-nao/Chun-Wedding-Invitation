@@ -8,10 +8,10 @@
 const WeddingData = {
 
     groom: {
-        fullName: "Nguyễn Văn AAA",
-        shortName: "NGUYỄN AAA",
-        father: "",
-        mother: "",
+        fullName: "Nguyễn Đảm",
+        shortName: "NGUYỄN ĐẢM",
+        father: "Ngyễn Văn Bé",
+        mother: "Nguyễn Thị Bé",
         avatar: "assets/images/groom.jpg",
         qrImage: "",
         bankName: "",
@@ -20,10 +20,10 @@ const WeddingData = {
     },
 
     bride: {
-        fullName: "Hoàng Thị BBB",
-        shortName: "HOÀNG BBB",
-        father: "",
-        mother: "",
+        fullName: "Hoàng Nga",
+        shortName: "HOÀNG NGA",
+        father: "Hoàng Văn GIang",
+        mother: "Phạm Thị Lợi",
         avatar: "assets/images/bride.jpg",
         qrImage: "",
         bankName: "",
@@ -33,11 +33,11 @@ const WeddingData = {
 
     wedding: {
         weekday: "Chủ Nhật",
-        day: "11",
+        day: "18",
         month: "10",
         year: "2026",
         solarDate: "",
-        lunarDate: "02 tháng 09 năm Bính Ngọ",
+        lunarDate: "0909 tháng 09 năm Bính Ngọ",
         monogram: "",
         quote: "Together is a beautiful place to be"
     },
@@ -49,17 +49,17 @@ const WeddingData = {
 },
 
     hero: {
-    image: "assets/images/hero.png"
+    image: "assets/images/hero.JPG"
     },
 
     invitation: {
         title: "Một ngày đặc biệt,\nmột khoảnh khắc đáng nhớ",
         content: [
-            "Chúng tôi rất hạnh phúc",
+            "Chúng mình rất hạnh phúc",
             "khi được chia sẻ niềm vui này",
             "cùng bạn",
             "Gia đình hai bên",
-            "trân trọng kính mời"
+            "trân trọng kính mời..."
         ]
     },
 
@@ -67,33 +67,33 @@ const WeddingData = {
 
     groomCeremony: {
         title: "Lễ Thành Hôn",
-        time: "09:00",
-        date: "Chủ Nhật, 09.08.2026",
-        lunar: "27 tháng 6 năm Bính Ngọ"
+        time: "11:30",
+        date: "Chủ Nhật, 18.10.2026",
+        lunar: "09 tháng 09 năm Bính Ngọ"
     },
 
     groomParty: {
         title: "Tiệc Nhà Trai",
-        time: "11:00",
-        date: "Chủ Nhật, 09.08.2026",
-        lunar: "27 tháng 6 năm Bính Ngọ",
-        address: "123 Đường Mẫu, Thành phố Hà Nội",
-        map: "https://maps.app.goo.gl/u3iYstrY8vfWwGiAA"
+        time: "07:00",
+        date: "Chủ Nhật, 18.09.2026",
+        lunar: "09 tháng  năm Bính Ngọ",
+        address: "Thôn Thống Nhất,Thần Khê, Hưng ",
+        map: "https://maps.app.goo.gl/HNtfPMC3Kd6xeCMn6"
     },
 
     brideCeremony: {
         title: "Lễ Vu Quy",
-        time: "09:00",
-        date: "Chủ Nhật, 09.08.2026",
-        lunar: "27 tháng 6 năm Bính Ngọ"
+        time: "10:30",
+        date: "Chủ Nhật, 18.10.2026",
+        lunar: "09 tháng 09 năm Bính Ngọ"
     },
 
     brideParty: {
         title: "Tiệc Nhà Gái",
-        time: "11:00",
-        date: "Chủ Nhật, 09.08.2026",
-        lunar: "27 tháng 6 năm Bính Ngọ",
-        address: "456 Đường Mẫu, Thành phố Hà Nội",
+        time: "07:30",
+        date: "Chủ Nhật, .08.2026",
+        lunar: "09 tháng 09 năm Bính Ngọ",
+        address: "Thôn Long Tiên, Nam Tiên Hưng, Hưng Yên",
         map: "https://maps.app.goo.gl/g5hnyQbzh97xeAio6"
     }
 
