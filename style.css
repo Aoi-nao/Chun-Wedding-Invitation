@@ -7369,35 +7369,3 @@ footer.footer-text-visible .footer-date {
 }
 
 
-
-/* ==========================================================
-   GALLERY — RESPONSIVE BACKGROUND
-   Giữ nguyên toàn bộ botanical PNG hiện tại
-========================================================== */
-
-#gallery {
-    background-image:
-        url("assets/images/background/gallery-desktop.png");
-
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100% auto;
-}
-
-
-/* ==========================================================
-   GALLERY — MOBILE BACKGROUND
-========================================================== */
-
-@media (max-width: 767px) {
-
-    #gallery {
-        background-image:
-            url("assets/images/background/gallery-mobile.png");
-
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 100% auto;
-    }
-
-}
