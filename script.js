@@ -299,8 +299,12 @@ if (floralTransition) {
     });
 
     /* Sau khi hoa mở xong mới bỏ Opening */
-    setTimeout(() => {
+   setTimeout(() => {
+
     opening.remove();
+
+    floralTransition.classList.add("is-done");
+
 }, 2200);
 
 } else {
