@@ -22,7 +22,7 @@ const WeddingData = {
     bride: {
         fullName: "Hoàng Nga",
         shortName: "HOÀNG NGA",
-        father: "Hoàng Văn GIang",
+        father: "Hoàng Văn Giang",
         mother: "Phạm Thị Lợi",
         avatar: "assets/images/bride.jpg",
         qrImage: "",
