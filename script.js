@@ -1150,27 +1150,8 @@ function initClosingGallery() {
         return;
     }
 
-
     const closingImages =
         WeddingData.closingGallery;
-    /* ======================================================
-       PRELOAD CLOSING GALLERY
-       Tải trước 5 ảnh gốc để khi scroll tới
-       không bị khựng một nhịp.
-    ====================================================== */
-    closingImages.forEach((imageSource) => {
-
-        if (!imageSource) {
-            return;
-        }
-
-        const preload =
-            new Image();
-
-        preload.src =
-            imageSource;
-
-    });
 
     if (
         !Array.isArray(closingImages) ||
@@ -1183,20 +1164,41 @@ function initClosingGallery() {
         return;
     }
 
-
     /*
      * Tạo 2 bản giống nhau.
-     *
-     * Bản thứ hai nối ngay sau bản thứ nhất
-     * để animation có thể chạy vô hạn
-     * mà không xuất hiện điểm nhảy.
+     * Bản thứ hai dùng cho infinite loop.
      */
-
     const imageSets = [
         closingImages,
         closingImages
     ];
 
+    let loadedImages = 0;
+
+    /*
+     * Chỉ tính 5 ảnh của bộ đầu tiên.
+     * Khi 5 ảnh này load xong,
+     * gallery mới bắt đầu hiện và chạy.
+     */
+    const totalImages =
+        closingImages.length;
+
+    function markImageLoaded() {
+
+        loadedImages++;
+
+        if (
+            loadedImages >=
+            totalImages
+        ) {
+
+            track.classList.add(
+                "is-loaded"
+            );
+
+        }
+
+    }
 
     imageSets.forEach(
         (imageSet, setIndex) => {
@@ -1208,7 +1210,6 @@ function initClosingGallery() {
                         return;
                     }
 
-
                     const item =
                         document.createElement(
                             "div"
@@ -1217,39 +1218,65 @@ function initClosingGallery() {
                     item.className =
                         "closing-gallery-item";
 
-
                     const image =
                         document.createElement(
                             "img"
                         );
 
-
                     image.src =
                         imageSource;
-
 
                     image.alt =
                         setIndex === 0
                             ? `Khoảnh khắc đáng nhớ ${index + 1}`
                             : "";
 
-
-                   image.loading =
-    setIndex === 0
-        ? "eager"
-        : "lazy";
-
-
                     image.decoding =
                         "async";
 
+                    /*
+                     * BỘ ẢNH ĐẦU TIÊN
+                     * Đây là 5 ảnh quyết định
+                     * khi nào gallery được hiện.
+                     */
+                    if (setIndex === 0) {
+
+                        image.loading =
+                            "eager";
+
+                        image.addEventListener(
+                            "load",
+                            markImageLoaded,
+                            {
+                                once: true
+                            }
+                        );
+
+                        /*
+                         * Nếu ảnh đã nằm trong cache,
+                         * load event có thể đã xảy ra.
+                         */
+                        if (
+                            image.complete &&
+                            image.naturalWidth > 0
+                        ) {
+
+                            requestAnimationFrame(
+                                markImageLoaded
+                            );
+
+                        }
+
+                    }
 
                     /*
-                     * Bản sao thứ hai không cần
-                     * đọc lại bằng screen reader.
+                     * BỘ THỨ HAI
+                     * Chỉ là bản sao cho infinite loop.
                      */
+                    else {
 
-                    if (setIndex === 1) {
+                        image.loading =
+                            "lazy";
 
                         item.setAttribute(
                             "aria-hidden",
@@ -1258,10 +1285,13 @@ function initClosingGallery() {
 
                     }
 
+                    item.appendChild(
+                        image
+                    );
 
-                    item.appendChild(image);
-
-                    track.appendChild(item);
+                    track.appendChild(
+                        item
+                    );
 
                 }
             );
@@ -1270,7 +1300,6 @@ function initClosingGallery() {
     );
 
 }
-
 
 /* ==========================================================
    RSVP
