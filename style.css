@@ -7064,15 +7064,26 @@ footer.footer-text-visible .footer-date {
 
     padding: 8px 0;
 
+    opacity: 0;
+
     will-change: transform;
+
+    animation: none;
+
+    transition:
+        opacity 1s ease;
+}
+
+.closing-gallery-track.is-loaded {
+    opacity: 1;
 
     animation:
         closingGalleryScroll
         38s
         linear
+        1s
         infinite;
 }
-
 
 /* ==========================================================
    IMAGE
@@ -7179,7 +7190,7 @@ footer.footer-text-visible .footer-date {
 
     #closing-gallery {
         padding:
-            18px
+            15px
             0
             62px;
 
