@@ -7407,3 +7407,28 @@ footer.footer-text-visible .footer-date {
     }
 
 }
+
+
+/* ==========================================================
+   HERO — RESPONSIVE BACKGROUND
+   Giữ nguyên hero photo + botanical decorations hiện tại
+========================================================== */
+
+#hero {
+    background-image: url("assets/images/background/hero-desktop.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+
+@media (max-width: 767px) {
+
+    #hero {
+        background-image: url("assets/images/background/hero-mobile.png");
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 100% auto;
+    }
+
+}
