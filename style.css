@@ -545,15 +545,11 @@ section{
 -------------------------------- */
 
 .hero-media{
-
-    position:relative;
-
-    width:100%;
-
-    height:400px;
-
-    overflow:hidden;
-
+position:relative;
+width:100%;
+height:400px;
+overflow:visible;
+z-index:1;
 }
 
 .hero-photo-image{
@@ -586,7 +582,7 @@ section{
     position: absolute;
     inset: 0;
 
-    overflow: hidden;
+    overflow: visible;
 
     pointer-events: none;
     user-select: none;
@@ -696,10 +692,10 @@ section{
 -------------------------------- */
 
 .hero-wave{
-    position:relative;
-    margin-top:-70px;
-    line-height:0;
-    z-index:2;
+position:relative;
+margin-top:-68px;
+line-height:0;
+z-index:10;
 }
 
 .hero-wave svg{
