@@ -471,19 +471,19 @@ function renderFamily() {
     const groomMother = groomFamily.querySelector("#groom-mother");
 
     if (brideFather) {
-        brideFather.textContent = bride.father || "";
+        brideFather.innerHTML = `<span class="family-role">Bố</span><span class="family-name">${bride.father || ""}</span>`;
     }
 
     if (brideMother) {
-        brideMother.textContent = bride.mother || "";
+        brideMother.innerHTML = `<span class="family-role">Mẹ</span><span class="family-name">${bride.mother || ""}</span>`;
     }
 
     if (groomFather) {
-        groomFather.textContent = groom.father || "";
+        groomFather.innerHTML = `<span class="family-role">Bố</span><span class="family-name">${groom.father || ""}</span>`;
     }
 
     if (groomMother) {
-        groomMother.textContent = groom.mother || "";
+        groomMother.innerHTML = `<span class="family-role">Mẹ</span><span class="family-name">${groom.mother || ""}</span>`;
     }
 }
 
