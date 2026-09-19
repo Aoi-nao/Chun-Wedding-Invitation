@@ -448,21 +448,47 @@ function renderCouple() {
 }
 
 function renderFamily() {
-    const brideFather = document.getElementById("bride-father");
-    const brideMother = document.getElementById("bride-mother");
-    const groomFather = document.getElementById("groom-father");
-    const groomMother = document.getElementById("groom-mother");
+    const familySection = document.getElementById("family");
 
-    if (!brideFather || !brideMother || !groomFather || !groomMother) {
+    if (!familySection || typeof WeddingData === "undefined") {
         return;
     }
 
-    brideFather.textContent = weddingData.bride.father || "";
-    brideMother.textContent = weddingData.bride.mother || "";
+    const brideFamily = familySection.querySelector("#bride-family");
+    const groomFamily = familySection.querySelector("#groom-family");
 
-    groomFather.textContent = weddingData.groom.father || "";
-    groomMother.textContent = weddingData.groom.mother || "";
+    if (!brideFamily || !groomFamily) {
+        return;
+    }
+
+    const bride = WeddingData.bride || {};
+    const groom = WeddingData.groom || {};
+
+    const brideFather = brideFamily.querySelector("#bride-father");
+    const brideMother = brideFamily.querySelector("#bride-mother");
+
+    const groomFather = groomFamily.querySelector("#groom-father");
+    const groomMother = groomFamily.querySelector("#groom-mother");
+
+    if (brideFather) {
+        brideFather.textContent = bride.father || "";
+    }
+
+    if (brideMother) {
+        brideMother.textContent = bride.mother || "";
+    }
+
+    if (groomFather) {
+        groomFather.textContent = groom.father || "";
+    }
+
+    if (groomMother) {
+        groomMother.textContent = groom.mother || "";
+    }
 }
+
+
+
 function initCoupleAnimation() {
 
     const couple = document.getElementById("couple");
