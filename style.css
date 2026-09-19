@@ -6100,7 +6100,7 @@ FOOTER
     position: relative;
     width: 100%;
     min-height: 560px;
-    margin-top: 20px;
+    margin-top: 0px;
     overflow: hidden;
 }
 
@@ -6201,7 +6201,7 @@ FOOTER
 @media (max-width: 600px) {
     .site-footer {
         min-height: 620px;
-        margin-top: 10px;
+        margin-top: 0px;
     }
 
     .footer-overlay {
