@@ -10,7 +10,7 @@ const WeddingData = {
     groom: {
         fullName: "Nguyễn Đảm",
         shortName: "NGUYỄN ĐẢM",
-        father: "Ngyễn Văn Bé",
+        father: "Nguyễn Văn Bé",
         mother: "Nguyễn Thị Bé",
         avatar: "assets/images/groom.jpg",
         qrImage: "",
