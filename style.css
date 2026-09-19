@@ -558,7 +558,7 @@ z-index:1;
     object-fit:cover;
     object-position:center;
     display:block;
-    transform:scale(1.02);
+    transform:scale(1);
 }
 .hero-overlay{
 
@@ -633,15 +633,11 @@ z-index:1;
 
 .hero-botanical-corner {
     position: absolute;
-
     width: 220px;
     height: auto;
-
     bottom: -38px;
-
-    opacity: 0.78;
-
-    z-index: 3;
+    opacity: 0.95;
+    z-index: 20;
 }
 
 
