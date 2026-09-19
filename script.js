@@ -448,10 +448,8 @@ function renderCouple() {
 }
 
 function renderFamily() {
-
     const brideFather = document.getElementById("bride-father");
     const brideMother = document.getElementById("bride-mother");
-
     const groomFather = document.getElementById("groom-father");
     const groomMother = document.getElementById("groom-mother");
 
@@ -459,11 +457,11 @@ function renderFamily() {
         return;
     }
 
-    brideFather.textContent = WeddingData.bride.father;
-    brideMother.textContent = WeddingData.bride.mother;
+    brideFather.textContent = weddingData.bride.father || "";
+    brideMother.textContent = weddingData.bride.mother || "";
 
-    groomFather.textContent = WeddingData.groom.father;
-    groomMother.textContent = WeddingData.groom.mother;
+    groomFather.textContent = weddingData.groom.father || "";
+    groomMother.textContent = weddingData.groom.mother || "";
 }
 function initCoupleAnimation() {
 
