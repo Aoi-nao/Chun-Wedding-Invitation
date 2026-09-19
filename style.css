@@ -45,10 +45,10 @@ body{
 
 :root{
 
-    --color-primary:#6D8C6B;
+    --color-primary:#536B50;
     --color-secondary:#F6F4EE;
     --color-accent:#D8BE84;
-    --color-text:#4A4A4A;
+    --color-text:#343A34;
     --color-white:#FFFFFF;
 
     --radius-sm:12px;
