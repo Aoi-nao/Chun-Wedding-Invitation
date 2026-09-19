@@ -1599,6 +1599,7 @@ section{
 
 .couple-grid {
     position: relative;
+    z-index: 1;
 
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -1673,10 +1674,9 @@ section{
     left: 50%;
     top: 50%;
 
-    z-index: 5;
+    z-index: 0;
 
     transform: translate(-50%, -50%);
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1688,7 +1688,7 @@ section{
     display: block;
 
     width: 80px;
-    height: px;
+    height: 80px;
 
     object-fit: contain;
 
