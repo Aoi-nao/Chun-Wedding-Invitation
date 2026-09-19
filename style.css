@@ -1684,17 +1684,13 @@ section{
     pointer-events: none;
 }
 
-.couple-ampersand span {
+.couple-ampersand img {
     display: block;
 
-    font-family: "Garamo", "Cormorant Garamond", serif;
-    font-size: 22px;
-    font-weight: 400;
-    font-style: italic;
+    width: 30px;
+    height: 30px;
 
-    line-height: 1;
-
-    color: var(--color-accent);
+    object-fit: contain;
 
     transform: translateY(-1px);
 }
@@ -1777,9 +1773,6 @@ section{
      
     }
 
-    .couple-ampersand span {
-        font-size: 22px;
-    }
   }
 
 
