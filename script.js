@@ -513,7 +513,7 @@ function initCoupleAnimation() {
 
         },
         {
-            threshold: 0.18
+            threshold: 0.35
         }
     );
 
