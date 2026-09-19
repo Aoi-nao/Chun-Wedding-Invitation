@@ -536,8 +536,10 @@ section{
 
 #hero{
     position:relative;
+
     background-color:#ffffff;
 
+    /* DESKTOP BACKGROUND */
     background-image:url("assets/images/background/hero-desktop.png");
     background-repeat:no-repeat;
     background-position:center top;
@@ -548,31 +550,45 @@ section{
 }
 
 
-/* ------------------------------
-   Hero Image
--------------------------------- */
+/* ==========================================================
+   HERO IMAGE
+========================================================== */
 
 .hero-media{
     position:relative;
+
     width:100%;
     height:400px;
 
     overflow:visible;
-    z-index:20;
+
+    /*
+       Ảnh nằm dưới wave
+    */
+    z-index:1;
 }
 
+
 .hero-photo-image{
+    display:block;
+
     width:100%;
     height:100%;
 
+    /*
+       Giữ nguyên kích thước khung.
+       Không phóng thêm ảnh.
+    */
     object-fit:cover;
     object-position:center;
 
-    display:block;
-
-    /* Không phóng thêm ảnh */
     transform:scale(1);
 }
+
+
+/* ==========================================================
+   HERO IMAGE OVERLAY
+========================================================== */
 
 .hero-overlay{
     position:absolute;
@@ -589,7 +605,8 @@ section{
 
 
 /* ==========================================================
-   HERO — BOTANICAL FRAME
+   HERO BOTANICAL
+   Chỉ giữ canopy trong hero-media
 ========================================================== */
 
 .hero-botanical{
@@ -601,7 +618,7 @@ section{
     pointer-events:none;
     user-select:none;
 
-    z-index: 20;
+    z-index:2;
 }
 
 
@@ -644,24 +661,83 @@ section{
 }
 
 
-/* ---------- BOTTOM CORNERS ---------- */
+/* ==========================================================
+   WAVE
+========================================================== */
+
+.hero-wave{
+    position:relative;
+
+    /*
+       Wave ăn vào phần dưới của hero.jpg
+    */
+    margin-top:-100px;
+
+    width:100%;
+
+    line-height:0;
+
+    /*
+       Wave nằm trên ảnh
+    */
+    z-index:10;
+}
+
+
+.hero-wave svg{
+    display:block;
+
+    width:100%;
+    height:110px;
+}
+
+
+.hero-wave svg path{
+    fill:#ffffff;
+}
+
+
+/* ==========================================================
+   BOTTOM FLOWERS
+   TÁCH KHỎI HERO-MEDIA
+   → có thể nằm trên wave
+========================================================== */
 
 .hero-botanical-corner{
     position:absolute;
 
+    /*
+       Desktop:
+       giữ vị trí tương đương với vị trí cũ
+       khi hoa còn nằm trong hero-media
+    */
     width:220px;
     height:auto;
 
-    bottom:-38px;
+    /*
+       hero-media cao 400px.
+       Hoa cũ bottom:-38px.
+       Vì vậy đáy hoa mới nằm ở khoảng 438px
+       tính từ đầu Hero.
+    */
+    top:438px;
+
+    /*
+       Dùng translateY(-100%) để
+       đáy ảnh nằm đúng tại vị trí trên.
+    */
+    transform:translateY(-100%);
 
     opacity:0.95;
 
     /*
-       Wave = z-index 10
-       Hoa = z-index 20
-       → hoa luôn nằm trên wave
+       Wave = 10
+       Hoa = 20
     */
     z-index:20;
+
+    pointer-events:none;
+    user-select:none;
 }
 
 
@@ -670,7 +746,9 @@ section{
 .hero-botanical-left{
     left:-55px;
 
-    transform:rotate(-8deg);
+    transform:
+        translateY(-100%)
+        rotate(-8deg);
 }
 
 
@@ -680,43 +758,14 @@ section{
     right:-55px;
 
     transform:
+        translateY(-100%)
         scaleX(-1)
         rotate(-8deg);
 }
 
 
 /* ==========================================================
-   HERO — WAVE
-========================================================== */
-
-.hero-wave{
-    position:relative;
-
-    /*
-       Ăn sâu vào ảnh Hero
-       để không tạo cảm giác ảnh bị cắt đôi
-    */
-    margin-top:-100px;
-
-    line-height:0;
-
-    z-index:10;
-}
-
-.hero-wave svg{
-    display:block;
-
-    width:100%;
-    height:110px;
-}
-
-.hero-wave svg path{
-    fill:#ffffff;
-}
-
-
-/* ==========================================================
-   HERO — CONTENT
+   HERO CONTENT
 ========================================================== */
 
 .hero-content{
@@ -729,12 +778,15 @@ section{
     padding:36px 26px 80px;
 
     text-align:center;
+
+    /*
+       Content nằm trên toàn bộ decoration
+    */
+    z-index:30;
 }
 
 
-/* ------------------------------
-   Monogram
--------------------------------- */
+/* ---------- MONOGRAM ---------- */
 
 .hero-monogram{
     margin:12px 0 26px;
@@ -751,9 +803,7 @@ section{
 }
 
 
-/* ------------------------------
-   Name
--------------------------------- */
+/* ---------- NAME ---------- */
 
 .hero-name{
     margin:0;
@@ -768,9 +818,7 @@ section{
 }
 
 
-/* ------------------------------
-   Date
--------------------------------- */
+/* ---------- DATE ---------- */
 
 .hero-date{
     margin-top:24px;
@@ -783,9 +831,7 @@ section{
 }
 
 
-/* ------------------------------
-   Quote
--------------------------------- */
+/* ---------- QUOTE ---------- */
 
 .hero-quote{
     max-width:330px;
@@ -804,9 +850,7 @@ section{
 }
 
 
-/* ------------------------------
-   Decoration
--------------------------------- */
+/* ---------- CONTENT DECORATION ---------- */
 
 .hero-content::before{
     content:"";
@@ -824,6 +868,7 @@ section{
 
     opacity:.16;
 }
+
 
 .hero-content::after{
     content:"";
@@ -844,7 +889,7 @@ section{
 
 
 /* ==========================================================
-   HERO — TABLET / MOBILE
+   TABLET
 ========================================================== */
 
 @media (max-width:768px){
@@ -857,7 +902,7 @@ section{
 
 
 /* ==========================================================
-   HERO — MOBILE
+   MOBILE
    Giữ nguyên bố cục mobile hiện tại
 ========================================================== */
 
@@ -876,30 +921,56 @@ section{
     }
 
 
+    /* ---------- TOP CANOPY ---------- */
+
     .hero-botanical-canopy{
         width:125%;
         top:-2px;
     }
 
 
+    /* ---------- BOTTOM FLOWERS ---------- */
+
     .hero-botanical-corner{
         width:205px;
-        bottom:-34px;
+
+        /*
+           Vị trí cũ:
+           bottom:-34px
+           tính từ hero-media cao 340px
+
+           → đáy hoa = 374px
+        */
+        top:374px;
+
+        transform:translateY(-100%);
 
         opacity:0.95;
+
         z-index:20;
     }
 
 
     .hero-botanical-left{
         left:-52px;
+
+        transform:
+            translateY(-100%)
+            rotate(-8deg);
     }
 
 
     .hero-botanical-right{
         right:-52px;
+
+        transform:
+            translateY(-100%)
+            scaleX(-1)
+            rotate(-8deg);
     }
 
+
+    /* ---------- CONTENT ---------- */
 
     .hero-monogram{
         font-size:3.4rem;
@@ -916,7 +987,6 @@ section{
     }
 
 }
-
 
 /* ==========================================================================
    OPENING
