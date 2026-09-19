@@ -558,7 +558,7 @@ section{
     height:400px;
 
     overflow:visible;
-    z-index:1;
+    z-index:20;
 }
 
 .hero-photo-image{
