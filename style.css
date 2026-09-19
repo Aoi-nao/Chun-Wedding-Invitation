@@ -529,41 +529,53 @@ section{
 
 }
 
+
 /* ==========================================================================
    HERO
    ========================================================================== */
 
 #hero{
     position:relative;
-    background:#ffffff;
+    background-color:#ffffff;
+
+    background-image:url("assets/images/background/hero-desktop.png");
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-size:100% auto;
+
     overflow:hidden;
     padding:0;
 }
+
 
 /* ------------------------------
    Hero Image
 -------------------------------- */
 
 .hero-media{
-position:relative;
-width:100%;
-height:400px;
-overflow:visible;
-z-index:1;
+    position:relative;
+    width:100%;
+    height:400px;
+
+    overflow:visible;
+    z-index:1;
 }
 
 .hero-photo-image{
     width:100%;
     height:100%;
+
     object-fit:cover;
     object-position:center;
+
     display:block;
+
+    /* Không phóng thêm ảnh */
     transform:scale(1);
 }
+
 .hero-overlay{
-
     position:absolute;
-
     inset:0;
 
     background:linear-gradient(
@@ -572,31 +584,34 @@ z-index:1;
         rgba(255,255,255,.16)
     );
 
+    z-index:1;
 }
+
 
 /* ==========================================================
-   HERO — BOTANICAL FRAME V3
+   HERO — BOTANICAL FRAME
 ========================================================== */
 
-.hero-botanical {
-    position: absolute;
-    inset: 0;
+.hero-botanical{
+    position:absolute;
+    inset:0;
 
-    overflow: visible;
+    overflow:visible;
 
-    pointer-events: none;
-    user-select: none;
+    pointer-events:none;
+    user-select:none;
 
-    z-index: 2;
+    z-index:2;
 }
+
 
 /* ---------- SOFT LIGHT ---------- */
 
-.hero-botanical::before {
-    content: "";
+.hero-botanical::before{
+    content:"";
 
-    position: absolute;
-    inset: 0;
+    position:absolute;
+    inset:0;
 
     background:
         radial-gradient(
@@ -606,53 +621,64 @@ z-index:1;
             rgba(255,255,255,0) 72%
         );
 
-    pointer-events: none;
+    pointer-events:none;
 }
 
 
 /* ---------- TOP CANOPY ---------- */
 
-.hero-botanical-canopy {
-    position: absolute;
+.hero-botanical-canopy{
+    position:absolute;
 
-    top: -2px;
-    left: 50%;
+    top:-2px;
+    left:50%;
 
-    width: 118%;
-    height: auto;
+    width:118%;
+    height:auto;
 
-    transform: translateX(-50%);
+    transform:translateX(-50%);
 
-    opacity: 0.88;
+    opacity:0.88;
 
-    z-index: 2;
+    z-index:2;
 }
 
 
 /* ---------- BOTTOM CORNERS ---------- */
 
-.hero-botanical-corner {
-    position: absolute;
-    width: 220px;
-    height: auto;
-    bottom: -38px;
-    opacity: 0.95;
-    z-index: 20;
+.hero-botanical-corner{
+    position:absolute;
+
+    width:220px;
+    height:auto;
+
+    bottom:-38px;
+
+    opacity:0.95;
+
+    /*
+       Wave = z-index 10
+       Hoa = z-index 20
+       → hoa luôn nằm trên wave
+    */
+    z-index:20;
 }
 
 
-/* LEFT */
+/* ---------- LEFT ---------- */
 
-.hero-botanical-left {
-    left: -55px;
-    transform: rotate(-8deg);
+.hero-botanical-left{
+    left:-55px;
+
+    transform:rotate(-8deg);
 }
 
 
-/* RIGHT */
+/* ---------- RIGHT ---------- */
 
-.hero-botanical-right {
-    right: -55px;
+.hero-botanical-right{
+    right:-55px;
+
     transform:
         scaleX(-1)
         rotate(-8deg);
@@ -660,52 +686,40 @@ z-index:1;
 
 
 /* ==========================================================
-   HERO — MOBILE
+   HERO — WAVE
 ========================================================== */
 
-@media (max-width: 480px) {
-
-    .hero-botanical-canopy {
-        width: 125%;
-        top: -2px;
-    }
-
-    .hero-botanical-corner {
-    width: 205px;
-    bottom: -34px;
-    }
-
-  .hero-botanical-left {
-    left: -52px;
-}
-
-.hero-botanical-right {
-    right: -52px;
-}
-
-/* ------------------------------
-   Wave
--------------------------------- */
-
 .hero-wave{
-position:relative;
-margin-top:-100px;
-line-height:0;
-z-index:10;
+    position:relative;
+
+    /*
+       Ăn sâu vào ảnh Hero
+       để không tạo cảm giác ảnh bị cắt đôi
+    */
+    margin-top:-100px;
+
+    line-height:0;
+
+    z-index:10;
 }
 
 .hero-wave svg{
     display:block;
+
     width:100%;
     height:110px;
 }
 
-/* ------------------------------
-   Content
--------------------------------- */
+.hero-wave svg path{
+    fill:#ffffff;
+}
+
+
+/* ==========================================================
+   HERO — CONTENT
+========================================================== */
 
 .hero-content{
-
     position:relative;
 
     max-width:460px;
@@ -715,15 +729,14 @@ z-index:10;
     padding:36px 26px 80px;
 
     text-align:center;
-
 }
+
 
 /* ------------------------------
    Monogram
 -------------------------------- */
 
 .hero-monogram{
-
     margin:12px 0 26px;
 
     font-size:4rem;
@@ -735,15 +748,14 @@ z-index:10;
     letter-spacing:.08em;
 
     font-weight:600;
-
 }
+
 
 /* ------------------------------
    Name
 -------------------------------- */
 
 .hero-name{
-
     margin:0;
 
     color:var(--color-primary);
@@ -753,15 +765,14 @@ z-index:10;
     line-height:1.35;
 
     font-weight:600;
-
 }
+
 
 /* ------------------------------
    Date
 -------------------------------- */
 
 .hero-date{
-
     margin-top:24px;
 
     font-size:1rem;
@@ -769,15 +780,14 @@ z-index:10;
     letter-spacing:.08em;
 
     color:var(--color-text);
-
 }
+
 
 /* ------------------------------
    Quote
 -------------------------------- */
 
 .hero-quote{
-
     max-width:330px;
 
     margin:32px auto 0;
@@ -791,98 +801,122 @@ z-index:10;
     color:var(--color-primary);
 
     opacity:.92;
-
 }
+
 
 /* ------------------------------
    Decoration
 -------------------------------- */
 
 .hero-content::before{
-
     content:"";
 
     position:absolute;
 
     left:-10px;
-
     bottom:70px;
 
     width:110px;
-
     height:110px;
 
     background-repeat:no-repeat;
-
     background-size:contain;
 
     opacity:.16;
-
 }
 
 .hero-content::after{
-
     content:"";
 
     position:absolute;
 
     right:-10px;
-
     top:18px;
 
     width:95px;
-
     height:95px;
 
     background-repeat:no-repeat;
-
     background-size:contain;
 
     opacity:.16;
-
 }
 
-/* ------------------------------
-   Mobile
--------------------------------- */
+
+/* ==========================================================
+   HERO — TABLET / MOBILE
+========================================================== */
 
 @media (max-width:768px){
 
     .hero-media{
-
         height:380px;
+    }
 
 }
 
-}
+
+/* ==========================================================
+   HERO — MOBILE
+   Giữ nguyên bố cục mobile hiện tại
+========================================================== */
 
 @media (max-width:480px){
 
-    .hero-media{
-
-        height:340px;
-
+    #hero{
+        background-image:url("assets/images/background/hero-mobile.png");
+        background-repeat:no-repeat;
+        background-position:center top;
+        background-size:100% auto;
     }
+
+
+    .hero-media{
+        height:340px;
+    }
+
+
+    .hero-botanical-canopy{
+        width:125%;
+        top:-2px;
+    }
+
+
+    .hero-botanical-corner{
+        width:205px;
+        bottom:-34px;
+
+        opacity:0.95;
+        z-index:20;
+    }
+
+
+    .hero-botanical-left{
+        left:-52px;
+    }
+
+
+    .hero-botanical-right{
+        right:-52px;
+    }
+
 
     .hero-monogram{
-
         font-size:3.4rem;
-
     }
+
 
     .hero-name{
-
         font-size:2.15rem;
-
     }
 
+
     .hero-quote{
-
         font-size:1.55rem;
-
     }
 
 }
+
 
 /* ==========================================================================
    OPENING
@@ -7392,26 +7426,4 @@ footer.footer-text-visible .footer-date {
 }
 
 
-/* ==========================================================
-   HERO — RESPONSIVE BACKGROUND
-   Giữ nguyên hero photo + botanical decorations hiện tại
-========================================================== */
 
-#hero {
-    background-image: url("assets/images/background/hero-desktop.png");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 100% auto;
-}
-
-
-@media (max-width: 767px) {
-
-    #hero {
-        background-image: url("assets/images/background/hero-mobile.png");
-        background-repeat: no-repeat;
-        background-position: center top;
-        background-size: 100% auto;
-    }
-
-}
