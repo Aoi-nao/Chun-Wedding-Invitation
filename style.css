@@ -580,7 +580,7 @@ section{
        Không phóng thêm ảnh.
     */
     object-fit:cover;
-    object-position:center;
+    object-position:45% 60%;
 
     transform:scale(1);
 }
