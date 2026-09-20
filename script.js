@@ -819,9 +819,10 @@ function getCeremonyValue(data, path) {
 }
 
 
-
 /* ==========================================================
    GALLERY — RENDER & AUTO DETECT IMAGE RATIO
+   Tự tạo bitmap vừa đủ cho web để tránh browser phải
+   raster lại ảnh gốc quá lớn khi scroll quay lại.
 ========================================================== */
 
 function renderGallery() {
@@ -846,169 +847,330 @@ function renderGallery() {
         return;
     }
 
-
-    /* ======================================================
-       CLEAR CURRENT GALLERY
-    ====================================================== */
-
     galleryGrid.innerHTML = "";
 
 
-    /* ======================================================
-       CREATE IMAGE ITEMS
-       Ảnh được preload trước khi đưa vào Gallery.
-       Không giới hạn số lượng ảnh.
-    ====================================================== */
+    /*
+       Giới hạn kích thước bitmap dùng trong Gallery.
 
-    galleryData.forEach((imageSource, index) => {
+       Không ảnh nào được phóng to.
+       Ảnh nhỏ hơn giới hạn sẽ giữ nguyên.
+       Ảnh lớn hơn sẽ được thu nhỏ theo đúng tỷ lệ.
 
-        if (!imageSource) {
-            return;
-        }
-
-
-        const item =
-            document.createElement("div");
-
-        item.className =
-            "gallery-item";
+       1800px đủ cho Gallery trên desktop + màn hình
+       retina mà vẫn giảm đáng kể kích thước bitmap.
+    */
+    const MAX_GALLERY_SIZE = 1800;
 
 
-        const image =
-            document.createElement("img");
-
-        image.src =
-            imageSource;
-
-        image.alt =
-            `Khoảnh khắc ${index + 1}`;
-
-        /*
-           Gallery luôn tải ảnh sớm.
-           Không dùng lazy loading ở đây vì Gallery
-           cần sẵn sàng trước khi người dùng scroll tới.
-        */
-        image.loading =
-            "eager";
-
-        image.decoding =
-            "sync";
+    /*
+       Giữ các blob URL để browser không thu hồi
+       bản ảnh đã chuẩn bị trong lúc trang đang mở.
+    */
+    const galleryBlobUrls = [];
 
 
-        /* ==================================================
-           AUTO DETECT IMAGE RATIO
+    /*
+       Tạo bản bitmap web từ ảnh gốc.
+       Không thay đổi file gốc trong repository.
+    */
+    const prepareGalleryImage = (imageSource) => {
 
-           naturalWidth / naturalHeight được lấy khi
-           ảnh đã tải. Sau đó tỷ lệ thật được ghi trực tiếp
-           vào item để browser giữ đúng chiều cao.
-        ================================================== */
+        return new Promise((resolve) => {
 
-        const applyImageRatio = () => {
+            const sourceImage =
+                new Image();
 
-            const width =
-                image.naturalWidth;
+            sourceImage.decoding =
+                "async";
 
-            const height =
-                image.naturalHeight;
+            sourceImage.onload = () => {
 
-            if (
-                !width ||
-                !height
-            ) {
+                const sourceWidth =
+                    sourceImage.naturalWidth;
+
+                const sourceHeight =
+                    sourceImage.naturalHeight;
+
+                if (
+                    !sourceWidth ||
+                    !sourceHeight
+                ) {
+                    resolve(imageSource);
+                    return;
+                }
+
+
+                /*
+                   Ảnh đã đủ nhỏ →
+                   dùng nguyên bản, không xử lý lại.
+                */
+                if (
+                    Math.max(
+                        sourceWidth,
+                        sourceHeight
+                    ) <= MAX_GALLERY_SIZE
+                ) {
+                    resolve(imageSource);
+                    return;
+                }
+
+
+                const scale =
+                    MAX_GALLERY_SIZE /
+                    Math.max(
+                        sourceWidth,
+                        sourceHeight
+                    );
+
+                const targetWidth =
+                    Math.round(
+                        sourceWidth * scale
+                    );
+
+                const targetHeight =
+                    Math.round(
+                        sourceHeight * scale
+                    );
+
+
+                const canvas =
+                    document.createElement(
+                        "canvas"
+                    );
+
+                canvas.width =
+                    targetWidth;
+
+                canvas.height =
+                    targetHeight;
+
+
+                const context =
+                    canvas.getContext(
+                        "2d"
+                    );
+
+                if (!context) {
+                    resolve(imageSource);
+                    return;
+                }
+
+
+                context.drawImage(
+                    sourceImage,
+                    0,
+                    0,
+                    targetWidth,
+                    targetHeight
+                );
+
+
+                /*
+                   Gallery hiện tại dùng ảnh JPG.
+                   Dùng JPEG để bitmap sau khi resize
+                   nhỏ hơn đáng kể so với ảnh gốc.
+                */
+                canvas.toBlob(
+                    (blob) => {
+
+                        if (!blob) {
+                            resolve(imageSource);
+                            return;
+                        }
+
+                        const blobUrl =
+                            URL.createObjectURL(
+                                blob
+                            );
+
+                        galleryBlobUrls.push(
+                            blobUrl
+                        );
+
+                        resolve(
+                            blobUrl
+                        );
+
+                    },
+                    "image/jpeg",
+                    0.88
+                );
+
+            };
+
+
+            sourceImage.onerror = () => {
+                resolve(imageSource);
+            };
+
+
+            sourceImage.src =
+                imageSource;
+
+        });
+
+    };
+
+
+    /*
+       Tạo từng Gallery item.
+       Animation và layout vẫn giữ nguyên.
+    */
+    galleryData.forEach(
+        (imageSource, index) => {
+
+            if (!imageSource) {
                 return;
             }
 
 
-            const ratio =
-                width / height;
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+            item.className =
+                "gallery-item";
+
+
+            const image =
+                document.createElement(
+                    "img"
+                );
+
+
+            image.alt =
+                `Khoảnh khắc ${index + 1}`;
+
+
+            image.loading =
+                "eager";
+
+
+            image.decoding =
+                "sync";
 
 
             /*
-               Giữ đúng tỷ lệ thật của ảnh.
-               Không cần khai báo kích thước từng ảnh.
+               Tỷ lệ được lấy từ bitmap cuối cùng
+               mà Gallery thực sự sử dụng.
             */
-            item.style.aspectRatio =
-                `${width} / ${height}`;
+            const applyImageRatio = () => {
+
+                const width =
+                    image.naturalWidth;
+
+                const height =
+                    image.naturalHeight;
+
+                if (
+                    !width ||
+                    !height
+                ) {
+                    return;
+                }
 
 
-            /* ------------------------------------------
-               PORTRAIT
-            ------------------------------------------ */
-
-            if (ratio < 0.88) {
-
-                item.classList.add(
-                    "is-vertical"
-                );
-
-            }
+                const ratio =
+                    width / height;
 
 
-            /* ------------------------------------------
-               LANDSCAPE
-            ------------------------------------------ */
-
-            else if (ratio > 1.12) {
-
-                item.classList.add(
-                    "is-horizontal"
-                );
-
-            }
+                item.style.aspectRatio =
+                    `${width} / ${height}`;
 
 
-            /* ------------------------------------------
-               SQUARE / NEAR SQUARE
-            ------------------------------------------ */
+                if (ratio < 0.88) {
 
-            else {
+                    item.classList.add(
+                        "is-vertical"
+                    );
 
-                item.classList.add(
-                    "is-square"
-                );
+                } else if (ratio > 1.12) {
 
-            }
+                    item.classList.add(
+                        "is-horizontal"
+                    );
 
-        };
+                } else {
+
+                    item.classList.add(
+                        "is-square"
+                    );
+
+                }
+
+            };
 
 
-        /*
-           Nếu ảnh đã nằm trong cache → lấy kích thước ngay.
-        */
-        if (image.complete) {
+            /*
+               Chuẩn bị bitmap trước khi đưa vào
+               Gallery để animation hiện tại vẫn
+               bắt đầu trên ảnh đã sẵn sàng.
+            */
+            prepareGalleryImage(
+                imageSource
+            ).then(
+                (preparedSource) => {
 
-            applyImageRatio();
+                    image.src =
+                        preparedSource;
 
-        } else {
 
-            image.addEventListener(
-                "load",
-                applyImageRatio,
-                { once: true }
+                    if (image.complete) {
+
+                        applyImageRatio();
+
+                    } else {
+
+                        image.addEventListener(
+                            "load",
+                            applyImageRatio,
+                            {
+                                once: true
+                            }
+                        );
+
+                    }
+
+                }
+            );
+
+
+            item.appendChild(
+                image
+            );
+
+            galleryGrid.appendChild(
+                item
             );
 
         }
+    );
 
 
-        item.appendChild(image);
+    /*
+       Giải phóng blob URL khi rời trang.
+       Không ảnh hưởng đến Gallery đang hiển thị.
+    */
+    window.addEventListener(
+        "beforeunload",
+        () => {
 
-        galleryGrid.appendChild(item);
+            galleryBlobUrls.forEach(
+                (url) => {
+                    URL.revokeObjectURL(
+                        url
+                    );
+                }
+            );
 
-    });
-    const galleryImages =
-        galleryGrid.querySelectorAll(
-            ".gallery-item img"
-        );
-
-    galleryImages.forEach((image) => {
-
-        if (
-            typeof image.decode === "function"
-        ) {
-            image.decode().catch(() => {});
+        },
+        {
+            once: true
         }
+    );
 
-    });
 }
 
 
