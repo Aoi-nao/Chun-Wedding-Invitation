@@ -52,16 +52,11 @@ const WeddingData = {
     image: "assets/images/hero.JPG"
     },
 
-    invitation: {
-        title: "Một ngày đặc biệt, một khoảnh khắc đáng nhớ",
-        content: [
-            "Chúng mình rất hạnh phúc",
-            "khi được chia sẻ niềm vui này",
-            "cùng bạn",
-            "Gia đình hai bên",
-            "trân trọng kính mời..."
-        ]
-    },
+  invitation: {
+    title: "Một ngày đặc biệt, một khoảnh khắc đáng nhớ",
+    message: "Chúng mình rất hạnh phúc khi được chia sẻ niềm vui này cùng bạn",
+    invite: "Gia đình hai bên trân trọng kính mời..."
+},
 
    ceremony: {
 
