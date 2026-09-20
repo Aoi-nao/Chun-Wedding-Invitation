@@ -1213,18 +1213,18 @@ function initGalleryAnimation() {
        Ảnh đã sẵn sàng → reveal ngay.
        Ảnh chưa sẵn sàng → chờ decode.
     */
-   if (!image) {
+if (!image) {
 
     reveal();
 
 } else {
 
-    const waitForDecode =
-        image.decode
+    const decodePromise =
+        typeof image.decode === "function"
             ? image.decode()
             : Promise.resolve();
 
-    waitForDecode
+    decodePromise
         .then(reveal)
         .catch(reveal);
 
