@@ -551,7 +551,8 @@ function initCoupleAnimation() {
 
         },
         {
-            threshold: 0.35
+    threshold: 0,
+    rootMargin: "0px 0px -140px 0px"
         }
     );
 
