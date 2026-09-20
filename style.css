@@ -3831,8 +3831,14 @@ section{
         rgba(35,55,38,0.10);
 
     isolation: isolate;
-}
 
+    /*
+       Giữ mỗi ảnh Gallery trong một paint layer riêng.
+       Khi scroll ra ngoài rồi quay lại, browser không phải
+       repaint lại toàn bộ Gallery cùng lúc.
+    */
+    contain: paint;
+}
 .gallery-item img {
     display: block;
 
