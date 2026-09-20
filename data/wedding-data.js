@@ -123,10 +123,6 @@ const WeddingData = {
         maxGuests: 5
     },
 
-    wishes: [
-
-    ],
-
     music: {
     src: "assets/music/wedding-music.mp3",
     autoplay: true,
