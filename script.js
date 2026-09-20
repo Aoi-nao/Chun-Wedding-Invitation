@@ -2004,6 +2004,23 @@ document.addEventListener("DOMContentLoaded", () => {
         giftQrGroom.src =
             data.gift.groom.qr;
     }
+
+    // NHÃN QR
+    const giftBrideTitle =
+        document.getElementById("giftBrideTitle");
+
+    if (giftBrideTitle) {
+        giftBrideTitle.textContent = "CÔ DÂU";
+    }
+
+    const giftGroomTitle =
+        document.getElementById("giftGroomTitle");
+
+    if (giftGroomTitle) {
+        giftGroomTitle.textContent = "CHÚ RỂ";
+    }
+
+    
     // =========================
     // WISHES
     // =========================
