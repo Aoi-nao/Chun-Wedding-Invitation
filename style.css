@@ -3809,7 +3809,10 @@ section{
 
     align-items: start;
 }
-
+.gallery-frozen .gallery-grid {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+}
 
 /* ==========================================================
    IMAGE ITEM
@@ -3830,7 +3833,7 @@ section{
         0 8px 26px
         rgba(35,55,38,0.10);
 
-    isolation: isolate;
+    isolation: auto;
 
 }
 .gallery-item img {
