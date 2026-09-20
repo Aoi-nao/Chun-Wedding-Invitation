@@ -27,7 +27,7 @@ const GIFT_WISHES_DATA = {
             name: "Tên cô dâu",
             bankName: "Tên ngân hàng",
             accountNumber: "XXXXXXXXXX",
-            qr: "assets/images/qr-bride.png"
+            qr: "assets/images/qr/qr-bride.jpg"
         },
 
 
@@ -39,7 +39,7 @@ const GIFT_WISHES_DATA = {
             name: "Tên chú rể",
             bankName: "Tên ngân hàng",
             accountNumber: "XXXXXXXXXX",
-            qr: "assets/images/qr-groom.png"
+            qr: "assets/images/qr/qr-groom.jpg"
         },
 
 
