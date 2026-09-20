@@ -892,7 +892,7 @@ function renderGallery() {
             "eager";
 
         image.decoding =
-            "async";
+            "sync";
 
 
         /* ==================================================
