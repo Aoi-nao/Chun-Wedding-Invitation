@@ -3755,9 +3755,8 @@ section{
 
     object-fit: contain;
 
-    opacity: 0.38;
-
-    filter: saturate(0.60);
+    opacity: 0.85;
+    filter: saturate(0.75);
 }
 
 
@@ -3784,9 +3783,8 @@ section{
 
     object-fit: contain;
 
-    opacity: 0.48;
-
-    filter: saturate(0.60);
+    opacity: 0.95;
+    filter: saturate(0.75);
 
     transform: rotate(-8deg);
 }
