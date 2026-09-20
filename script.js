@@ -1156,7 +1156,6 @@ function initCountdownTextReveal() {
 /* ==========================================================
    GALLERY — EDITORIAL REVEAL
 ========================================================== */
-
 function initGalleryAnimation() {
 
     const gallery =
@@ -1175,6 +1174,7 @@ function initGalleryAnimation() {
         return;
     }
 
+    let galleryFinished = false;
 
     const observer =
         new IntersectionObserver(
@@ -1182,85 +1182,80 @@ function initGalleryAnimation() {
 
                 entries.forEach((entry) => {
 
-    if (!entry.isIntersecting) {
-        return;
-    }
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
 
-    const item =
-        entry.target;
+                    const item =
+                        entry.target;
 
-    const image =
-        item.querySelector("img");
+                    const image =
+                        item.querySelector("img");
 
-    const index =
-        Number(
-            item.dataset.galleryIndex || 0
-        );
+                    const index =
+                        Number(
+                            item.dataset.galleryIndex || 0
+                        );
 
+                    /*
+                       Gallery đã hoàn tất trước đó →
+                       không chạy animation lại.
+                    */
+                    if (galleryFinished) {
+                        item.classList.add(
+                            "is-visible"
+                        );
 
-    /*
-       Mỗi ảnh có một nhịp rất nhẹ.
-       Chỉ bắt đầu reveal sau khi ảnh
-       đã load / decode xong.
-    */
-    const reveal = () => {
+                        observer.unobserve(item);
+                        return;
+                    }
 
-        const delay =
-            Math.min(
-                index * 90,
-                420
-            );
+                    /*
+                       Mỗi ảnh vẫn giữ nguyên nhịp
+                       animation hiện tại.
+                    */
+                    const reveal = () => {
 
-        setTimeout(() => {
+                        const delay =
+                            Math.min(
+                                index * 90,
+                                420
+                            );
 
-    item.classList.add(
-        "is-visible"
-    );
+                        setTimeout(() => {
 
-    if (
-        index === items.length - 1
-    ) {
+                            item.classList.add(
+                                "is-visible"
+                            );
 
-        setTimeout(() => {
+                        }, delay);
 
-            gallery.classList.add(
-                "gallery-frozen"
-            );
+                    };
 
-        }, 1300);
+                    /*
+                       Ảnh chưa sẵn sàng →
+                       chờ decode xong rồi mới reveal.
+                    */
+                    if (!image) {
 
-    }
+                        reveal();
 
-}, delay);
+                    } else {
 
-    };
+                        const decodePromise =
+                            typeof image.decode === "function"
+                                ? image.decode()
+                                : Promise.resolve();
 
+                        decodePromise
+                            .then(reveal)
+                            .catch(reveal);
 
-    /*
-       Ảnh đã sẵn sàng → reveal ngay.
-       Ảnh chưa sẵn sàng → chờ decode.
-    */
-if (!image) {
+                    }
 
-    reveal();
+                    observer.unobserve(item);
 
-} else {
-
-    const decodePromise =
-        typeof image.decode === "function"
-            ? image.decode()
-            : Promise.resolve();
-
-    decodePromise
-        .then(reveal)
-        .catch(reveal);
-
-}
-
-
-    observer.unobserve(item);
-
-});
+                });
 
             },
             {
@@ -1279,6 +1274,61 @@ if (!image) {
 
         }
     );
+
+
+    /*
+       Sau khi toàn bộ ảnh đã reveal,
+       khóa Gallery ở trạng thái ổn định.
+
+       Không thay đổi layout.
+       Không thay đổi animation lần đầu.
+       Chỉ ngăn browser chạy lại trạng thái
+       chuyển động khi quay lại Gallery.
+    */
+    const freezeGallery = () => {
+
+        if (galleryFinished) {
+            return;
+        }
+
+        const visibleItems =
+            gallery.querySelectorAll(
+                ".gallery-item.is-visible"
+            );
+
+        if (
+            visibleItems.length ===
+            items.length
+        ) {
+
+            galleryFinished = true;
+
+            gallery.classList.add(
+                "gallery-frozen"
+            );
+
+        }
+
+    };
+
+
+    /*
+       Kiểm tra sau khi nhịp animation cuối
+       đã hoàn tất.
+    */
+    const freezeTimer =
+        setInterval(() => {
+
+            freezeGallery();
+
+            if (galleryFinished) {
+                clearInterval(
+                    freezeTimer
+                );
+            }
+
+        }, 100);
+
 
 }
 
