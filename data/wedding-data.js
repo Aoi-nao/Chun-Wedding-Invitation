@@ -53,7 +53,7 @@ const WeddingData = {
     },
 
   invitation: {
-    title: "Một ngày đặc biệt, một khoảnh khắc đáng nhớ",
+    title: "Một ngày đặc biệt,\nmột khoảnh khắc đáng nhớ",
     message: "Chúng mình rất hạnh phúc khi được chia sẻ niềm vui này cùng bạn",
     invite: "Gia đình hai bên trân trọng kính mời..."
 },
