@@ -1213,11 +1213,25 @@ function initGalleryAnimation() {
 
         setTimeout(() => {
 
-            item.classList.add(
-                "is-visible"
+    item.classList.add(
+        "is-visible"
+    );
+
+    if (
+        index === items.length - 1
+    ) {
+
+        setTimeout(() => {
+
+            gallery.classList.add(
+                "gallery-frozen"
             );
 
-        }, delay);
+        }, 1300);
+
+    }
+
+}, delay);
 
     };
 
