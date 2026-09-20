@@ -1213,17 +1213,22 @@ function initGalleryAnimation() {
        Ảnh đã sẵn sàng → reveal ngay.
        Ảnh chưa sẵn sàng → chờ decode.
     */
-    if (!image || image.complete) {
+   if (!image) {
 
-        reveal();
+    reveal();
 
-    } else {
+} else {
 
-        image.decode()
-            .then(reveal)
-            .catch(reveal);
+    const waitForDecode =
+        image.decode
+            ? image.decode()
+            : Promise.resolve();
 
-    }
+    waitForDecode
+        .then(reveal)
+        .catch(reveal);
+
+}
 
 
     observer.unobserve(item);
@@ -2575,23 +2580,56 @@ function initializeOpeningPreload() {
         WeddingData.bride.avatar
     ].filter(Boolean);
 
-
+const galleryImages =
+    Array.isArray(WeddingData.gallery)
+        ? WeddingData.gallery.filter(Boolean)
+        : [];
+    
     const preloadImage = (src) => {
 
-        return new Promise((resolve) => {
+    return new Promise((resolve) => {
 
-            const image = new Image();
+        const image = new Image();
 
-            image.onload = resolve;
-            image.onerror = resolve;
+        image.onload = () => {
 
-            image.src = src;
+            /*
+               Tải xong chưa đồng nghĩa bitmap đã
+               decode xong. Chờ decode nếu browser hỗ trợ.
+            */
+            if (typeof image.decode === "function") {
 
-        });
+                image.decode()
+                    .catch(() => {})
+                    .finally(resolve);
 
-    };
+            } else {
 
+                resolve();
 
+            }
+
+        };
+
+        image.onerror = resolve;
+
+        image.src = src;
+
+    });
+
+};
+
+/*
+   Gallery được preload song song trong background.
+
+   KHÔNG đưa galleryImages vào Promise.all bên dưới,
+   để người dùng không phải chờ toàn bộ Gallery
+   mới được bấm MỞ THIỆP.
+*/
+galleryImages.forEach((src) => {
+    preloadImage(src);
+});
+    
     Promise.all(
         criticalImages.map(preloadImage)
     ).then(() => {
