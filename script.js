@@ -995,7 +995,20 @@ function renderGallery() {
         galleryGrid.appendChild(item);
 
     });
+    const galleryImages =
+        galleryGrid.querySelectorAll(
+            ".gallery-item img"
+        );
 
+    galleryImages.forEach((image) => {
+
+        if (
+            typeof image.decode === "function"
+        ) {
+            image.decode().catch(() => {});
+        }
+
+    });
 }
 
 
