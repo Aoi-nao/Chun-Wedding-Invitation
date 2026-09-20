@@ -26,6 +26,8 @@ function initializeApp() {
     renderHero();
 
     initHeroTextReveal();
+
+    renderInvitation();
     
     renderCouple();
 
@@ -422,6 +424,42 @@ function renderHero() {
 
 }
 
+/* ==========================================================
+   INVITATION
+========================================================== */
+
+function renderInvitation() {
+
+    const invitation = document.getElementById("invitation");
+
+    if (!invitation || typeof WeddingData === "undefined") {
+        return;
+    }
+
+    const data = WeddingData.invitation;
+
+    if (!data) {
+        return;
+    }
+
+    const title = invitation.querySelector(".invitation-title");
+    const message = invitation.querySelector(".invitation-message");
+    const invite = invitation.querySelector(".invitation-invite");
+
+    if (title) {
+        title.innerHTML =
+            (data.title || "").replace(/\n/g, "<br>");
+    }
+
+    if (message) {
+        message.textContent = data.message || "";
+    }
+
+    if (invite) {
+        invite.textContent = data.invite || "";
+    }
+
+}
 
 
 /* ==========================================================
