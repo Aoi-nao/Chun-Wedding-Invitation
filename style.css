@@ -2268,7 +2268,7 @@ section{
     width: 260px;
     height: 260px;
 
-    top: -5x;
+    top: -5px;
     right: -50px;
 
     background-image:
@@ -2378,14 +2378,24 @@ section{
 .countdown-divider::before,
 .countdown-divider::after {
     content: "";
-
     flex: 1;
-
     height: 1px;
-
     background: var(--color-accent);
-
-    opacity: 0.48;
+    opacity: 0.42;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 18%,
+        black 82%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 18%,
+        black 82%,
+        transparent
+    );
 }
 
 .countdown-divider span {
