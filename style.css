@@ -3833,42 +3833,180 @@ section{
     isolation: isolate;
 }
 
+function renderGallery() {
 
-/* ==========================================================
-   IMAGE
-========================================================== */
+    const gallerySection =
+        document.getElementById("gallery");
 
-.gallery-item img {
-    display: block;
+    const galleryGrid =
+        document.getElementById("galleryGrid");
 
-    width: 100%;
-    height: auto;
+    if (!gallerySection || !galleryGrid) {
+        return;
+    }
 
-    object-fit: contain;
+    const galleryData =
+        WeddingData.gallery;
 
-    opacity: 0;
+    if (
+        !Array.isArray(galleryData) ||
+        galleryData.length === 0
+    ) {
+        return;
+    }
 
-    transform:
-        scale(0.985)
-        translateY(8px);
 
-    transition:
-        opacity 1.25s ease,
-        transform 1.25s cubic-bezier(
-            .22,
-            1,
-            .36,
-            1
-        );
+    /* ======================================================
+       CLEAR CURRENT GALLERY
+    ====================================================== */
+
+    galleryGrid.innerHTML = "";
+
+
+    /* ======================================================
+       CREATE IMAGE ITEMS
+       Ảnh được preload trước khi đưa vào Gallery.
+       Không giới hạn số lượng ảnh.
+    ====================================================== */
+
+    galleryData.forEach((imageSource, index) => {
+
+        if (!imageSource) {
+            return;
+        }
+
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "gallery-item";
+
+
+        const image =
+            document.createElement("img");
+
+        image.src =
+            imageSource;
+
+        image.alt =
+            `Khoảnh khắc ${index + 1}`;
+
+        /*
+           Gallery luôn tải ảnh sớm.
+           Không dùng lazy loading ở đây vì Gallery
+           cần sẵn sàng trước khi người dùng scroll tới.
+        */
+        image.loading =
+            "eager";
+
+        image.decoding =
+            "async";
+
+
+        /* ==================================================
+           AUTO DETECT IMAGE RATIO
+
+           naturalWidth / naturalHeight được lấy khi
+           ảnh đã tải. Sau đó tỷ lệ thật được ghi trực tiếp
+           vào item để browser giữ đúng chiều cao.
+        ================================================== */
+
+        const applyImageRatio = () => {
+
+            const width =
+                image.naturalWidth;
+
+            const height =
+                image.naturalHeight;
+
+            if (
+                !width ||
+                !height
+            ) {
+                return;
+            }
+
+
+            const ratio =
+                width / height;
+
+
+            /*
+               Giữ đúng tỷ lệ thật của ảnh.
+               Không cần khai báo kích thước từng ảnh.
+            */
+            item.style.aspectRatio =
+                `${width} / ${height}`;
+
+
+            /* ------------------------------------------
+               PORTRAIT
+            ------------------------------------------ */
+
+            if (ratio < 0.88) {
+
+                item.classList.add(
+                    "is-vertical"
+                );
+
+            }
+
+
+            /* ------------------------------------------
+               LANDSCAPE
+            ------------------------------------------ */
+
+            else if (ratio > 1.12) {
+
+                item.classList.add(
+                    "is-horizontal"
+                );
+
+            }
+
+
+            /* ------------------------------------------
+               SQUARE / NEAR SQUARE
+            ------------------------------------------ */
+
+            else {
+
+                item.classList.add(
+                    "is-square"
+                );
+
+            }
+
+        };
+
+
+        /*
+           Nếu ảnh đã nằm trong cache → lấy kích thước ngay.
+        */
+        if (image.complete) {
+
+            applyImageRatio();
+
+        } else {
+
+            image.addEventListener(
+                "load",
+                applyImageRatio,
+                { once: true }
+            );
+
+        }
+
+
+        item.appendChild(image);
+
+        galleryGrid.appendChild(item);
+
+    });
+
 }
 
-.gallery-item.is-visible img {
-    opacity: 1;
-
-    transform:
-        scale(1)
-        translateY(0);
-}
 
 
 /* ==========================================================
@@ -3976,19 +4114,12 @@ section{
 
     .gallery-item img {
         transition:
-            opacity 1.25s ease,
-            transform 1.25s cubic-bezier(
-                .22,
-                1,
-                .36,
-                1
-            );
+            transform 0.6s ease;
     }
 
     .gallery-item:hover img {
         transform:
-            scale(1.018)
-            translateY(0);
+            scale(1.018);
     }
 
 }
@@ -4000,8 +4131,13 @@ section{
 
 @media (prefers-reduced-motion: reduce) {
 
-    .gallery-item img {
+    .gallery-item {
         opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .gallery-item img {
         transform: none;
         transition: none;
     }
