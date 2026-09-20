@@ -1987,7 +1987,23 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("giftOpenMessage").textContent =
         data.gift.openMessage;
 
+    // QR CÔ DÂU
+    const giftQrBride =
+        document.getElementById("giftQrBride");
 
+    if (giftQrBride) {
+        giftQrBride.src =
+            data.gift.bride.qr;
+    }
+
+    // QR CHÚ RỂ
+    const giftQrGroom =
+        document.getElementById("giftQrGroom");
+
+    if (giftQrGroom) {
+        giftQrGroom.src =
+            data.gift.groom.qr;
+    }
     // =========================
     // WISHES
     // =========================
