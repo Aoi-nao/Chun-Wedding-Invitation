@@ -1704,6 +1704,7 @@ function initializeRSVP() {
     ====================================================== */
 
     let count = 1;
+    let isSubmitting = false;
 
     guests.hidden = true;
 
@@ -1856,8 +1857,14 @@ form.addEventListener(
         );
 
 
-        const submitButton =
-    document.getElementById("wishesSubmit");
+        if (isSubmitting) {
+    return;
+}
+
+const submitButton =
+    document.getElementById("rsvpSubmit");
+
+isSubmitting = true;
 
 if (submitButton) {
     submitButton.disabled = true;
