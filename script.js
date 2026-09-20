@@ -856,6 +856,8 @@ function renderGallery() {
 
     /* ======================================================
        CREATE IMAGE ITEMS
+       Ảnh được preload trước khi đưa vào Gallery.
+       Không giới hạn số lượng ảnh.
     ====================================================== */
 
     galleryData.forEach((imageSource, index) => {
@@ -881,10 +883,13 @@ function renderGallery() {
         image.alt =
             `Khoảnh khắc ${index + 1}`;
 
+        /*
+           Gallery luôn tải ảnh sớm.
+           Không dùng lazy loading ở đây vì Gallery
+           cần sẵn sàng trước khi người dùng scroll tới.
+        */
         image.loading =
-            index === 0
-                ? "eager"
-                : "lazy";
+            "eager";
 
         image.decoding =
             "async";
@@ -892,70 +897,97 @@ function renderGallery() {
 
         /* ==================================================
            AUTO DETECT IMAGE RATIO
+
+           naturalWidth / naturalHeight được lấy khi
+           ảnh đã tải. Sau đó tỷ lệ thật được ghi trực tiếp
+           vào item để browser giữ đúng chiều cao.
         ================================================== */
 
-        image.addEventListener(
-            "load",
-            () => {
+        const applyImageRatio = () => {
 
-                const width =
-                    image.naturalWidth;
+            const width =
+                image.naturalWidth;
 
-                const height =
-                    image.naturalHeight;
+            const height =
+                image.naturalHeight;
 
-                if (
-                    !width ||
-                    !height
-                ) {
-                    return;
-                }
+            if (
+                !width ||
+                !height
+            ) {
+                return;
+            }
 
 
-                const ratio =
-                    width / height;
+            const ratio =
+                width / height;
 
 
-                /* ------------------------------------------
-                   PORTRAIT
-                ------------------------------------------ */
-
-                if (ratio < 0.88) {
-
-                    item.classList.add(
-                        "is-vertical"
-                    );
-
-                }
+            /*
+               Giữ đúng tỷ lệ thật của ảnh.
+               Không cần khai báo kích thước từng ảnh.
+            */
+            item.style.aspectRatio =
+                `${width} / ${height}`;
 
 
-                /* ------------------------------------------
-                   LANDSCAPE
-                ------------------------------------------ */
+            /* ------------------------------------------
+               PORTRAIT
+            ------------------------------------------ */
 
-                else if (ratio > 1.12) {
+            if (ratio < 0.88) {
 
-                    item.classList.add(
-                        "is-horizontal"
-                    );
-
-                }
-
-
-                /* ------------------------------------------
-                   SQUARE / NEAR SQUARE
-                ------------------------------------------ */
-
-                else {
-
-                    item.classList.add(
-                        "is-square"
-                    );
-
-                }
+                item.classList.add(
+                    "is-vertical"
+                );
 
             }
-        );
+
+
+            /* ------------------------------------------
+               LANDSCAPE
+            ------------------------------------------ */
+
+            else if (ratio > 1.12) {
+
+                item.classList.add(
+                    "is-horizontal"
+                );
+
+            }
+
+
+            /* ------------------------------------------
+               SQUARE / NEAR SQUARE
+            ------------------------------------------ */
+
+            else {
+
+                item.classList.add(
+                    "is-square"
+                );
+
+            }
+
+        };
+
+
+        /*
+           Nếu ảnh đã nằm trong cache → lấy kích thước ngay.
+        */
+        if (image.complete) {
+
+            applyImageRatio();
+
+        } else {
+
+            image.addEventListener(
+                "load",
+                applyImageRatio,
+                { once: true }
+            );
+
+        }
 
 
         item.appendChild(image);
@@ -965,7 +997,6 @@ function renderGallery() {
     });
 
 }
-
 
 
 
