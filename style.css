@@ -2958,7 +2958,7 @@ section{
         linear-gradient(
             150deg,
             rgba(255, 255, 255, 0.98),
-            rgba(233, 240, 231, 0.78)
+            rgba(233, 240, 231, 0.86)
         );
 
     box-shadow:
@@ -3009,7 +3009,7 @@ section{
 }
 
 /* ----------------------------------------------------------
-   LỄ THÀNH HÔN — LY
+   LỄ THÀNH HÔN — CẶP LY
 ---------------------------------------------------------- */
 
 .ceremony-group-groom .ceremony-card-main-decoration {
@@ -3293,13 +3293,6 @@ section{
 
     width: 11px;
     height: 11px;
-
-    padding: 5px;
-
-    box-sizing: content-box;
-
-    background: var(--color-secondary);
-
     object-fit: contain;
 
     color: var(--color-accent);
@@ -3561,76 +3554,6 @@ section{
 
 
 /* ==========================================================
-   TOP BOTANICAL
-   Baby bên phải + Linh lan bên trái
-========================================================== */
-
-#ceremony::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background-image:
-        url("assets/images/floral/baby-right-top.png"),
-        url("assets/images/floral/linhlan-left.png");
-
-    background-repeat:
-        no-repeat,
-        no-repeat;
-
-    background-position:
-        right -95px top -55px,
-        left -38px top 115px;
-
-    background-size:
-        350px auto,
-        145px auto;
-
-    opacity: 0.19;
-
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* ==========================================================
-   WEDDING DAY — BOTTOM BOTANICAL
-========================================================== */
-
-#ceremony::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background-image:
-        url("assets/images/floral/baby-right-bottom.png"),
-        url("assets/images/floral/baby-bottom-center.png"),
-        url("assets/images/floral/baby-bottom-center.png");
-
-    background-repeat:
-        no-repeat,
-        no-repeat,
-        no-repeat;
-
-    background-position:
-        right -135px bottom 8px,
-        left -5px bottom -120px,
-        left 45px bottom -135px;
-
-    background-size:
-        390px auto,
-        260px auto,
-        220px auto;
-
-    opacity: 0.18;
-
-    pointer-events: none;
-    z-index: 0;
-}
-
-
-/* ==========================================================
    KEEP WEDDING DAY CONTENT ABOVE FLOWERS
 ========================================================== */
 
@@ -3642,39 +3565,6 @@ section{
 }
 
 
-/* ==========================================================
-   MOBILE — SOFTER + MORE CROPPED
-========================================================== */
-
-@media (max-width: 480px) {
-
-    #ceremony::before {
-        background-position:
-            right -100px top -42px,
-            left -48px top 110px;
-
-        background-size:
-            305px auto,
-            125px auto;
-
-        opacity: 0.18;
-    }
-
-   #ceremony::after {
-    background-position:
-        right -110px bottom -2px,
-        left -18px bottom -95px,
-        left 35px bottom -110px;
-
-    background-size:
-        335px auto,
-        225px auto,
-        190px auto;
-
-    opacity: 0.17;
-}
-}
-   
 
 
 
@@ -7477,7 +7367,6 @@ footer.footer-text-visible .footer-date {
 
 /* ==========================================================
    CEREMONY — RESPONSIVE BACKGROUND
-   Giữ nguyên các cụm PNG trang trí hiện tại
 ========================================================== */
 
 #ceremony {
