@@ -4882,9 +4882,6 @@ section{
     height: 100%;
 
     object-fit: contain;
-
-    transform: scale(1.2);
-    transform-origin: center;
 }
 
 .gift-qr-owner {
