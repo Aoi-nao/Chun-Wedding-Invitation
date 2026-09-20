@@ -1138,43 +1138,66 @@ function initGalleryAnimation() {
 
                 entries.forEach((entry) => {
 
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
+    if (!entry.isIntersecting) {
+        return;
+    }
 
-                    const item =
-                        entry.target;
+    const item =
+        entry.target;
 
-                    const index =
-                        Number(
-                            item.dataset.galleryIndex || 0
-                        );
+    const image =
+        item.querySelector("img");
 
-
-                    /*
-                       Mỗi ảnh có một nhịp rất nhẹ.
-                       Không còn hiệu ứng nhóm 2 ảnh.
-                    */
-
-                    const delay =
-                        Math.min(
-                            index * 90,
-                            420
-                        );
+    const index =
+        Number(
+            item.dataset.galleryIndex || 0
+        );
 
 
-                    setTimeout(() => {
+    /*
+       Mỗi ảnh có một nhịp rất nhẹ.
+       Chỉ bắt đầu reveal sau khi ảnh
+       đã load / decode xong.
+    */
+    const reveal = () => {
 
-                        item.classList.add(
-                            "is-visible"
-                        );
+        const delay =
+            Math.min(
+                index * 90,
+                420
+            );
 
-                    }, delay);
+        setTimeout(() => {
+
+            item.classList.add(
+                "is-visible"
+            );
+
+        }, delay);
+
+    };
 
 
-                    observer.unobserve(item);
+    /*
+       Ảnh đã sẵn sàng → reveal ngay.
+       Ảnh chưa sẵn sàng → chờ decode.
+    */
+    if (!image || image.complete) {
 
-                });
+        reveal();
+
+    } else {
+
+        image.decode()
+            .then(reveal)
+            .catch(reveal);
+
+    }
+
+
+    observer.unobserve(item);
+
+});
 
             },
             {
