@@ -2851,9 +2851,9 @@ status.className =
 status.textContent =
     "Đang chuẩn bị thiệp";
 
-    content.appendChild(status);
+content.insertBefore(status, button);
 
-    button.disabled = true;
+button.disabled = true;
     button.setAttribute(
         "aria-disabled",
         "true"
