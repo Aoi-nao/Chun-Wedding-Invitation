@@ -1150,18 +1150,18 @@ section{
 
 /* ----------------------------------------------------------
    NAME REVEAL
-   Hoàng → & → Mai
 ---------------------------------------------------------- */
 
 .opening-name {
     opacity: 0;
-    transform: translateY(12px);
-    filter: blur(4px);
+    transform: translateY(14px);
+    filter: blur(5px);
 
     animation:
-        openingNameReveal 1.15s
+        openingNameReveal
+        1.8s
         cubic-bezier(0.22, 1, 0.36, 1)
-        0.25s
+        0.35s
         forwards;
 
     will-change:
@@ -1174,13 +1174,20 @@ section{
 
     0% {
         opacity: 0;
-        transform: translateY(12px);
-        filter: blur(4px);
+        transform: translateY(14px);
+        filter: blur(5px);
     }
 
-    55% {
-        opacity: 0.72;
-        filter: blur(1.5px);
+    45% {
+        opacity: 0.45;
+        transform: translateY(6px);
+        filter: blur(2.5px);
+    }
+
+    75% {
+        opacity: 0.85;
+        transform: translateY(1px);
+        filter: blur(0.8px);
     }
 
     100% {
@@ -1194,7 +1201,6 @@ section{
 
 /* ----------------------------------------------------------
    OTHER OPENING TEXT
-   Hiện nhẹ sau tên
 ---------------------------------------------------------- */
 
 .opening-title,
@@ -1202,24 +1208,25 @@ section{
     opacity: 0;
 
     animation:
-        openingTextReveal 0.9s
+        openingTextReveal
+        1.2s
         ease
         forwards;
 }
 
 .opening-title {
-    animation-delay: 0.05s;
+    animation-delay: 0.15s;
 }
 
 .opening-date {
-    animation-delay: 0.9s;
+    animation-delay: 1.55s;
 }
 
 @keyframes openingTextReveal {
 
     from {
         opacity: 0;
-        transform: translateY(6px);
+        transform: translateY(7px);
     }
 
     to {
@@ -1232,28 +1239,19 @@ section{
 
 /* ----------------------------------------------------------
    LOADING STATUS
-   Dấu chấm chạy trong lúc preload
 ---------------------------------------------------------- */
 
 .opening-loading-status {
 
     margin: 18px 0 0;
 
-    font-family: "EB Garamond", serif;
-    font-size: 1rem;
-    line-height: 1.5;
-
-    color: rgba(255, 255, 255, 0.82);
-
-    letter-spacing: 0.04em;
-
     opacity: 0;
 
     animation:
         openingLoadingReveal
-        0.8s
+        1s
         ease
-        1.15s
+        2.05s
         forwards;
 }
 
@@ -1261,7 +1259,7 @@ section{
 
     from {
         opacity: 0;
-        transform: translateY(5px);
+        transform: translateY(6px);
     }
 
     to {
@@ -1270,7 +1268,6 @@ section{
     }
 
 }
-
 
 /* ----------------------------------------------------------
    LOADING DOTS
