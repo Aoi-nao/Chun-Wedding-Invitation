@@ -5665,9 +5665,9 @@ section{
     }
 
     .wishes-description {
-        font-size: 17px;
-        line-height: 1.6;
-    }
+    font-size: 16px;
+    line-height: 1.65;
+}
 
     .wishes-form {
         margin-top: 34px;
