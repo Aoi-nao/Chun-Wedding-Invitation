@@ -5479,7 +5479,7 @@ section{
 
     margin: 4px 0 0;
 
-    font-family: "Caveat", cursive;
+    font-family: "Allura", cursive;
     font-size: 18px;
     line-height: 1.65;
 
@@ -5490,11 +5490,6 @@ section{
 }
 
 
-.wishes-input::placeholder,
-.wishes-textarea::placeholder {
-    font-family: "Caveat", cursive;
-    font-size: 19px;
-}
 
 /* ==========================================================
    TABLET
