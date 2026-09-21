@@ -1143,7 +1143,6 @@ section{
 
 /* ==========================================================
    OPENING ANIMATION
-   Thứ tự:
    WEDDING INVITATION
    → DATE
    → COUPLE NAME
@@ -1155,14 +1154,12 @@ section{
 ---------------------------------------------------------- */
 
 .opening-title {
-    opacity: 0;
-
     animation:
         openingTextReveal
         1.1s
         ease
         0.15s
-        forwards;
+        both;
 }
 
 
@@ -1171,14 +1168,12 @@ section{
 ---------------------------------------------------------- */
 
 .opening-date {
-    opacity: 0;
-
     animation:
         openingTextReveal
         1.1s
         ease
         0.65s
-        forwards;
+        both;
 }
 
 
@@ -1188,7 +1183,7 @@ section{
 ---------------------------------------------------------- */
 
 .opening-name {
-    opacity: 0;
+
     transform: translateY(14px);
     filter: blur(5px);
 
@@ -1197,7 +1192,7 @@ section{
         1.9s
         cubic-bezier(0.22, 1, 0.36, 1)
         1.25s
-        forwards;
+        both;
 
     will-change:
         opacity,
@@ -1239,12 +1234,12 @@ section{
 
 @keyframes openingTextReveal {
 
-    from {
+    0% {
         opacity: 0;
         transform: translateY(7px);
     }
 
-    to {
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
@@ -1259,24 +1254,22 @@ section{
 
     margin: 18px 0 0;
 
-    opacity: 0;
-
     animation:
         openingLoadingReveal
         1s
         ease
         2.35s
-        forwards;
+        both;
 }
 
 @keyframes openingLoadingReveal {
 
-    from {
+    0% {
         opacity: 0;
         transform: translateY(6px);
     }
 
-    to {
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
@@ -1363,29 +1356,28 @@ section{
 
 /* ----------------------------------------------------------
    OPEN BUTTON
-   Hiện sau khi tên gần hoàn tất
+   CSS chỉ animate visual.
+   JS vẫn quyết định disabled / enabled.
 ---------------------------------------------------------- */
 
 .opening-button {
-
-    opacity: 0;
 
     animation:
         openingButtonReveal
         0.9s
         ease
         2.95s
-        forwards;
+        both;
 }
 
 @keyframes openingButtonReveal {
 
-    from {
+    0% {
         opacity: 0;
         transform: translateY(8px);
     }
 
-    to {
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
@@ -1416,8 +1408,6 @@ section{
         content: "";
     }
 }
-
-
 
 /* ==========================================================================
    MUSIC PLAYER
