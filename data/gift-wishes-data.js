@@ -60,7 +60,7 @@ const GIFT_WISHES_DATA = {
 
     wishes: {
 
-        title: "LỜI CHÚC",
+        title: "Lời chúc",
 
         description:
             "Mỗi lời chúc hôm nay sẽ là một điều thật đẹp đồng hành cùng chúng mình trên hành trình mới❤️",
