@@ -2152,10 +2152,8 @@ function initializeWishes() {
     return;
 }
 
-isSubmitting = true;
-
-            const nameInput =
-                document.getElementById("wishName");
+const nameInput =
+    document.getElementById("wishName");
 
             const messageInput =
                 document.getElementById("wishMessage");
@@ -2177,8 +2175,10 @@ isSubmitting = true;
 
 
             if (!name || !message) {
-                return;
-            }
+    return;
+}
+
+isSubmitting = true;
 
 
             const formData =
