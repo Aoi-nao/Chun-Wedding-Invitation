@@ -2835,14 +2835,14 @@ function initializeOpeningPreload() {
         return;
     }
 
-    const status =
-        document.createElement("p");
+   const status =
+    document.createElement("p");
 
-    status.className =
-        "opening-loading-status";
+status.className =
+    "opening-loading-status";
 
-    status.textContent =
-        "Đang chuẩn bị thiệp...";
+status.textContent =
+    "Đang chuẩn bị thiệp";
 
     content.appendChild(status);
 
