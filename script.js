@@ -2957,7 +2957,7 @@ galleryImages.forEach((src) => {
 
     clearInterval(dotTimer);
 
-    status.textContent =
+    status.firstChild.textContent =
         "Thiệp đã sẵn sàng ♡";
 
     status.classList.add(
