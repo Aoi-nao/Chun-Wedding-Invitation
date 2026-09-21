@@ -2836,11 +2836,6 @@ function initializeOpeningPreload() {
     if (!content) {
         return;
     }
-
-    const openingStartTime =
-    performance.now();
-
-const MIN_OPENING_TIME = 3000;
     
    const status =
     document.createElement("p");
