@@ -2846,7 +2846,31 @@ status.className =
 status.textContent =
     "Đang chuẩn bị thiệp";
 
+const dots =
+    document.createElement("span");
+
+dots.className =
+    "opening-loading-dots";
+
+dots.textContent =
+    "";
+
+status.appendChild(dots);
+
 content.insertBefore(status, button);
+
+let dotStep = 0;
+
+const dotTimer =
+    setInterval(() => {
+
+        dotStep =
+            (dotStep + 1) % 4;
+
+        dots.textContent =
+            ".".repeat(dotStep);
+
+    }, 450);
 
 button.disabled = true;
     button.setAttribute(
@@ -2931,12 +2955,14 @@ galleryImages.forEach((src) => {
 
     setTimeout(() => {
 
-        status.textContent =
-            "Thiệp đã sẵn sàng ♡";
+    clearInterval(dotTimer);
 
-        status.classList.add(
-            "is-ready"
-        );
+    status.textContent =
+        "Thiệp đã sẵn sàng ♡";
+
+    status.classList.add(
+        "is-ready"
+    );
 
         button.disabled = false;
 
