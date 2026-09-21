@@ -1830,6 +1830,10 @@ form.addEventListener(
         const formData =
             new URLSearchParams();
 
+        formData.append(
+          "type",
+          "rsvp"
+        );
 
         formData.append(
             "name",
