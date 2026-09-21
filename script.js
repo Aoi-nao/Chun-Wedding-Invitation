@@ -2820,7 +2820,9 @@ function initializeFallingPetals() {
 ========================================================== */
 
 function initializeOpeningPreload() {
-
+    
+    const openingStartTime = performance.now();
+    const MIN_OPENING_TIME = 3000;
     const opening = document.querySelector("#opening");
     const button = document.querySelector("#openInvitation");
 
@@ -2835,6 +2837,11 @@ function initializeOpeningPreload() {
         return;
     }
 
+    const openingStartTime =
+    performance.now();
+
+const MIN_OPENING_TIME = 3000;
+    
    const status =
     document.createElement("p");
 
@@ -2914,8 +2921,20 @@ galleryImages.forEach((src) => {
 });
     
     Promise.all(
-        criticalImages.map(preloadImage)
-    ).then(() => {
+    criticalImages.map(preloadImage)
+).then(() => {
+
+    const elapsed =
+        performance.now() -
+        openingStartTime;
+
+    const remaining =
+        Math.max(
+            0,
+            MIN_OPENING_TIME - elapsed
+        );
+
+    setTimeout(() => {
 
         status.textContent =
             "Thiệp đã sẵn sàng ♡";
@@ -2934,7 +2953,9 @@ galleryImages.forEach((src) => {
             WeddingData.opening.buttonText ||
             "MỞ THIỆP";
 
-    });
+    }, remaining);
+
+});
 
 }
 
