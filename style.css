@@ -5349,7 +5349,7 @@ section{
 
     color: var(--color-text, #35443A);
 
-    font-family: "Allura", cursive;
+    font-family: "Allura", "LXGW WenKai", cursive;font-family: "Allura", cursive;
     font-size: 18px;
     line-height: 1.6;
 
@@ -5664,7 +5664,7 @@ section{
 
     margin: 0;
 
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "LXGW WenKai", serif;
     font-size: 20px;
     line-height: 1.25;
     font-weight: 600;
@@ -5710,7 +5710,7 @@ section{
 
     margin: 4px 0 0;
 
-    font-family: "Allura", cursive;
+    font-family: "Allura", "LXGW WenKai", cursive;
     font-size: 18px;
     line-height: 1.65;
 
