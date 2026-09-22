@@ -2546,8 +2546,7 @@ if (wishesMore) {
 
 if (wishesMore) {
     wishesMore.onclick = () => {
-        wishesList
-           wishesList
+     wishesList
     .querySelectorAll(
         ".wish-item, .wish-flower-gap"
     )
@@ -2751,7 +2750,7 @@ const message =
 message.className =
     "wish-message";
 
-messageElement.textContent = wish.message;
+message.textContent = wish.message;
 
 item.appendChild(avatar);
 item.appendChild(header);
