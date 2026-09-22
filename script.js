@@ -3446,10 +3446,10 @@ function initFooterTextReveal() {
         });
     },
     {
-        threshold: 0.5,
+        threshold: 0.7,
         rootMargin: "0px"
     }
-);
+); 
 
     observer.observe(footer);
 }
