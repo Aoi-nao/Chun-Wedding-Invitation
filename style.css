@@ -5720,7 +5720,9 @@ section{
     word-break: normal;
 }
 
-
+.wish-message-cjk {
+    font-family: "LXGW WenKai", sans-serif;
+}
 
 /* ==========================================================
    TABLET
