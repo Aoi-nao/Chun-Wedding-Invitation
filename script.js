@@ -851,15 +851,249 @@ function renderGallery() {
 
     /*
      * ======================================================
-     * GALLERY IMAGE
+     * GALLERY IMAGE PIPELINE
      *
-     * Dùng trực tiếp ảnh gốc.
+     * Mục tiêu:
+     * - Giữ ảnh sắc nét ở kích thước hiển thị thực tế.
+     * - Không dùng ảnh gốc khổng lồ trực tiếp trong Gallery.
+     * - Không JPEG-compress lại ảnh.
+     * - Tạo bitmap vừa đủ theo màn hình + DPR.
+     * - Giữ Blob URL để browser dùng lại cùng resource.
      *
-     * Không resize bằng Canvas.
-     * Không convert lại sang JPEG.
-     * Không giảm quality.
+     * Không thay đổi animation Gallery.
+     * ======================================================
+     */
+
+    const galleryBlobUrls = [];
+
+    /*
+     * 2.5x kích thước hiển thị:
      *
-     * Kích thước hiển thị vẫn do CSS quyết định.
+     * - đủ dư cho màn hình Retina / DPR cao
+     * - vẫn nhỏ hơn rất nhiều so với ảnh chụp gốc
+     *
+     * Không đặt MAX cố định 1800 nữa.
+     */
+    const DISPLAY_SCALE = 2.5;
+
+    const getTargetWidth = (item) => {
+
+        const rect =
+            item.getBoundingClientRect();
+
+        const displayWidth =
+            rect.width;
+
+        const dpr =
+            Math.min(
+                window.devicePixelRatio || 1,
+                2
+            );
+
+        const targetWidth =
+            Math.ceil(
+                displayWidth *
+                DISPLAY_SCALE *
+                dpr
+            );
+
+        /*
+         * Không để bitmap nhỏ hơn 800px.
+         * Điều này giúp ảnh vẫn đẹp nếu layout
+         * chưa hoàn toàn ổn định ở lần đo đầu tiên.
+         */
+        return Math.max(
+            800,
+            targetWidth
+        );
+
+    };
+
+    const createGalleryBitmap =
+        (imageSource, item, image) => {
+
+            return new Promise(
+                (resolve) => {
+
+                    const sourceImage =
+                        new Image();
+
+                    sourceImage.decoding =
+                        "async";
+
+                    sourceImage.onload = () => {
+
+                        const sourceWidth =
+                            sourceImage.naturalWidth;
+
+                        const sourceHeight =
+                            sourceImage.naturalHeight;
+
+                        if (
+                            !sourceWidth ||
+                            !sourceHeight
+                        ) {
+                            resolve(
+                                imageSource
+                            );
+
+                            return;
+                        }
+
+                        /*
+                         * Đo kích thước card thực tế.
+                         */
+                        const targetWidth =
+                            getTargetWidth(
+                                item
+                            );
+
+                        /*
+                         * Nếu ảnh gốc đã nhỏ hơn
+                         * kích thước cần thiết,
+                         * giữ nguyên ảnh gốc.
+                         *
+                         * Không phóng ảnh nhỏ lên.
+                         */
+                        const outputWidth =
+                            Math.min(
+                                sourceWidth,
+                                targetWidth
+                            );
+
+                        const scale =
+                            outputWidth /
+                            sourceWidth;
+
+                        const outputHeight =
+                            Math.round(
+                                sourceHeight *
+                                scale
+                            );
+
+                        /*
+                         * Nếu kích thước cần thiết gần bằng
+                         * ảnh gốc, dùng luôn ảnh gốc.
+                         *
+                         * Không tạo thêm Blob không cần thiết.
+                         */
+                        if (
+                            outputWidth >=
+                            sourceWidth * 0.92
+                        ) {
+                            resolve(
+                                imageSource
+                            );
+
+                            return;
+                        }
+
+                        const canvas =
+                            document.createElement(
+                                "canvas"
+                            );
+
+                        canvas.width =
+                            outputWidth;
+
+                        canvas.height =
+                            outputHeight;
+
+                        const context =
+                            canvas.getContext(
+                                "2d"
+                            );
+
+                        if (!context) {
+                            resolve(
+                                imageSource
+                            );
+
+                            return;
+                        }
+
+                        /*
+                         * Chất lượng resampling cao.
+                         *
+                         * Không thêm filter,
+                         * không sharpen giả.
+                         */
+                        context.imageSmoothingEnabled =
+                            true;
+
+                        context.imageSmoothingQuality =
+                            "high";
+
+                        context.drawImage(
+                            sourceImage,
+                            0,
+                            0,
+                            outputWidth,
+                            outputHeight
+                        );
+
+                        /*
+                         * PNG = lossless.
+                         *
+                         * Không dùng JPEG 0.88.
+                         * Không dùng JPEG 0.96.
+                         *
+                         * Sau bước resize, pixel không bị
+                         * nén mất dữ liệu thêm.
+                         */
+                        canvas.toBlob(
+                            (blob) => {
+
+                                if (!blob) {
+                                    resolve(
+                                        imageSource
+                                    );
+
+                                    return;
+                                }
+
+                                const blobUrl =
+                                    URL.createObjectURL(
+                                        blob
+                                    );
+
+                                galleryBlobUrls.push(
+                                    blobUrl
+                                );
+
+                                resolve(
+                                    blobUrl
+                                );
+
+                            },
+                            "image/png"
+                        );
+
+                    };
+
+                    sourceImage.onerror =
+                        () => {
+
+                            resolve(
+                                imageSource
+                            );
+
+                        };
+
+                    sourceImage.src =
+                        imageSource;
+
+                }
+            );
+
+        };
+
+    /*
+     * ======================================================
+     * CREATE DOM FIRST
+     *
+     * initGalleryAnimation() chạy ngay sau renderGallery(),
+     * nên các .gallery-item phải tồn tại đồng bộ.
      * ======================================================
      */
 
@@ -887,27 +1121,37 @@ function renderGallery() {
                 `Khoảnh khắc ${index + 1}`;
 
             /*
-             * Giữ eager để Gallery tiếp tục được
-             * tải sớm như phiên bản đang chạy mượt.
+             * Giữ eager.
              *
-             * Không đổi sang lazy ở bước này.
+             * Không thay đổi loading strategy của
+             * Gallery đang mượt.
              */
             image.loading =
                 "eager";
 
             /*
-             * Async decode giúp browser không phải
-             * decode ảnh đồng bộ trên main thread.
-             *
-             * Đây là điểm giúp giữ độ mượt khi dùng
-             * ảnh gốc có kích thước lớn hơn.
+             * Decode async để không ép main thread
+             * decode ảnh đồng bộ.
              */
             image.decoding =
                 "async";
 
             /*
-             * Tỷ lệ ảnh được lấy trực tiếp từ
-             * ảnh gốc sau khi browser load.
+             * Dùng ảnh gốc tạm thời.
+             *
+             * Sau khi bitmap tối ưu được tạo xong,
+             * src sẽ chuyển sang Blob PNG.
+             *
+             * Như vậy initGalleryAnimation() vẫn
+             * nhìn thấy một image hợp lệ ngay từ đầu.
+             */
+            image.src =
+                imageSource;
+
+            /*
+             * Lấy tỷ lệ từ ảnh gốc.
+             *
+             * Không thay đổi layout hiện tại.
              */
             const applyImageRatio = () => {
 
@@ -952,21 +1196,6 @@ function renderGallery() {
 
             };
 
-            /*
-             * Gán trực tiếp ảnh gốc.
-             *
-             * Không qua Canvas.
-             * Không tạo Blob URL.
-             */
-            image.src =
-                imageSource;
-
-            /*
-             * Nếu ảnh đã có sẵn trong cache,
-             * áp dụng ratio ngay.
-             *
-             * Nếu chưa, chờ load.
-             */
             if (image.complete) {
 
                 applyImageRatio();
@@ -991,8 +1220,69 @@ function renderGallery() {
                 item
             );
 
+            /*
+             * ==================================================
+             * TẠO BẢN BITMAP CACHE
+             *
+             * Chạy nền, không block animation.
+             * ==================================================
+             */
+
+            createGalleryBitmap(
+                imageSource,
+                item,
+                image
+            ).then(
+                (optimizedSource) => {
+
+                    /*
+                     * Nếu browser đã fallback về ảnh gốc,
+                     * không cần thay src.
+                     */
+                    if (
+                        optimizedSource ===
+                        imageSource
+                    ) {
+                        return;
+                    }
+
+                    /*
+                     * Chỉ thay source khi Blob PNG
+                     * đã hoàn tất.
+                     */
+                    image.src =
+                        optimizedSource;
+
+                    /*
+                     * Blob đã có sẵn trong RAM.
+                     * decode sẽ nhanh hơn so với việc
+                     * browser phải xử lý lại ảnh gốc lớn.
+                     */
+                    if (
+                        typeof image.decode ===
+                        "function"
+                    ) {
+
+                        image.decode()
+                            .catch(
+                                () => {}
+                            );
+
+                    }
+
+                }
+            );
+
         }
     );
+
+    /*
+     * Không revoke Blob URL ở đây.
+     *
+     * Các URL này phải sống suốt phiên trang,
+     * để khi người dùng scroll Gallery đi / quay lại,
+     * browser vẫn dùng lại cùng resource.
+     */
 
 }
 
