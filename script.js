@@ -849,181 +849,26 @@ function renderGallery() {
 
     galleryGrid.innerHTML = "";
 
-
     /*
-       Giới hạn kích thước bitmap dùng trong Gallery.
+     * ======================================================
+     * GALLERY IMAGE
+     *
+     * Dùng trực tiếp ảnh gốc.
+     *
+     * Không resize bằng Canvas.
+     * Không convert lại sang JPEG.
+     * Không giảm quality.
+     *
+     * Kích thước hiển thị vẫn do CSS quyết định.
+     * ======================================================
+     */
 
-       Không ảnh nào được phóng to.
-       Ảnh nhỏ hơn giới hạn sẽ giữ nguyên.
-       Ảnh lớn hơn sẽ được thu nhỏ theo đúng tỷ lệ.
-
-       1800px đủ cho Gallery trên desktop + màn hình
-       retina mà vẫn giảm đáng kể kích thước bitmap.
-    */
-    const MAX_GALLERY_SIZE = 1800;
-
-
-    /*
-       Giữ các blob URL để browser không thu hồi
-       bản ảnh đã chuẩn bị trong lúc trang đang mở.
-    */
-    const galleryBlobUrls = [];
-
-
-    /*
-       Tạo bản bitmap web từ ảnh gốc.
-       Không thay đổi file gốc trong repository.
-    */
-    const prepareGalleryImage = (imageSource) => {
-
-        return new Promise((resolve) => {
-
-            const sourceImage =
-                new Image();
-
-            sourceImage.decoding =
-                "async";
-
-            sourceImage.onload = () => {
-
-                const sourceWidth =
-                    sourceImage.naturalWidth;
-
-                const sourceHeight =
-                    sourceImage.naturalHeight;
-
-                if (
-                    !sourceWidth ||
-                    !sourceHeight
-                ) {
-                    resolve(imageSource);
-                    return;
-                }
-
-
-                /*
-                   Ảnh đã đủ nhỏ →
-                   dùng nguyên bản, không xử lý lại.
-                */
-                if (
-                    Math.max(
-                        sourceWidth,
-                        sourceHeight
-                    ) <= MAX_GALLERY_SIZE
-                ) {
-                    resolve(imageSource);
-                    return;
-                }
-
-
-                const scale =
-                    MAX_GALLERY_SIZE /
-                    Math.max(
-                        sourceWidth,
-                        sourceHeight
-                    );
-
-                const targetWidth =
-                    Math.round(
-                        sourceWidth * scale
-                    );
-
-                const targetHeight =
-                    Math.round(
-                        sourceHeight * scale
-                    );
-
-
-                const canvas =
-                    document.createElement(
-                        "canvas"
-                    );
-
-                canvas.width =
-                    targetWidth;
-
-                canvas.height =
-                    targetHeight;
-
-
-                const context =
-                    canvas.getContext(
-                        "2d"
-                    );
-
-                if (!context) {
-                    resolve(imageSource);
-                    return;
-                }
-
-
-                context.drawImage(
-                    sourceImage,
-                    0,
-                    0,
-                    targetWidth,
-                    targetHeight
-                );
-
-
-                /*
-                   Gallery hiện tại dùng ảnh JPG.
-                   Dùng JPEG để bitmap sau khi resize
-                   nhỏ hơn đáng kể so với ảnh gốc.
-                */
-                canvas.toBlob(
-                    (blob) => {
-
-                        if (!blob) {
-                            resolve(imageSource);
-                            return;
-                        }
-
-                        const blobUrl =
-                            URL.createObjectURL(
-                                blob
-                            );
-
-                        galleryBlobUrls.push(
-                            blobUrl
-                        );
-
-                        resolve(
-                            blobUrl
-                        );
-
-                    },
-                    "image/jpeg",
-                    0.88
-                );
-
-            };
-
-
-            sourceImage.onerror = () => {
-                resolve(imageSource);
-            };
-
-
-            sourceImage.src =
-                imageSource;
-
-        });
-
-    };
-
-
-    /*
-       Tạo từng Gallery item.
-       Animation và layout vẫn giữ nguyên.
-    */
     galleryData.forEach(
         (imageSource, index) => {
 
             if (!imageSource) {
                 return;
             }
-
 
             const item =
                 document.createElement(
@@ -1033,29 +878,37 @@ function renderGallery() {
             item.className =
                 "gallery-item";
 
-
             const image =
                 document.createElement(
                     "img"
                 );
 
-
             image.alt =
                 `Khoảnh khắc ${index + 1}`;
 
-
+            /*
+             * Giữ eager để Gallery tiếp tục được
+             * tải sớm như phiên bản đang chạy mượt.
+             *
+             * Không đổi sang lazy ở bước này.
+             */
             image.loading =
                 "eager";
 
-
+            /*
+             * Async decode giúp browser không phải
+             * decode ảnh đồng bộ trên main thread.
+             *
+             * Đây là điểm giúp giữ độ mượt khi dùng
+             * ảnh gốc có kích thước lớn hơn.
+             */
             image.decoding =
-                "sync";
-
+                "async";
 
             /*
-               Tỷ lệ được lấy từ bitmap cuối cùng
-               mà Gallery thực sự sử dụng.
-            */
+             * Tỷ lệ ảnh được lấy trực tiếp từ
+             * ảnh gốc sau khi browser load.
+             */
             const applyImageRatio = () => {
 
                 const width =
@@ -1071,14 +924,11 @@ function renderGallery() {
                     return;
                 }
 
-
                 const ratio =
                     width / height;
 
-
                 item.style.aspectRatio =
                     `${width} / ${height}`;
-
 
                 if (ratio < 0.88) {
 
@@ -1102,40 +952,36 @@ function renderGallery() {
 
             };
 
+            /*
+             * Gán trực tiếp ảnh gốc.
+             *
+             * Không qua Canvas.
+             * Không tạo Blob URL.
+             */
+            image.src =
+                imageSource;
 
             /*
-               Chuẩn bị bitmap trước khi đưa vào
-               Gallery để animation hiện tại vẫn
-               bắt đầu trên ảnh đã sẵn sàng.
-            */
-            prepareGalleryImage(
-                imageSource
-            ).then(
-                (preparedSource) => {
+             * Nếu ảnh đã có sẵn trong cache,
+             * áp dụng ratio ngay.
+             *
+             * Nếu chưa, chờ load.
+             */
+            if (image.complete) {
 
-                    image.src =
-                        preparedSource;
+                applyImageRatio();
 
+            } else {
 
-                    if (image.complete) {
-
-                        applyImageRatio();
-
-                    } else {
-
-                        image.addEventListener(
-                            "load",
-                            applyImageRatio,
-                            {
-                                once: true
-                            }
-                        );
-
+                image.addEventListener(
+                    "load",
+                    applyImageRatio,
+                    {
+                        once: true
                     }
+                );
 
-                }
-            );
-
+            }
 
             item.appendChild(
                 image
@@ -1145,29 +991,6 @@ function renderGallery() {
                 item
             );
 
-        }
-    );
-
-
-    /*
-       Giải phóng blob URL khi rời trang.
-       Không ảnh hưởng đến Gallery đang hiển thị.
-    */
-    window.addEventListener(
-        "beforeunload",
-        () => {
-
-            galleryBlobUrls.forEach(
-                (url) => {
-                    URL.revokeObjectURL(
-                        url
-                    );
-                }
-            );
-
-        },
-        {
-            once: true
         }
     );
 
