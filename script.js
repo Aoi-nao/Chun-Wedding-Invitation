@@ -1199,14 +1199,25 @@ function initializeCountdown() {
         return;
     }
 
-    const targetDate = new Date(
-        Number(wedding.year),
-        Number(wedding.month) - 1,
-        Number(wedding.day),
-        0,
-        0,
-        0
-    );
+    const groomCeremony = WeddingData.ceremony.groomCeremony;
+
+const [day, month, year] = groomCeremony.date
+    .match(/(\d{2})\.(\d{2})\.(\d{4})/)
+    .slice(1)
+    .map(Number);
+
+const [hour, minute] = groomCeremony.time
+    .split(":")
+    .map(Number);
+
+const targetDate = new Date(
+    year,
+    month - 1,
+    day,
+    hour,
+    minute,
+    0
+);
 
     const daysElement = document.getElementById("countdown-days");
     const hoursElement = document.getElementById("countdown-hours");
