@@ -2370,7 +2370,7 @@ const latestWishes =
 /* Chỉ hiển thị 5 lời chúc */
 const visibleWishes =
     latestWishes.slice(0, 5);
-
+let visibleCount = 5;
 /* Hiển thị nút "XEM THÊM" nếu còn lời chúc */
 if (wishesMore) {
     wishesMore.hidden =
@@ -2387,7 +2387,14 @@ if (wishesMore) {
         item.remove();
     });
 
-        latestWishes.forEach((wish) => {
+       visibleCount = Math.min(
+    visibleCount + 5,
+    latestWishes.length
+);
+
+latestWishes
+    .slice(0, visibleCount)
+    .forEach((wish) => {
             const item =
                 document.createElement("article");
 
@@ -2597,7 +2604,10 @@ const flower =
     );
 
 wishesList.appendChild(flower);
-
+if (wishesMore) {
+    wishesMore.hidden =
+        visibleCount >= latestWishes.length;
+}
         });
 
     } catch (error) {
