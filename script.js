@@ -1518,7 +1518,12 @@ function initClosingGallery() {
             "closingGalleryTrack"
         );
 
-    if (!track) {
+    const section =
+        document.getElementById(
+            "closing-gallery"
+        );
+
+    if (!track || !section) {
         return;
     }
 
@@ -1537,139 +1542,259 @@ function initClosingGallery() {
     }
 
     /*
-     * Tạo 2 bản giống nhau.
-     * Bản thứ hai dùng cho infinite loop.
+     * ======================================================
+     * LAZY INIT
+     * Chưa tạo ảnh ngay khi website khởi tạo.
+     *
+     * Chỉ bắt đầu chuẩn bị Closing Gallery khi section
+     * còn cách viewport một khoảng an toàn.
+     * ======================================================
      */
-    const imageSets = [
-        closingImages,
-        closingImages
-    ];
 
-    let loadedImages = 0;
+    let initialized = false;
 
-    /*
-     * Chỉ tính 5 ảnh của bộ đầu tiên.
-     * Khi 5 ảnh này load xong,
-     * gallery mới bắt đầu hiện và chạy.
-     */
-    const totalImages =
-        closingImages.length;
+    const initializeGallery = () => {
 
-    function markImageLoaded() {
-
-        loadedImages++;
-
-        if (
-            loadedImages >=
-            totalImages
-        ) {
-
-            track.classList.add(
-                "is-loaded"
-            );
-
+        if (initialized) {
+            return;
         }
 
-    }
+        initialized = true;
 
-    imageSets.forEach(
-        (imageSet, setIndex) => {
+        /*
+         * Tạo 2 bộ giống nhau cho infinite loop.
+         */
+        const imageSets = [
+            closingImages,
+            closingImages
+        ];
 
-            imageSet.forEach(
-                (imageSource, index) => {
+        const firstSetImages = [];
 
-                    if (!imageSource) {
-                        return;
+        /*
+         * --------------------------------------------------
+         * Tạo từng image item
+         * --------------------------------------------------
+         */
+
+        imageSets.forEach(
+            (imageSet, setIndex) => {
+
+                imageSet.forEach(
+                    (imageSource, index) => {
+
+                        if (!imageSource) {
+                            return;
+                        }
+
+                        const item =
+                            document.createElement(
+                                "div"
+                            );
+
+                        item.className =
+                            "closing-gallery-item";
+
+                        const image =
+                            document.createElement(
+                                "img"
+                            );
+
+                        image.src =
+                            imageSource;
+
+                        image.alt =
+                            setIndex === 0
+                                ? `Khoảnh khắc đáng nhớ ${index + 1}`
+                                : "";
+
+                        image.decoding =
+                            "async";
+
+                        /*
+                         * Bộ đầu tiên là bộ nhìn thấy trước.
+                         */
+                        if (setIndex === 0) {
+
+                            image.loading =
+                                "eager";
+
+                            firstSetImages.push(
+                                image
+                            );
+
+                        } else {
+
+                            /*
+                             * Bộ thứ hai chỉ phục vụ
+                             * infinite loop.
+                             */
+                            image.loading =
+                                "lazy";
+
+                            item.setAttribute(
+                                "aria-hidden",
+                                "true"
+                            );
+
+                        }
+
+                        item.appendChild(
+                            image
+                        );
+
+                        track.appendChild(
+                            item
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+        /*
+         * --------------------------------------------------
+         * Chờ toàn bộ bộ ảnh đầu tiên load + decode
+         * --------------------------------------------------
+         */
+
+        const prepareImage =
+            (image) => {
+
+                if (
+                    image.complete &&
+                    image.naturalWidth > 0
+                ) {
+
+                    if (
+                        typeof image.decode ===
+                        "function"
+                    ) {
+
+                        return image
+                            .decode()
+                            .catch(() => {});
+
                     }
 
-                    const item =
-                        document.createElement(
-                            "div"
-                        );
+                    return Promise.resolve();
 
-                    item.className =
-                        "closing-gallery-item";
+                }
 
-                    const image =
-                        document.createElement(
-                            "img"
-                        );
+                return new Promise(
+                    (resolve) => {
 
-                    image.src =
-                        imageSource;
+                        const finish =
+                            () => {
 
-                    image.alt =
-                        setIndex === 0
-                            ? `Khoảnh khắc đáng nhớ ${index + 1}`
-                            : "";
+                                if (
+                                    typeof image.decode ===
+                                    "function"
+                                ) {
 
-                    image.decoding =
-                        "async";
+                                    image
+                                        .decode()
+                                        .catch(() => {})
+                                        .finally(
+                                            resolve
+                                        );
 
-                    /*
-                     * BỘ ẢNH ĐẦU TIÊN
-                     * Đây là 5 ảnh quyết định
-                     * khi nào gallery được hiện.
-                     */
-                    if (setIndex === 0) {
+                                } else {
 
-                        image.loading =
-                            "eager";
+                                    resolve();
+
+                                }
+
+                            };
 
                         image.addEventListener(
                             "load",
-                            markImageLoaded,
+                            finish,
                             {
                                 once: true
                             }
                         );
 
-                        /*
-                         * Nếu ảnh đã nằm trong cache,
-                         * load event có thể đã xảy ra.
-                         */
-                        if (
-                            image.complete &&
-                            image.naturalWidth > 0
-                        ) {
-
-                            requestAnimationFrame(
-                                markImageLoaded
-                            );
-
-                        }
-
-                    }
-
-                    /*
-                     * BỘ THỨ HAI
-                     * Chỉ là bản sao cho infinite loop.
-                     */
-                    else {
-
-                        image.loading =
-                            "lazy";
-
-                        item.setAttribute(
-                            "aria-hidden",
-                            "true"
+                        image.addEventListener(
+                            "error",
+                            resolve,
+                            {
+                                once: true
+                            }
                         );
 
                     }
+                );
 
-                    item.appendChild(
-                        image
+            };
+
+        Promise.all(
+            firstSetImages.map(
+                prepareImage
+            )
+        ).then(() => {
+
+            /*
+             * Cho browser hoàn tất layout/paint
+             * trước khi bật animation.
+             */
+            requestAnimationFrame(() => {
+
+                requestAnimationFrame(() => {
+
+                    track.classList.add(
+                        "is-loaded"
                     );
 
-                    track.appendChild(
-                        item
-                    );
+                });
 
-                }
-            );
+            });
 
-        }
-    );
+        });
+
+    };
+
+    /*
+     * ------------------------------------------------------
+     * PREPARE AHEAD
+     *
+     * Bắt đầu chuẩn bị khi Closing Gallery còn cách
+     * viewport khoảng 700px.
+     * ------------------------------------------------------
+     */
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach(
+                    (entry) => {
+
+                        if (
+                            !entry.isIntersecting
+                        ) {
+                            return;
+                        }
+
+                        initializeGallery();
+
+                        observer.unobserve(
+                            section
+                        );
+
+                    }
+                );
+
+            },
+            {
+                rootMargin:
+                    "700px 0px 700px 0px",
+                threshold: 0
+            }
+        );
+
+    observer.observe(section);
 
 }
 
