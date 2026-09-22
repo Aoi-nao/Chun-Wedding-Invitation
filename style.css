@@ -5349,7 +5349,7 @@ section{
 
     color: var(--color-text, #35443A);
 
-    font-family: "Allura", "LXGW WenKai", cursive;
+   font-family: "Allura", system-ui, sans-serif;
     font-size: 18px;
     line-height: 1.6;
 
@@ -5710,7 +5710,7 @@ section{
 
     margin: 4px 0 0;
 
-    font-family: "Allura", "LXGW WenKai", cursive;
+    font-family: "Allura", system-ui, sans-serif;
     font-size: 18px;
     line-height: 1.65;
 
@@ -5720,9 +5720,6 @@ section{
     word-break: normal;
 }
 
-.wish-message-cjk {
-    font-family: "LXGW WenKai", sans-serif;
-}
 
 /* ==========================================================
    TABLET
