@@ -1510,7 +1510,6 @@ function initGalleryAnimation() {
    CLOSING GALLERY
    Infinite horizontal gallery
 ========================================================== */
-
 function initClosingGallery() {
 
     const track =
@@ -1521,6 +1520,11 @@ function initClosingGallery() {
     const section =
         document.getElementById(
             "closing-gallery"
+        );
+
+    const wishes =
+        document.getElementById(
+            "wishes"
         );
 
     if (!track || !section) {
@@ -1543,15 +1547,57 @@ function initClosingGallery() {
 
     /*
      * ======================================================
-     * LAZY INIT
-     * Chưa tạo ảnh ngay khi website khởi tạo.
+     * PRELOAD
      *
-     * Chỉ bắt đầu chuẩn bị Closing Gallery khi section
-     * còn cách viewport một khoảng an toàn.
+     * Chỉ tải ảnh trước khi người dùng đi tới
+     * Closing Gallery.
+     *
+     * Không tạo DOM.
+     * Không tạo layout.
+     * Không bật animation.
      * ======================================================
      */
 
+    let preloadStarted = false;
     let initialized = false;
+
+    const preloadImages = () => {
+
+        if (preloadStarted) {
+            return;
+        }
+
+        preloadStarted = true;
+
+        closingImages.forEach(
+            (imageSource) => {
+
+                if (!imageSource) {
+                    return;
+                }
+
+                const image =
+                    new Image();
+
+                image.decoding =
+                    "async";
+
+                image.src =
+                    imageSource;
+
+            }
+        );
+
+    };
+
+    /*
+     * ======================================================
+     * INITIALIZE
+     *
+     * Chỉ tạo DOM khi Closing Gallery thực sự
+     * sắp xuất hiện.
+     * ======================================================
+     */
 
     const initializeGallery = () => {
 
@@ -1562,20 +1608,13 @@ function initClosingGallery() {
         initialized = true;
 
         /*
-         * Tạo 2 bộ giống nhau cho infinite loop.
+         * Tạo 2 bộ ảnh giống nhau
+         * để giữ infinite loop.
          */
         const imageSets = [
             closingImages,
             closingImages
         ];
-
-        const firstSetImages = [];
-
-        /*
-         * --------------------------------------------------
-         * Tạo từng image item
-         * --------------------------------------------------
-         */
 
         imageSets.forEach(
             (imageSet, setIndex) => {
@@ -1612,25 +1651,18 @@ function initClosingGallery() {
                             "async";
 
                         /*
-                         * Bộ đầu tiên là bộ nhìn thấy trước.
+                         * Không dùng lazy cho bộ thứ hai.
+                         *
+                         * Cả hai bộ đều dùng chung resource
+                         * đã được preload ở phía trên.
+                         *
+                         * Tránh browser trì hoãn ảnh trong
+                         * lúc animation đang chạy.
                          */
-                        if (setIndex === 0) {
+                        image.loading =
+                            "eager";
 
-                            image.loading =
-                                "eager";
-
-                            firstSetImages.push(
-                                image
-                            );
-
-                        } else {
-
-                            /*
-                             * Bộ thứ hai chỉ phục vụ
-                             * infinite loop.
-                             */
-                            image.loading =
-                                "lazy";
+                        if (setIndex === 1) {
 
                             item.setAttribute(
                                 "aria-hidden",
@@ -1654,100 +1686,19 @@ function initClosingGallery() {
         );
 
         /*
-         * --------------------------------------------------
-         * Chờ toàn bộ bộ ảnh đầu tiên load + decode
-         * --------------------------------------------------
+         * Cho browser có một nhịp render layout
+         * rồi mới bật animation.
+         *
+         * KHÔNG chờ Promise.all().
+         * KHÔNG chờ toàn bộ ảnh decode.
          */
+        requestAnimationFrame(() => {
 
-        const prepareImage =
-            (image) => {
-
-                if (
-                    image.complete &&
-                    image.naturalWidth > 0
-                ) {
-
-                    if (
-                        typeof image.decode ===
-                        "function"
-                    ) {
-
-                        return image
-                            .decode()
-                            .catch(() => {});
-
-                    }
-
-                    return Promise.resolve();
-
-                }
-
-                return new Promise(
-                    (resolve) => {
-
-                        const finish =
-                            () => {
-
-                                if (
-                                    typeof image.decode ===
-                                    "function"
-                                ) {
-
-                                    image
-                                        .decode()
-                                        .catch(() => {})
-                                        .finally(
-                                            resolve
-                                        );
-
-                                } else {
-
-                                    resolve();
-
-                                }
-
-                            };
-
-                        image.addEventListener(
-                            "load",
-                            finish,
-                            {
-                                once: true
-                            }
-                        );
-
-                        image.addEventListener(
-                            "error",
-                            resolve,
-                            {
-                                once: true
-                            }
-                        );
-
-                    }
-                );
-
-            };
-
-        Promise.all(
-            firstSetImages.map(
-                prepareImage
-            )
-        ).then(() => {
-
-            /*
-             * Cho browser hoàn tất layout/paint
-             * trước khi bật animation.
-             */
             requestAnimationFrame(() => {
 
-                requestAnimationFrame(() => {
-
-                    track.classList.add(
-                        "is-loaded"
-                    );
-
-                });
+                track.classList.add(
+                    "is-loaded"
+                );
 
             });
 
@@ -1756,15 +1707,76 @@ function initClosingGallery() {
     };
 
     /*
-     * ------------------------------------------------------
-     * PREPARE AHEAD
+     * ======================================================
+     * PRELOAD KHI ĐANG Ở WISHES
      *
-     * Bắt đầu chuẩn bị khi Closing Gallery còn cách
-     * viewport khoảng 700px.
-     * ------------------------------------------------------
+     * Wishes nằm ngay trước Closing Gallery.
+     *
+     * Vì vậy ảnh được tải nền trước khi người dùng
+     * thực sự nhìn thấy Closing Gallery.
+     *
+     * Không tải ngay từ lúc mở website.
+     * ======================================================
      */
 
-    const observer =
+    if (wishes) {
+
+        const wishesObserver =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(
+                        (entry) => {
+
+                            if (
+                                !entry.isIntersecting
+                            ) {
+                                return;
+                            }
+
+                            preloadImages();
+
+                            wishesObserver.unobserve(
+                                wishes
+                            );
+
+                        }
+                    );
+
+                },
+                {
+                    rootMargin:
+                        "800px 0px 800px 0px",
+                    threshold: 0
+                }
+            );
+
+        wishesObserver.observe(
+            wishes
+        );
+
+    } else {
+
+        /*
+         * Fallback an toàn nếu HTML không có Wishes.
+         * Vẫn không tạo gallery DOM ở page load.
+         */
+        preloadImages();
+
+    }
+
+    /*
+     * ======================================================
+     * SHOW CLOSING GALLERY
+     *
+     * Khi section tiến gần viewport,
+     * tạo DOM và chạy animation ngay.
+     *
+     * Không chờ ảnh load/decode.
+     * ======================================================
+     */
+
+    const sectionObserver =
         new IntersectionObserver(
             (entries) => {
 
@@ -1777,9 +1789,16 @@ function initClosingGallery() {
                             return;
                         }
 
+                        /*
+                         * Nếu người dùng scroll rất nhanh,
+                         * preload có thể chưa hoàn thành.
+                         *
+                         * Vẫn initialize ngay để không tạo
+                         * màn hình trắng chờ Promise.
+                         */
                         initializeGallery();
 
-                        observer.unobserve(
+                        sectionObserver.unobserve(
                             section
                         );
 
@@ -1789,14 +1808,17 @@ function initClosingGallery() {
             },
             {
                 rootMargin:
-                    "700px 0px 700px 0px",
+                    "300px 0px 300px 0px",
                 threshold: 0
             }
         );
 
-    observer.observe(section);
+    sectionObserver.observe(
+        section
+    );
 
 }
+
 
 /* ==========================================================
    RSVP
