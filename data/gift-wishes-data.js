@@ -75,7 +75,7 @@ const GIFT_WISHES_DATA = {
             "Tên của bạn",
 
         messagePlaceholder:
-            "Viết lời chúc của bạn tại đây..."
+            "Đôi lời thân thương..."
     }
 
 };
