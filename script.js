@@ -3436,25 +3436,20 @@ function initFooterTextReveal() {
         return;
     }
 
-    const observer = new IntersectionObserver(
-        (entries) => {
+   const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
 
-            entries.forEach((entry) => {
-
-                if (!entry.isIntersecting) return;
-
-                footer.classList.add("footer-text-visible");
-
-                observer.unobserve(footer);
-
-            });
-
-        },
-        {
-            threshold: 0.15,
-            rootMargin: "0px 0px -30px 0px"
-        }
-    );
+            footer.classList.add("footer-text-visible");
+            observer.unobserve(footer);
+        });
+    },
+    {
+        threshold: 0.5,
+        rootMargin: "0px"
+    }
+);
 
     observer.observe(footer);
 }
