@@ -2105,7 +2105,33 @@ if (giftTrigger && giftDetails) {
 /* ==========================================================
    WISHES — SUBMIT
 ========================================================== */
+function renderWishMessage(element, text) {
+    const cjkPattern =
+        /([\u2E80-\u2FFF\u3000-\u303F\u3040-\u309F\u30A0-\u30FF\u31F0-\u31FF\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF])/g;
 
+    const parts = String(text || "").split(cjkPattern);
+
+    element.textContent = "";
+
+    parts.forEach((part) => {
+        if (!part) {
+            return;
+        }
+
+        if (cjkPattern.test(part)) {
+            const span = document.createElement("span");
+            span.className = "wish-message-cjk";
+            span.textContent = part;
+            element.appendChild(span);
+        } else {
+            element.appendChild(
+                document.createTextNode(part)
+            );
+        }
+
+        cjkPattern.lastIndex = 0;
+    });
+}
 function formatWishTime(time) {
     if (!time) {
         return "";
@@ -2292,7 +2318,10 @@ header.appendChild(heart);
 
 const messageElement = document.createElement("p");
 messageElement.className = "wish-message";
-messageElement.textContent = newWish.message;
+renderWishMessage(
+    messageElement,
+    newWish.message
+);
 
 item.appendChild(avatar);
 item.appendChild(header);
@@ -2508,10 +2537,12 @@ if (wishesMore) {
                 document.createElement("p");
 
             messageElement.className =
-                "wish-message";
+    "wish-message";
 
-            messageElement.textContent =
-                wish.message;
+renderWishMessage(
+    messageElement,
+    wish.message
+);
 
          item.appendChild(
     avatar
@@ -2615,8 +2646,11 @@ const message =
     document.createElement("p");
 message.className =
     "wish-message";
-message.textContent =
-    wish.message;
+
+renderWishMessage(
+    message,
+    wish.message
+);
 
 item.appendChild(avatar);
 item.appendChild(header);
