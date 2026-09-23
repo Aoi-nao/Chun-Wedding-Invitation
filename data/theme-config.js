@@ -10,7 +10,7 @@ const ThemeConfig = Object.freeze({
 
     colors: {
     primary: "#5C735C",
-    secondary: "#FAF9F4",
+    secondary: "#F7F8F3",
     accent: "#D9C18D",
     text: "#35443A",
     white: "#FFFFFF",
