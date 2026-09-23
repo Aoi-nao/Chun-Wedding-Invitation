@@ -1793,7 +1793,7 @@ section{
 #couple {
     position: relative;
     z-index: 2;
-    padding: 92px 20px 110px;
+    padding: 92px 20px 55px;
     background: var(--color-secondary);
     overflow: hidden;
 }
@@ -1899,18 +1899,21 @@ section{
 
 /* ---------- COUPLE → FAMILY QUOTE ---------- */
 .couple-family-quote {
-    margin-top: 72px;
+    margin: 28px auto 0;
+    padding: 0 16px;
 
     text-align: center;
 
-    font-family: "Allura", cursive;
-    font-size: 28px;
+    font-family: "Great Vibes", cursive;
+    font-size: 1.55rem;
     font-weight: 400;
     line-height: 1.35;
 
     color: var(--color-primary);
 
-    opacity: 0.88;
+    opacity: 0.92;
+
+    white-space: nowrap;
 }
 
 /* ---------- AMPERSAND ---------- */
@@ -2197,7 +2200,7 @@ section{
     position: relative;
     z-index: 2;
 
-    padding: 70px 20px 90px;
+    padding: 42px 20px 90px;
 
     background: var(--color-secondary);
 
