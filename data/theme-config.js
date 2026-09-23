@@ -9,14 +9,14 @@
 const ThemeConfig = Object.freeze({
 
     colors: {
-    primary: "#506B55",
-    secondary: "#F3F5EF",
-    accent: "#C7A45D",
+    primary: "#5C735C",
+    secondary: "#FAF9F4",
+    accent: "#D9C18D",
     text: "#35443A",
     white: "#FFFFFF",
-        
+
     countdown: "#596A55",
-    gallery: "#A0B09B"
+    gallery: "#B2C0AD"
 },
 
     borderRadius: {
