@@ -1897,6 +1897,22 @@ section{
     color: var(--color-text);
 }
 
+/* ---------- COUPLE → FAMILY QUOTE ---------- */
+.couple-family-quote {
+    margin-top: 72px;
+
+    text-align: center;
+
+    font-family: "Allura", cursive;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.35;
+
+    color: var(--color-primary);
+
+    opacity: 0.88;
+}
+
 /* ---------- AMPERSAND ---------- */
 
 .couple-ampersand {
@@ -1999,6 +2015,11 @@ section{
         font-size: 25px;
     }
 
+.couple-family-quote {
+    margin-top: 58px;
+    font-size: 25px;
+}
+   
     .couple-ampersand {
      
     }
