@@ -85,9 +85,9 @@ const WeddingData = {
 
     brideParty: {
         title: "Tiệc Nhà Gái",
-        time: "07:30",
-        date: "Chủ Nhật, 18.10.2026",
-        lunar: "09 tháng 09 năm Bính Ngọ",
+        time: "16:30",
+        date: "Thứ Bảy, 17.10.2026",
+        lunar: "08 tháng 09 năm Bính Ngọ",
         address: "Thôn Long Tiên, Nam Tiên Hưng, Hưng Yên",
         map: "https://maps.app.goo.gl/g5hnyQbzh97xeAio6"
     }
