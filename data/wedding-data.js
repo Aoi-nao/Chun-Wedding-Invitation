@@ -105,11 +105,11 @@ const WeddingData = {
     "assets/images/gallery/gallery-08.JPG",
     "assets/images/gallery/gallery-09.JPG",
     "assets/images/gallery/gallery-10.JPG",
-    "assets/images/gallery/gallery-11.JPG"
-    "assets/images/gallery/gallery-12.JPG"
-    "assets/images/gallery/gallery-13.JPG"
-    "assets/images/gallery/gallery-14.JPG"
-    "assets/images/gallery/gallery-15.JPG"
+    "assets/images/gallery/gallery-11.JPG",
+    "assets/images/gallery/gallery-12.JPG",
+    "assets/images/gallery/gallery-13.JPG",
+    "assets/images/gallery/gallery-14.JPG",
+    "assets/images/gallery/gallery-15.JPG",
     "assets/images/gallery/gallery-16.JPG"
 ],
     closingGallery: [
@@ -117,9 +117,9 @@ const WeddingData = {
         "assets/images/gallery/closing-02.JPG",
         "assets/images/gallery/closing-03.JPG",
         "assets/images/gallery/closing-04.JPG",
-        "assets/images/gallery/closing-05.JPG"
-        "assets/images/gallery/closing-06.JPG"
-        "assets/images/gallery/closing-07.JPG"
+        "assets/images/gallery/closing-05.JPG",
+        "assets/images/gallery/closing-06.JPG",
+        "assets/images/gallery/closing-07.JPG",
         "assets/images/gallery/closing-08.JPG"
     ],
     rsvp: {
