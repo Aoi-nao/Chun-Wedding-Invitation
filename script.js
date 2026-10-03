@@ -894,11 +894,17 @@ function renderGallery() {
              * Resource sau khi đã tải vẫn nằm trong
              * browser cache nếu còn khả dụng.
              */
-            image.loading =
-                "lazy";
+            const isWebKit =
+    /AppleWebKit/i.test(navigator.userAgent) &&
+    !/Android/i.test(navigator.userAgent);
 
-            image.decoding =
-                "async";
+image.loading =
+    isWebKit
+        ? "eager"
+        : "lazy";
+
+image.decoding =
+    "async";
 
             /*
              * Lấy đúng tỷ lệ từ ảnh gốc.
