@@ -2866,6 +2866,11 @@ button.disabled = true;
         WeddingData.bride.avatar
     ].filter(Boolean);
 
+const galleryImages =
+    Array.isArray(WeddingData.gallery)
+        ? WeddingData.gallery.filter(Boolean)
+        : [];
+
 const preloadImage = (src) => {
 
     return new Promise((resolve) => {
@@ -2900,16 +2905,14 @@ const preloadImage = (src) => {
 };
 
 /*
-   GALLERY KHÔNG preload khi Opening.
-   Gallery đã sử dụng loading="lazy" ở renderGallery(),
-   nên browser sẽ tự tải ảnh khi người dùng tiến gần
-   tới khu vực Gallery.
-
-   Mục đích:
-   - Giảm tải lúc mở thiệp lần đầu.
-   - Không làm Opening phải tranh tài nguyên
-     với toàn bộ ảnh Gallery.
+   Gallery được preload song song trong background.
+   KHÔNG đưa galleryImages vào Promise.all bên dưới,
+   để người dùng không phải chờ toàn bộ Gallery
+   mới được bấm MỞ THIỆP.
 */
+galleryImages.forEach((src) => {
+    preloadImage(src);
+});
     
     Promise.all(
     criticalImages.map(preloadImage)
