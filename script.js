@@ -1226,14 +1226,57 @@ function initGalleryAnimation() {
 
                     } else {
 
-                        const decodePromise =
-                            typeof image.decode === "function"
-                                ? image.decode()
-                                : Promise.resolve();
+                        const waitForImage = () => {
 
-                        decodePromise
-                            .then(reveal)
-                            .catch(reveal);
+    if (
+        image.complete &&
+        image.naturalWidth > 0
+    ) {
+        if (
+            typeof image.decode === "function"
+        ) {
+            return image
+                .decode()
+                .catch(() => {});
+        }
+
+        return Promise.resolve();
+    }
+
+    return new Promise((resolve) => {
+
+        const handleLoad = () => {
+
+            if (
+                typeof image.decode === "function"
+            ) {
+                image
+                    .decode()
+                    .catch(() => {})
+                    .finally(resolve);
+            } else {
+                resolve();
+            }
+
+        };
+
+        image.addEventListener(
+            "load",
+            handleLoad,
+            { once: true }
+        );
+
+        image.addEventListener(
+            "error",
+            resolve,
+            { once: true }
+        );
+
+    });
+
+};
+
+waitForImage().then(reveal);
 
                     }
 
